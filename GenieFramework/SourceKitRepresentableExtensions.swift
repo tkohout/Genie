@@ -162,36 +162,4 @@ extension SourceKitRepresentable {
 }
 
 
-//MARK: JSON
-enum SourceKitRepresentableDecodeError: Error {
-    case InvalidResponse
-}
 
-extension SourceKitRepresentable {
-    static func fromJSON(jsonData: Data) throws -> SourceKitRepresentable {
-        let json = try JSONSerialization.jsonObject(with: jsonData, options: [])
-        return try decode(object: json as AnyObject)
-    }
-    
-    static func decode(object: AnyObject) throws -> SourceKitRepresentable  {
-        switch object {
-        case let array as Array<AnyObject>:
-            return try array.map { try decode(object: $0) }
-        case let dictionary as Dictionary<String, AnyObject>:
-            let result:[String: SourceKitRepresentable] = try dictionary.reduce([:]) {
-                var accum = $0
-                accum[$1.0] = try decode(object: $1.1)
-                return accum
-            }
-            return result
-        case let string as String:
-            return string
-        case let number as Int:
-            return Int64(number)
-        case let bool as Bool:
-            return bool
-        default:
-            throw SourceKitRepresentableDecodeError.InvalidResponse
-        }
-    }
-}

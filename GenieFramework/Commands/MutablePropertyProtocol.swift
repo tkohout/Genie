@@ -17,12 +17,13 @@
 import Foundation
 import SourceKittenFramework
 
-class MutablePropertyProtocol: GeneeCommand {
+public class MutablePropertyProtocol: GeneeCommand {
     
+    public init(){}
     
-    var identifier: String { return "MutablePropertyProtocol" }
+    public var identifier: String { return "MutablePropertyProtocol" }
     
-    func perform(buffer: Buffer, completionCallback: (Void) -> Void) throws {
+    public func perform(buffer: Buffer, completionCallback: (Void) -> Void) throws {
         
         let selectionRange = buffer.selectionRange()
         let source = try buffer.source()

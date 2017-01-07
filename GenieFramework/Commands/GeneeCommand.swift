@@ -9,15 +9,14 @@
 import Foundation
 import SourceKittenFramework
 
-enum GeneeCommandError: Swift.Error {
+public enum GeneeCommandError: Swift.Error {
     case notSwiftLanguage
     case noSelection
     case invalidSelection
     case noParentStructure
 }
 
-protocol GeneeCommand {
+public protocol GeneeCommand {
     var identifier: String {get}
-    
     func perform(buffer: Buffer, completionCallback: (Void) -> Void) throws
 }

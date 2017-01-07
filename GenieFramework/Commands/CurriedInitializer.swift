@@ -10,7 +10,7 @@ import Foundation
 
 import SourceKittenFramework
 
-class CurriedInitializer: GeneeCommand {
+public class CurriedInitializer: GeneeCommand {
     
     let curryMaximum = 20
     
@@ -78,10 +78,11 @@ class CurriedInitializer: GeneeCommand {
         return curry.joined(separator: "\n")
     }
     
+    public init(){}
     
-    var identifier: String { return "CurriedInitializer" }
+    public var identifier: String { return "CurriedInitializer" }
     
-    func perform(buffer: Buffer, completionCallback: (Void) -> Void) throws {
+    public func perform(buffer: Buffer, completionCallback: (Void) -> Void) throws {
         
         let selectionRange = buffer.selectionRange()
         let source = try buffer.source()

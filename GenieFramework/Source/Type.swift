@@ -11,17 +11,17 @@ import SourceKittenFramework
 
 protocol Declaration {}
 
-class Type: Node, Declaration {
+public class Type: Node, Declaration {
     var keyword: String { fatalError("Implement in successor") }
-    var name: String
-    var inheritedType: Type? = nil
-    var variables: [Variable] { return nodes.flatMap { $0 as? Variable }}
-    var implementedTypes: [Type] = []
-    var methods: [Function] { return nodes.flatMap { $0 as? Function }}
+    public var name: String
+    public var inheritedType: Type? = nil
+    public var variables: [Variable] { return nodes.flatMap { $0 as? Variable }}
+    public var implementedTypes: [Type] = []
+    public var methods: [Function] { return nodes.flatMap { $0 as? Function }}
     
     
     
-    required init(name: String, inheritedType: Type? = nil, nodes: [Node] = [], implementedTypes: [Type] = []) {
+    required public init(name: String, inheritedType: Type? = nil, nodes: [Node] = [], implementedTypes: [Type] = []) {
         self.name = name
         self.inheritedType = inheritedType
         self.implementedTypes = implementedTypes
@@ -30,7 +30,7 @@ class Type: Node, Declaration {
     }
     
     //MARK: Parsing
-    required init(structure: SourceKitRepresentable, source: String, parameters: [ParseParameter: Any] = [:]) {
+    required public init(structure: SourceKitRepresentable, source: String, parameters: [ParseParameter: Any] = [:]) {
         guard let name = structure.name else { fatalError("Type is missing name") }
         
         self.name = name
@@ -44,7 +44,7 @@ class Type: Node, Declaration {
     }
     
     //MARK: Printing
-    override var description: String {
+    override public var description: String {
         let nodes = self.nodes.map { "\($0)" }.joined()
         let header = keyword + " " + name + " {"
         
@@ -54,16 +54,16 @@ class Type: Node, Declaration {
         
 }
 
-class Struct: Type {
+public class Struct: Type {
     override var keyword: String { return "struct" }
     
 }
 
-class Class: Type {
+public class Class: Type {
     override var keyword: String { return "class" }
     
 }
 
-class Protocol: Type {
+public class Protocol: Type {
     override var keyword: String { return "protocol" }
 }

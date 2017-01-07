@@ -9,7 +9,7 @@
 import Foundation
 import SourceKittenFramework
 
-enum Accessibility: String {
+public enum Accessibility: String {
     case `internal` = "internal"
     case `public` = "public"
     case `private` = "private"
@@ -17,20 +17,20 @@ enum Accessibility: String {
 }
 
 
-class Variable: Node, Declaration {
-    var name: String
-    var typeName: String?
-    var accessibility: Accessibility = .internal
-    var isStatic: Bool = false
-    var isClass: Bool = false
-    var isLazy: Bool = false
-    var isDynamic: Bool = false
-    var isStored: Bool = false
-    var isComputed: Bool = false
-    var isImmutable: Bool = false
-    var initializationBlock: String?
+public class Variable: Node, Declaration {
+    public var name: String
+    public var typeName: String?
+    public var accessibility: Accessibility = .internal
+    public var isStatic: Bool = false
+    public var isClass: Bool = false
+    public var isLazy: Bool = false
+    public var isDynamic: Bool = false
+    public var isStored: Bool = false
+    public var isComputed: Bool = false
+    public var isImmutable: Bool = false
+    public var initializationBlock: String?
     
-    required init(name: String, typeName: String?, accessibility: Accessibility = .internal, isStatic: Bool = false, isClass: Bool = false, isLazy: Bool = false, isDynamic: Bool = false, isStored: Bool = false, isComputed: Bool = false, isImmutable: Bool = false, initializationBlock: String? = nil, parent: Type?) {
+    required public init(name: String, typeName: String?, accessibility: Accessibility = .internal, isStatic: Bool = false, isClass: Bool = false, isLazy: Bool = false, isDynamic: Bool = false, isStored: Bool = false, isComputed: Bool = false, isImmutable: Bool = false, initializationBlock: String? = nil, parent: Type?) {
         self.name = name
         self.typeName = typeName
         self.accessibility = accessibility
@@ -46,7 +46,7 @@ class Variable: Node, Declaration {
     }
     
     //MARK: Parsing
-    required init(structure: SourceKitRepresentable, source: String, parameters: [ParseParameter: Any] = [:]) {
+    required public init(structure: SourceKitRepresentable, source: String, parameters: [ParseParameter: Any] = [:]) {
         guard let name = structure.name else {
             fatalError("Variable is missing name")
         }
@@ -103,7 +103,7 @@ class Variable: Node, Declaration {
     }
     
     //MARK: Printing
-    override var description: String {
+    override public var description: String {
         var attributes:[String] = []
         if accessibility != .internal { attributes.append(accessibility.rawValue) }
         if isLazy { attributes.append("lazy") }
@@ -112,7 +112,6 @@ class Variable: Node, Declaration {
         if isStatic { attributes.append("static") }
         attributes.append(isImmutable ? "let" : "var")
         attributes.append(name)
-        if let typeName = typeName { attributes.append(": \(typeName)") }
         
         
         var initialization: String = ""
@@ -121,15 +120,19 @@ class Variable: Node, Declaration {
             initialization = isStored ? " = \(initializationBlock)" : isComputed ? " \(initializationBlock)" : ""
         }
         
-        return "\(prefix)\(attributes.joined(separator: " "))\(initialization)"
+        let typeDefinition = typeName.flatMap { ": \($0)" } ?? ""
+        
+        
+        return "\(prefix)\(attributes.joined(separator: " "))\(typeDefinition)\(initialization)"
     }
 }
 
-class Parameter: Variable {
-    override var description: String {
+public class Parameter: Variable {
+    override public var description: String {
         let initialization = initializationBlock.flatMap { $0.characters.count > 0 ? " = \($0)" : "" } ?? ""
+        let typeDefinition = typeName.flatMap { ": \($0)" } ?? ""
         
-        return "\(prefix)\(name): \(typeName)\(initialization)"
+        return "\(prefix)\(name)\(typeDefinition)\(initialization)"
     }
 }
 

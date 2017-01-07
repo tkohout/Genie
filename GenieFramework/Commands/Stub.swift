@@ -9,26 +9,28 @@
 import Foundation
 import SourceKittenFramework
 
-enum StubType {
+public enum StubType {
     case action
 }
 
-func ==(type: StubType, typeString: String) -> Bool {
+public func ==(type: StubType, typeString: String) -> Bool {
     switch type {
     case .action:
         return typeString.hasPrefix("Action")
     }
 }
 
-func ==(typeString: String, type: StubType) -> Bool {
+public func ==(typeString: String, type: StubType) -> Bool {
     return type == typeString
 }
 
-class Stub: GeneeCommand {
+public class Stub: GeneeCommand {
     
-    var identifier: String { return "Stub" }
+    public init(){}
     
-    func perform(buffer: Buffer, completionCallback: (Void) -> Void) throws {
+    public var identifier: String { return "Stub" }
+    
+    public func perform(buffer: Buffer, completionCallback: (Void) -> Void) throws {
         
         let selectionRange = buffer.selectionRange()
         let source = try buffer.source()

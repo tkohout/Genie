@@ -9,7 +9,7 @@
 import Foundation
 import XcodeKit
 import SourceKittenFramework
-
+import GenieFramework
 
 
 class XcodeBuffer: Buffer {

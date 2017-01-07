@@ -25,29 +25,30 @@ protocol Parseable {
     //static func parse(structure: SourceKitRepresentable, source: String, parameters: [ParseParameter: Any]) -> Self
 }
 
-enum ParseParameter {
+public enum ParseParameter {
     case parent
     case prefix //TODO: Rename this
     case bodySuffix
 }
 
 
-class Node: Parseable, PositionSearchable, Equatable, CustomStringConvertible {
+public class Node: Parseable, PositionSearchable, Equatable, CustomStringConvertible {
     var prefix: String = ""
     var bodySuffix: String = ""
     var code: String = ""
-    var range: Range<Int64>? = nil
-    var nodes: [Node] = []
-    var parent: Node? = nil
+    
+    public var range: Range<Int64>? = nil
+    public var nodes: [Node] = []
+    public var parent: Node? = nil
     
     
-    init(range: Range<Int64>? = nil, prefix: String = "", code: String = "") {
+    public init(range: Range<Int64>? = nil, prefix: String = "", code: String = "") {
         self.prefix = prefix
         self.code = code
         self.range = range
     }
     
-    func add(node: Node, after: Node?){
+    public func add(node: Node, after: Node?){
         let index: Int
         
         if let after = after {
@@ -64,14 +65,14 @@ class Node: Parseable, PositionSearchable, Equatable, CustomStringConvertible {
         nodes.insert(node, at: index)
     }
     
-    func remove(node: Node){
+    public func remove(node: Node){
         guard let index = nodes.index(of: node) else { fatalError("Attempting to remove not-attached node") }
         node.parent = nil
         //TODO: Node range
         nodes.remove(at: index)
     }
     
-    func parseNodes(structure: SourceKitRepresentable, source: String, allowedTypes: [Node.Type] = []) -> [Node] {
+    public func parseNodes(structure: SourceKitRepresentable, source: String, allowedTypes: [Node.Type] = []) -> [Node] {
         
         var endOffset = structure.bodyOffset ?? 0
         
@@ -123,7 +124,7 @@ class Node: Parseable, PositionSearchable, Equatable, CustomStringConvertible {
     }
     
     //MARK: Parsing
-    required init(structure: SourceKitRepresentable, source: String, parameters: [ParseParameter : Any]) {
+    required public init(structure: SourceKitRepresentable, source: String, parameters: [ParseParameter : Any]) {
         guard let offset = structure.offset, let length = structure.length else {
             fatalError("Structure is missing offsets")
         }
@@ -149,11 +150,11 @@ class Node: Parseable, PositionSearchable, Equatable, CustomStringConvertible {
     }
     
     //MARK: Printing
-    var description: String { return "\(prefix)\(code)" }
+    public var description: String { return "\(prefix)\(code)" }
     
 }
 
-func ==(lhs: Node, rhs: Node) -> Bool {
+public func ==(lhs: Node, rhs: Node) -> Bool {
     //TODO: Find better solution
     return lhs === rhs
 }

@@ -9,6 +9,7 @@
 import Foundation
 import SourceKittenFramework
 import XcodeKit
+import GenieFramework
 
 enum SourceEditorCommandError: Error {
     case unknownCommand
@@ -16,6 +17,7 @@ enum SourceEditorCommandError: Error {
 }
 
 class SourceEditorCommand: NSObject, XCSourceEditorCommand {
+    
     
     lazy var availableCommands: [GeneeCommand] = [
         Initializer(),

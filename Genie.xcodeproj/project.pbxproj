@@ -12,27 +12,19 @@
 		6C477AAF1D702DF800D76FCA /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C477AAD1D702DF800D76FCA /* MainMenu.xib */; };
 		6C477AD91D702E1500D76FCA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C477AD81D702E1500D76FCA /* Cocoa.framework */; };
 		6C477ADE1D702E1500D76FCA /* SourceEditorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C477ADD1D702E1500D76FCA /* SourceEditorExtension.swift */; };
-		6C477AE01D702E1500D76FCA /* SourceEditorCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C477ADF1D702E1500D76FCA /* SourceEditorCommand.swift */; };
 		6C477AE41D702E1500D76FCA /* Genie.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 6C477AD61D702E1500D76FCA /* Genie.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		6C477AF41D70305900D76FCA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C477AF31D70305900D76FCA /* main.m */; };
 		6C477B081D7033F400D76FCA /* SourceKittenHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C477B071D7033F400D76FCA /* SourceKittenHelper.swift */; };
-		AC91AA881E2130C8003E871F /* CurriedInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC91AA5B1E2130A1003E871F /* CurriedInitializer.swift */; };
-		AC91AA891E2130C8003E871F /* GeneeCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC91AA5C1E2130A1003E871F /* GeneeCommand.swift */; };
-		AC91AA8A1E2130C8003E871F /* Initializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC91AA5D1E2130A1003E871F /* Initializer.swift */; };
-		AC91AA8B1E2130C8003E871F /* MutablePropertyProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC91AA5E1E2130A1003E871F /* MutablePropertyProtocol.swift */; };
-		AC91AA8C1E2130C8003E871F /* Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC91AA5F1E2130A1003E871F /* Stub.swift */; };
-		AC91AA8E1E2130CF003E871F /* Closure.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC91AA621E2130A1003E871F /* Closure.swift */; };
-		AC91AA901E2130CF003E871F /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC91AA641E2130A1003E871F /* Node.swift */; };
-		AC91AA911E2130CF003E871F /* Source.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC91AA651E2130A1003E871F /* Source.swift */; };
-		AC91AA921E2130CF003E871F /* SyntaxTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC91AA661E2130A1003E871F /* SyntaxTree.swift */; };
-		AC91AA931E2130CF003E871F /* Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC91AA671E2130A1003E871F /* Type.swift */; };
-		AC91AA941E2130CF003E871F /* Variable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC91AA681E2130A1003E871F /* Variable.swift */; };
-		AC91AA951E2130D6003E871F /* Buffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC91AA6A1E2130A1003E871F /* Buffer.swift */; };
-		AC91AA971E2130D6003E871F /* XcodeBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC91AA6C1E2130A1003E871F /* XcodeBuffer.swift */; };
-		AC91AA981E2130D6003E871F /* XCSourceExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC91AA6D1E2130A1003E871F /* XCSourceExtensions.swift */; };
-		AC91AA991E2130DB003E871F /* SourceKitRepresentableExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC91AA6F1E2130A1003E871F /* SourceKitRepresentableExtensions.swift */; };
-		AC91AA9A1E2130DB003E871F /* SourceKittenXPCConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC91AA701E2130A1003E871F /* SourceKittenXPCConnection.swift */; };
-		AC91AA9B1E2130DF003E871F /* Dwifft.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC91AA711E2130A1003E871F /* Dwifft.swift */; };
+		AC03433B1E21722700969C2C /* SourceEditorCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C477ADF1D702E1500D76FCA /* SourceEditorCommand.swift */; };
+		AC03433C1E21725800969C2C /* XcodeBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC91AA6C1E2130A1003E871F /* XcodeBuffer.swift */; };
+		AC03433D1E21725C00969C2C /* XCSourceExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC91AA6D1E2130A1003E871F /* XCSourceExtensions.swift */; };
+		AC03433E1E2172FD00969C2C /* SourceKittenXPCConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC91AA701E2130A1003E871F /* SourceKittenXPCConnection.swift */; };
+		AC0343411E21774100969C2C /* InitializerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACED61351E21460A00BBD92D /* InitializerTest.swift */; };
+		AC0343441E21778600969C2C /* BufferStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0343431E21778600969C2C /* BufferStub.swift */; };
+		AC0343451E2177CD00969C2C /* SourceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACED61371E21460A00BBD92D /* SourceTest.swift */; };
+		AC0343461E2177D000969C2C /* StubTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACED61381E21460A00BBD92D /* StubTest.swift */; };
+		AC03434A1E217B9900969C2C /* Buffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0343481E217B9900969C2C /* Buffer.swift */; };
+		AC03434B1E217B9900969C2C /* SourceKitRepresentableExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0343491E217B9900969C2C /* SourceKitRepresentableExtensions.swift */; };
 		AC941E841E213AAB004D8A03 /* Yams.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = ACB985A71E2136F300127FD9 /* Yams.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AC941E911E213C0E004D8A03 /* SourceKittenFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC941E8B1E213BE1004D8A03 /* SourceKittenFramework.framework */; };
 		AC941E921E213C12004D8A03 /* SWXMLHash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC941E8C1E213BE1004D8A03 /* SWXMLHash.framework */; };
@@ -40,12 +32,20 @@
 		AC941E941E213C26004D8A03 /* SWXMLHash.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AC941E8C1E213BE1004D8A03 /* SWXMLHash.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		ACB985A81E2136F300127FD9 /* Yams.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACB985A71E2136F300127FD9 /* Yams.framework */; };
 		ACB985A91E2137DF00127FD9 /* SourceKittenHelper.xpc in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6C477AED1D70305900D76FCA /* SourceKittenHelper.xpc */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		ACBC8CB91E213D720058313A /* SourceKittenFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC941E8B1E213BE1004D8A03 /* SourceKittenFramework.framework */; };
-		ACBC8CBA1E213D750058313A /* SWXMLHash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC941E8C1E213BE1004D8A03 /* SWXMLHash.framework */; };
-		ACBC8CBB1E213D790058313A /* Yams.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACB985A71E2136F300127FD9 /* Yams.framework */; };
-		ACBC8CBD1E213DAD0058313A /* SourceKittenFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AC941E8B1E213BE1004D8A03 /* SourceKittenFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		ACBC8CBE1E213DAD0058313A /* SWXMLHash.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AC941E8C1E213BE1004D8A03 /* SWXMLHash.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		ACBC8CBF1E213DAD0058313A /* Yams.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = ACB985A71E2136F300127FD9 /* Yams.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		ACED61481E21467B00BBD92D /* GenieFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = ACED61461E21467B00BBD92D /* GenieFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ACED61501E2146AA00BBD92D /* CurriedInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC91AA5B1E2130A1003E871F /* CurriedInitializer.swift */; };
+		ACED61511E2146AA00BBD92D /* GeneeCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC91AA5C1E2130A1003E871F /* GeneeCommand.swift */; };
+		ACED61521E2146AA00BBD92D /* Initializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC91AA5D1E2130A1003E871F /* Initializer.swift */; };
+		ACED61531E2146AA00BBD92D /* MutablePropertyProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC91AA5E1E2130A1003E871F /* MutablePropertyProtocol.swift */; };
+		ACED61541E2146AA00BBD92D /* Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC91AA5F1E2130A1003E871F /* Stub.swift */; };
+		ACED61561E2146B300BBD92D /* Closure.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC91AA621E2130A1003E871F /* Closure.swift */; };
+		ACED61581E2146B300BBD92D /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC91AA641E2130A1003E871F /* Node.swift */; };
+		ACED61591E2146B300BBD92D /* Source.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC91AA651E2130A1003E871F /* Source.swift */; };
+		ACED615A1E2146B300BBD92D /* SyntaxTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC91AA661E2130A1003E871F /* SyntaxTree.swift */; };
+		ACED615B1E2146B300BBD92D /* Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC91AA671E2130A1003E871F /* Type.swift */; };
+		ACED615C1E2146B300BBD92D /* Variable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC91AA681E2130A1003E871F /* Variable.swift */; };
+		ACED61601E21473300BBD92D /* Dwifft.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC91AA711E2130A1003E871F /* Dwifft.swift */; };
+		ACED616F1E21612000BBD92D /* SourceKittenFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC941E8B1E213BE1004D8A03 /* SourceKittenFramework.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +62,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = 6C477AD51D702E1500D76FCA;
 			remoteInfo = LinuxSupport;
+		};
+		AC03433F1E2174A600969C2C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6C477A9E1D702DF800D76FCA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ACED61431E21467B00BBD92D;
+			remoteInfo = GenieFramework;
+		};
+		ACED612E1E21453F00BBD92D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6C477A9E1D702DF800D76FCA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6C477AA51D702DF800D76FCA;
+			remoteInfo = GenieApp;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -103,9 +117,16 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				ACBC8CBD1E213DAD0058313A /* SourceKittenFramework.framework in Embed Frameworks */,
-				ACBC8CBE1E213DAD0058313A /* SWXMLHash.framework in Embed Frameworks */,
-				ACBC8CBF1E213DAD0058313A /* Yams.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACED616A1E214ECC00BBD92D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -146,28 +167,39 @@
 		6C477B031D70328400D76FCA /* GenieExtension-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GenieExtension-Bridging-Header.h"; sourceTree = "<group>"; };
 		6C477B061D7033F300D76FCA /* SourceKittenHelper-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SourceKittenHelper-Bridging-Header.h"; sourceTree = "<group>"; };
 		6C477B071D7033F400D76FCA /* SourceKittenHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourceKittenHelper.swift; sourceTree = "<group>"; };
-		6C7AD9521D71452900A72F3F /* SourceKittenCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourceKittenCommand.swift; sourceTree = "<group>"; };
+		AC0343431E21778600969C2C /* BufferStub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BufferStub.swift; sourceTree = "<group>"; };
+		AC0343481E217B9900969C2C /* Buffer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Buffer.swift; sourceTree = "<group>"; };
+		AC0343491E217B9900969C2C /* SourceKitRepresentableExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourceKitRepresentableExtensions.swift; sourceTree = "<group>"; };
 		AC91AA5B1E2130A1003E871F /* CurriedInitializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurriedInitializer.swift; sourceTree = "<group>"; };
 		AC91AA5C1E2130A1003E871F /* GeneeCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneeCommand.swift; sourceTree = "<group>"; };
 		AC91AA5D1E2130A1003E871F /* Initializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Initializer.swift; sourceTree = "<group>"; };
 		AC91AA5E1E2130A1003E871F /* MutablePropertyProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MutablePropertyProtocol.swift; sourceTree = "<group>"; };
 		AC91AA5F1E2130A1003E871F /* Stub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stub.swift; sourceTree = "<group>"; };
 		AC91AA621E2130A1003E871F /* Closure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Closure.swift; sourceTree = "<group>"; };
-		AC91AA631E2130A1003E871F /* ClosureCapture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClosureCapture.swift; sourceTree = "<group>"; };
+		AC91AA631E2130A1003E871F /* ClosureCapture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClosureCapture.swift; path = ../Source/ClosureCapture.swift; sourceTree = "<group>"; };
 		AC91AA641E2130A1003E871F /* Node.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		AC91AA651E2130A1003E871F /* Source.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Source.swift; sourceTree = "<group>"; };
 		AC91AA661E2130A1003E871F /* SyntaxTree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyntaxTree.swift; sourceTree = "<group>"; };
 		AC91AA671E2130A1003E871F /* Type.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Type.swift; sourceTree = "<group>"; };
 		AC91AA681E2130A1003E871F /* Variable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Variable.swift; sourceTree = "<group>"; };
-		AC91AA6A1E2130A1003E871F /* Buffer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Buffer.swift; sourceTree = "<group>"; };
 		AC91AA6C1E2130A1003E871F /* XcodeBuffer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XcodeBuffer.swift; sourceTree = "<group>"; };
 		AC91AA6D1E2130A1003E871F /* XCSourceExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCSourceExtensions.swift; sourceTree = "<group>"; };
-		AC91AA6F1E2130A1003E871F /* SourceKitRepresentableExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourceKitRepresentableExtensions.swift; sourceTree = "<group>"; };
 		AC91AA701E2130A1003E871F /* SourceKittenXPCConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourceKittenXPCConnection.swift; sourceTree = "<group>"; };
 		AC91AA711E2130A1003E871F /* Dwifft.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dwifft.swift; sourceTree = "<group>"; };
 		AC941E8B1E213BE1004D8A03 /* SourceKittenFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SourceKittenFramework.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Genie-gnjkibsipwxrbzfukpgdagpvfryi/Build/Products/Debug/SourceKittenFramework.framework"; sourceTree = "<group>"; };
 		AC941E8C1E213BE1004D8A03 /* SWXMLHash.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SWXMLHash.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Genie-gnjkibsipwxrbzfukpgdagpvfryi/Build/Products/Debug/SWXMLHash.framework"; sourceTree = "<group>"; };
 		ACB985A71E2136F300127FD9 /* Yams.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Yams.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Genie-gnjkibsipwxrbzfukpgdagpvfryi/Build/Products/Debug/Yams.framework"; sourceTree = "<group>"; };
+		ACED61291E21453F00BBD92D /* GenieTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GenieTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACED612B1E21453F00BBD92D /* GenieTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenieTests.swift; sourceTree = "<group>"; };
+		ACED612D1E21453F00BBD92D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ACED61331E21460A00BBD92D /* ClosureCaptureTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClosureCaptureTest.swift; sourceTree = "<group>"; };
+		ACED61341E21460A00BBD92D /* DwifftTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DwifftTests.swift; sourceTree = "<group>"; };
+		ACED61351E21460A00BBD92D /* InitializerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitializerTest.swift; sourceTree = "<group>"; };
+		ACED61371E21460A00BBD92D /* SourceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourceTest.swift; sourceTree = "<group>"; };
+		ACED61381E21460A00BBD92D /* StubTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StubTest.swift; sourceTree = "<group>"; };
+		ACED61441E21467B00BBD92D /* GenieFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GenieFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACED61461E21467B00BBD92D /* GenieFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GenieFramework.h; sourceTree = "<group>"; };
+		ACED61471E21467B00BBD92D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,10 +214,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ACBC8CBB1E213D790058313A /* Yams.framework in Frameworks */,
 				6C477AD91D702E1500D76FCA /* Cocoa.framework in Frameworks */,
-				ACBC8CB91E213D720058313A /* SourceKittenFramework.framework in Frameworks */,
-				ACBC8CBA1E213D750058313A /* SWXMLHash.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,6 +225,21 @@
 				ACB985A81E2136F300127FD9 /* Yams.framework in Frameworks */,
 				AC941E911E213C0E004D8A03 /* SourceKittenFramework.framework in Frameworks */,
 				AC941E921E213C12004D8A03 /* SWXMLHash.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACED61261E21453F00BBD92D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACED61401E21467B00BBD92D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACED616F1E21612000BBD92D /* SourceKittenFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,6 +254,8 @@
 				6C477AA81D702DF800D76FCA /* GenieApp */,
 				6C477ADA1D702E1500D76FCA /* GenieExtension */,
 				6C477AEE1D70305900D76FCA /* SourceKittenHelper */,
+				ACED61451E21467B00BBD92D /* GenieFramework */,
+				ACED612A1E21453F00BBD92D /* GenieTests */,
 				6C477AD71D702E1500D76FCA /* Frameworks */,
 				6C477AA71D702DF800D76FCA /* Products */,
 			);
@@ -221,6 +267,8 @@
 				6C477AA61D702DF800D76FCA /* GenieApp.app */,
 				6C477AD61D702E1500D76FCA /* Genie.appex */,
 				6C477AED1D70305900D76FCA /* SourceKittenHelper.xpc */,
+				ACED61291E21453F00BBD92D /* GenieTests.xctest */,
+				ACED61441E21467B00BBD92D /* GenieFramework.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -250,8 +298,6 @@
 		6C477ADA1D702E1500D76FCA /* GenieExtension */ = {
 			isa = PBXGroup;
 			children = (
-				AC91AA591E2130A1003E871F /* Commands */,
-				AC91AA601E2130A1003E871F /* Source */,
 				AC91AA691E2130A1003E871F /* SourceEditor */,
 				AC91AA6E1E2130A1003E871F /* SourceKitten */,
 				AC91AA711E2130A1003E871F /* Dwifft.swift */,
@@ -260,7 +306,6 @@
 				6C477ADF1D702E1500D76FCA /* SourceEditorCommand.swift */,
 				6C477ADD1D702E1500D76FCA /* SourceEditorExtension.swift */,
 				6C477ADB1D702E1500D76FCA /* Supporting Files */,
-				6C7AD9521D71452900A72F3F /* SourceKittenCommand.swift */,
 			);
 			path = GenieExtension;
 			sourceTree = "<group>";
@@ -285,12 +330,21 @@
 			path = SourceKittenHelper;
 			sourceTree = "<group>";
 		};
+		AC0343421E21775000969C2C /* Stubs */ = {
+			isa = PBXGroup;
+			children = (
+				AC0343431E21778600969C2C /* BufferStub.swift */,
+			);
+			name = Stubs;
+			sourceTree = "<group>";
+		};
 		AC91AA591E2130A1003E871F /* Commands */ = {
 			isa = PBXGroup;
 			children = (
 				AC91AA5B1E2130A1003E871F /* CurriedInitializer.swift */,
 				AC91AA5C1E2130A1003E871F /* GeneeCommand.swift */,
 				AC91AA5D1E2130A1003E871F /* Initializer.swift */,
+				AC91AA631E2130A1003E871F /* ClosureCapture.swift */,
 				AC91AA5E1E2130A1003E871F /* MutablePropertyProtocol.swift */,
 				AC91AA5F1E2130A1003E871F /* Stub.swift */,
 			);
@@ -301,7 +355,6 @@
 			isa = PBXGroup;
 			children = (
 				AC91AA621E2130A1003E871F /* Closure.swift */,
-				AC91AA631E2130A1003E871F /* ClosureCapture.swift */,
 				AC91AA641E2130A1003E871F /* Node.swift */,
 				AC91AA651E2130A1003E871F /* Source.swift */,
 				AC91AA661E2130A1003E871F /* SyntaxTree.swift */,
@@ -314,7 +367,6 @@
 		AC91AA691E2130A1003E871F /* SourceEditor */ = {
 			isa = PBXGroup;
 			children = (
-				AC91AA6A1E2130A1003E871F /* Buffer.swift */,
 				AC91AA6C1E2130A1003E871F /* XcodeBuffer.swift */,
 				AC91AA6D1E2130A1003E871F /* XCSourceExtensions.swift */,
 			);
@@ -324,13 +376,51 @@
 		AC91AA6E1E2130A1003E871F /* SourceKitten */ = {
 			isa = PBXGroup;
 			children = (
-				AC91AA6F1E2130A1003E871F /* SourceKitRepresentableExtensions.swift */,
 				AC91AA701E2130A1003E871F /* SourceKittenXPCConnection.swift */,
 			);
 			path = SourceKitten;
 			sourceTree = "<group>";
 		};
+		ACED612A1E21453F00BBD92D /* GenieTests */ = {
+			isa = PBXGroup;
+			children = (
+				AC0343421E21775000969C2C /* Stubs */,
+				ACED61331E21460A00BBD92D /* ClosureCaptureTest.swift */,
+				ACED61341E21460A00BBD92D /* DwifftTests.swift */,
+				ACED61351E21460A00BBD92D /* InitializerTest.swift */,
+				ACED61371E21460A00BBD92D /* SourceTest.swift */,
+				ACED61381E21460A00BBD92D /* StubTest.swift */,
+				ACED612B1E21453F00BBD92D /* GenieTests.swift */,
+				ACED612D1E21453F00BBD92D /* Info.plist */,
+			);
+			path = GenieTests;
+			sourceTree = "<group>";
+		};
+		ACED61451E21467B00BBD92D /* GenieFramework */ = {
+			isa = PBXGroup;
+			children = (
+				AC0343481E217B9900969C2C /* Buffer.swift */,
+				AC0343491E217B9900969C2C /* SourceKitRepresentableExtensions.swift */,
+				AC91AA591E2130A1003E871F /* Commands */,
+				AC91AA601E2130A1003E871F /* Source */,
+				ACED61461E21467B00BBD92D /* GenieFramework.h */,
+				ACED61471E21467B00BBD92D /* Info.plist */,
+			);
+			path = GenieFramework;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		ACED61411E21467B00BBD92D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACED61481E21467B00BBD92D /* GenieFramework.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		6C477AA51D702DF800D76FCA /* GenieApp */ = {
@@ -366,6 +456,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				AC0343401E2174A600969C2C /* PBXTargetDependency */,
 				6C1C68561D713203004BAA32 /* PBXTargetDependency */,
 			);
 			name = Genie;
@@ -390,19 +481,55 @@
 			productReference = 6C477AED1D70305900D76FCA /* SourceKittenHelper.xpc */;
 			productType = "com.apple.product-type.xpc-service";
 		};
+		ACED61281E21453F00BBD92D /* GenieTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ACED61321E21453F00BBD92D /* Build configuration list for PBXNativeTarget "GenieTests" */;
+			buildPhases = (
+				ACED61251E21453F00BBD92D /* Sources */,
+				ACED61261E21453F00BBD92D /* Frameworks */,
+				ACED61271E21453F00BBD92D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ACED612F1E21453F00BBD92D /* PBXTargetDependency */,
+			);
+			name = GenieTests;
+			productName = GenieTests;
+			productReference = ACED61291E21453F00BBD92D /* GenieTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		ACED61431E21467B00BBD92D /* GenieFramework */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ACED614D1E21467B00BBD92D /* Build configuration list for PBXNativeTarget "GenieFramework" */;
+			buildPhases = (
+				ACED613F1E21467B00BBD92D /* Sources */,
+				ACED61401E21467B00BBD92D /* Frameworks */,
+				ACED61411E21467B00BBD92D /* Headers */,
+				ACED61421E21467B00BBD92D /* Resources */,
+				ACED616A1E214ECC00BBD92D /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GenieFramework;
+			productName = GenieFramework;
+			productReference = ACED61441E21467B00BBD92D /* GenieFramework.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		6C477A9E1D702DF800D76FCA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0800;
+				LastSwiftUpdateCheck = 0820;
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = Genie;
 				TargetAttributes = {
 					6C477AA51D702DF800D76FCA = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 56QMJ73J7W;
 						ProvisioningStyle = Automatic;
 					};
 					6C477AD51D702E1500D76FCA = {
@@ -415,6 +542,15 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 56QMJ73J7W;
 						LastSwiftMigration = 0800;
+						ProvisioningStyle = Automatic;
+					};
+					ACED61281E21453F00BBD92D = {
+						CreatedOnToolsVersion = 8.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 6C477AA51D702DF800D76FCA;
+					};
+					ACED61431E21467B00BBD92D = {
+						CreatedOnToolsVersion = 8.2;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -435,6 +571,8 @@
 				6C477AA51D702DF800D76FCA /* GenieApp */,
 				6C477AD51D702E1500D76FCA /* Genie */,
 				6C477AEC1D70305900D76FCA /* SourceKittenHelper */,
+				ACED61281E21453F00BBD92D /* GenieTests */,
+				ACED61431E21467B00BBD92D /* GenieFramework */,
 			);
 		};
 /* End PBXProject section */
@@ -456,6 +594,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		ACED61271E21453F00BBD92D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACED61421E21467B00BBD92D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -471,25 +623,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC91AA981E2130D6003E871F /* XCSourceExtensions.swift in Sources */,
-				AC91AA8B1E2130C8003E871F /* MutablePropertyProtocol.swift in Sources */,
-				AC91AA8A1E2130C8003E871F /* Initializer.swift in Sources */,
-				AC91AA9A1E2130DB003E871F /* SourceKittenXPCConnection.swift in Sources */,
-				AC91AA971E2130D6003E871F /* XcodeBuffer.swift in Sources */,
-				AC91AA941E2130CF003E871F /* Variable.swift in Sources */,
-				AC91AA901E2130CF003E871F /* Node.swift in Sources */,
-				AC91AA931E2130CF003E871F /* Type.swift in Sources */,
-				AC91AA921E2130CF003E871F /* SyntaxTree.swift in Sources */,
-				AC91AA8C1E2130C8003E871F /* Stub.swift in Sources */,
-				AC91AA8E1E2130CF003E871F /* Closure.swift in Sources */,
-				AC91AA881E2130C8003E871F /* CurriedInitializer.swift in Sources */,
-				AC91AA991E2130DB003E871F /* SourceKitRepresentableExtensions.swift in Sources */,
-				AC91AA911E2130CF003E871F /* Source.swift in Sources */,
-				AC91AA9B1E2130DF003E871F /* Dwifft.swift in Sources */,
 				6C477ADE1D702E1500D76FCA /* SourceEditorExtension.swift in Sources */,
-				AC91AA891E2130C8003E871F /* GeneeCommand.swift in Sources */,
-				6C477AE01D702E1500D76FCA /* SourceEditorCommand.swift in Sources */,
-				AC91AA951E2130D6003E871F /* Buffer.swift in Sources */,
+				AC03433B1E21722700969C2C /* SourceEditorCommand.swift in Sources */,
+				AC03433C1E21725800969C2C /* XcodeBuffer.swift in Sources */,
+				AC03433E1E2172FD00969C2C /* SourceKittenXPCConnection.swift in Sources */,
+				AC03433D1E21725C00969C2C /* XCSourceExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -499,6 +637,38 @@
 			files = (
 				6C477B081D7033F400D76FCA /* SourceKittenHelper.swift in Sources */,
 				6C477AF41D70305900D76FCA /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACED61251E21453F00BBD92D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC0343411E21774100969C2C /* InitializerTest.swift in Sources */,
+				AC0343451E2177CD00969C2C /* SourceTest.swift in Sources */,
+				AC0343441E21778600969C2C /* BufferStub.swift in Sources */,
+				AC0343461E2177D000969C2C /* StubTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACED613F1E21467B00BBD92D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACED61511E2146AA00BBD92D /* GeneeCommand.swift in Sources */,
+				ACED61541E2146AA00BBD92D /* Stub.swift in Sources */,
+				ACED615A1E2146B300BBD92D /* SyntaxTree.swift in Sources */,
+				ACED61531E2146AA00BBD92D /* MutablePropertyProtocol.swift in Sources */,
+				ACED61581E2146B300BBD92D /* Node.swift in Sources */,
+				ACED615B1E2146B300BBD92D /* Type.swift in Sources */,
+				ACED61501E2146AA00BBD92D /* CurriedInitializer.swift in Sources */,
+				ACED615C1E2146B300BBD92D /* Variable.swift in Sources */,
+				AC03434A1E217B9900969C2C /* Buffer.swift in Sources */,
+				ACED61591E2146B300BBD92D /* Source.swift in Sources */,
+				AC03434B1E217B9900969C2C /* SourceKitRepresentableExtensions.swift in Sources */,
+				ACED61521E2146AA00BBD92D /* Initializer.swift in Sources */,
+				ACED61601E21473300BBD92D /* Dwifft.swift in Sources */,
+				ACED61561E2146B300BBD92D /* Closure.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -514,6 +684,16 @@
 			isa = PBXTargetDependency;
 			target = 6C477AD51D702E1500D76FCA /* Genie */;
 			targetProxy = 6C477AE21D702E1500D76FCA /* PBXContainerItemProxy */;
+		};
+		AC0343401E2174A600969C2C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ACED61431E21467B00BBD92D /* GenieFramework */;
+			targetProxy = AC03433F1E2174A600969C2C /* PBXContainerItemProxy */;
+		};
+		ACED612F1E21453F00BBD92D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6C477AA51D702DF800D76FCA /* GenieApp */;
+			targetProxy = ACED612E1E21453F00BBD92D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -628,6 +808,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 56QMJ73J7W;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -646,6 +827,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 56QMJ73J7W;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -662,6 +844,7 @@
 		6C477AE61D702E1500D76FCA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				CODE_SIGN_ENTITLEMENTS = GenieExtension/GenieExtension.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 56QMJ73J7W;
@@ -677,6 +860,7 @@
 		6C477AE71D702E1500D76FCA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				CODE_SIGN_ENTITLEMENTS = GenieExtension/GenieExtension.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 56QMJ73J7W;
@@ -717,6 +901,94 @@
 			};
 			name = Release;
 		};
+		ACED61301E21453F00BBD92D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 56QMJ73J7W;
+				INFOPLIST_FILE = GenieTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = cz.tomaskohout.Genie.GenieTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GenieApp.app/Contents/MacOS/GenieApp";
+			};
+			name = Debug;
+		};
+		ACED61311E21453F00BBD92D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 56QMJ73J7W;
+				INFOPLIST_FILE = GenieTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = cz.tomaskohout.Genie.GenieTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GenieApp.app/Contents/MacOS/GenieApp";
+			};
+			name = Release;
+		};
+		ACED614E1E21467B00BBD92D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 56QMJ73J7W;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = GenieFramework/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = cz.tomaskohout.Genie.GenieFramework;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_VERSION = 3.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		ACED614F1E21467B00BBD92D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 56QMJ73J7W;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = GenieFramework/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = cz.tomaskohout.Genie.GenieFramework;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_VERSION = 3.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -752,6 +1024,24 @@
 			buildConfigurations = (
 				6C477AFA1D70305900D76FCA /* Debug */,
 				6C477AFB1D70305900D76FCA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ACED61321E21453F00BBD92D /* Build configuration list for PBXNativeTarget "GenieTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ACED61301E21453F00BBD92D /* Debug */,
+				ACED61311E21453F00BBD92D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ACED614D1E21467B00BBD92D /* Build configuration list for PBXNativeTarget "GenieFramework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ACED614E1E21467B00BBD92D /* Debug */,
+				ACED614F1E21467B00BBD92D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

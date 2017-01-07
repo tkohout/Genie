@@ -9,38 +9,38 @@
 import Foundation
 import SourceKittenFramework
 
-typealias Block = String
+public typealias Block = String
 
-class Closure: Node {
-    var parameters: [Parameter] = []
-    var returnType: String?
-    var block: Block
+public class Closure: Node {
+    public var parameters: [Parameter] = []
+    public var returnType: String?
+    public var block: Block
     
-    init(parameters: [Parameter] = [], returnType: String? = nil, block: Block) {
+    public init(parameters: [Parameter] = [], returnType: String? = nil, block: Block) {
         self.parameters = parameters
         self.returnType = returnType
         self.block = block
         super.init()
     }
     
-    required init(structure: SourceKitRepresentable, source: String, parameters: [ParseParameter : Any]) {
+    required public init(structure: SourceKitRepresentable, source: String, parameters: [ParseParameter : Any]) {
         block = "" //TODO: Parse block
         super.init(structure: structure, source: source, parameters: parameters)
     }
 }
 
-class Function: Closure, Declaration {
-    var name: String
+public class Function: Closure, Declaration {
+    public var name: String
     //var fullName: String
-    var accessibility: Accessibility = .internal
-    var isMutating: Bool = false
-    var isDynamic: Bool = false
-    var isStatic: Bool = false
-    var isClass: Bool = false
-    var isConstructor: Bool = false
-    var isDestructor: Bool = false
+    public var accessibility: Accessibility = .internal
+    public var isMutating: Bool = false
+    public var isDynamic: Bool = false
+    public var isStatic: Bool = false
+    public var isClass: Bool = false
+    public var isConstructor: Bool = false
+    public var isDestructor: Bool = false
     
-    required init(block: Block, name: String, parameters: [Parameter] = [], returnType: String? = nil, accessibility: Accessibility = .internal, isMutating: Bool = false, isDynamic: Bool = false, isStatic: Bool = false, isClass: Bool = false, isConstructor: Bool = false, isDestructor: Bool = false, parent: Type? = nil, prefix: String = "\n    ") {
+    required public init(block: Block, name: String, parameters: [Parameter] = [], returnType: String? = nil, accessibility: Accessibility = .internal, isMutating: Bool = false, isDynamic: Bool = false, isStatic: Bool = false, isClass: Bool = false, isConstructor: Bool = false, isDestructor: Bool = false, parent: Type? = nil, prefix: String = "\n    ") {
         self.name = name
         //self.fullName = fullName
         self.accessibility = accessibility
@@ -57,7 +57,7 @@ class Function: Closure, Declaration {
     
     
     //MARK: Parsing
-    required init(structure: SourceKitRepresentable, source: String, parameters: [ParseParameter : Any]) {
+    required public init(structure: SourceKitRepresentable, source: String, parameters: [ParseParameter : Any]) {
         guard let kind = structure.kind else {
             fatalError("Function is missing kind")
         }
@@ -111,7 +111,7 @@ class Function: Closure, Declaration {
     }
     
     //MARK: Printing
-    override var description: String {
+    override public var description: String {
         var attributes:[String] = []
         if accessibility != .internal { attributes.append(accessibility.rawValue) }
         if isDynamic { attributes.append("dynamic") }

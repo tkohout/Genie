@@ -23,20 +23,20 @@ extension String {
 
 
 
-protocol PositionSearchable {
+public protocol PositionSearchable {
     var range: Range<Int64>? { get }
     func isIn(range: Range<Int64>) -> Bool
     func contains(range: Range<Int64>) -> Bool
 }
 
 extension PositionSearchable {
-    func isIn(range: Range<Int64>)  -> Bool {
+    public func isIn(range: Range<Int64>)  -> Bool {
         guard let ownRange = self.range else { fatalError("Missing range, node probably hasn't been attached to any parent node!") }
         
         return range.contains(ownRange.lowerBound)
     }
     
-    func contains(range: Range<Int64>)  -> Bool {
+    public func contains(range: Range<Int64>)  -> Bool {
         guard let ownRange = self.range else { fatalError("Missing range, node probably hasn't been attached to any parent node!") }
         
         return ownRange.contains(range.lowerBound+1) && ownRange.contains(range.upperBound-1)

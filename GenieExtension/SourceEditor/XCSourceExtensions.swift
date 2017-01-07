@@ -8,6 +8,7 @@
 
 import Foundation
 import XcodeKit
+import GenieFramework
 
 //Converts XCSource position to sourcekit offset
 

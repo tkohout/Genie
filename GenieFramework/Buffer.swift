@@ -9,30 +9,34 @@
 import Foundation
 import SourceKittenFramework
 
-enum SelectionType {
+public enum SelectionType {
     case precise
     case fullLine
 }
 
-typealias OffsetRange = Range<Int64>
+public typealias OffsetRange = Range<Int64>
 
-struct SourcePosition: SourcePositionToOffsetConvertable {
-    var line: Int
-    var column: Int
+public struct SourcePosition: SourcePositionToOffsetConvertable {
+    public var line: Int
+    public var column: Int
+    public init(line: Int, column: Int){
+        self.line = line
+        self.column = column
+    }
 }
 
-protocol SourcePositionToOffsetConvertable{
+public protocol SourcePositionToOffsetConvertable{
     var line: Int {get}
     var column: Int {get}
 }
 
-extension SourcePositionToOffsetConvertable {
+public extension SourcePositionToOffsetConvertable {
     func offset(allLines lines: [String]) -> Int64 {
         return (0 ..< self.line).reduce(0){ $0 + (lines[$1]).characters.count } + self.column
     }
 }
 
-protocol Buffer {
+public protocol Buffer {
     func source() throws -> Source
     //Selection
     func selectionRange(type: SelectionType) -> OffsetRange
@@ -57,7 +61,7 @@ protocol Buffer {
 //    func insert(lines: [String], inRange range: CountableRange<Int>) throws
 }
 
-extension Buffer {
+public extension Buffer {
     func selectionRange(type: SelectionType = .fullLine) -> OffsetRange{
         return selectionRange(type: type)
     }
