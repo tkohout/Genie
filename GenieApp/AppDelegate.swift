@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  Genie
 //
-//  Created by Norio Nomura on 8/26/16.
+//  Created by Tomas Kohout on 10/26/16.
 //
 //  Copyright (c) 2016 Norio Nomura
 //

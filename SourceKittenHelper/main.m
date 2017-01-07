@@ -2,9 +2,9 @@
 //  main.m
 //  SourceKittenHelper
 //
-//  Created by Norio Nomura on 8/26/16.
+//  Created by Tomas Kohout on 10/27/16.
 //
-//  Copyright (c) 2016 Norio Nomura
+//  Copyright (c) 2016 Genie
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal

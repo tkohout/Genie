@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/tomaskohout/Development/iOS/extensions/GeneeUpdated/Genie.xcodeproj">
+      location = "group:Genie.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Carthage/Checkouts/SourceKitten/sourcekitten.xcodeproj">
@@ -11,6 +11,6 @@
       location = "group:Carthage/Checkouts/SWXMLHash/SWXMLHash.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Carthage/Checkouts/YamlSwift/Yaml.xcodeproj">
+      location = "group:Carthage/Checkouts/Yams/Yams.xcodeproj">
    </FileRef>
 </Workspace>

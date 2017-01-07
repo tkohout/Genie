@@ -1,0 +1,21 @@
+language: generic
+matrix:
+  include:
+    - script:
+        - xcodebuild -scheme Yams test
+        - pod lib lint
+      env: JOB=Xcode
+      os: osx
+      osx_image: xcode8.2
+    - script:
+        - swift test
+        - swiftlint
+      env: JOB=SPM
+      os: osx
+      osx_image: xcode8.2
+    - script: docker run -v `pwd`:/Yams norionomura/sourcekit:301 bash -c "cd /Yams && swift test"
+      env: JOB=Linux
+      sudo: required
+      services: docker
+notifications:
+  email: false

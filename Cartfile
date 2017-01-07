@@ -1,1 +1,2 @@
-github "jpsim/SourceKitten" 
+github "jpsim/SourceKitten" "0.15.3"
+github "jflinter/Dwifft" "0.5"
