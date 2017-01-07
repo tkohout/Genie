@@ -32,6 +32,12 @@
 		AC941E921E213C12004D8A03 /* SWXMLHash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC941E8C1E213BE1004D8A03 /* SWXMLHash.framework */; };
 		AC941E931E213C26004D8A03 /* SourceKittenFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AC941E8B1E213BE1004D8A03 /* SourceKittenFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AC941E941E213C26004D8A03 /* SWXMLHash.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AC941E8C1E213BE1004D8A03 /* SWXMLHash.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		ACB1D29C1E21A42400CEFF0F /* SourceKittenFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC941E8B1E213BE1004D8A03 /* SourceKittenFramework.framework */; };
+		ACB1D29D1E21A42400CEFF0F /* SWXMLHash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC941E8C1E213BE1004D8A03 /* SWXMLHash.framework */; };
+		ACB1D29E1E21A42400CEFF0F /* Yams.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACB985A71E2136F300127FD9 /* Yams.framework */; };
+		ACB1D29F1E21A44700CEFF0F /* SourceKittenFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AC941E8B1E213BE1004D8A03 /* SourceKittenFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		ACB1D2A01E21A44700CEFF0F /* SWXMLHash.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AC941E8C1E213BE1004D8A03 /* SWXMLHash.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		ACB1D2A11E21A44700CEFF0F /* Yams.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = ACB985A71E2136F300127FD9 /* Yams.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		ACB985A81E2136F300127FD9 /* Yams.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACB985A71E2136F300127FD9 /* Yams.framework */; };
 		ACB985A91E2137DF00127FD9 /* SourceKittenHelper.xpc in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6C477AED1D70305900D76FCA /* SourceKittenHelper.xpc */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		ACED61481E21467B00BBD92D /* GenieFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = ACED61461E21467B00BBD92D /* GenieFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -125,6 +131,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				ACB1D29F1E21A44700CEFF0F /* SourceKittenFramework.framework in Embed Frameworks */,
+				ACB1D2A01E21A44700CEFF0F /* SWXMLHash.framework in Embed Frameworks */,
+				ACB1D2A11E21A44700CEFF0F /* Yams.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -227,6 +236,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C477AD91D702E1500D76FCA /* Cocoa.framework in Frameworks */,
+				ACB1D29C1E21A42400CEFF0F /* SourceKittenFramework.framework in Frameworks */,
+				ACB1D29D1E21A42400CEFF0F /* SWXMLHash.framework in Frameworks */,
+				ACB1D29E1E21A42400CEFF0F /* Yams.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
