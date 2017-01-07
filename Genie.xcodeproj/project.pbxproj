@@ -25,6 +25,8 @@
 		AC0343461E2177D000969C2C /* StubTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACED61381E21460A00BBD92D /* StubTest.swift */; };
 		AC03434A1E217B9900969C2C /* Buffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0343481E217B9900969C2C /* Buffer.swift */; };
 		AC03434B1E217B9900969C2C /* SourceKitRepresentableExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0343491E217B9900969C2C /* SourceKitRepresentableExtensions.swift */; };
+		AC39E2051E2180C200D9FD65 /* GenieFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACED61441E21467B00BBD92D /* GenieFramework.framework */; };
+		AC39E2061E2180C200D9FD65 /* GenieFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = ACED61441E21467B00BBD92D /* GenieFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AC941E841E213AAB004D8A03 /* Yams.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = ACB985A71E2136F300127FD9 /* Yams.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AC941E911E213C0E004D8A03 /* SourceKittenFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC941E8B1E213BE1004D8A03 /* SourceKittenFramework.framework */; };
 		AC941E921E213C12004D8A03 /* SWXMLHash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC941E8C1E213BE1004D8A03 /* SWXMLHash.framework */; };
@@ -46,6 +48,11 @@
 		ACED615C1E2146B300BBD92D /* Variable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC91AA681E2130A1003E871F /* Variable.swift */; };
 		ACED61601E21473300BBD92D /* Dwifft.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC91AA711E2130A1003E871F /* Dwifft.swift */; };
 		ACED616F1E21612000BBD92D /* SourceKittenFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC941E8B1E213BE1004D8A03 /* SourceKittenFramework.framework */; };
+		ACF70B5D1E217D1C007A0CC5 /* SWXMLHash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC941E8C1E213BE1004D8A03 /* SWXMLHash.framework */; };
+		ACF70B5E1E217D1C007A0CC5 /* Yams.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACB985A71E2136F300127FD9 /* Yams.framework */; };
+		ACF70B5F1E217D24007A0CC5 /* SourceKittenFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AC941E8B1E213BE1004D8A03 /* SourceKittenFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		ACF70B601E217D24007A0CC5 /* SWXMLHash.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AC941E8C1E213BE1004D8A03 /* SWXMLHash.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		ACF70B611E217D24007A0CC5 /* Yams.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = ACB985A71E2136F300127FD9 /* Yams.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,7 +70,7 @@
 			remoteGlobalIDString = 6C477AD51D702E1500D76FCA;
 			remoteInfo = LinuxSupport;
 		};
-		AC03433F1E2174A600969C2C /* PBXContainerItemProxy */ = {
+		AC39E2071E2180C200D9FD65 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6C477A9E1D702DF800D76FCA /* Project object */;
 			proxyType = 1;
@@ -96,6 +103,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				AC39E2061E2180C200D9FD65 /* GenieFramework.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -127,6 +135,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				ACF70B5F1E217D24007A0CC5 /* SourceKittenFramework.framework in Embed Frameworks */,
+				ACF70B601E217D24007A0CC5 /* SWXMLHash.framework in Embed Frameworks */,
+				ACF70B611E217D24007A0CC5 /* Yams.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -207,6 +218,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC39E2051E2180C200D9FD65 /* GenieFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,6 +252,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACED616F1E21612000BBD92D /* SourceKittenFramework.framework in Frameworks */,
+				ACF70B5D1E217D1C007A0CC5 /* SWXMLHash.framework in Frameworks */,
+				ACF70B5E1E217D1C007A0CC5 /* Yams.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,6 +451,7 @@
 			);
 			dependencies = (
 				6C477AE31D702E1500D76FCA /* PBXTargetDependency */,
+				AC39E2081E2180C200D9FD65 /* PBXTargetDependency */,
 			);
 			name = GenieApp;
 			productName = LinuxSupportForXcode;
@@ -456,7 +471,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				AC0343401E2174A600969C2C /* PBXTargetDependency */,
 				6C1C68561D713203004BAA32 /* PBXTargetDependency */,
 			);
 			name = Genie;
@@ -685,10 +699,10 @@
 			target = 6C477AD51D702E1500D76FCA /* Genie */;
 			targetProxy = 6C477AE21D702E1500D76FCA /* PBXContainerItemProxy */;
 		};
-		AC0343401E2174A600969C2C /* PBXTargetDependency */ = {
+		AC39E2081E2180C200D9FD65 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = ACED61431E21467B00BBD92D /* GenieFramework */;
-			targetProxy = AC03433F1E2174A600969C2C /* PBXContainerItemProxy */;
+			targetProxy = AC39E2071E2180C200D9FD65 /* PBXContainerItemProxy */;
 		};
 		ACED612F1E21453F00BBD92D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
