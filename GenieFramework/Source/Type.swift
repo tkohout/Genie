@@ -48,7 +48,7 @@ public class Type: Node, Declaration {
         let nodes = self.nodes.map { "\($0)" }.joined()
         let header = keyword + " " + name + " {"
         
-        return prefix + header + nodes + bodySuffix + "}"
+        return prefix + header + nodes + bodySuffix
         
     }
         

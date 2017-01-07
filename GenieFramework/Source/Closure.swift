@@ -52,6 +52,7 @@ public class Function: Closure, Declaration {
         self.isDestructor = isDestructor
         super.init(parameters: parameters, returnType: returnType, block: block)
         self.prefix = prefix
+        self.bodySuffix = "}"
     }
     
     
@@ -84,6 +85,9 @@ public class Function: Closure, Declaration {
         
         
         self.block = source[bodyOffset..<bodyOffset+bodyLength]
+        if offset+length > bodyOffset+bodyLength {
+            self.bodySuffix = source[bodyOffset+bodyLength ..< offset+length]
+        }
         
         self.parameters = structure.substructures.flatMap {
             $0.kind == SwiftDeclarationKind.varParameter ? Parameter(structure: $0, source: source) : nil
@@ -127,7 +131,7 @@ public class Function: Closure, Declaration {
         let returnTypeString = returnType.flatMap { "-> \($0) " } ?? ""
         
         //TODO: Return type
-        return "\(prefix)\(attributes.joined(separator: " ")) \(name)(\(parametersString)) \(returnTypeString){\(block)}"
+        return "\(prefix)\(attributes.joined(separator: " ")) \(name)(\(parametersString)) \(returnTypeString){\(block)\(bodySuffix)"
     }
 }
 

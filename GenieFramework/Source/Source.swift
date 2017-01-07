@@ -26,7 +26,7 @@ public class Source: Node {
     
     //MARK: Printing
     override public var description: String {
-        return nodes.map { "\($0)" }.joined()
+        return nodes.map { "\($0)" }.joined() + bodySuffix
     }
 }
 

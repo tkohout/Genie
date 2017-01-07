@@ -116,8 +116,9 @@ public class Node: Parseable, PositionSearchable, Equatable, CustomStringConvert
             return node
         }
         
-        if let range = self.range, endOffset < range.upperBound-1 { // -1 for the brace
-            self.bodySuffix = source[endOffset ..< range.upperBound-1]
+        //TODO: Not every node has brace on end
+        if let range = self.range, endOffset < range.upperBound { // -1 for the brace
+            self.bodySuffix = source[endOffset ..< range.upperBound]
         }
         
         return nodes

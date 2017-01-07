@@ -97,5 +97,22 @@ class SourceTest: XCTestCase {
     }
     
     
-    
+    func testImportsAreParsedProperly() {
+        let code = String(
+            "import Foundation",
+            "",
+            "import Alamofire",
+            "import class Alamofire.Manager",
+            "import enum Alamofire.URL"
+        )
+        
+        let structure: SourceKitRepresentable = Structure(file: File(contents: code)).dictionary
+        let source =  Source(structure: structure, source: code)
+
+        print(code)
+        print(source)
+        
+        
+       XCTAssertEqualIgnoringIndentation(code.components(separatedBy: "\n"), "\(source)".components(separatedBy: "\n"))
+    }
 }
