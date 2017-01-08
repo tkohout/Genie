@@ -33,7 +33,7 @@ public class Initializer: GeneeCommand {
         let expressions = variablesForInitializer.map { "self.\($0.name) = \($0.name)" }.indent(by: buffer.indentationWidth)
         let block = ([""] + expressions.indent(by: buffer.indentationWidth) + [""]).joined(separator: "\n")
         
-        let initFunction = Function(block: block, name: "init", isConstructor: true)
+        let initFunction = Function(name: "init", block: block, isConstructor: true)
         initFunction.parameters = variablesForInitializer.map { Parameter(name: $0.name, typeName: $0.typeName, initializationBlock: $0.initializationBlock, parent: parent) }
         
         parent.add(node: initFunction, after: variablesForInitializer.last)

@@ -99,6 +99,8 @@ public class Node: Parseable, PositionSearchable, Equatable, CustomStringConvert
                 node = Struct(structure: substructure, source: source, parameters: parameters)
             case SwiftDeclarationKind.`protocol`:
                 node = Protocol(structure: substructure, source: source, parameters: parameters)
+            case SwiftDeclarationKind.`extension`:
+                node = Extension(structure: substructure, source: source, parameters: parameters)
             case SwiftDeclarationKind.functionMethodInstance, SwiftDeclarationKind.functionMethodClass, SwiftDeclarationKind.functionMethodStatic, SwiftDeclarationKind.functionConstructor, SwiftDeclarationKind.functionDestructor, SwiftDeclarationKind.functionFree:
                 node = Function(structure: substructure, source: source, parameters: parameters)
             case SwiftDeclarationKind.varInstance, SwiftDeclarationKind.varClass, SwiftDeclarationKind.varStatic:

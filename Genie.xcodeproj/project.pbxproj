@@ -41,6 +41,7 @@
 		ACB985A81E2136F300127FD9 /* Yams.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACB985A71E2136F300127FD9 /* Yams.framework */; };
 		ACB985A91E2137DF00127FD9 /* SourceKittenHelper.xpc in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6C477AED1D70305900D76FCA /* SourceKittenHelper.xpc */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		ACE36CA11E22B5790007F0FD /* ReactivePropertyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE36CA01E22B5790007F0FD /* ReactivePropertyTest.swift */; };
+		ACE36CA31E22BAE70007F0FD /* Asserts.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE36CA21E22BAE70007F0FD /* Asserts.swift */; };
 		ACED61481E21467B00BBD92D /* GenieFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = ACED61461E21467B00BBD92D /* GenieFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ACED61501E2146AA00BBD92D /* CurriedInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC91AA5B1E2130A1003E871F /* CurriedInitializer.swift */; };
 		ACED61511E2146AA00BBD92D /* GeneeCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC91AA5C1E2130A1003E871F /* GeneeCommand.swift */; };
@@ -211,6 +212,7 @@
 		AC941E8C1E213BE1004D8A03 /* SWXMLHash.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SWXMLHash.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Genie-gnjkibsipwxrbzfukpgdagpvfryi/Build/Products/Debug/SWXMLHash.framework"; sourceTree = "<group>"; };
 		ACB985A71E2136F300127FD9 /* Yams.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Yams.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Genie-gnjkibsipwxrbzfukpgdagpvfryi/Build/Products/Debug/Yams.framework"; sourceTree = "<group>"; };
 		ACE36CA01E22B5790007F0FD /* ReactivePropertyTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReactivePropertyTest.swift; sourceTree = "<group>"; };
+		ACE36CA21E22BAE70007F0FD /* Asserts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Asserts.swift; sourceTree = "<group>"; };
 		ACED61291E21453F00BBD92D /* GenieTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GenieTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACED612B1E21453F00BBD92D /* GenieTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenieTests.swift; sourceTree = "<group>"; };
 		ACED612D1E21453F00BBD92D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -409,9 +411,18 @@
 			path = SourceKitten;
 			sourceTree = "<group>";
 		};
+		ACE36CA41E22BAEC0007F0FD /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				ACE36CA21E22BAE70007F0FD /* Asserts.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
 		ACED612A1E21453F00BBD92D /* GenieTests */ = {
 			isa = PBXGroup;
 			children = (
+				ACE36CA41E22BAEC0007F0FD /* Helpers */,
 				AC0343421E21775000969C2C /* Stubs */,
 				ACED61331E21460A00BBD92D /* ClosureCaptureTest.swift */,
 				ACE36CA01E22B5790007F0FD /* ReactivePropertyTest.swift */,
@@ -678,6 +689,7 @@
 				AC0343451E2177CD00969C2C /* SourceTest.swift in Sources */,
 				AC0343441E21778600969C2C /* BufferStub.swift in Sources */,
 				AC0343461E2177D000969C2C /* StubTest.swift in Sources */,
+				ACE36CA31E22BAE70007F0FD /* Asserts.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

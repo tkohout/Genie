@@ -140,7 +140,7 @@ class SourceTest: XCTestCase {
         "class Whatever {",
         "    let a: String",
         "    let b = 😥",
-        "    let placeholde <#code#>",
+        "    let placeholder <#code#>",
         "}")
         
         let structure: SourceKitRepresentable = Structure(file: File(contents: code)).dictionary
@@ -148,5 +148,43 @@ class SourceTest: XCTestCase {
         
         AssertEqualIgnoringIndentation(code.components(separatedBy: "\n"), "\(source)".components(separatedBy: "\n"))
         
+    }
+    
+    func testThatBodyLessFunctionsGetParsed() {
+        let code = String(
+            "protocol SomeProtocol {",
+            "   func doSomething() -> Test",
+            "}")
+        
+        let structure: SourceKitRepresentable = Structure(file: File(contents: code)).dictionary
+        let source =  Source(structure: structure, source: code)
+        
+        AssertEqualIgnoringIndentation(code.components(separatedBy: "\n"), "\(source)".components(separatedBy: "\n"))
+    }
+    
+    func testThatFunctionWithWhereIsPreserved() {
+    
+        let code = String(
+        "func prepare<VC>() -> VC where VC : UIViewController {",
+        "}")
+        
+        let structure: SourceKitRepresentable = Structure(file: File(contents: code)).dictionary
+        let source =  Source(structure: structure, source: code)
+        
+        XCTAssertEqual((source.declarations[0] as? Function)?.whereClause, "VC : UIViewController")
+        AssertEqualIgnoringIndentation(code.components(separatedBy: "\n"), "\(source)".components(separatedBy: "\n"))
+    }
+    
+    func testThatExtensionIsParsed() {
+    
+        let code = String(
+            "extension SignalProducerProtocol: SomeOtherProtocol where Value == Any?, Error == RequestError {",
+            "   func some(a: Int, n: String) {}",
+            "}")
+        
+        let structure: SourceKitRepresentable = Structure(file: File(contents: code)).dictionary
+        let source =  Source(structure: structure, source: code)
+        
+        AssertEqualIgnoringIndentation(code.components(separatedBy: "\n"), "\(source)".components(separatedBy: "\n"))
     }
 }

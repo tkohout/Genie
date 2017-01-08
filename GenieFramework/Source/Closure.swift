@@ -13,10 +13,10 @@ public typealias Block = String
 
 public class Closure: Node {
     public var parameters: [Parameter] = []
-    public var returnType: String?
-    public var block: Block
+    public var returnType: String? = nil
+    public var block: Block? = nil
     
-    public init(parameters: [Parameter] = [], returnType: String? = nil, block: Block) {
+    public init(parameters: [Parameter] = [], returnType: String? = nil, block: Block?) {
         self.parameters = parameters
         self.returnType = returnType
         self.block = block
@@ -24,7 +24,6 @@ public class Closure: Node {
     }
     
     required public init(structure: SourceKitRepresentable, source: String, parameters: [ParseParameter : Any]) {
-        block = "" //TODO: Parse block
         super.init(structure: structure, source: source, parameters: parameters)
     }
 }
@@ -39,8 +38,9 @@ public class Function: Closure, Declaration {
     public var isClass: Bool = false
     public var isConstructor: Bool = false
     public var isDestructor: Bool = false
+    public var whereClause: String? = nil
     
-    required public init(block: Block, name: String, parameters: [Parameter] = [], returnType: String? = nil, accessibility: Accessibility = .internal, isMutating: Bool = false, isDynamic: Bool = false, isStatic: Bool = false, isClass: Bool = false, isConstructor: Bool = false, isDestructor: Bool = false, parent: Type? = nil, prefix: String = "\n    ") {
+    required public init(name: String, block: Block?, parameters: [Parameter] = [], returnType: String? = nil, accessibility: Accessibility = .internal, isMutating: Bool = false, isDynamic: Bool = false, isStatic: Bool = false, isClass: Bool = false, isConstructor: Bool = false, isDestructor: Bool = false, whereClause: String? = nil, parent: Type? = nil, prefix: String = "\n    ") {
         self.name = name
         //self.fullName = fullName
         self.accessibility = accessibility
@@ -50,6 +50,7 @@ public class Function: Closure, Declaration {
         self.isClass = isClass
         self.isConstructor = isConstructor
         self.isDestructor = isDestructor
+        self.whereClause = whereClause
         super.init(parameters: parameters, returnType: returnType, block: block)
         self.prefix = prefix
         self.bodySuffix = "}"
@@ -63,14 +64,18 @@ public class Function: Closure, Declaration {
             fatalError("Function is missing kind")
         }
         
-        guard let fullName = structure.name, let nameEnd = fullName.range(of: "(")?.lowerBound else {
-            fatalError("Function is missing name")
-        }
+        
         
         self.accessibility = structure.accessibility?.components(separatedBy: ".").last.flatMap { Accessibility(rawValue: $0) } ?? .internal
         
-        guard let offset = structure.offset, let length = structure.length, let nameOffset = structure.nameOffset, let nameLength = structure.nameLength, let bodyOffset = structure.bodyOffset, let bodyLength = structure.bodyLength else {
+        guard let offset = structure.offset, let length = structure.length, let nameOffset = structure.nameOffset, let nameLength = structure.nameLength else {
             fatalError("Function is missing offsets")
+        }
+        
+        let fullName = source[nameOffset..<nameOffset+nameLength]
+        
+        guard let nameEnd = fullName.range(of: "(")?.lowerBound else {
+            fatalError("Function is missing name")
         }
         
         self.name = fullName.substring(to: nameEnd)
@@ -78,15 +83,25 @@ public class Function: Closure, Declaration {
         super.init(structure: structure, source: source, parameters: parameters)
         
         let endOfName = nameOffset + nameLength
-        let returnTypeString = source[endOfName ..< bodyOffset - 1]
+        let endOfType: Int64 = structure.bodyOffset.flatMap { $0 - 1 } ?? offset + length
+        let returnTypeString = source[endOfName ..< endOfType]
         if let returnTypeRange = returnTypeString.range(of: "->") {
-            self.returnType = returnTypeString.substring(from: returnTypeRange.upperBound).trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+            var returnType = returnTypeString.substring(from: returnTypeRange.upperBound)
+            
+            if let whereRange = returnType.range(of: "where") {
+                whereClause = returnType.substring(from: whereRange.upperBound).trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+                returnType = returnType.substring(to: whereRange.lowerBound)
+            }
+            
+            self.returnType = returnType.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         }
         
-        
-        self.block = source[bodyOffset..<bodyOffset+bodyLength]
-        if offset+length > bodyOffset+bodyLength {
-            self.bodySuffix = source[bodyOffset+bodyLength ..< offset+length]
+        if let bodyOffset = structure.bodyOffset, let bodyLength = structure.bodyLength {
+            self.block = source[bodyOffset..<bodyOffset+bodyLength]
+            
+            if offset+length > bodyOffset+bodyLength {
+                self.bodySuffix = source[bodyOffset+bodyLength ..< offset+length]
+            }
         }
         
         self.parameters = structure.substructures.flatMap {
@@ -127,11 +142,15 @@ public class Function: Closure, Declaration {
             attributes.append("func")
         }
         
-        let parametersString = parameters.map { "\($0)" }.joined(separator: ", ")
-        let returnTypeString = returnType.flatMap { "-> \($0) " } ?? ""
+        let parametersString = "(\(parameters.map { "\($0)" }.joined(separator: ", ")))"
+        var function = [parametersString]
         
-        //TODO: Return type
-        return "\(prefix)\(attributes.joined(separator: " ")) \(name)(\(parametersString)) \(returnTypeString){\(block)\(bodySuffix)"
+        if let returnType = returnType { function.append("-> \(returnType)") }
+        if let whereClause = whereClause { function.append("where \(whereClause)") }
+        if let block = block { function.append("{\(block)\(bodySuffix)") } //TODO: Sort out the prefix and suffix
+        
+        
+        return "\(prefix)\(attributes.joined(separator: " ")) \(name)\(function.joined(separator: " "))"
     }
 }
 

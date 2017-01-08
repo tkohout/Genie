@@ -77,7 +77,7 @@ class ReactivePropertyTest: XCTestCase {
         
         let code = [
             "class User {",
-            "    var categories: Property<Results<Category>>",
+            "    var categories: MutableProperty<Results<Category>>",
             "}"
         ]
         
@@ -86,7 +86,26 @@ class ReactivePropertyTest: XCTestCase {
         try! propertyCommand.perform(buffer: sourceModel)  { _ in }
         
         var expected = Array(code)
-        expected[1] = "   var categories: MutableProperty<Results<Category>>"
+        expected[1] = "   var categories: Results<Category>"
+        
+        AssertEqualIgnoringIndentation(expected, sourceModel.lines)
+    }
+    
+    func testThatProtocolAccessibilityIsPreserved() {
+        let propertyCommand = ReactiveProperty()
+        
+        let code = [
+            "protocol Nameable {",
+            "    var name: String { get set }",
+            "}"
+        ]
+        
+        let sourceModel = BufferStub(completeBuffer: code.joined(separator: "\n"), selectionStart: SourcePosition(line: 1, column: 0), selectionEnd: SourcePosition(line: 1, column: 0))
+        
+        try! propertyCommand.perform(buffer: sourceModel)  { _ in }
+        
+        var expected = Array(code)
+        expected[1] = "    var name: Property<String> { get set }"
         
         AssertEqualIgnoringIndentation(expected, sourceModel.lines)
     }
