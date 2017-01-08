@@ -81,6 +81,7 @@ public class CurriedInitializer: GeneeCommand {
     public init(){}
     
     public var identifier: String { return "CurriedInitializer" }
+    public var name: String { return "Generate Curried Initializer" }
     
     public func perform(buffer: Buffer, completionCallback: (Void) -> Void) throws {
         

@@ -14,17 +14,16 @@ protocol Declaration {}
 public class Type: Node, Declaration {
     var keyword: String { fatalError("Implement in successor") }
     public var name: String
-    public var inheritedType: Type? = nil
+    public var inheritedTypes: [String] = []
     public var variables: [Variable] { return nodes.flatMap { $0 as? Variable }}
-    public var implementedTypes: [Type] = []
+    //public var implementedTypes: [Type] = []
     public var methods: [Function] { return nodes.flatMap { $0 as? Function }}
     
     
     
-    required public init(name: String, inheritedType: Type? = nil, nodes: [Node] = [], implementedTypes: [Type] = []) {
+    required public init(name: String, inheritedTypes: [String] = [], nodes: [Node] = []) {
         self.name = name
-        self.inheritedType = inheritedType
-        self.implementedTypes = implementedTypes
+        self.inheritedTypes = inheritedTypes
         super.init()
         self.nodes = nodes
     }
@@ -34,7 +33,8 @@ public class Type: Node, Declaration {
         guard let name = structure.name else { fatalError("Type is missing name") }
         
         self.name = name
-        //TODO: Inherited
+        self.inheritedTypes = structure.inheritedTypes
+        
         //TODO: Operators, Subscripts
         
         super.init(structure: structure, source: source, parameters: parameters)
@@ -46,7 +46,8 @@ public class Type: Node, Declaration {
     //MARK: Printing
     override public var description: String {
         let nodes = self.nodes.map { "\($0)" }.joined()
-        let header = keyword + " " + name + " {"
+        let inheritedString = (inheritedTypes.count > 0) ? ": \(inheritedTypes.joined(separator: ", "))" : ""
+        let header = keyword + " " + name + inheritedString  + " {"
         
         return prefix + header + nodes + bodySuffix
         

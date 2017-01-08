@@ -54,7 +54,7 @@ class StubTest: XCTestCase {
         
             
         
-        XCTAssertEqualIgnoringIndentation(expected, sourceModel.lines)
+        AssertEqualIgnoringIndentation(expected, sourceModel.lines)
     }
     
 }

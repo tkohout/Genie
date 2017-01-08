@@ -69,15 +69,11 @@ extension SourceKitRepresentable {
     
    
     // inheritedTypes
-    var inheritedTypes: AnySequence<String> {
+    var inheritedTypes: [String] {
         if let array = self[.inheritedtypes] as? [SourceKitRepresentable] {
-            var generator = array.makeIterator()
-            let nameGenerator = AnyIterator() { () -> String? in
-                return generator.next()?.name
-            }
-            return AnySequence(nameGenerator)
+            return array.flatMap { $0.name }
         } else {
-            return AnySequence(AnyIterator({ _ in nil }))
+            return []
         }
     }
     

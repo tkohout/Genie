@@ -55,6 +55,7 @@ public protocol Buffer {
     func update(source: Source)
     func insert(line: String, atIndex index: Int)
     func delete(lineAtIndex index: Int)
+    func replace(line: String, atIndex index: Int)
     
     
 //    func replace(lines: [String], inRange range: CountableRange<Int>) throws
@@ -70,25 +71,45 @@ public extension Buffer {
         let originalLines = lines
         let newLines = "\(source)".components(separatedBy: "\n")
         
-        let diff: Diff<String> = originalLines.diff(newLines)
-        
-        diff.deletions.forEach {
-            switch $0 {
-            case .delete(let index, _):
-                self.delete(lineAtIndex: index)
-            default:
-                break;
+        if originalLines.count > newLines.count {
+            originalLines.enumerated().forEach{ i, _ in
+                if i < newLines.count {
+                    let line = newLines[i]
+                    self.replace(line: line, atIndex: i)
+                } else {
+                    self.delete(lineAtIndex: i)
+                }
+            }
+        } else {
+            newLines.enumerated().forEach{ i, line in
+                if i < originalLines.count {
+                    self.replace(line: line, atIndex: i)
+                } else {
+                    self.insert(line: line, atIndex: i)
+                }
             }
         }
+        //TODO: Make the diff later
         
-        diff.insertions.forEach {
-            switch $0 {
-            case .insert(let index, let line):
-                self.insert(line: line, atIndex: index)
-            default:
-                break;
-            }
-        }
+//        let diff: Diff<String> = originalLines.diff(newLines)
+//        
+//        diff.deletions.forEach {
+//            switch $0 {
+//            case .delete(let index, _):
+//                self.delete(lineAtIndex: index)
+//            default:
+//                break;
+//            }
+//        }
+//        
+//        diff.insertions.forEach {
+//            switch $0 {
+//            case .insert(let index, let line):
+//                self.insert(line: line, atIndex: index)
+//            default:
+//                break;
+//            }
+//        }
     }
 }
 

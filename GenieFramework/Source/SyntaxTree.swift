@@ -13,9 +13,11 @@ import SourceKittenFramework
 extension String {
     subscript (r: Range<Int64>) -> String {
         get {
-            let startIndex = self.index(self.startIndex, offsetBy: String.IndexDistance(r.lowerBound))
-            let endIndex = self.index(startIndex, offsetBy: r.upperBound - r.lowerBound)
-            return self[startIndex..<endIndex]
+            return self.substringWithByteRange(start: Int(r.lowerBound), length:  Int(r.upperBound - r.lowerBound)) ?? ""
+            
+//            let startIndex = self.index(self.startIndex, offsetBy: String.IndexDistance(r.lowerBound))
+//            let endIndex = self.index(startIndex, offsetBy: r.upperBound - r.lowerBound)
+//            return self[startIndex..<endIndex]
         }
     }
 }

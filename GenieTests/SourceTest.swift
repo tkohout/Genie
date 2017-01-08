@@ -69,7 +69,7 @@ class SourceTest: XCTestCase {
         let structure: SourceKitRepresentable = Structure(file: File(contents: code)).dictionary
         
         let source =  Source(structure: structure, source: code)
-        XCTAssertEqualIgnoringIndentation(code.components(separatedBy: "\n"), "\(source)".components(separatedBy: "\n"))
+        AssertEqualIgnoringIndentation(code.components(separatedBy: "\n"), "\(source)".components(separatedBy: "\n"))
     }
     
     func testThatUnparsedNodesArePreserved() {
@@ -93,11 +93,11 @@ class SourceTest: XCTestCase {
         let structure: SourceKitRepresentable = Structure(file: File(contents: code)).dictionary
         
         let source =  Source(structure: structure, source: code)
-        XCTAssertEqualIgnoringIndentation(code.components(separatedBy: "\n"), "\(source)".components(separatedBy: "\n"))
+        AssertEqualIgnoringIndentation(code.components(separatedBy: "\n"), "\(source)".components(separatedBy: "\n"))
     }
     
     
-    func testImportsAreParsedProperly() {
+    func testImportsArePreserved() {
         let code = String(
             "import Foundation",
             "",
@@ -113,6 +113,40 @@ class SourceTest: XCTestCase {
         print(source)
         
         
-       XCTAssertEqualIgnoringIndentation(code.components(separatedBy: "\n"), "\(source)".components(separatedBy: "\n"))
+       AssertEqualIgnoringIndentation(code.components(separatedBy: "\n"), "\(source)".components(separatedBy: "\n"))
+    }
+    
+    func testThatInheritedTypesAreParsed() {
+        let code = String(
+        "class SomeClass: NSObject, UITableViewDelegate, SomeProtocol {",
+        "",
+        "}",
+        "",
+        "struct SomeStruct: Equatable, Hashable {}",
+        "protocol SomeProtocol: NSObjectProtocol, OtherProtocol {}"
+        )
+        
+        let structure: SourceKitRepresentable = Structure(file: File(contents: code)).dictionary
+        let source =  Source(structure: structure, source: code)
+        
+        AssertEqualIgnoringIndentation(code.components(separatedBy: "\n"), "\(source)".components(separatedBy: "\n"))
+
+    }
+    
+    func testThatSpecialCharactersArePreserved() {
+        let code = String(
+        "//谁偷了我的独角兽",
+        "//©",
+        "class Whatever {",
+        "    let a: String",
+        "    let b = 😥",
+        "    let placeholde <#code#>",
+        "}")
+        
+        let structure: SourceKitRepresentable = Structure(file: File(contents: code)).dictionary
+        let source =  Source(structure: structure, source: code)
+        
+        AssertEqualIgnoringIndentation(code.components(separatedBy: "\n"), "\(source)".components(separatedBy: "\n"))
+        
     }
 }

@@ -40,11 +40,12 @@
 		ACB1D2A11E21A44700CEFF0F /* Yams.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = ACB985A71E2136F300127FD9 /* Yams.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		ACB985A81E2136F300127FD9 /* Yams.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACB985A71E2136F300127FD9 /* Yams.framework */; };
 		ACB985A91E2137DF00127FD9 /* SourceKittenHelper.xpc in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6C477AED1D70305900D76FCA /* SourceKittenHelper.xpc */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		ACE36CA11E22B5790007F0FD /* ReactivePropertyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE36CA01E22B5790007F0FD /* ReactivePropertyTest.swift */; };
 		ACED61481E21467B00BBD92D /* GenieFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = ACED61461E21467B00BBD92D /* GenieFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ACED61501E2146AA00BBD92D /* CurriedInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC91AA5B1E2130A1003E871F /* CurriedInitializer.swift */; };
 		ACED61511E2146AA00BBD92D /* GeneeCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC91AA5C1E2130A1003E871F /* GeneeCommand.swift */; };
 		ACED61521E2146AA00BBD92D /* Initializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC91AA5D1E2130A1003E871F /* Initializer.swift */; };
-		ACED61531E2146AA00BBD92D /* MutablePropertyProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC91AA5E1E2130A1003E871F /* MutablePropertyProtocol.swift */; };
+		ACED61531E2146AA00BBD92D /* ReactiveProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC91AA5E1E2130A1003E871F /* ReactiveProperty.swift */; };
 		ACED61541E2146AA00BBD92D /* Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC91AA5F1E2130A1003E871F /* Stub.swift */; };
 		ACED61561E2146B300BBD92D /* Closure.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC91AA621E2130A1003E871F /* Closure.swift */; };
 		ACED61581E2146B300BBD92D /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC91AA641E2130A1003E871F /* Node.swift */; };
@@ -193,7 +194,7 @@
 		AC91AA5B1E2130A1003E871F /* CurriedInitializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurriedInitializer.swift; sourceTree = "<group>"; };
 		AC91AA5C1E2130A1003E871F /* GeneeCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneeCommand.swift; sourceTree = "<group>"; };
 		AC91AA5D1E2130A1003E871F /* Initializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Initializer.swift; sourceTree = "<group>"; };
-		AC91AA5E1E2130A1003E871F /* MutablePropertyProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MutablePropertyProtocol.swift; sourceTree = "<group>"; };
+		AC91AA5E1E2130A1003E871F /* ReactiveProperty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReactiveProperty.swift; sourceTree = "<group>"; };
 		AC91AA5F1E2130A1003E871F /* Stub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stub.swift; sourceTree = "<group>"; };
 		AC91AA621E2130A1003E871F /* Closure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Closure.swift; sourceTree = "<group>"; };
 		AC91AA631E2130A1003E871F /* ClosureCapture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClosureCapture.swift; path = ../Source/ClosureCapture.swift; sourceTree = "<group>"; };
@@ -209,6 +210,7 @@
 		AC941E8B1E213BE1004D8A03 /* SourceKittenFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SourceKittenFramework.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Genie-gnjkibsipwxrbzfukpgdagpvfryi/Build/Products/Debug/SourceKittenFramework.framework"; sourceTree = "<group>"; };
 		AC941E8C1E213BE1004D8A03 /* SWXMLHash.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SWXMLHash.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Genie-gnjkibsipwxrbzfukpgdagpvfryi/Build/Products/Debug/SWXMLHash.framework"; sourceTree = "<group>"; };
 		ACB985A71E2136F300127FD9 /* Yams.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Yams.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Genie-gnjkibsipwxrbzfukpgdagpvfryi/Build/Products/Debug/Yams.framework"; sourceTree = "<group>"; };
+		ACE36CA01E22B5790007F0FD /* ReactivePropertyTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReactivePropertyTest.swift; sourceTree = "<group>"; };
 		ACED61291E21453F00BBD92D /* GenieTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GenieTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACED612B1E21453F00BBD92D /* GenieTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenieTests.swift; sourceTree = "<group>"; };
 		ACED612D1E21453F00BBD92D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -371,7 +373,7 @@
 				AC91AA5C1E2130A1003E871F /* GeneeCommand.swift */,
 				AC91AA5D1E2130A1003E871F /* Initializer.swift */,
 				AC91AA631E2130A1003E871F /* ClosureCapture.swift */,
-				AC91AA5E1E2130A1003E871F /* MutablePropertyProtocol.swift */,
+				AC91AA5E1E2130A1003E871F /* ReactiveProperty.swift */,
 				AC91AA5F1E2130A1003E871F /* Stub.swift */,
 			);
 			path = Commands;
@@ -412,6 +414,7 @@
 			children = (
 				AC0343421E21775000969C2C /* Stubs */,
 				ACED61331E21460A00BBD92D /* ClosureCaptureTest.swift */,
+				ACE36CA01E22B5790007F0FD /* ReactivePropertyTest.swift */,
 				ACED61341E21460A00BBD92D /* DwifftTests.swift */,
 				ACED61351E21460A00BBD92D /* InitializerTest.swift */,
 				ACED61371E21460A00BBD92D /* SourceTest.swift */,
@@ -671,6 +674,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC0343411E21774100969C2C /* InitializerTest.swift in Sources */,
+				ACE36CA11E22B5790007F0FD /* ReactivePropertyTest.swift in Sources */,
 				AC0343451E2177CD00969C2C /* SourceTest.swift in Sources */,
 				AC0343441E21778600969C2C /* BufferStub.swift in Sources */,
 				AC0343461E2177D000969C2C /* StubTest.swift in Sources */,
@@ -684,7 +688,7 @@
 				ACED61511E2146AA00BBD92D /* GeneeCommand.swift in Sources */,
 				ACED61541E2146AA00BBD92D /* Stub.swift in Sources */,
 				ACED615A1E2146B300BBD92D /* SyntaxTree.swift in Sources */,
-				ACED61531E2146AA00BBD92D /* MutablePropertyProtocol.swift in Sources */,
+				ACED61531E2146AA00BBD92D /* ReactiveProperty.swift in Sources */,
 				ACED61581E2146B300BBD92D /* Node.swift in Sources */,
 				ACED615B1E2146B300BBD92D /* Type.swift in Sources */,
 				ACED61501E2146AA00BBD92D /* CurriedInitializer.swift in Sources */,

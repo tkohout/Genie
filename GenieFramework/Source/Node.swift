@@ -139,8 +139,8 @@ public class Node: Parseable, PositionSearchable, Equatable, CustomStringConvert
         } else {
             upperBound = offset+length
         }
-        
-        range = offset..<min(upperBound, Int64(source.characters.count))
+        //TODO: Use sourcekitten for this 
+        range = offset..<min(upperBound, Int64(source.utf8.count))
         
         self.range = range
         self.code = source[range]

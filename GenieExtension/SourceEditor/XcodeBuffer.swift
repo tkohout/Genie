@@ -58,6 +58,10 @@ class XcodeBuffer: Buffer {
         self.buffer.lines.insert(line, at: index)
     }
     
+    func replace(line: String, atIndex index: Int) {
+        self.buffer.lines.replaceObject(at: index, with: line)
+    }
+    
     func delete(lineAtIndex index: Int) {
         self.buffer.lines.replaceObject(at: index, with: "") // removeObject(at: index)
     }

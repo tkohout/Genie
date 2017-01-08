@@ -25,10 +25,13 @@ public func ==(typeString: String, type: StubType) -> Bool {
 }
 
 public class Stub: GeneeCommand {
+   
+
     
     public init(){}
     
     public var identifier: String { return "Stub" }
+    public var name: String { return "Stub" }
     
     public func perform(buffer: Buffer, completionCallback: (Void) -> Void) throws {
         

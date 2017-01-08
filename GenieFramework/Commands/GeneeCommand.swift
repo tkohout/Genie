@@ -18,5 +18,6 @@ public enum GeneeCommandError: Swift.Error {
 
 public protocol GeneeCommand {
     var identifier: String {get}
+    var name: String {get}
     func perform(buffer: Buffer, completionCallback: (Void) -> Void) throws
 }

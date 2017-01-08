@@ -63,15 +63,11 @@ class BufferStub: Buffer {
         self.lines.insert(line, at: index)
     }
     
+    func replace(line: String, atIndex index: Int) {
+        self.lines[index] = line
+    }
+    
     func delete(lineAtIndex index: Int) {
         self.lines.remove(at: index)
     }
-    
-//    func replace(lines: [String], inRange range: CountableRange<Int>) throws {
-//        self.lines.replaceSubrange(range, with: lines)
-//    }
-//    
-//    func insert(lines: [String], inRange range: CountableRange<Int>) throws {
-//        self.lines.insert(contentsOf: lines, at: range.startIndex)
-//    }
 }

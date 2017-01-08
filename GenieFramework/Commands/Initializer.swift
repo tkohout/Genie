@@ -14,6 +14,7 @@ public class Initializer: GeneeCommand {
     
     public init(){}
     public var identifier: String { return "Initializer" }
+    public var name: String { return "Generate Initializer" }
     
     public func perform(buffer: Buffer, completionCallback: (Void) -> Void) throws {
         

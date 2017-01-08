@@ -11,6 +11,7 @@ import Foundation
 class ClosureCapture: GeneeCommand {
     
     var identifier: String { return "Stub" }
+    public var name: String { return "Closure capture" }
     
     func perform(source: Buffer, completionCallback: (Void) -> Void) throws {
         let structure = try source.structure()

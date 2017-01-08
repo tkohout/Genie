@@ -18,17 +18,17 @@ enum SourceEditorCommandError: Error {
 class SourceEditorCommand: NSObject, XCSourceEditorCommand {
     
     
-    lazy var availableCommands: [GeneeCommand] = [
+    static var availableCommands: [GeneeCommand] = [
         Initializer(),
         CurriedInitializer(),
-        MutablePropertyProtocol(),
+        ReactiveProperty(),
         Stub()
     ]
     
     func perform(with invocation: XCSourceEditorCommandInvocation, completionHandler: @escaping (Swift.Error?) -> Void ) -> Void {
         do {
             
-            if let command = availableCommands.filter({ $0.identifier == invocation.commandIdentifier.components(separatedBy: ".").last }).first {
+            if let command = SourceEditorCommand.availableCommands.filter({ $0.identifier == invocation.commandIdentifier.components(separatedBy: ".").last }).first {
                 let buffer = XcodeBuffer(buffer: invocation.buffer)
                 
                 try command.perform(buffer: buffer) { _ in

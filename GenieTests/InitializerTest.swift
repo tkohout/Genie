@@ -9,24 +9,26 @@
 import XCTest
 import GenieFramework
 
-func XCTAssertEqualIgnoringIndentation(_ expression1: [String], _ expression2: [String]){
-    
+
+func AssertEqualIgnoringIndentation(_ expression1: [String], _ expression2: [String],
+                                    file: StaticString = #file, line: UInt = #line) {
+
     let expressions = [expression1, expression2].map { $0.map{ $0.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines) }}
     
     if expressions[0] != expressions[1]{
         if expressions[0].count != expressions[1].count {
-            XCTAssert(false, "Expressions length is not equal \(expressions[0].count) != \(expressions[1].count)")
+            XCTAssert(false, "Expressions length is not equal \(expressions[0].count) != \(expressions[1].count)", file: file, line: line)
             return
         }
         
         expressions[0].enumerated().forEach { (index, exp1) in
             let exp2 = expressions[1][index]
-            XCTAssertEqual(exp1, exp2, "Expressions differ on line: \(index + 1), \(exp1) != \(exp2)")
+            XCTAssertEqual(exp1, exp2, "Expressions differ on line: \(index + 1), \(exp1) != \(exp2)", file: file, line: line)
         }
     }
     
     
-    XCTAssertEqual(expressions[0], expressions[1])
+    XCTAssertEqual(expressions[0], expressions[1], file: file, line: line)
 }
 
 
@@ -64,7 +66,7 @@ class InitializerTest: XCTestCase {
         print(expected.joined(separator: "\n"))
         print(sourceModel.lines.joined(separator: "\n"))
         
-        XCTAssertEqualIgnoringIndentation(expected, sourceModel.lines)
+        AssertEqualIgnoringIndentation(expected, sourceModel.lines)
     }
     
     func testThatSelectsCorrectVariables() {
@@ -102,7 +104,7 @@ class InitializerTest: XCTestCase {
         print(expected.joined(separator: "\n"))
         print(sourceModel.lines.joined(separator: "\n"))
         
-        XCTAssertEqualIgnoringIndentation(expected, sourceModel.lines)
+        AssertEqualIgnoringIndentation(expected, sourceModel.lines)
     }
 
     

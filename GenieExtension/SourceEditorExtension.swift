@@ -15,6 +15,16 @@ class SourceEditorExtension: NSObject, XCSourceEditorExtension {
         NSLog("Genie extension launched sucessfuly")
     }
     
+    var commandDefinitions: [[XCSourceEditorCommandDefinitionKey : Any]] {
+        return SourceEditorCommand.availableCommands.map {
+            [
+                XCSourceEditorCommandDefinitionKey.classNameKey: "Genie.\(SourceEditorCommand.self)",
+                XCSourceEditorCommandDefinitionKey.identifierKey: Bundle.main.bundleIdentifier! + "." + $0.identifier,
+                XCSourceEditorCommandDefinitionKey.nameKey: $0.name
+            ]
+        }
+    }
+    
     /*
     var commandDefinitions: [[XCSourceEditorCommandDefinitionKey: Any]] {
         // If your extension needs to return a collection of command definitions that differs from those in its Info.plist, implement this optional property getter.
