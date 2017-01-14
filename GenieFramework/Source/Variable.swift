@@ -10,17 +10,68 @@ import Foundation
 import SourceKittenFramework
 
 public enum Accessibility: String {
+    case `unspecified` = ""
     case `internal` = "internal"
+    case `open` = "open"
     case `public` = "public"
     case `private` = "private"
     case `fileprivate` = "fileprivate"
+    
+    static var types: [Accessibility] = [.internal, .open, .public, .private, .fileprivate]
+}
+
+protocol PrefixKeywordsRemovable: class {
+    var prefix: String {get set}
+}
+
+extension PrefixKeywordsRemovable {
+    //SourceKit give us offset pointing after all the attributes
+    //Remove them all from prefix
+    func remove(keywordsFromPrefix keywords: [String]) {
+        var prefixLines = self.prefix.components(separatedBy: "\n")
+        if var prefixLastLine = prefixLines.last {
+            let prefixKeywords = prefixLastLine.components(separatedBy: " ")
+            
+            //TODO: This solution is definitely not 100%
+            keywords.forEach { keyword in
+                if prefixKeywords.contains(keyword) {
+                    prefixLastLine = prefixLastLine.replacingOccurrences(of: "\(keyword) ", with: "")
+                }
+            }
+            
+            prefixLines[prefixLines.count-1] = prefixLastLine
+            self.prefix = prefixLines.joined(separator: "\n")
+        }
+    }
+}
+
+protocol AccesibilityUpdatable: class {
+    var prefix: String {get}
+    var accessibility: Accessibility {get set}
+    
+}
+
+extension AccesibilityUpdatable {
+    //Accesibility can be set in sourcekit even though it is not explicitly written, change to unspecified if not found in prefix
+    func updateAccessibility(){
+        let prefixLastLine = self.prefix.components(separatedBy: "\n").last
+        let prefixKeywords = prefixLastLine?.components(separatedBy: " ") ?? []
+        
+        if self.accessibility != .unspecified {
+            if !prefixKeywords.contains(self.accessibility.rawValue) {
+                self.accessibility = .unspecified
+            }
+        }
+    }
 }
 
 
-public class Variable: Node, Declaration {
+
+
+public class Variable: SourceKittenNode, Declaration, PrefixKeywordsRemovable, AccesibilityUpdatable {
     public var name: String
     public var typeName: String?
-    public var accessibility: Accessibility = .internal
+    public var accessibility: Accessibility = .unspecified
     public var isStatic: Bool = false
     public var isClass: Bool = false
     public var isLazy: Bool = false
@@ -30,7 +81,7 @@ public class Variable: Node, Declaration {
     public var isImmutable: Bool = false
     public var initializationBlock: String?
     
-    required public init(name: String, typeName: String?, accessibility: Accessibility = .internal, isStatic: Bool = false, isClass: Bool = false, isLazy: Bool = false, isDynamic: Bool = false, isStored: Bool = false, isComputed: Bool = false, isImmutable: Bool = false, initializationBlock: String? = nil, parent: Type?) {
+    public init(name: String, typeName: String?, accessibility: Accessibility = .unspecified, isStatic: Bool = false, isClass: Bool = false, isLazy: Bool = false, isDynamic: Bool = false, isStored: Bool = false, isComputed: Bool = false, isImmutable: Bool = false, initializationBlock: String? = nil, parent: Type?) {
         self.name = name
         self.typeName = typeName
         self.accessibility = accessibility
@@ -51,21 +102,17 @@ public class Variable: Node, Declaration {
             fatalError("Variable is missing name")
         }
         self.name = name
-        
-//        guard let typeName = structure.typeName else {
-//            fatalError("Variable is missing type")
-//        }
-        
         self.typeName = structure.typeName
-        
-        self.accessibility = structure.accessibility?.components(separatedBy: ".").last.flatMap { Accessibility(rawValue: $0) } ?? .internal
+        self.accessibility = structure.accessibility?.components(separatedBy: ".").last.flatMap { Accessibility(rawValue: $0) } ?? .unspecified
         
         guard let offset = structure.offset, let nameOffset = structure.nameOffset, let length = structure.length else {
             fatalError("Variable is missing offsets")
         }
         
-        let declarationKeyword = source[offset..<nameOffset]
-        self.isImmutable = declarationKeyword.hasPrefix("let")
+        if nameOffset != 0 {
+            let declarationKeyword = source[offset..<nameOffset]
+            self.isImmutable = declarationKeyword.contains("let")
+        }
         
         let endOfName = nameOffset+name.characters.count
         let typeFull = source[endOfName..<offset + length]
@@ -100,12 +147,17 @@ public class Variable: Node, Declaration {
         }
         
         super.init(structure: structure, source: source, parameters: parameters)
+        
+        self.updateAccessibility()
+        self.remove(keywordsFromPrefix: Accessibility.types.map { $0.rawValue } + ["dynamic", "lazy", "class", "static"])
+        
+        
     }
     
     //MARK: Printing
     override public var description: String {
         var attributes:[String] = []
-        if accessibility != .internal { attributes.append(accessibility.rawValue) }
+        if accessibility != .unspecified { attributes.append(accessibility.rawValue) }
         if isLazy { attributes.append("lazy") }
         if isDynamic { attributes.append("dynamic") }
         if isClass { attributes.append("class") }
@@ -128,11 +180,37 @@ public class Variable: Node, Declaration {
 }
 
 public class Parameter: Variable {
+    
+    var label: String?
+    
+    public init(name: String, typeName: String?, accessibility: Accessibility = .unspecified, isStatic: Bool = false, isClass: Bool = false, isLazy: Bool = false, isDynamic: Bool = false, isStored: Bool = false, isComputed: Bool = false, isImmutable: Bool = false, initializationBlock: String? = nil, parent: Type?, label: String? = nil) {
+        self.label = label
+        super.init(name: name, typeName: typeName, accessibility: accessibility, isStatic: isStatic, isClass: isClass, isLazy: isLazy, isDynamic: isDynamic, isStored: isStored, isComputed: isComputed, isImmutable: isImmutable, initializationBlock: initializationBlock, parent: parent)
+    }
+    
+    public required init(structure: SourceKitRepresentable, source: String, parameters: [ParseParameter : Any] = [:]) {
+        guard let offset = structure.offset, let length = structure.length else {
+            fatalError("Parameter is missing offsets")
+        }
+        
+        let code = source[offset..<offset+length]
+        if let typeRange = code.range(of: ":") {
+            let nameString = code.substring(to: typeRange.lowerBound)
+            let names = nameString.components(separatedBy: " ")
+            if names.count == 2 {
+                self.label = names[0]
+            }
+            
+        }
+        
+        super.init(structure: structure, source: source, parameters: parameters)
+    }
+    
     override public var description: String {
         let initialization = initializationBlock.flatMap { $0.characters.count > 0 ? " = \($0)" : "" } ?? ""
         let typeDefinition = typeName.flatMap { ": \($0)" } ?? ""
-        
-        return "\(prefix)\(name)\(typeDefinition)\(initialization)"
+        let labelString = label.flatMap {  "\($0) " } ?? ""
+        return "\(prefix)\(labelString)\(name)\(typeDefinition)\(initialization)"
     }
 }
 

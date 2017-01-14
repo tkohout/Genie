@@ -9,21 +9,27 @@
 import Foundation
 import XCTest
 
-func AssertEqualIgnoringIndentation(_ expression1: [String], _ expression2: [String],
+func AssertEqualIgnoringIndentation(_ expression1: String, _ expression2: String, fileName: String? = nil,
+                                    file: StaticString = #file, line: UInt = #line){
+    AssertEqualIgnoringIndentation(expression1.components(separatedBy: "\n"), expression2.components(separatedBy: "\n"), fileName: fileName, file: file, line: line)
+}
+
+func AssertEqualIgnoringIndentation(_ expression1: [String], _ expression2: [String], fileName: String? = nil,
                                     file: StaticString = #file, line: UInt = #line) {
     
     let expressions = [expression1, expression2].map { $0.map{ $0.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines) }}
+    let fileNameString = fileName.flatMap{ "\($0): " } ?? ""
     
     if expressions[0] != expressions[1]{
         if expressions[0].count != expressions[1].count {
-            XCTAssert(false, "Expressions length is not equal \(expressions[0].count) != \(expressions[1].count)", file: file, line: line)
+            XCTAssert(false, "\(fileNameString)Expressions length is not equal \(expressions[0].count) != \(expressions[1].count)", file: file, line: line)
             return
         }
         
         expressions[0].enumerated().forEach { (index, exp1) in
             let exp2 = expressions[1][index]
             if exp1 != exp2 {
-                XCTAssert(false, "Expressions differ on line \(index + 1): '\(exp1)' vs. '\(exp2)'", file: file, line: line)
+                XCTAssert(false, "\(fileNameString)Expressions differ on line \(index + 1): '\(exp1)' vs. '\(exp2)'", file: file, line: line)
             }
         }
     }

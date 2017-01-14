@@ -1,4 +1,4 @@
-//
+ //
 //  SyntaxTreeTest.swift
 //  Genee
 //
@@ -55,11 +55,60 @@ class SourceTest: XCTestCase {
         XCTAssertEqual(source.types.first?.variables.first?.isComputed, true)
     }
     
+    func testThatPublicComputedVariableIsParsed() {
+        
+        let code = String(
+            "class SomeClass {",
+            "public dynamic var isInvalidURLError: Bool {",
+            "    if case .invalidURL = self { return true }",
+            "    return false",
+            "}",
+            "fileprivate lazy var hello: String { return \"\" }",
+            "}"
+        )
+        
+        let structure: SourceKitRepresentable = Structure(file: File(contents: code)).dictionary
+        
+        let source =  Source(structure: structure, source: code)
+        
+        AssertEqualIgnoringIndentation(code, "\(source)")
+    }
+    
+    func testThatStoredPropertiesAreParsed(){
+        
+        let code = String(
+            "public struct Task {",
+            "   public static let DidCancel = Notification.Name(rawValue: \"org.alamofire.notification.name.task.didCancel\")",
+            "}"
+        )
+        
+        let structure: SourceKitRepresentable = Structure(file: File(contents: code)).dictionary
+        
+        let source =  Source(structure: structure, source: code)
+        
+        AssertEqualIgnoringIndentation(code, "\(source)")
+    }
+    
+    func testThatPrivateStructVarsAreNotChanged() {
+        let code = String(
+        "private struct AssociatedKeys {",
+        "private static var managerKey = \"URLSession.ServerTrustPolicyManager\"",
+        "}"
+        )
+        
+        let structure: SourceKitRepresentable = Structure(file: File(contents: code)).dictionary
+        
+        let source =  Source(structure: structure, source: code)
+        AssertEqualIgnoringIndentation(code, "\(source)")
+    }
+    
     func testThatCommentsAreNotDeleted() {
         let code = String(
             "//This is some important comment",
             "class SomeClass {",
             "",
+            "var y: String //This variable is super cool",
+            "var /*Badly placed comment*/y: String",
             "//Very important variable",
             "var x: Int { return 5 }",
             "// Whatever",
@@ -69,7 +118,22 @@ class SourceTest: XCTestCase {
         let structure: SourceKitRepresentable = Structure(file: File(contents: code)).dictionary
         
         let source =  Source(structure: structure, source: code)
-        AssertEqualIgnoringIndentation(code.components(separatedBy: "\n"), "\(source)".components(separatedBy: "\n"))
+        AssertEqualIgnoringIndentation(code, "\(source)")
+    }
+    
+    
+    func testThatCommentWithAKeywordIsNotDeleted() {
+        let code = String(
+        "/// allows for scenarios such as using default evaluation for host1, certificate pinning for host2, public key",
+        "/// - returns: The new `ServerTrustPolicyManager` instance.",
+        "public init(policies: [String: ServerTrustPolicy]){",
+        "",
+        "}")
+        
+        let structure: SourceKitRepresentable = Structure(file: File(contents: code)).dictionary
+        
+        let source =  Source(structure: structure, source: code)
+        AssertEqualIgnoringIndentation(code, "\(source)")
     }
     
     func testThatUnparsedNodesArePreserved() {
@@ -93,7 +157,7 @@ class SourceTest: XCTestCase {
         let structure: SourceKitRepresentable = Structure(file: File(contents: code)).dictionary
         
         let source =  Source(structure: structure, source: code)
-        AssertEqualIgnoringIndentation(code.components(separatedBy: "\n"), "\(source)".components(separatedBy: "\n"))
+        AssertEqualIgnoringIndentation(code, "\(source)")
     }
     
     
@@ -109,11 +173,8 @@ class SourceTest: XCTestCase {
         let structure: SourceKitRepresentable = Structure(file: File(contents: code)).dictionary
         let source =  Source(structure: structure, source: code)
 
-        print(code)
-        print(source)
         
-        
-       AssertEqualIgnoringIndentation(code.components(separatedBy: "\n"), "\(source)".components(separatedBy: "\n"))
+       AssertEqualIgnoringIndentation(code, "\(source)")
     }
     
     func testThatInheritedTypesAreParsed() {
@@ -129,7 +190,7 @@ class SourceTest: XCTestCase {
         let structure: SourceKitRepresentable = Structure(file: File(contents: code)).dictionary
         let source =  Source(structure: structure, source: code)
         
-        AssertEqualIgnoringIndentation(code.components(separatedBy: "\n"), "\(source)".components(separatedBy: "\n"))
+        AssertEqualIgnoringIndentation(code, "\(source)")
 
     }
     
@@ -146,8 +207,52 @@ class SourceTest: XCTestCase {
         let structure: SourceKitRepresentable = Structure(file: File(contents: code)).dictionary
         let source =  Source(structure: structure, source: code)
         
-        AssertEqualIgnoringIndentation(code.components(separatedBy: "\n"), "\(source)".components(separatedBy: "\n"))
+        AssertEqualIgnoringIndentation(code, "\(source)")
         
+    }
+    
+    func testThatInitializerGetParsedProperly() {
+        let code = String(
+        "class ServerTrustPolicyManager {",
+        "",
+        "init(policies: [String: String]) {",
+        "}",
+        "}")
+        
+        let structure: SourceKitRepresentable = Structure(file: File(contents: code)).dictionary
+        let source =  Source(structure: structure, source: code)
+        
+        AssertEqualIgnoringIndentation(code, "\(source)")
+    }
+    
+    func testThatFunctionParameterLabelIsPreserved() {
+        let code = String(
+        "func syncResult<T>(closureLabel closure: () -> T) -> T {",
+        "}")
+        let structure: SourceKitRepresentable = Structure(file: File(contents: code)).dictionary
+        let source =  Source(structure: structure, source: code)
+        
+        AssertEqualIgnoringIndentation(code, "\(source)")
+    }
+    
+    func testThatFunctionMultilineParametersArePreserved() {
+        let code = String(
+            "public func request(",
+            "   _ url: URLConvertible,",
+            "   method: HTTPMethod = .get,",
+            "   parameters: Parameters? = nil,",
+            "   encoding: ParameterEncoding = URLEncoding.default,",
+            "   headers: HTTPHeaders? = nil)",
+            "   throws",
+            "   -> DataRequest<Array<Data>>",
+            "   where X:Y, X==Y",
+            "{",
+            "",
+            "}")
+        let structure: SourceKitRepresentable = Structure(file: File(contents: code)).dictionary
+        let source =  Source(structure: structure, source: code)
+        
+        AssertEqualIgnoringIndentation(code, "\(source)")
     }
     
     func testThatBodyLessFunctionsGetParsed() {
@@ -159,7 +264,18 @@ class SourceTest: XCTestCase {
         let structure: SourceKitRepresentable = Structure(file: File(contents: code)).dictionary
         let source =  Source(structure: structure, source: code)
         
-        AssertEqualIgnoringIndentation(code.components(separatedBy: "\n"), "\(source)".components(separatedBy: "\n"))
+        AssertEqualIgnoringIndentation(code, "\(source)")
+    }
+    
+    func testThatFunctionThatThrowsIsPreserved() {
+        let code = String(
+            "func dangerousFunction() throws -> VC where VC : UIViewController {",
+            "}")
+        
+        let structure: SourceKitRepresentable = Structure(file: File(contents: code)).dictionary
+        let source =  Source(structure: structure, source: code)
+        
+        AssertEqualIgnoringIndentation(code, "\(source)")
     }
     
     func testThatFunctionWithWhereIsPreserved() {
@@ -171,8 +287,21 @@ class SourceTest: XCTestCase {
         let structure: SourceKitRepresentable = Structure(file: File(contents: code)).dictionary
         let source =  Source(structure: structure, source: code)
         
-        XCTAssertEqual((source.declarations[0] as? Function)?.whereClause, "VC : UIViewController")
-        AssertEqualIgnoringIndentation(code.components(separatedBy: "\n"), "\(source)".components(separatedBy: "\n"))
+        XCTAssertEqual((source.declarations[0] as? Function)?.`where`?.clause, "VC : UIViewController ")
+        AssertEqualIgnoringIndentation(code, "\(source)")
+    }
+    
+    func testThatOpenKeywordIsParsed() {
+        
+        let code = String(
+        "class OpenMindedClass {",
+        "   open func iAmOpen(){}",
+        "}")
+        
+        let structure: SourceKitRepresentable = Structure(file: File(contents: code)).dictionary
+        let source =  Source(structure: structure, source: code)
+        
+        AssertEqualIgnoringIndentation(code, "\(source)")
     }
     
     func testThatExtensionIsParsed() {
@@ -185,6 +314,27 @@ class SourceTest: XCTestCase {
         let structure: SourceKitRepresentable = Structure(file: File(contents: code)).dictionary
         let source =  Source(structure: structure, source: code)
         
-        AssertEqualIgnoringIndentation(code.components(separatedBy: "\n"), "\(source)".components(separatedBy: "\n"))
+        AssertEqualIgnoringIndentation(code, "\(source)")
+    }
+    
+    func testThatSourcesAreNotChanged() {
+        let path = Bundle(for: type(of: self)).resourcePath!
+        let fileManager = FileManager.default
+
+        let sources = try! fileManager.contentsOfDirectory(atPath: path)
+        sources.filter { $0.components(separatedBy: ".").last == "txt" }.forEach { sourcePath in
+            let sourceData = fileManager.contents(atPath: path + "/" + sourcePath)!
+            let code = String(data: sourceData, encoding: String.Encoding.utf8)!
+            
+            
+            let structure: SourceKitRepresentable = Structure(file: File(contents: code)).dictionary
+            let parsed =  Source(structure: structure, source: code)
+            
+            print(code)
+            print("\(parsed)")
+            AssertEqualIgnoringIndentation(code, "\(parsed)", fileName: sourcePath)
+        }
+        
+        
     }
 }

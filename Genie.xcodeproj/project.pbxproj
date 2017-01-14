@@ -25,6 +25,9 @@
 		AC0343461E2177D000969C2C /* StubTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACED61381E21460A00BBD92D /* StubTest.swift */; };
 		AC03434A1E217B9900969C2C /* Buffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0343481E217B9900969C2C /* Buffer.swift */; };
 		AC03434B1E217B9900969C2C /* SourceKitRepresentableExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0343491E217B9900969C2C /* SourceKitRepresentableExtensions.swift */; };
+		AC2CE5721E29723D00A0B36D /* BracedBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2CE5711E29723D00A0B36D /* BracedBlock.swift */; };
+		AC2CE5741E29854B00A0B36D /* Lexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2CE5731E29854B00A0B36D /* Lexer.swift */; };
+		AC2CE5761E299CFA00A0B36D /* LexerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2CE5751E299CFA00A0B36D /* LexerTest.swift */; };
 		AC39E2051E2180C200D9FD65 /* GenieFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACED61441E21467B00BBD92D /* GenieFramework.framework */; };
 		AC39E2061E2180C200D9FD65 /* GenieFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = ACED61441E21467B00BBD92D /* GenieFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AC941E841E213AAB004D8A03 /* Yams.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = ACB985A71E2136F300127FD9 /* Yams.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -38,6 +41,23 @@
 		ACB1D29F1E21A44700CEFF0F /* SourceKittenFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AC941E8B1E213BE1004D8A03 /* SourceKittenFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		ACB1D2A01E21A44700CEFF0F /* SWXMLHash.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AC941E8C1E213BE1004D8A03 /* SWXMLHash.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		ACB1D2A11E21A44700CEFF0F /* Yams.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = ACB985A71E2136F300127FD9 /* Yams.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		ACB71ECF1E22F322004AF71D /* AFError.txt in Resources */ = {isa = PBXBuildFile; fileRef = ACB71EBE1E22F322004AF71D /* AFError.txt */; };
+		ACB71ED01E22F322004AF71D /* Alamofire.txt in Resources */ = {isa = PBXBuildFile; fileRef = ACB71EBF1E22F322004AF71D /* Alamofire.txt */; };
+		ACB71ED11E22F322004AF71D /* DispatchQueue+Alamofire.txt in Resources */ = {isa = PBXBuildFile; fileRef = ACB71EC01E22F322004AF71D /* DispatchQueue+Alamofire.txt */; };
+		ACB71ED21E22F322004AF71D /* MultipartFormData.txt in Resources */ = {isa = PBXBuildFile; fileRef = ACB71EC11E22F322004AF71D /* MultipartFormData.txt */; };
+		ACB71ED31E22F322004AF71D /* NetworkReachabilityManager.txt in Resources */ = {isa = PBXBuildFile; fileRef = ACB71EC21E22F322004AF71D /* NetworkReachabilityManager.txt */; };
+		ACB71ED41E22F322004AF71D /* Notifications.txt in Resources */ = {isa = PBXBuildFile; fileRef = ACB71EC31E22F322004AF71D /* Notifications.txt */; };
+		ACB71ED51E22F322004AF71D /* ParameterEncoding.txt in Resources */ = {isa = PBXBuildFile; fileRef = ACB71EC41E22F322004AF71D /* ParameterEncoding.txt */; };
+		ACB71ED61E22F322004AF71D /* Request.txt in Resources */ = {isa = PBXBuildFile; fileRef = ACB71EC51E22F322004AF71D /* Request.txt */; };
+		ACB71ED71E22F322004AF71D /* Response.txt in Resources */ = {isa = PBXBuildFile; fileRef = ACB71EC61E22F322004AF71D /* Response.txt */; };
+		ACB71ED81E22F322004AF71D /* ResponseSerialization.txt in Resources */ = {isa = PBXBuildFile; fileRef = ACB71EC71E22F322004AF71D /* ResponseSerialization.txt */; };
+		ACB71ED91E22F322004AF71D /* Result.txt in Resources */ = {isa = PBXBuildFile; fileRef = ACB71EC81E22F322004AF71D /* Result.txt */; };
+		ACB71EDA1E22F322004AF71D /* ServerTrustPolicy.txt in Resources */ = {isa = PBXBuildFile; fileRef = ACB71EC91E22F322004AF71D /* ServerTrustPolicy.txt */; };
+		ACB71EDB1E22F322004AF71D /* SessionDelegate.txt in Resources */ = {isa = PBXBuildFile; fileRef = ACB71ECA1E22F322004AF71D /* SessionDelegate.txt */; };
+		ACB71EDC1E22F322004AF71D /* SessionManager.txt in Resources */ = {isa = PBXBuildFile; fileRef = ACB71ECB1E22F322004AF71D /* SessionManager.txt */; };
+		ACB71EDD1E22F322004AF71D /* TaskDelegate.txt in Resources */ = {isa = PBXBuildFile; fileRef = ACB71ECC1E22F322004AF71D /* TaskDelegate.txt */; };
+		ACB71EDE1E22F322004AF71D /* Timeline.txt in Resources */ = {isa = PBXBuildFile; fileRef = ACB71ECD1E22F322004AF71D /* Timeline.txt */; };
+		ACB71EDF1E22F322004AF71D /* Validation.txt in Resources */ = {isa = PBXBuildFile; fileRef = ACB71ECE1E22F322004AF71D /* Validation.txt */; };
 		ACB985A81E2136F300127FD9 /* Yams.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACB985A71E2136F300127FD9 /* Yams.framework */; };
 		ACB985A91E2137DF00127FD9 /* SourceKittenHelper.xpc in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6C477AED1D70305900D76FCA /* SourceKittenHelper.xpc */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		ACE36CA11E22B5790007F0FD /* ReactivePropertyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE36CA01E22B5790007F0FD /* ReactivePropertyTest.swift */; };
@@ -192,6 +212,9 @@
 		AC0343431E21778600969C2C /* BufferStub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BufferStub.swift; sourceTree = "<group>"; };
 		AC0343481E217B9900969C2C /* Buffer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Buffer.swift; sourceTree = "<group>"; };
 		AC0343491E217B9900969C2C /* SourceKitRepresentableExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourceKitRepresentableExtensions.swift; sourceTree = "<group>"; };
+		AC2CE5711E29723D00A0B36D /* BracedBlock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BracedBlock.swift; sourceTree = "<group>"; };
+		AC2CE5731E29854B00A0B36D /* Lexer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lexer.swift; sourceTree = "<group>"; };
+		AC2CE5751E299CFA00A0B36D /* LexerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LexerTest.swift; sourceTree = "<group>"; };
 		AC91AA5B1E2130A1003E871F /* CurriedInitializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurriedInitializer.swift; sourceTree = "<group>"; };
 		AC91AA5C1E2130A1003E871F /* GeneeCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneeCommand.swift; sourceTree = "<group>"; };
 		AC91AA5D1E2130A1003E871F /* Initializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Initializer.swift; sourceTree = "<group>"; };
@@ -210,6 +233,23 @@
 		AC91AA711E2130A1003E871F /* Dwifft.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dwifft.swift; sourceTree = "<group>"; };
 		AC941E8B1E213BE1004D8A03 /* SourceKittenFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SourceKittenFramework.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Genie-gnjkibsipwxrbzfukpgdagpvfryi/Build/Products/Debug/SourceKittenFramework.framework"; sourceTree = "<group>"; };
 		AC941E8C1E213BE1004D8A03 /* SWXMLHash.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SWXMLHash.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Genie-gnjkibsipwxrbzfukpgdagpvfryi/Build/Products/Debug/SWXMLHash.framework"; sourceTree = "<group>"; };
+		ACB71EBE1E22F322004AF71D /* AFError.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AFError.txt; sourceTree = "<group>"; };
+		ACB71EBF1E22F322004AF71D /* Alamofire.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Alamofire.txt; sourceTree = "<group>"; };
+		ACB71EC01E22F322004AF71D /* DispatchQueue+Alamofire.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "DispatchQueue+Alamofire.txt"; sourceTree = "<group>"; };
+		ACB71EC11E22F322004AF71D /* MultipartFormData.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MultipartFormData.txt; sourceTree = "<group>"; };
+		ACB71EC21E22F322004AF71D /* NetworkReachabilityManager.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NetworkReachabilityManager.txt; sourceTree = "<group>"; };
+		ACB71EC31E22F322004AF71D /* Notifications.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Notifications.txt; sourceTree = "<group>"; };
+		ACB71EC41E22F322004AF71D /* ParameterEncoding.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ParameterEncoding.txt; sourceTree = "<group>"; };
+		ACB71EC51E22F322004AF71D /* Request.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Request.txt; sourceTree = "<group>"; };
+		ACB71EC61E22F322004AF71D /* Response.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Response.txt; sourceTree = "<group>"; };
+		ACB71EC71E22F322004AF71D /* ResponseSerialization.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ResponseSerialization.txt; sourceTree = "<group>"; };
+		ACB71EC81E22F322004AF71D /* Result.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Result.txt; sourceTree = "<group>"; };
+		ACB71EC91E22F322004AF71D /* ServerTrustPolicy.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ServerTrustPolicy.txt; sourceTree = "<group>"; };
+		ACB71ECA1E22F322004AF71D /* SessionDelegate.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SessionDelegate.txt; sourceTree = "<group>"; };
+		ACB71ECB1E22F322004AF71D /* SessionManager.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SessionManager.txt; sourceTree = "<group>"; };
+		ACB71ECC1E22F322004AF71D /* TaskDelegate.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TaskDelegate.txt; sourceTree = "<group>"; };
+		ACB71ECD1E22F322004AF71D /* Timeline.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Timeline.txt; sourceTree = "<group>"; };
+		ACB71ECE1E22F322004AF71D /* Validation.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Validation.txt; sourceTree = "<group>"; };
 		ACB985A71E2136F300127FD9 /* Yams.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Yams.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Genie-gnjkibsipwxrbzfukpgdagpvfryi/Build/Products/Debug/Yams.framework"; sourceTree = "<group>"; };
 		ACE36CA01E22B5790007F0FD /* ReactivePropertyTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReactivePropertyTest.swift; sourceTree = "<group>"; };
 		ACE36CA21E22BAE70007F0FD /* Asserts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Asserts.swift; sourceTree = "<group>"; };
@@ -390,6 +430,8 @@
 				AC91AA661E2130A1003E871F /* SyntaxTree.swift */,
 				AC91AA671E2130A1003E871F /* Type.swift */,
 				AC91AA681E2130A1003E871F /* Variable.swift */,
+				AC2CE5711E29723D00A0B36D /* BracedBlock.swift */,
+				AC2CE5731E29854B00A0B36D /* Lexer.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -419,9 +461,42 @@
 			name = Helpers;
 			sourceTree = "<group>";
 		};
+		ACE36CA61E22EFC00007F0FD /* SwiftResources */ = {
+			isa = PBXGroup;
+			children = (
+				ACE36CA71E22EFC00007F0FD /* Alamofire-4.2.0 */,
+			);
+			path = SwiftResources;
+			sourceTree = "<group>";
+		};
+		ACE36CA71E22EFC00007F0FD /* Alamofire-4.2.0 */ = {
+			isa = PBXGroup;
+			children = (
+				ACB71EBE1E22F322004AF71D /* AFError.txt */,
+				ACB71EBF1E22F322004AF71D /* Alamofire.txt */,
+				ACB71EC01E22F322004AF71D /* DispatchQueue+Alamofire.txt */,
+				ACB71EC11E22F322004AF71D /* MultipartFormData.txt */,
+				ACB71EC21E22F322004AF71D /* NetworkReachabilityManager.txt */,
+				ACB71EC31E22F322004AF71D /* Notifications.txt */,
+				ACB71EC41E22F322004AF71D /* ParameterEncoding.txt */,
+				ACB71EC51E22F322004AF71D /* Request.txt */,
+				ACB71EC61E22F322004AF71D /* Response.txt */,
+				ACB71EC71E22F322004AF71D /* ResponseSerialization.txt */,
+				ACB71EC81E22F322004AF71D /* Result.txt */,
+				ACB71EC91E22F322004AF71D /* ServerTrustPolicy.txt */,
+				ACB71ECA1E22F322004AF71D /* SessionDelegate.txt */,
+				ACB71ECB1E22F322004AF71D /* SessionManager.txt */,
+				ACB71ECC1E22F322004AF71D /* TaskDelegate.txt */,
+				ACB71ECD1E22F322004AF71D /* Timeline.txt */,
+				ACB71ECE1E22F322004AF71D /* Validation.txt */,
+			);
+			path = "Alamofire-4.2.0";
+			sourceTree = "<group>";
+		};
 		ACED612A1E21453F00BBD92D /* GenieTests */ = {
 			isa = PBXGroup;
 			children = (
+				ACE36CA61E22EFC00007F0FD /* SwiftResources */,
 				ACE36CA41E22BAEC0007F0FD /* Helpers */,
 				AC0343421E21775000969C2C /* Stubs */,
 				ACED61331E21460A00BBD92D /* ClosureCaptureTest.swift */,
@@ -429,6 +504,7 @@
 				ACED61341E21460A00BBD92D /* DwifftTests.swift */,
 				ACED61351E21460A00BBD92D /* InitializerTest.swift */,
 				ACED61371E21460A00BBD92D /* SourceTest.swift */,
+				AC2CE5751E299CFA00A0B36D /* LexerTest.swift */,
 				ACED61381E21460A00BBD92D /* StubTest.swift */,
 				ACED612B1E21453F00BBD92D /* GenieTests.swift */,
 				ACED612D1E21453F00BBD92D /* Info.plist */,
@@ -638,6 +714,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACB71EDD1E22F322004AF71D /* TaskDelegate.txt in Resources */,
+				ACB71EDE1E22F322004AF71D /* Timeline.txt in Resources */,
+				ACB71EDA1E22F322004AF71D /* ServerTrustPolicy.txt in Resources */,
+				ACB71EDC1E22F322004AF71D /* SessionManager.txt in Resources */,
+				ACB71ECF1E22F322004AF71D /* AFError.txt in Resources */,
+				ACB71ED91E22F322004AF71D /* Result.txt in Resources */,
+				ACB71ED31E22F322004AF71D /* NetworkReachabilityManager.txt in Resources */,
+				ACB71ED81E22F322004AF71D /* ResponseSerialization.txt in Resources */,
+				ACB71ED61E22F322004AF71D /* Request.txt in Resources */,
+				ACB71ED01E22F322004AF71D /* Alamofire.txt in Resources */,
+				ACB71ED71E22F322004AF71D /* Response.txt in Resources */,
+				ACB71EDF1E22F322004AF71D /* Validation.txt in Resources */,
+				ACB71ED51E22F322004AF71D /* ParameterEncoding.txt in Resources */,
+				ACB71EDB1E22F322004AF71D /* SessionDelegate.txt in Resources */,
+				ACB71ED41E22F322004AF71D /* Notifications.txt in Resources */,
+				ACB71ED11E22F322004AF71D /* DispatchQueue+Alamofire.txt in Resources */,
+				ACB71ED21E22F322004AF71D /* MultipartFormData.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -684,6 +777,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC2CE5761E299CFA00A0B36D /* LexerTest.swift in Sources */,
 				AC0343411E21774100969C2C /* InitializerTest.swift in Sources */,
 				ACE36CA11E22B5790007F0FD /* ReactivePropertyTest.swift in Sources */,
 				AC0343451E2177CD00969C2C /* SourceTest.swift in Sources */,
@@ -698,10 +792,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACED61511E2146AA00BBD92D /* GeneeCommand.swift in Sources */,
+				AC2CE5721E29723D00A0B36D /* BracedBlock.swift in Sources */,
 				ACED61541E2146AA00BBD92D /* Stub.swift in Sources */,
 				ACED615A1E2146B300BBD92D /* SyntaxTree.swift in Sources */,
 				ACED61531E2146AA00BBD92D /* ReactiveProperty.swift in Sources */,
 				ACED61581E2146B300BBD92D /* Node.swift in Sources */,
+				AC2CE5741E29854B00A0B36D /* Lexer.swift in Sources */,
 				ACED615B1E2146B300BBD92D /* Type.swift in Sources */,
 				ACED61501E2146AA00BBD92D /* CurriedInitializer.swift in Sources */,
 				ACED615C1E2146B300BBD92D /* Variable.swift in Sources */,

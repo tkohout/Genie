@@ -11,7 +11,7 @@ import SourceKittenFramework
 
 protocol Declaration {}
 
-public class Type: Node, Declaration {
+public class Type: SourceKittenNode, Declaration {
     var keyword: String { fatalError("Implement in successor") }
     public var name: String
     public var inheritedTypes: [String] = []

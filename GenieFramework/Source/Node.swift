@@ -16,9 +16,11 @@ import SourceKittenFramework
 
 enum ExpressionKind: String, SwiftLangSyntax {
     case call = "source.lang.swift.expr.call"
+    case array = "source.lang.swift.expr.array"
+    case dictionary = "source.lang.swift.expr.dictionary"
 }
 
-protocol Parseable {
+protocol SourceKittenParseable {
     init(structure: SourceKitRepresentable, source: String, parameters: [ParseParameter : Any])
     var range: Range<Int64>? { get }
 
@@ -31,19 +33,22 @@ public enum ParseParameter {
     case bodySuffix
 }
 
-
-public class Node: Parseable, PositionSearchable, Equatable, CustomStringConvertible {
+public class Node: PositionSearchable, Equatable, CustomStringConvertible {
+    
     var prefix: String = ""
+    var suffix: String = ""
+    
+    public var nodes: [Node] = []
+    public var parent: Node? = nil
+    
     var bodySuffix: String = ""
     var code: String = ""
     
     public var range: Range<Int64>? = nil
-    public var nodes: [Node] = []
-    public var parent: Node? = nil
     
-    
-    public init(range: Range<Int64>? = nil, prefix: String = "", code: String = "") {
+    public init(range: Range<Int64>? = nil, prefix: String = "", suffix: String = "", code: String = "") {
         self.prefix = prefix
+        self.suffix = suffix
         self.code = code
         self.range = range
     }
@@ -72,11 +77,35 @@ public class Node: Parseable, PositionSearchable, Equatable, CustomStringConvert
         nodes.remove(at: index)
     }
     
-    public func parseNodes(structure: SourceKitRepresentable, source: String, allowedTypes: [Node.Type] = []) -> [Node] {
+    //MARK: Printing
+    public var description: String { return "\(prefix)\(code)" }
+    
+}
+
+public func ==(lhs: Node, rhs: Node) -> Bool {
+    //TODO: Find better solution
+    return lhs === rhs
+}
+
+public class SourceKittenNode: Node, SourceKittenParseable {
+    
+    public func parseNodes(structure: SourceKitRepresentable, source: String, allowedTypes: [Node.Type] = [], inRange limitedRange: Range<Int64>? = nil) -> [SourceKittenNode] {
+        var substructuresRange: Range<Int64>
+        if let limitedRange = limitedRange {
+            substructuresRange = limitedRange
+        } else {
+            if let bodyOffset = structure.bodyOffset, let bodyLength = structure.bodyLength {
+                substructuresRange = bodyOffset ..< bodyOffset + bodyLength + 1 //TODO: Sort out this mess
+            } else {
+                substructuresRange = 0 ..< (structure.length ?? 0)
+            }
+        }
         
-        var endOffset = structure.bodyOffset ?? 0
+        var endOffset = substructuresRange.lowerBound
         
-        let nodes = structure.substructures.flatMap { substructure -> Node? in
+        let nodes = structure.substructures.flatMap { substructure -> SourceKittenNode? in
+            
+            //guard substructuresRange.contains(substructure.range!) else { print("Out of range") }
             
             guard let offset = substructure.offset else { fatalError("Substructure missing offset") }
             guard let kind = substructure.kind else { fatalError("Substructure missing kind") }
@@ -90,7 +119,7 @@ public class Node: Parseable, PositionSearchable, Equatable, CustomStringConvert
             let parameters: [ParseParameter: Any] = [.prefix: source[endOffset..<offset],
                                                      .parent: self]
             
-            let node: Node
+            let node: SourceKittenNode
             
             switch kind {
             case SwiftDeclarationKind.`class`:
@@ -108,7 +137,7 @@ public class Node: Parseable, PositionSearchable, Equatable, CustomStringConvert
             case SwiftDeclarationKind.varParameter:
                 node = Parameter(structure: substructure, source: source, parameters: parameters)
             default:
-                node = Node(structure: substructure, source: source, parameters: parameters)
+                node = SourceKittenNode(structure: substructure, source: source, parameters: parameters)
             }
             
             guard let range = node.range else { fatalError("Range hasn't been found") }
@@ -118,12 +147,15 @@ public class Node: Parseable, PositionSearchable, Equatable, CustomStringConvert
             return node
         }
         
-        //TODO: Not every node has brace on end
-        if let range = self.range, endOffset < range.upperBound { // -1 for the brace
-            self.bodySuffix = source[endOffset ..< range.upperBound]
+        if endOffset < substructuresRange.upperBound {
+            self.bodySuffix = source[endOffset ..< substructuresRange.upperBound]
         }
-        
+        // self.bodySuffix = source[bodyOffset+bodyLength ..< offset+length]
         return nodes
+    }
+    
+    public override init(range: Range<Int64>? = nil, prefix: String = "", suffix: String = "", code: String = "") {
+        super.init(range: range, prefix: prefix, suffix: suffix, code: code)
     }
     
     //MARK: Parsing
@@ -144,23 +176,14 @@ public class Node: Parseable, PositionSearchable, Equatable, CustomStringConvert
         //TODO: Use sourcekitten for this 
         range = offset..<min(upperBound, Int64(source.utf8.count))
         
+        super.init()
         self.range = range
         self.code = source[range]
-        
-        
         self.prefix = parameters[.prefix] as? String ?? ""
         self.bodySuffix = parameters[.bodySuffix] as? String ?? ""
     }
-    
-    //MARK: Printing
-    public var description: String { return "\(prefix)\(code)" }
-    
 }
 
-public func ==(lhs: Node, rhs: Node) -> Bool {
-    //TODO: Find better solution
-    return lhs === rhs
-}
 
 
 

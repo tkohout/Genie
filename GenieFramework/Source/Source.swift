@@ -9,7 +9,7 @@
 import Foundation
 import SourceKittenFramework
 
-public class Source: Node {
+public class Source: SourceKittenNode {
     public var declarations: [Node] { return nodes.flatMap { $0 as? Declaration }.flatMap { $0 as? Node } } //TODO: Ugly
     public var types: [Type] { return nodes.flatMap { $0 as? Type } }
     
