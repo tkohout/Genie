@@ -9,17 +9,6 @@
 import Foundation
 import SourceKittenFramework
 
-public enum Accessibility: String {
-    case `unspecified` = ""
-    case `internal` = "internal"
-    case `open` = "open"
-    case `public` = "public"
-    case `private` = "private"
-    case `fileprivate` = "fileprivate"
-    
-    static var types: [Accessibility] = [.internal, .open, .public, .private, .fileprivate]
-}
-
 protocol PrefixKeywordsRemovable: class {
     var prefix: String {get set}
 }
@@ -47,7 +36,7 @@ extension PrefixKeywordsRemovable {
 
 protocol AccesibilityUpdatable: class {
     var prefix: String {get}
-    var accessibility: Accessibility {get set}
+    var accessibility: Keyword.Accessibility? {get set}
     
 }
 
@@ -57,9 +46,9 @@ extension AccesibilityUpdatable {
         let prefixLastLine = self.prefix.components(separatedBy: "\n").last
         let prefixKeywords = prefixLastLine?.components(separatedBy: " ") ?? []
         
-        if self.accessibility != .unspecified {
-            if !prefixKeywords.contains(self.accessibility.rawValue) {
-                self.accessibility = .unspecified
+        if let accessibility = self.accessibility?.rawValue {
+            if !prefixKeywords.contains(accessibility) {
+                self.accessibility = nil
             }
         }
     }
@@ -68,20 +57,150 @@ extension AccesibilityUpdatable {
 
 
 
-public class Variable: SourceKittenNode, Declaration, PrefixKeywordsRemovable, AccesibilityUpdatable {
-    public var name: String
-    public var typeName: String?
-    public var accessibility: Accessibility = .unspecified
-    public var isStatic: Bool = false
-    public var isClass: Bool = false
-    public var isLazy: Bool = false
-    public var isDynamic: Bool = false
-    public var isStored: Bool = false
-    public var isComputed: Bool = false
-    public var isImmutable: Bool = false
-    public var initializationBlock: String?
+extension Array where Element : Equatable {
+    func value(after: Element) -> Element? {
+        if let afterIndex = self.index(of: after) {
+            let index = self.index(after: afterIndex)
+            return self[index]
+        }
+        return nil
+    }
     
-    public init(name: String, typeName: String?, accessibility: Accessibility = .unspecified, isStatic: Bool = false, isClass: Bool = false, isLazy: Bool = false, isDynamic: Bool = false, isStored: Bool = false, isComputed: Bool = false, isImmutable: Bool = false, initializationBlock: String? = nil, parent: Type?) {
+    @discardableResult
+    mutating func replace(value: Element, with newValue: Element) -> Bool {
+        if let index = self.index(of: newValue) {
+            self[index] = value
+            return true
+        }
+        
+        return false
+    }
+}
+
+
+public class Variable: SourceKittenNode, Declaration, PrefixKeywordsRemovable {
+    
+    public var name: Identifier {
+        get {
+            if let value = syntaxTokens.value(after: isImmutable ? Token.keyword(.declaration(.`let`)) : Token.keyword(.declaration(.`var`))),
+                case .identifier(let identifier) = value {
+                return identifier
+            }
+            fatalError("Variable does not have a name")
+        }
+        
+        set {
+            tokens.replace(value: Token.identifier(name), with: Token.identifier(newValue))
+        }
+    }
+    
+            
+    
+    public var typeName: TypeIdentifier? {
+        get {
+            let types = syntaxTokens.flatMap { token -> TypeIdentifier? in
+                if case .typeIdentifier(let type) = token { return type }
+                return nil
+            }
+            return types.first
+        }
+        
+        set {
+            
+        }
+        
+    }
+    public var accessibility: Keyword.Accessibility? {
+        get {
+            for token in syntaxTokens {
+                if case .keyword(let keyword) = token, case .accessibility(let accessibility) = keyword {
+                    return accessibility
+                }
+            }
+            return nil
+        }
+        
+        set {
+            //TODO:
+        }
+    }
+    
+    func has(keyword: Keyword) -> Bool {
+        return tokens.contains(.keyword(keyword))
+    }
+    
+    func update(keyword: Keyword, isSet: Bool){
+        if isSet && !has(keyword: keyword) {
+            let keywordTokens: [Token] = [.keyword(keyword), .indentation(.space(1))]
+            return tokens.insert(contentsOf: keywordTokens, at: 0)
+        } else {
+            remove(keyword: keyword)
+        }
+    }
+    
+    func remove(keyword: Keyword){
+        if let index = tokens.index(of: .keyword(keyword)) {
+            tokens.remove(at: index)
+        }
+    }
+   
+    public var isStatic: Bool {
+        get { return has(keyword: .declaration(.`static`)) }
+        set { update(keyword: .declaration(.`static`), isSet: newValue) }
+    }
+    
+    public var isClass: Bool {
+        get { return has(keyword: .declaration(.`class`)) }
+        set { update(keyword: .declaration(.`class`), isSet: newValue) }
+    }
+    
+    public var isLazy: Bool {
+        get { return has(keyword: .declaration(.`lazy`)) }
+        set { update(keyword: .declaration(.`lazy`), isSet: newValue) }
+    }
+    
+    public var isDynamic: Bool {
+        get { return has(keyword: .declaration(.`dynamic`)) }
+        set { update(keyword: .declaration(.`dynamic`), isSet: newValue) }
+    }
+    
+    public var isStored: Bool {
+        get { return blockTokens.first == .symbol(.equal) }
+    }
+    
+    public var isComputed: Bool {
+        get { return blockTokens.first == .symbol(.braceOpening) }
+    }
+    
+    public var isImmutable: Bool {
+        get { return has(keyword: .declaration(.`let`)) }
+        set {
+            remove(keyword: newValue ? .declaration(.`var`) : .declaration(.`let`))
+            update(keyword: newValue ? .declaration(.`let`) : .declaration(.`var`), isSet: true)
+        }
+    }
+    
+    public var initializationBlock: String {
+        get { return blockTokens.code }
+        set { blockTokens = Lexer.tokenize(string: newValue) }
+    }
+    
+    private var tokens: [Token] = []
+    private var blockTokens: [Token] = []
+    private var syntaxTokens: [Token] {
+        return tokens.filter {
+            switch $0 {
+            case .comment(_), .indentation(_): return false
+            default: return true
+            }
+    }}
+    
+    public init(name: Identifier, typeName: TypeIdentifier?, accessibility: Keyword.Accessibility? = nil, isStatic: Bool = false, isClass: Bool = false, isLazy: Bool = false, isDynamic: Bool = false, isStored: Bool = false, isComputed: Bool = false, isImmutable: Bool = false, initializationBlock: String? = nil, parent: Type?) {
+        
+//        self.isStored = isStored
+//        self.isComputed = isComputed
+        
+        super.init()
         self.name = name
         self.typeName = typeName
         self.accessibility = accessibility
@@ -89,101 +208,97 @@ public class Variable: SourceKittenNode, Declaration, PrefixKeywordsRemovable, A
         self.isClass = isClass
         self.isLazy = isLazy
         self.isDynamic = isDynamic
-        self.isStored = isStored
-        self.isComputed = isComputed
         self.isImmutable = isImmutable
-        self.initializationBlock = initializationBlock
-        super.init()
     }
     
     //MARK: Parsing
     required public init(structure: SourceKitRepresentable, source: String, parameters: [ParseParameter: Any] = [:]) {
-        guard let name = structure.name else {
-            fatalError("Variable is missing name")
-        }
-        self.name = name
-        self.typeName = structure.typeName
-        self.accessibility = structure.accessibility?.components(separatedBy: ".").last.flatMap { Accessibility(rawValue: $0) } ?? .unspecified
-        
-        guard let offset = structure.offset, let nameOffset = structure.nameOffset, let length = structure.length else {
-            fatalError("Variable is missing offsets")
-        }
-        
-        if nameOffset != 0 {
-            let declarationKeyword = source[offset..<nameOffset]
-            self.isImmutable = declarationKeyword.contains("let")
-        }
-        
-        let endOfName = nameOffset+name.characters.count
-        let typeFull = source[endOfName..<offset + length]
-        
-        let startOfInitialization: Int64
-        
-        if let typeName = typeName, let typeRange = typeFull.range(of: typeName) {
-            startOfInitialization = endOfName + Int64(typeFull.distance(from: typeFull.startIndex, to: typeRange.upperBound))
-        } else {
-            startOfInitialization = endOfName
-        }
-        
-        
-        let variableInitialization = source[startOfInitialization..<offset + length].trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-        
-        if variableInitialization.hasPrefix("=") {
-            self.isStored = true
-            self.initializationBlock = String(variableInitialization.characters.dropFirst()).trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-        } else if let bodyLength = structure.bodyLength, let bodyOffset = structure.bodyOffset {
-            self.isComputed = true
-            self.initializationBlock = source[bodyOffset-1..<bodyOffset + bodyLength+1].trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-        }
-        
-        
-        self.isStatic = structure.kind == SwiftDeclarationKind.varStatic
-        self.isClass = structure.kind == SwiftDeclarationKind.varClass
-        
-        
-        if let attributes = (structure.attributes?.flatMap { $0["key.attribute"] }) {
-            self.isLazy = attributes.contains("source.decl.attribute.lazy")
-            self.isDynamic = attributes.contains("source.decl.attribute.dynamic")
-        }
         
         super.init(structure: structure, source: source, parameters: parameters)
         
-        self.updateAccessibility()
-        self.remove(keywordsFromPrefix: Accessibility.types.map { $0.rawValue } + ["dynamic", "lazy", "class", "static"])
+        let allTokens = Lexer.tokenize(string: self.prefix + source[self.range!])
         
+        var braceCount: Int = 0
+        var isStored = false
         
+        allTokens.forEach { token in
+            if .symbol(.braceOpening) == token { braceCount += 1 }
+            if .symbol(.equal) == token { isStored = true }
+            
+            if isStored || braceCount > 0 {
+                self.blockTokens.append(token)
+            } else {
+                self.tokens.append(token)
+            }
+            
+            if .symbol(.braceClosing) == token { braceCount -= 1 }
+        }
+        
+        self.prefix = ""
     }
+    
+    
     
     //MARK: Printing
     override public var description: String {
-        var attributes:[String] = []
-        if accessibility != .unspecified { attributes.append(accessibility.rawValue) }
-        if isLazy { attributes.append("lazy") }
-        if isDynamic { attributes.append("dynamic") }
-        if isClass { attributes.append("class") }
-        if isStatic { attributes.append("static") }
-        attributes.append(isImmutable ? "let" : "var")
-        attributes.append(name)
         
+//        var initialization: String = ""
+//        
+//        if let initializationBlock = initializationBlock {
+//            initialization = isStored ? " = \(initializationBlock)" : isComputed ? " \(initializationBlock)" : ""
+//        }
         
-        var initialization: String = ""
-        
-        if let initializationBlock = initializationBlock {
-            initialization = isStored ? " = \(initializationBlock)" : isComputed ? " \(initializationBlock)" : ""
-        }
-        
-        let typeDefinition = typeName.flatMap { ": \($0)" } ?? ""
-        
-        
-        return "\(prefix)\(attributes.joined(separator: " "))\(typeDefinition)\(initialization)"
+        return "\(tokens.code)\(initializationBlock)"
     }
+}
+
+
+
+public class TypeIdentifier: Node {
+    /*
+     type → 
+        array-type­  
+        dictionary-type­  
+        function-type­  
+        type-identifier­  
+        tuple-type­  
+        optional-type­  
+        implicitly-unwrapped-optional-type­  
+        protocol-composition-type­  
+        metatype-type­  
+        Any­ 
+        Self­
+     */
+    var tokens: [Token] = []
+    public var name: String = ""
+    
+    public init(name: String){
+        self.name = name
+    }
+    
+//    init?(parsed: [Token]) {
+//        var started = false
+//        parseLoop: for token in parsed {
+//            switch token {
+//            case .symbol(.colon):
+//                started = true
+//                tokens.append(token)
+//            case .identifier(_), .symbol(.question):
+//                tokens.append(token)
+//            case .comment(_), .indentation(_):
+//                continue
+//            default:
+//                break parseLoop
+//            }
+//        }
+//    }
 }
 
 public class Parameter: Variable {
     
     var label: String?
     
-    public init(name: String, typeName: String?, accessibility: Accessibility = .unspecified, isStatic: Bool = false, isClass: Bool = false, isLazy: Bool = false, isDynamic: Bool = false, isStored: Bool = false, isComputed: Bool = false, isImmutable: Bool = false, initializationBlock: String? = nil, parent: Type?, label: String? = nil) {
+    public init(name: Identifier, typeName: TypeIdentifier?, accessibility: Keyword.Accessibility? = nil, isStatic: Bool = false, isClass: Bool = false, isLazy: Bool = false, isDynamic: Bool = false, isStored: Bool = false, isComputed: Bool = false, isImmutable: Bool = false, initializationBlock: String? = nil, parent: Type?, label: String? = nil) {
         self.label = label
         super.init(name: name, typeName: typeName, accessibility: accessibility, isStatic: isStatic, isClass: isClass, isLazy: isLazy, isDynamic: isDynamic, isStored: isStored, isComputed: isComputed, isImmutable: isImmutable, initializationBlock: initializationBlock, parent: parent)
     }
@@ -207,7 +322,7 @@ public class Parameter: Variable {
     }
     
     override public var description: String {
-        let initialization = initializationBlock.flatMap { $0.characters.count > 0 ? " = \($0)" : "" } ?? ""
+        let initialization = initializationBlock
         let typeDefinition = typeName.flatMap { ": \($0)" } ?? ""
         let labelString = label.flatMap {  "\($0) " } ?? ""
         return "\(prefix)\(labelString)\(name)\(typeDefinition)\(initialization)"

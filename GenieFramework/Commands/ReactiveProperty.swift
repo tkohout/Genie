@@ -36,7 +36,7 @@ public class ReactiveProperty: GeneeCommand {
         }
         
         variables.forEach {
-            if let typeName = $0.typeName {
+            if let typeName = $0.typeName?.name {
                 
                 //TODO: This will not work for multiple nested generics
                 if typeName.hasPrefix("MutableProperty") || typeName.hasPrefix("Property"),
@@ -47,12 +47,12 @@ public class ReactiveProperty: GeneeCommand {
                     let genericTypeName = typeName.substring(from: genericStart).substring(to: genericEnd)
                     
                     if typeName.hasPrefix("MutableProperty") {
-                        $0.typeName = genericTypeName
+                        $0.typeName = TypeIdentifier(name: genericTypeName)
                     } else {
-                        $0.typeName = "MutableProperty<\(genericTypeName)>"
+                        $0.typeName = TypeIdentifier(name: "MutableProperty<\(genericTypeName)>")
                     }
                 } else {
-                    $0.typeName = "Property<\(typeName)>"
+                    $0.typeName = TypeIdentifier(name: "Property<\(typeName)>")
                 }
             }
         }

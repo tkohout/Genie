@@ -31,7 +31,7 @@ public class Closure: SourceKittenNode {
 public class Function: Closure, Declaration, PrefixKeywordsRemovable, AccesibilityUpdatable {
     public var name: String
     //var fullName: String
-    public var accessibility: Accessibility = .internal
+    public var accessibility: Keyword.Accessibility? = nil
     public var isMutating: Bool = false
     public var isDynamic: Bool = false
     public var isStatic: Bool = false
@@ -45,7 +45,7 @@ public class Function: Closure, Declaration, PrefixKeywordsRemovable, Accesibili
     }
     private var throwsKeyword: Throws? = nil
     
-    required public init(name: String, block: Block?, parameters: [Parameter] = [], returnType: ReturnType? = nil, accessibility: Accessibility = .internal, isMutating: Bool = false, isDynamic: Bool = false, isStatic: Bool = false, isClass: Bool = false, isConstructor: Bool = false, isDestructor: Bool = false, `where`: WhereClause? = nil, parent: Type? = nil, prefix: String = "\n    ", isThrowing: Bool = false) {
+    required public init(name: String, block: Block?, parameters: [Parameter] = [], returnType: ReturnType? = nil, accessibility: Keyword.Accessibility? = nil, isMutating: Bool = false, isDynamic: Bool = false, isStatic: Bool = false, isClass: Bool = false, isConstructor: Bool = false, isDestructor: Bool = false, `where`: WhereClause? = nil, parent: Type? = nil, prefix: String = "\n    ", isThrowing: Bool = false) {
         self.name = name
         //self.fullName = fullName
         self.accessibility = accessibility
@@ -70,7 +70,7 @@ public class Function: Closure, Declaration, PrefixKeywordsRemovable, Accesibili
             fatalError("Function is missing kind")
         }
         
-        self.accessibility = structure.accessibility?.components(separatedBy: ".").last.flatMap { Accessibility(rawValue: $0) } ?? .internal
+        self.accessibility = structure.accessibility?.components(separatedBy: ".").last.flatMap { Keyword.Accessibility(rawValue: $0) } ?? .internal
         
         guard let offset = structure.offset, let length = structure.length, let nameOffset = structure.nameOffset, let nameLength = structure.nameLength else {
             fatalError("Function is missing offsets")
@@ -134,13 +134,13 @@ public class Function: Closure, Declaration, PrefixKeywordsRemovable, Accesibili
         }
         
         self.updateAccessibility()
-        self.remove(keywordsFromPrefix: Accessibility.types.map { $0.rawValue } + ["dynamic", "class", "static"])
+        self.remove(keywordsFromPrefix: Keyword.Accessibility.enumerated.map { $0.rawValue } + ["dynamic", "class", "static"])
     }
     
     //MARK: Printing
     override public var description: String {
         var attributes:[String] = []
-        if accessibility != .internal { attributes.append(accessibility.rawValue) }
+        if accessibility != .internal { attributes.append(accessibility!.rawValue) }
         if isDynamic { attributes.append("dynamic") }
         if isClass { attributes.append("class") }
         if isStatic { attributes.append("static") }
@@ -183,32 +183,7 @@ extension String {
     }
 }
 
-extension String {
-    func matchingStrings(regex: NSRegularExpression, options: NSRegularExpression.MatchingOptions = [] ) -> [[(substring: String, range: NSRange)]] {
-        
-        let nsString = self as NSString
-        let results  = regex.matches(in: self, options: options, range: NSMakeRange(0, nsString.length))
-        
-        return results.map { result in
-            (0..<result.numberOfRanges).map {
-                let nsRange = result.rangeAt($0)
-                if nsRange.location != NSNotFound {
-                    return (substring: nsString.substring(with: nsRange), nsRange)
-                } else {
-                    return (substring: "", range: nsRange)
-                }
-            }
-        }
-    }
-}
 
-prefix operator ~/
-prefix func ~/(regex: String) -> NSRegularExpression {
-    return try! NSRegularExpression(pattern: regex, options:[])
-}
-prefix func ~/(o:(_: String, options: NSRegularExpression.Options)) -> NSRegularExpression {
-    return try! NSRegularExpression(pattern: o.0, options:o.options)
-}
 
 
 
@@ -221,15 +196,15 @@ public class ReturnType: Node {
     init?(source: String, range: Range<Int64>) {
         let code = source[range]
         
-        if let matches = code.matchingStrings(regex: ReturnType.regex).first,
-            matches.count == 5 {
+        if let match = code.match(regex: ReturnType.regex),
+            match.count == 5 {
             
-            let prefix = matches[1].substring
-            infix = matches[2].substring
-            typeName = matches[3].substring
-            let suffix = matches[4].substring
+            let prefix = match[1].substring
+            infix = match[2].substring
+            typeName = match[3].substring
+            let suffix = match[4].substring
             
-            let returnRange = code.byteRange(from: matches[0].range).offset(by: range.lowerBound)
+            let returnRange = code.byteRange(from: match[0].range).offset(by: range.lowerBound)
             
             super.init(range: returnRange, prefix: prefix, suffix: suffix, code: code)
         } else {
@@ -250,12 +225,12 @@ class Throws: Node {
     init?(source: String, range: Range<Int64>) {
         let code = source[range]
         
-        if let matches = code.matchingStrings(regex: Throws.regex).first,
-            matches.count == 3 {
+        if let match = code.match(regex: Throws.regex),
+            match.count == 3 {
             
-            let throwsRange = code.byteRange(from: matches[0].range).offset(by: range.lowerBound)
-            let prefix = matches[1].substring
-            let suffix = matches[2].substring
+            let throwsRange = code.byteRange(from: match[0].range).offset(by: range.lowerBound)
+            let prefix = match[1].substring
+            let suffix = match[2].substring
             
             super.init(range: throwsRange, prefix: prefix, suffix: suffix, code: code)
         } else {
@@ -292,15 +267,14 @@ public class WhereClause: Node {
     init?(source: String, range: Range<Int64>) {
         let code = source[range]
         
-        if let matches = code.matchingStrings(regex: WhereClause.regex).first,
-            matches.count == 5 {
+        if let match = code.match(regex: WhereClause.regex),
+            match.count == 5 {
             
-            let whereRange = code.byteRange(from: matches[0].range).offset(by: range.lowerBound)
-            let prefix = matches[1].substring
-            infix = matches[2].substring
-            clause = matches[3].substring
-            let suffix = matches[4].substring
-            1 + 1
+            let whereRange = code.byteRange(from: match[0].range).offset(by: range.lowerBound)
+            let prefix = match[1].substring
+            infix = match[2].substring
+            clause = match[3].substring
+            let suffix = match[4].substring
             super.init(range: whereRange, prefix: prefix, suffix: suffix, code: code)
         } else {
             return nil

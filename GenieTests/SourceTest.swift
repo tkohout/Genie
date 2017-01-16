@@ -37,70 +37,12 @@ class SourceTest: XCTestCase {
         
         XCTAssertEqual(source.types.count, 1)
         XCTAssertEqual(source.types.first?.name, "SomeClass")
-        XCTAssertEqual(source.types.first?.variables.first?.name, "x")
+        XCTAssertEqual(source.types.first?.variables.first?.name.name, "x")
         XCTAssertEqual(source.types.first?.variables.first?.isImmutable, false)
         XCTAssertEqual(source.types.first?.variables.first?.isDynamic, true)
     }
     
-    func testThatComputedVariableIsRecognized() {
-        let code = String(
-            "class SomeClass {",
-            "var x: Int { return 5 }",
-            "}"
-        )
-        
-        let structure: SourceKitRepresentable = Structure(file: File(contents: code)).dictionary
-        
-        let source =  Source(structure: structure, source: code)
-        XCTAssertEqual(source.types.first?.variables.first?.isComputed, true)
-    }
     
-    func testThatPublicComputedVariableIsParsed() {
-        
-        let code = String(
-            "class SomeClass {",
-            "public dynamic var isInvalidURLError: Bool {",
-            "    if case .invalidURL = self { return true }",
-            "    return false",
-            "}",
-            "fileprivate lazy var hello: String { return \"\" }",
-            "}"
-        )
-        
-        let structure: SourceKitRepresentable = Structure(file: File(contents: code)).dictionary
-        
-        let source =  Source(structure: structure, source: code)
-        
-        AssertEqualIgnoringIndentation(code, "\(source)")
-    }
-    
-    func testThatStoredPropertiesAreParsed(){
-        
-        let code = String(
-            "public struct Task {",
-            "   public static let DidCancel = Notification.Name(rawValue: \"org.alamofire.notification.name.task.didCancel\")",
-            "}"
-        )
-        
-        let structure: SourceKitRepresentable = Structure(file: File(contents: code)).dictionary
-        
-        let source =  Source(structure: structure, source: code)
-        
-        AssertEqualIgnoringIndentation(code, "\(source)")
-    }
-    
-    func testThatPrivateStructVarsAreNotChanged() {
-        let code = String(
-        "private struct AssociatedKeys {",
-        "private static var managerKey = \"URLSession.ServerTrustPolicyManager\"",
-        "}"
-        )
-        
-        let structure: SourceKitRepresentable = Structure(file: File(contents: code)).dictionary
-        
-        let source =  Source(structure: structure, source: code)
-        AssertEqualIgnoringIndentation(code, "\(source)")
-    }
     
     func testThatCommentsAreNotDeleted() {
         let code = String(

@@ -44,10 +44,10 @@ public class Stub: GeneeCommand {
         }
         
         variables.forEach {
-            if let typeName = $0.typeName, typeName.hasPrefix("Action") {
+            if let typeName = $0.typeName, typeName.name.hasPrefix("Action") {
                 $0.isLazy = true
                 if $0.initializationBlock == nil {
-                    $0.isStored = true
+//                    $0.isStored = true
                     $0.initializationBlock = "Action { [unowned self] _ in \n <#code#> \n }"
                 }
                 

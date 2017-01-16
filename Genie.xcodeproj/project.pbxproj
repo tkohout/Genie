@@ -28,6 +28,7 @@
 		AC2CE5721E29723D00A0B36D /* BracedBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2CE5711E29723D00A0B36D /* BracedBlock.swift */; };
 		AC2CE5741E29854B00A0B36D /* Lexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2CE5731E29854B00A0B36D /* Lexer.swift */; };
 		AC2CE5761E299CFA00A0B36D /* LexerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2CE5751E299CFA00A0B36D /* LexerTest.swift */; };
+		AC2CE5791E2A6B2600A0B36D /* String+Regular.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2CE5781E2A6B2600A0B36D /* String+Regular.swift */; };
 		AC39E2051E2180C200D9FD65 /* GenieFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACED61441E21467B00BBD92D /* GenieFramework.framework */; };
 		AC39E2061E2180C200D9FD65 /* GenieFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = ACED61441E21467B00BBD92D /* GenieFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AC941E841E213AAB004D8A03 /* Yams.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = ACB985A71E2136F300127FD9 /* Yams.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -35,6 +36,9 @@
 		AC941E921E213C12004D8A03 /* SWXMLHash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC941E8C1E213BE1004D8A03 /* SWXMLHash.framework */; };
 		AC941E931E213C26004D8A03 /* SourceKittenFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AC941E8B1E213BE1004D8A03 /* SourceKittenFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AC941E941E213C26004D8A03 /* SWXMLHash.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AC941E8C1E213BE1004D8A03 /* SWXMLHash.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		ACAF93261E2B925B00538A5F /* VariableTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAF93251E2B925B00538A5F /* VariableTest.swift */; };
+		ACAF932A1E2BAF0600538A5F /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAF93291E2BAF0600538A5F /* Parser.swift */; };
+		ACAF932C1E2BBF7C00538A5F /* ParserTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAF932B1E2BBF7C00538A5F /* ParserTest.swift */; };
 		ACB1D29C1E21A42400CEFF0F /* SourceKittenFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC941E8B1E213BE1004D8A03 /* SourceKittenFramework.framework */; };
 		ACB1D29D1E21A42400CEFF0F /* SWXMLHash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC941E8C1E213BE1004D8A03 /* SWXMLHash.framework */; };
 		ACB1D29E1E21A42400CEFF0F /* Yams.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACB985A71E2136F300127FD9 /* Yams.framework */; };
@@ -60,6 +64,7 @@
 		ACB71EDF1E22F322004AF71D /* Validation.txt in Resources */ = {isa = PBXBuildFile; fileRef = ACB71ECE1E22F322004AF71D /* Validation.txt */; };
 		ACB985A81E2136F300127FD9 /* Yams.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACB985A71E2136F300127FD9 /* Yams.framework */; };
 		ACB985A91E2137DF00127FD9 /* SourceKittenHelper.xpc in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6C477AED1D70305900D76FCA /* SourceKittenHelper.xpc */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		ACC37FC31E2A7F93006917F4 /* Literals.txt in Resources */ = {isa = PBXBuildFile; fileRef = ACC37FC21E2A7F93006917F4 /* Literals.txt */; };
 		ACE36CA11E22B5790007F0FD /* ReactivePropertyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE36CA01E22B5790007F0FD /* ReactivePropertyTest.swift */; };
 		ACE36CA31E22BAE70007F0FD /* Asserts.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE36CA21E22BAE70007F0FD /* Asserts.swift */; };
 		ACED61481E21467B00BBD92D /* GenieFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = ACED61461E21467B00BBD92D /* GenieFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -215,6 +220,7 @@
 		AC2CE5711E29723D00A0B36D /* BracedBlock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BracedBlock.swift; sourceTree = "<group>"; };
 		AC2CE5731E29854B00A0B36D /* Lexer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lexer.swift; sourceTree = "<group>"; };
 		AC2CE5751E299CFA00A0B36D /* LexerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LexerTest.swift; sourceTree = "<group>"; };
+		AC2CE5781E2A6B2600A0B36D /* String+Regular.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Regular.swift"; sourceTree = "<group>"; };
 		AC91AA5B1E2130A1003E871F /* CurriedInitializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurriedInitializer.swift; sourceTree = "<group>"; };
 		AC91AA5C1E2130A1003E871F /* GeneeCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneeCommand.swift; sourceTree = "<group>"; };
 		AC91AA5D1E2130A1003E871F /* Initializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Initializer.swift; sourceTree = "<group>"; };
@@ -233,6 +239,9 @@
 		AC91AA711E2130A1003E871F /* Dwifft.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dwifft.swift; sourceTree = "<group>"; };
 		AC941E8B1E213BE1004D8A03 /* SourceKittenFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SourceKittenFramework.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Genie-gnjkibsipwxrbzfukpgdagpvfryi/Build/Products/Debug/SourceKittenFramework.framework"; sourceTree = "<group>"; };
 		AC941E8C1E213BE1004D8A03 /* SWXMLHash.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SWXMLHash.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Genie-gnjkibsipwxrbzfukpgdagpvfryi/Build/Products/Debug/SWXMLHash.framework"; sourceTree = "<group>"; };
+		ACAF93251E2B925B00538A5F /* VariableTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VariableTest.swift; sourceTree = "<group>"; };
+		ACAF93291E2BAF0600538A5F /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		ACAF932B1E2BBF7C00538A5F /* ParserTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParserTest.swift; sourceTree = "<group>"; };
 		ACB71EBE1E22F322004AF71D /* AFError.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AFError.txt; sourceTree = "<group>"; };
 		ACB71EBF1E22F322004AF71D /* Alamofire.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Alamofire.txt; sourceTree = "<group>"; };
 		ACB71EC01E22F322004AF71D /* DispatchQueue+Alamofire.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "DispatchQueue+Alamofire.txt"; sourceTree = "<group>"; };
@@ -251,6 +260,7 @@
 		ACB71ECD1E22F322004AF71D /* Timeline.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Timeline.txt; sourceTree = "<group>"; };
 		ACB71ECE1E22F322004AF71D /* Validation.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Validation.txt; sourceTree = "<group>"; };
 		ACB985A71E2136F300127FD9 /* Yams.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Yams.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Genie-gnjkibsipwxrbzfukpgdagpvfryi/Build/Products/Debug/Yams.framework"; sourceTree = "<group>"; };
+		ACC37FC21E2A7F93006917F4 /* Literals.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Literals.txt; sourceTree = "<group>"; };
 		ACE36CA01E22B5790007F0FD /* ReactivePropertyTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReactivePropertyTest.swift; sourceTree = "<group>"; };
 		ACE36CA21E22BAE70007F0FD /* Asserts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Asserts.swift; sourceTree = "<group>"; };
 		ACED61291E21453F00BBD92D /* GenieTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GenieTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -408,6 +418,14 @@
 			name = Stubs;
 			sourceTree = "<group>";
 		};
+		AC2CE5771E2A6B1100A0B36D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AC2CE5781E2A6B2600A0B36D /* String+Regular.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		AC91AA591E2130A1003E871F /* Commands */ = {
 			isa = PBXGroup;
 			children = (
@@ -424,6 +442,7 @@
 		AC91AA601E2130A1003E871F /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				AC2CE5771E2A6B1100A0B36D /* Extensions */,
 				AC91AA621E2130A1003E871F /* Closure.swift */,
 				AC91AA641E2130A1003E871F /* Node.swift */,
 				AC91AA651E2130A1003E871F /* Source.swift */,
@@ -432,6 +451,7 @@
 				AC91AA681E2130A1003E871F /* Variable.swift */,
 				AC2CE5711E29723D00A0B36D /* BracedBlock.swift */,
 				AC2CE5731E29854B00A0B36D /* Lexer.swift */,
+				ACAF93291E2BAF0600538A5F /* Parser.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -453,6 +473,22 @@
 			path = SourceKitten;
 			sourceTree = "<group>";
 		};
+		ACAF93241E2B922A00538A5F /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				ACAF93251E2B925B00538A5F /* VariableTest.swift */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		ACC37FC11E2A7F93006917F4 /* Lexer */ = {
+			isa = PBXGroup;
+			children = (
+				ACC37FC21E2A7F93006917F4 /* Literals.txt */,
+			);
+			path = Lexer;
+			sourceTree = "<group>";
+		};
 		ACE36CA41E22BAEC0007F0FD /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -464,6 +500,7 @@
 		ACE36CA61E22EFC00007F0FD /* SwiftResources */ = {
 			isa = PBXGroup;
 			children = (
+				ACC37FC11E2A7F93006917F4 /* Lexer */,
 				ACE36CA71E22EFC00007F0FD /* Alamofire-4.2.0 */,
 			);
 			path = SwiftResources;
@@ -499,8 +536,10 @@
 				ACE36CA61E22EFC00007F0FD /* SwiftResources */,
 				ACE36CA41E22BAEC0007F0FD /* Helpers */,
 				AC0343421E21775000969C2C /* Stubs */,
-				ACED61331E21460A00BBD92D /* ClosureCaptureTest.swift */,
+				ACAF93241E2B922A00538A5F /* Source */,
 				ACE36CA01E22B5790007F0FD /* ReactivePropertyTest.swift */,
+				ACAF932B1E2BBF7C00538A5F /* ParserTest.swift */,
+				ACED61331E21460A00BBD92D /* ClosureCaptureTest.swift */,
 				ACED61341E21460A00BBD92D /* DwifftTests.swift */,
 				ACED61351E21460A00BBD92D /* InitializerTest.swift */,
 				ACED61371E21460A00BBD92D /* SourceTest.swift */,
@@ -720,6 +759,7 @@
 				ACB71EDC1E22F322004AF71D /* SessionManager.txt in Resources */,
 				ACB71ECF1E22F322004AF71D /* AFError.txt in Resources */,
 				ACB71ED91E22F322004AF71D /* Result.txt in Resources */,
+				ACC37FC31E2A7F93006917F4 /* Literals.txt in Resources */,
 				ACB71ED31E22F322004AF71D /* NetworkReachabilityManager.txt in Resources */,
 				ACB71ED81E22F322004AF71D /* ResponseSerialization.txt in Resources */,
 				ACB71ED61E22F322004AF71D /* Request.txt in Resources */,
@@ -780,7 +820,9 @@
 				AC2CE5761E299CFA00A0B36D /* LexerTest.swift in Sources */,
 				AC0343411E21774100969C2C /* InitializerTest.swift in Sources */,
 				ACE36CA11E22B5790007F0FD /* ReactivePropertyTest.swift in Sources */,
+				ACAF93261E2B925B00538A5F /* VariableTest.swift in Sources */,
 				AC0343451E2177CD00969C2C /* SourceTest.swift in Sources */,
+				ACAF932C1E2BBF7C00538A5F /* ParserTest.swift in Sources */,
 				AC0343441E21778600969C2C /* BufferStub.swift in Sources */,
 				AC0343461E2177D000969C2C /* StubTest.swift in Sources */,
 				ACE36CA31E22BAE70007F0FD /* Asserts.swift in Sources */,
@@ -801,9 +843,11 @@
 				ACED615B1E2146B300BBD92D /* Type.swift in Sources */,
 				ACED61501E2146AA00BBD92D /* CurriedInitializer.swift in Sources */,
 				ACED615C1E2146B300BBD92D /* Variable.swift in Sources */,
+				AC2CE5791E2A6B2600A0B36D /* String+Regular.swift in Sources */,
 				AC03434A1E217B9900969C2C /* Buffer.swift in Sources */,
 				ACED61591E2146B300BBD92D /* Source.swift in Sources */,
 				AC03434B1E217B9900969C2C /* SourceKitRepresentableExtensions.swift in Sources */,
+				ACAF932A1E2BAF0600538A5F /* Parser.swift in Sources */,
 				ACED61521E2146AA00BBD92D /* Initializer.swift in Sources */,
 				ACED61601E21473300BBD92D /* Dwifft.swift in Sources */,
 				ACED61561E2146B300BBD92D /* Closure.swift in Sources */,

@@ -52,7 +52,7 @@ public class CurriedInitializer: GeneeCommand {
     
     func curryDefinitionGenerator(curriedClass:String, arguments: [Variable]) -> String {
         
-        let arguments = arguments.map { (name: $0.name, type: $0.typeName!) }
+        let arguments = arguments.map { (name: $0.name.name, type: $0.typeName!.name) }
         
         let curriedParameters = arguments + [(name:"_", type: curriedClass)]
         

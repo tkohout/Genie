@@ -88,7 +88,7 @@ public func ==(lhs: Node, rhs: Node) -> Bool {
 }
 
 public class SourceKittenNode: Node, SourceKittenParseable {
-    
+    static func a(){}
     public func parseNodes(structure: SourceKitRepresentable, source: String, allowedTypes: [Node.Type] = [], inRange limitedRange: Range<Int64>? = nil) -> [SourceKittenNode] {
         var substructuresRange: Range<Int64>
         if let limitedRange = limitedRange {
@@ -132,7 +132,7 @@ public class SourceKittenNode: Node, SourceKittenParseable {
                 node = Extension(structure: substructure, source: source, parameters: parameters)
             case SwiftDeclarationKind.functionMethodInstance, SwiftDeclarationKind.functionMethodClass, SwiftDeclarationKind.functionMethodStatic, SwiftDeclarationKind.functionConstructor, SwiftDeclarationKind.functionDestructor, SwiftDeclarationKind.functionFree:
                 node = Function(structure: substructure, source: source, parameters: parameters)
-            case SwiftDeclarationKind.varInstance, SwiftDeclarationKind.varClass, SwiftDeclarationKind.varStatic:
+            case SwiftDeclarationKind.varInstance, SwiftDeclarationKind.varClass, SwiftDeclarationKind.varStatic, SwiftDeclarationKind.varGlobal:
                 node = Variable(structure: substructure, source: source, parameters: parameters)
             case SwiftDeclarationKind.varParameter:
                 node = Parameter(structure: substructure, source: source, parameters: parameters)

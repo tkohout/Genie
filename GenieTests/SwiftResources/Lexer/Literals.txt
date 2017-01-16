@@ -1,0 +1,7 @@
+"Hello\""
+"some\(composed)"
+0o5457
+0xAFBCD
+15.2
+012_521
+-0b011110
