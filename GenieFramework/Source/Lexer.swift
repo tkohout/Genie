@@ -253,7 +253,7 @@ public enum Symbol: String, Tokenizable, CodeConvertible {
     
     var escapedRawValue: String {
         switch self {
-        case .braceOpening, .braceClosing, .bracketOpening, .bracketClosing, .parentesisOpening, .parentesisClosing: return "\\\(rawValue)"
+        case .braceOpening, .braceClosing, .bracketOpening, .bracketClosing, .parentesisOpening, .parentesisClosing, .question: return "\\\(rawValue)"
         default: return rawValue
         }
     }
