@@ -10,17 +10,7 @@ import XCTest
 import SourceKittenFramework
 import GenieFramework
 
-extension String {
-    init(_ lines:String...){
-        self = ""
-        for (idx, item) in lines.enumerated() {
-            self += "\(item)"
-            if idx < lines.count-1 {
-                self += "\n"
-            }
-        }
-    }
-}
+
 
 class SourceTest: XCTestCase {
     

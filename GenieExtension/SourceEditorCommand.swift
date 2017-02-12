@@ -19,10 +19,11 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
     
     
     static var availableCommands: [GeneeCommand] = [
-        Initializer(),
-        CurriedInitializer(),
-        ReactiveProperty(),
-        Stub()
+//        Initializer(),
+//        CurriedInitializer(),
+//        ReactiveProperty(),
+//        Stub(),
+//        Antlr()
     ]
     
     func perform(with invocation: XCSourceEditorCommandInvocation, completionHandler: @escaping (Swift.Error?) -> Void ) -> Void {

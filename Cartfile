@@ -1,2 +1,2 @@
-github "jpsim/SourceKitten" "0.15.3"
-github "janyou/Antlr-Swift-Runtime"
+github "jpsim/SourceKitten" "0.17.0"
+#git "https://github.com/antlr/antlr4/tree/master/runtime/Swift"
