@@ -436,7 +436,7 @@ open class SwiftBaseVisitor<T>: AbstractParseTreeVisitor<T> {
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	open func visitRequirement_clause(_ ctx: SwiftParser.Requirement_clauseContext) -> T? { return visitChildren(ctx) }
+	open func visitGeneric_where_clause(_ ctx: SwiftParser.Generic_where_clauseContext) -> T? { return visitChildren(ctx) }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -737,13 +737,6 @@ open class SwiftBaseVisitor<T>: AbstractParseTreeVisitor<T> {
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	open func visitParameter_clauses(_ ctx: SwiftParser.Parameter_clausesContext) -> T? { return visitChildren(ctx) }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
 	open func visitParameter_clause(_ ctx: SwiftParser.Parameter_clauseContext) -> T? { return visitChildren(ctx) }
 	/**
 	 * {@inheritDoc}
@@ -800,6 +793,13 @@ open class SwiftBaseVisitor<T>: AbstractParseTreeVisitor<T> {
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
+	open func visitUnion_style_enum_body(_ ctx: SwiftParser.Union_style_enum_bodyContext) -> T? { return visitChildren(ctx) }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
 	open func visitUnion_style_enum_members(_ ctx: SwiftParser.Union_style_enum_membersContext) -> T? { return visitChildren(ctx) }
 	/**
 	 * {@inheritDoc}
@@ -850,6 +850,13 @@ open class SwiftBaseVisitor<T>: AbstractParseTreeVisitor<T> {
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
 	open func visitRaw_value_style_enum(_ ctx: SwiftParser.Raw_value_style_enumContext) -> T? { return visitChildren(ctx) }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	open func visitRaw_value_style_enum_body(_ ctx: SwiftParser.Raw_value_style_enum_bodyContext) -> T? { return visitChildren(ctx) }
 	/**
 	 * {@inheritDoc}
 	 *

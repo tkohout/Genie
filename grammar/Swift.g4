@@ -256,7 +256,7 @@ file_name : Static_string_literal ;
 
 // GRAMMAR OF A GENERIC PARAMETER CLAUSE
 
-generic_parameter_clause : '<' generic_parameter_list requirement_clause? '>'  ;
+generic_parameter_clause : '<' generic_parameter_list '>'  ;
 generic_parameter_list : generic_parameter (',' generic_parameter)*  ;
 generic_parameter
  : type_name
@@ -264,7 +264,7 @@ generic_parameter
  | type_name ':' protocol_composition_type
  ;
 
-requirement_clause : 'where' requirement_list  ;
+generic_where_clause : 'where' requirement_list  ;
 requirement_list : requirement | requirement ',' requirement_list  ;
 requirement : conformance_requirement | same_type_requirement  ;
 
@@ -368,25 +368,24 @@ typealias_assignment : assignment_operator type  ;
 // GRAMMAR OF A FUNCTION DECLARATION
 // NOTE: Swift Grammar Spec indicates that a function_body is optional
 function_declaration
- : function_head function_name generic_parameter_clause? function_signature
+ : function_head function_name generic_parameter_clause? function_signature generic_where_clause?
    function_body?
  ;
 function_head : attributes? declaration_modifiers? 'func'  ;
 function_name : identifier |  operator_name  ;
 function_signature
- : parameter_clauses 'throws'? function_result?
- | parameter_clauses 'rethrows' function_result?
+ : parameter_clause 'throws'? function_result?
+ | parameter_clause 'rethrows' function_result?
  ;
-function_result : arrow_operator attributes? type  ;
+function_result : '->' attributes? type  ;
 function_body : code_block  ;
-parameter_clauses : parameter_clause parameter_clauses? ;
+//parameter_clauses : parameter_clause parameter_clauses? ;
 parameter_clause : '(' ')' |  '(' parameter_list ')'  ;
 parameter_list : parameter (',' parameter)*  ;
 parameter
- : 'let'?  external_parameter_name? local_parameter_name type_annotation? default_argument_clause?
- | 'var'   external_parameter_name? local_parameter_name type_annotation? default_argument_clause?
- | 'inout' external_parameter_name? local_parameter_name type_annotation
- |         external_parameter_name? local_parameter_name type_annotation range_operator
+ : external_parameter_name? local_parameter_name type_annotation? default_argument_clause?
+ | external_parameter_name? local_parameter_name type_annotation
+ | external_parameter_name? local_parameter_name type_annotation range_operator
  ;
 external_parameter_name : identifier | '_'  ;
 local_parameter_name : identifier | '_'  ;
@@ -396,16 +395,18 @@ default_argument_clause : assignment_operator expression  ;
 // GRAMMAR OF AN ENUMERATION DECLARATION
 
 enum_declaration : attributes? access_level_modifier? union_style_enum | attributes? access_level_modifier? raw_value_style_enum  ;
-union_style_enum : 'indirect'? 'enum' enum_name generic_parameter_clause? type_inheritance_clause? '{' union_style_enum_members?'}' ;
-union_style_enum_members : union_style_enum_member union_style_enum_members? ;
+union_style_enum : 'indirect'? 'enum' enum_name generic_parameter_clause? type_inheritance_clause? union_style_enum_body ;
+union_style_enum_body : '{' union_style_enum_members?'}' ;
+union_style_enum_members : union_style_enum_member+ ;
 union_style_enum_member : declaration | union_style_enum_case_clause  ;
 union_style_enum_case_clause : attributes? 'indirect'? 'case' union_style_enum_case_list  ;
 union_style_enum_case_list : union_style_enum_case | union_style_enum_case ',' union_style_enum_case_list  ;
 union_style_enum_case : enum_case_name tuple_type? ;
 enum_name : identifier  ;
 enum_case_name : identifier  ;
-raw_value_style_enum : 'enum' enum_name generic_parameter_clause? type_inheritance_clause '{' raw_value_style_enum_members '}' ;
-raw_value_style_enum_members : raw_value_style_enum_member raw_value_style_enum_members? ;
+raw_value_style_enum : 'enum' enum_name generic_parameter_clause? type_inheritance_clause raw_value_style_enum_body ;
+raw_value_style_enum_body : '{' raw_value_style_enum_members '}' ;
+raw_value_style_enum_members : raw_value_style_enum_member+ ;
 raw_value_style_enum_member : declaration | raw_value_style_enum_case_clause  ;
 raw_value_style_enum_case_clause : attributes? 'case' raw_value_style_enum_case_list  ;
 raw_value_style_enum_case_list : raw_value_style_enum_case | raw_value_style_enum_case ',' raw_value_style_enum_case_list  ;
@@ -486,7 +487,10 @@ deinitializer_declaration : attributes? 'deinit' code_block  ;
 
 // GRAMMAR OF AN EXTENSION DECLARATION
 
-extension_declaration : access_level_modifier? 'extension' type_identifier type_inheritance_clause? extension_body  ;
+extension_declaration
+ : attributes? access_level_modifier? 'extension' type_identifier type_inheritance_clause? extension_body
+ | attributes? access_level_modifier? 'extension' type_identifier generic_where_clause extension_body  ;
+
 extension_body : '{' declarations?'}'  ;
 
 // GRAMMAR OF A SUBSCRIPT DECLARATION
@@ -498,7 +502,7 @@ subscript_declaration
  ;
 
 subscript_head : attributes? declaration_modifiers? 'subscript' parameter_clause  ;
-subscript_result : arrow_operator attributes? type  ;
+subscript_result : '->' attributes? type  ;
 
 // GRAMMAR OF AN OPERATOR DECLARATION
 
@@ -782,8 +786,8 @@ trailing_closure : closure_expression ;
 type
  : '[' type ']'
  | '[' type ':' type ']'
- | type 'throws'? arrow_operator type
- | type 'rethrows' arrow_operator type
+ | type 'throws'? '->' type
+ | type 'rethrows' '->' type
  | type_identifier
  | tuple_type
  | type '?'

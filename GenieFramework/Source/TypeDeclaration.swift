@@ -17,11 +17,8 @@ public class TypeDeclaration: Declaration {
     public var attributes: [String] = []
     public var accessLevelModifier: AccessLevelModifier? = nil
     public var variables: [VariableDeclaration] { return nodes.flatMap { $0 as? VariableDeclaration }}
-//    //public var implementedTypes: [Type] = []
-//    public var methods: [Function] { return nodes.flatMap { $0 as? Function }}
-//    
-    
-    
+    public var methods: [FunctionDeclaration] { return nodes.flatMap { $0 as? FunctionDeclaration }}
+
     public init(code: String, name: String, inheritedTypes: [String] = [], attributes: [String] = [], accessLevelModifier: AccessLevelModifier? = nil, nodes: [Node] = []) {
         self.name = name
         self.inheritedTypes = inheritedTypes
@@ -43,8 +40,7 @@ public class TypeDeclaration: Declaration {
     
 }
 
-public class StructDeclaration: TypeDeclaration {
-    override var keyword: String { return "struct" }
+public class GenericClauseTypeDeclaration: TypeDeclaration {
     public var genericClause: String? = nil
     
     public init(code: String, name: String, inheritedTypes: [String] = [], attributes: [String] = [], accessLevelModifier: AccessLevelModifier? = nil, genericClause: String? = nil, nodes: [Node] = []) {
@@ -53,18 +49,38 @@ public class StructDeclaration: TypeDeclaration {
     }
 }
 
-public class ClassDeclaration: TypeDeclaration {
+public class StructDeclaration: GenericClauseTypeDeclaration {
+    override var keyword: String { return "struct" }
+}
+
+public class ClassDeclaration: GenericClauseTypeDeclaration {
     override var keyword: String { return "class" }
-    public var genericClause: String? = nil
-    
-    public init(code: String, name: String, inheritedTypes: [String] = [], attributes: [String] = [], accessLevelModifier: AccessLevelModifier? = nil, genericClause: String? = nil, nodes: [Node] = []) {
-        self.genericClause = genericClause
-        super.init(code: code, name: name, inheritedTypes: inheritedTypes, attributes: attributes, accessLevelModifier: accessLevelModifier, nodes: nodes)
-    }
 }
 
 public class ProtocolDeclaration: TypeDeclaration {
     override var keyword: String { return "protocol" }
+}
+
+public class EnumDeclaration: GenericClauseTypeDeclaration {
+    override var keyword: String { return "enum" }
+    
+    public var isIndirect: Bool = false
+    
+    
+    public init(code: String, name: String, inheritedTypes: [String] = [], attributes: [String] = [], accessLevelModifier: AccessLevelModifier? = nil, genericClause: String? = nil, isIndirect: Bool = false, nodes: [Node] = []) {
+        self.isIndirect = isIndirect
+        super.init(code: code, name: name, inheritedTypes: inheritedTypes, attributes: attributes, accessLevelModifier: accessLevelModifier, genericClause: genericClause, nodes: nodes)
+    }
+}
+
+public class ExtensionDeclaration: TypeDeclaration {
+    override var keyword: String { return "extension" }
+    public var whereClause: String? = nil
+    
+    public init(code: String, name: String, inheritedTypes: [String] = [], attributes: [String] = [], accessLevelModifier: AccessLevelModifier? = nil, whereClause: String? = nil, nodes: [Node] = []) {
+        self.whereClause = whereClause
+        super.init(code: code, name: name, inheritedTypes: inheritedTypes, attributes: attributes, accessLevelModifier: accessLevelModifier, nodes: nodes)
+    }
 }
 
 //public class Extension: Type {

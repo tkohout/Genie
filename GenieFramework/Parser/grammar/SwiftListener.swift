@@ -727,17 +727,17 @@ public protocol SwiftListener: ParseTreeListener {
 	 */
 	func exitGeneric_parameter(_ ctx: SwiftParser.Generic_parameterContext)
 	/**
-	 * Enter a parse tree produced by {@link SwiftParser#requirement_clause}.
+	 * Enter a parse tree produced by {@link SwiftParser#generic_where_clause}.
 	 - Parameters:
 	   - ctx: the parse tree
 	 */
-	func enterRequirement_clause(_ ctx: SwiftParser.Requirement_clauseContext)
+	func enterGeneric_where_clause(_ ctx: SwiftParser.Generic_where_clauseContext)
 	/**
-	 * Exit a parse tree produced by {@link SwiftParser#requirement_clause}.
+	 * Exit a parse tree produced by {@link SwiftParser#generic_where_clause}.
 	 - Parameters:
 	   - ctx: the parse tree
 	 */
-	func exitRequirement_clause(_ ctx: SwiftParser.Requirement_clauseContext)
+	func exitGeneric_where_clause(_ ctx: SwiftParser.Generic_where_clauseContext)
 	/**
 	 * Enter a parse tree produced by {@link SwiftParser#requirement_list}.
 	 - Parameters:
@@ -1243,18 +1243,6 @@ public protocol SwiftListener: ParseTreeListener {
 	 */
 	func exitFunction_body(_ ctx: SwiftParser.Function_bodyContext)
 	/**
-	 * Enter a parse tree produced by {@link SwiftParser#parameter_clauses}.
-	 - Parameters:
-	   - ctx: the parse tree
-	 */
-	func enterParameter_clauses(_ ctx: SwiftParser.Parameter_clausesContext)
-	/**
-	 * Exit a parse tree produced by {@link SwiftParser#parameter_clauses}.
-	 - Parameters:
-	   - ctx: the parse tree
-	 */
-	func exitParameter_clauses(_ ctx: SwiftParser.Parameter_clausesContext)
-	/**
 	 * Enter a parse tree produced by {@link SwiftParser#parameter_clause}.
 	 - Parameters:
 	   - ctx: the parse tree
@@ -1351,6 +1339,18 @@ public protocol SwiftListener: ParseTreeListener {
 	 */
 	func exitUnion_style_enum(_ ctx: SwiftParser.Union_style_enumContext)
 	/**
+	 * Enter a parse tree produced by {@link SwiftParser#union_style_enum_body}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func enterUnion_style_enum_body(_ ctx: SwiftParser.Union_style_enum_bodyContext)
+	/**
+	 * Exit a parse tree produced by {@link SwiftParser#union_style_enum_body}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func exitUnion_style_enum_body(_ ctx: SwiftParser.Union_style_enum_bodyContext)
+	/**
 	 * Enter a parse tree produced by {@link SwiftParser#union_style_enum_members}.
 	 - Parameters:
 	   - ctx: the parse tree
@@ -1446,6 +1446,18 @@ public protocol SwiftListener: ParseTreeListener {
 	   - ctx: the parse tree
 	 */
 	func exitRaw_value_style_enum(_ ctx: SwiftParser.Raw_value_style_enumContext)
+	/**
+	 * Enter a parse tree produced by {@link SwiftParser#raw_value_style_enum_body}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func enterRaw_value_style_enum_body(_ ctx: SwiftParser.Raw_value_style_enum_bodyContext)
+	/**
+	 * Exit a parse tree produced by {@link SwiftParser#raw_value_style_enum_body}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func exitRaw_value_style_enum_body(_ ctx: SwiftParser.Raw_value_style_enum_bodyContext)
 	/**
 	 * Enter a parse tree produced by {@link SwiftParser#raw_value_style_enum_members}.
 	 - Parameters:

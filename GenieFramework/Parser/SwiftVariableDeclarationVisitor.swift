@@ -7,6 +7,15 @@
 //
 
 import Foundation
+import Antlr4
+
+class SwiftTypeAnnotationVisitor: SwiftVisitor<String>{
+    override func visitType_annotation(_ ctx: SwiftParser.Type_annotationContext) -> String {
+        let start = ctx.attributes()?.start?.getStartIndex() ?? ctx.type()!.start!.getStartIndex()
+        let stop = ctx.stop!.getStopIndex()
+        return ctx.getSourceText(Interval(start, stop)) ?? ""
+    }
+}
 
 class SwiftVariableDeclarationVisitor: SwiftVisitor<Declaration> {
     
@@ -26,7 +35,7 @@ class SwiftVariableDeclarationVisitor: SwiftVisitor<Declaration> {
             return nil
         }
         
-        let type = pattern?.type_annotation()?.type()?.getText()
+        let type = pattern?.type_annotation()?.accept(SwiftTypeAnnotationVisitor())
         let initializer = ctx.initializer()?.expression()?.getSourceText()
         
         return (name: name, type: type, initializer: initializer)
@@ -98,7 +107,7 @@ class SwiftVariableDeclarationVisitor: SwiftVisitor<Declaration> {
         let modifiers: [Modifier] = ctx.variable_declaration_head()?.declaration_modifiers()?.accept(SwiftDeclarationModifiersVisitor()) ?? []
         
         let name = ctx.variable_name()!.getSourceText()
-        let type = ctx.type_annotation()!.type()?.getSourceText()
+        let type = ctx.type_annotation()?.accept(SwiftTypeAnnotationVisitor())
         let codeBlock = ctx.getter_setter_keyword_block()?.getSourceText()
         
         return VariableDeclaration(code: ctx.getSourceText(), name: name, typeName: type, attributes: attributes, modifiers: modifiers, codeBlock: codeBlock)

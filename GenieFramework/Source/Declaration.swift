@@ -8,6 +8,4 @@
 
 import Foundation
 
-public class Declaration: Node {
-
-}
+public class Declaration: Statement { }

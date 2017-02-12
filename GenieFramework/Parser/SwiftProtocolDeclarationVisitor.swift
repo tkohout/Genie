@@ -13,7 +13,7 @@ class SwiftProtocolDeclarationVisitor: SwiftVisitor<Declaration> {
     override func visitProtocol_member_declaration(_ ctx: SwiftParser.Protocol_member_declarationContext) -> Declaration {
         if let declaration = ctx.protocol_property_declaration()?.accept(SwiftVariableDeclarationVisitor()) {
             return declaration
-        } else if let declaration = ctx.protocol_method_declaration()?.accept(SwiftDeclarationVisitor()) {
+        } else if let declaration = ctx.protocol_method_declaration()?.accept(SwiftFunctionDeclarationVisitor()) {
             return declaration
         } else if let declaration = ctx.protocol_initializer_declaration()?.accept(SwiftDeclarationVisitor()) {
             return declaration

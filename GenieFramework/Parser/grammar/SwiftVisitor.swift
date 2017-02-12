@@ -610,12 +610,12 @@ open class SwiftVisitor<T>: ParseTreeVisitor<T> {
 	}
 
 	/**
-	 * Visit a parse tree produced by {@link SwiftParser#requirement_clause}.
+	 * Visit a parse tree produced by {@link SwiftParser#generic_where_clause}.
 	- Parameters:
 	  - ctx: the parse tree
 	- returns: the visitor result
 	 */
-	open func visitRequirement_clause(_ ctx: SwiftParser.Requirement_clauseContext) -> T{
+	open func visitGeneric_where_clause(_ ctx: SwiftParser.Generic_where_clauseContext) -> T{
 	 	fatalError(#function + " must be overridden")
 	}
 
@@ -1040,16 +1040,6 @@ open class SwiftVisitor<T>: ParseTreeVisitor<T> {
 	}
 
 	/**
-	 * Visit a parse tree produced by {@link SwiftParser#parameter_clauses}.
-	- Parameters:
-	  - ctx: the parse tree
-	- returns: the visitor result
-	 */
-	open func visitParameter_clauses(_ ctx: SwiftParser.Parameter_clausesContext) -> T{
-	 	fatalError(#function + " must be overridden")
-	}
-
-	/**
 	 * Visit a parse tree produced by {@link SwiftParser#parameter_clause}.
 	- Parameters:
 	  - ctx: the parse tree
@@ -1130,6 +1120,16 @@ open class SwiftVisitor<T>: ParseTreeVisitor<T> {
 	}
 
 	/**
+	 * Visit a parse tree produced by {@link SwiftParser#union_style_enum_body}.
+	- Parameters:
+	  - ctx: the parse tree
+	- returns: the visitor result
+	 */
+	open func visitUnion_style_enum_body(_ ctx: SwiftParser.Union_style_enum_bodyContext) -> T{
+	 	fatalError(#function + " must be overridden")
+	}
+
+	/**
 	 * Visit a parse tree produced by {@link SwiftParser#union_style_enum_members}.
 	- Parameters:
 	  - ctx: the parse tree
@@ -1206,6 +1206,16 @@ open class SwiftVisitor<T>: ParseTreeVisitor<T> {
 	- returns: the visitor result
 	 */
 	open func visitRaw_value_style_enum(_ ctx: SwiftParser.Raw_value_style_enumContext) -> T{
+	 	fatalError(#function + " must be overridden")
+	}
+
+	/**
+	 * Visit a parse tree produced by {@link SwiftParser#raw_value_style_enum_body}.
+	- Parameters:
+	  - ctx: the parse tree
+	- returns: the visitor result
+	 */
+	open func visitRaw_value_style_enum_body(_ ctx: SwiftParser.Raw_value_style_enum_bodyContext) -> T{
 	 	fatalError(#function + " must be overridden")
 	}
 

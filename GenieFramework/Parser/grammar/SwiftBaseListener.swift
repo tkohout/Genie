@@ -795,13 +795,13 @@ open class SwiftBaseListener: SwiftListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	open func enterRequirement_clause(_ ctx: SwiftParser.Requirement_clauseContext) { }
+	open func enterGeneric_where_clause(_ ctx: SwiftParser.Generic_where_clauseContext) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	open func exitRequirement_clause(_ ctx: SwiftParser.Requirement_clauseContext) { }
+	open func exitGeneric_where_clause(_ ctx: SwiftParser.Generic_where_clauseContext) { }
 
 	/**
 	 * {@inheritDoc}
@@ -1354,19 +1354,6 @@ open class SwiftBaseListener: SwiftListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	open func enterParameter_clauses(_ ctx: SwiftParser.Parameter_clausesContext) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	open func exitParameter_clauses(_ ctx: SwiftParser.Parameter_clausesContext) { }
-
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	open func enterParameter_clause(_ ctx: SwiftParser.Parameter_clauseContext) { }
 	/**
 	 * {@inheritDoc}
@@ -1471,6 +1458,19 @@ open class SwiftBaseListener: SwiftListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	open func enterUnion_style_enum_body(_ ctx: SwiftParser.Union_style_enum_bodyContext) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func exitUnion_style_enum_body(_ ctx: SwiftParser.Union_style_enum_bodyContext) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	open func enterUnion_style_enum_members(_ ctx: SwiftParser.Union_style_enum_membersContext) { }
 	/**
 	 * {@inheritDoc}
@@ -1569,6 +1569,19 @@ open class SwiftBaseListener: SwiftListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	open func exitRaw_value_style_enum(_ ctx: SwiftParser.Raw_value_style_enumContext) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func enterRaw_value_style_enum_body(_ ctx: SwiftParser.Raw_value_style_enum_bodyContext) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func exitRaw_value_style_enum_body(_ ctx: SwiftParser.Raw_value_style_enum_bodyContext) { }
 
 	/**
 	 * {@inheritDoc}

@@ -24,9 +24,9 @@ class SwiftDeclarationVisitor: SwiftVisitor<Declaration> {
             return declaration
         } else if let declaration = ctx.typealias_declaration()?.accept(self) {
             return declaration
-        } else if let declaration = ctx.function_declaration()?.accept(self) {
+        } else if let declaration = ctx.function_declaration()?.accept(SwiftFunctionDeclarationVisitor()) {
             return declaration
-        } else if let declaration = ctx.enum_declaration()?.accept(self) {
+        } else if let declaration = ctx.enum_declaration()?.accept(SwiftEnumDeclarationVisitor()) {
             return declaration
         } else if let declaration = ctx.struct_declaration()?.accept(SwiftStructDeclarationVisitor()) {
             return declaration
@@ -38,7 +38,7 @@ class SwiftDeclarationVisitor: SwiftVisitor<Declaration> {
             return declaration
         } else if let declaration = ctx.deinitializer_declaration()?.accept(self) {
             return declaration
-        } else if let declaration = ctx.extension_declaration()?.accept(self) {
+        } else if let declaration = ctx.extension_declaration()?.accept(SwiftExtensionDeclarationVisitor()) {
             return declaration
         } else if let declaration = ctx.subscript_declaration()?.accept(self) {
             return declaration
@@ -61,27 +61,11 @@ class SwiftDeclarationVisitor: SwiftVisitor<Declaration> {
         return Declaration(code: ctx.getSourceText())
     }
     
-    override func visitEnum_declaration(_ ctx: SwiftParser.Enum_declarationContext) -> Declaration {
-        return Declaration(code: ctx.getSourceText())
-    }
-    
-    override func visitStruct_declaration(_ ctx: SwiftParser.Struct_declarationContext) -> Declaration {
-        return Declaration(code: ctx.getSourceText())
-    }
-    
-    override func visitProtocol_declaration(_ ctx: SwiftParser.Protocol_declarationContext) -> Declaration {
-        return Declaration(code: ctx.getSourceText())
-    }
-    
     override func visitInitializer_declaration(_ ctx: SwiftParser.Initializer_declarationContext) -> Declaration {
         return Declaration(code: ctx.getSourceText())
     }
     
     override func visitDeinitializer_declaration(_ ctx: SwiftParser.Deinitializer_declarationContext) -> Declaration {
-        return Declaration(code: ctx.getSourceText())
-    }
-    
-    override func visitExtension_declaration(_ ctx: SwiftParser.Extension_declarationContext) -> Declaration {
         return Declaration(code: ctx.getSourceText())
     }
     

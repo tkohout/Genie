@@ -16,6 +16,11 @@
 		6C477B081D7033F400D76FCA /* SourceKittenHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C477B071D7033F400D76FCA /* SourceKittenHelper.swift */; };
 		AC03433E1E2172FD00969C2C /* SourceKittenXPCConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC91AA701E2130A1003E871F /* SourceKittenXPCConnection.swift */; };
 		AC03434A1E217B9900969C2C /* Buffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0343481E217B9900969C2C /* Buffer.swift */; };
+		AC138CF01E50A49B00653744 /* SwiftFunctionDeclarationVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC138CEF1E50A49B00653744 /* SwiftFunctionDeclarationVisitor.swift */; };
+		AC138CF11E50A79700653744 /* Function.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC91AA621E2130A1003E871F /* Function.swift */; };
+		AC138CF31E50AF5900653744 /* Parameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC138CF21E50AF5900653744 /* Parameter.swift */; };
+		AC138CF51E50B0CA00653744 /* SwiftParameterVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC138CF41E50B0C900653744 /* SwiftParameterVisitor.swift */; };
+		AC138CF71E50C26D00653744 /* Statement.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC138CF61E50C26D00653744 /* Statement.swift */; };
 		AC39E2051E2180C200D9FD65 /* GenieFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACED61441E21467B00BBD92D /* GenieFramework.framework */; };
 		AC39E2061E2180C200D9FD65 /* GenieFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = ACED61441E21467B00BBD92D /* GenieFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AC3CBEB01E4E175F00DB93C1 /* Swift.tokens in Resources */ = {isa = PBXBuildFile; fileRef = AC3CBEA81E4E175F00DB93C1 /* Swift.tokens */; };
@@ -53,6 +58,8 @@
 		AC3CBEF21E4FD44800DB93C1 /* SwiftProtocolDeclarationVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3CBEF11E4FD44800DB93C1 /* SwiftProtocolDeclarationVisitor.swift */; };
 		AC3CBEF41E4FDCEF00DB93C1 /* SwiftDeclarationModifierVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3CBEF31E4FDCEF00DB93C1 /* SwiftDeclarationModifierVisitor.swift */; };
 		AC3CBEF61E4FDE2A00DB93C1 /* DeclarationModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3CBEF51E4FDE2A00DB93C1 /* DeclarationModifier.swift */; };
+		AC3CBEF81E5088F300DB93C1 /* SwiftEnumDeclarationVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3CBEF71E5088F300DB93C1 /* SwiftEnumDeclarationVisitor.swift */; };
+		AC3CBEFA1E509B9500DB93C1 /* SwiftExtensionDeclarationVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3CBEF91E509B9500DB93C1 /* SwiftExtensionDeclarationVisitor.swift */; };
 		AC941E841E213AAB004D8A03 /* Yams.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = ACB985A71E2136F300127FD9 /* Yams.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AC941E921E213C12004D8A03 /* SWXMLHash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC941E8C1E213BE1004D8A03 /* SWXMLHash.framework */; };
 		AC941E941E213C26004D8A03 /* SWXMLHash.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AC941E8C1E213BE1004D8A03 /* SWXMLHash.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -199,6 +206,10 @@
 		AC0343431E21778600969C2C /* BufferStub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BufferStub.swift; sourceTree = "<group>"; };
 		AC0343481E217B9900969C2C /* Buffer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Buffer.swift; sourceTree = "<group>"; };
 		AC0343491E217B9900969C2C /* SourceKitRepresentableExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourceKitRepresentableExtensions.swift; sourceTree = "<group>"; };
+		AC138CEF1E50A49B00653744 /* SwiftFunctionDeclarationVisitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftFunctionDeclarationVisitor.swift; sourceTree = "<group>"; };
+		AC138CF21E50AF5900653744 /* Parameter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parameter.swift; sourceTree = "<group>"; };
+		AC138CF41E50B0C900653744 /* SwiftParameterVisitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftParameterVisitor.swift; sourceTree = "<group>"; };
+		AC138CF61E50C26D00653744 /* Statement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Statement.swift; sourceTree = "<group>"; };
 		AC3CBEA81E4E175F00DB93C1 /* Swift.tokens */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Swift.tokens; path = grammar/Swift.tokens; sourceTree = "<group>"; };
 		AC3CBEA91E4E175F00DB93C1 /* SwiftBaseListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftBaseListener.swift; path = grammar/SwiftBaseListener.swift; sourceTree = "<group>"; };
 		AC3CBEAA1E4E175F00DB93C1 /* SwiftLexer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftLexer.swift; path = grammar/SwiftLexer.swift; sourceTree = "<group>"; };
@@ -231,12 +242,14 @@
 		AC3CBEF11E4FD44800DB93C1 /* SwiftProtocolDeclarationVisitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftProtocolDeclarationVisitor.swift; sourceTree = "<group>"; };
 		AC3CBEF31E4FDCEF00DB93C1 /* SwiftDeclarationModifierVisitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftDeclarationModifierVisitor.swift; sourceTree = "<group>"; };
 		AC3CBEF51E4FDE2A00DB93C1 /* DeclarationModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeclarationModifier.swift; sourceTree = "<group>"; };
+		AC3CBEF71E5088F300DB93C1 /* SwiftEnumDeclarationVisitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftEnumDeclarationVisitor.swift; sourceTree = "<group>"; };
+		AC3CBEF91E509B9500DB93C1 /* SwiftExtensionDeclarationVisitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftExtensionDeclarationVisitor.swift; sourceTree = "<group>"; };
 		AC91AA5B1E2130A1003E871F /* CurriedInitializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurriedInitializer.swift; sourceTree = "<group>"; };
 		AC91AA5C1E2130A1003E871F /* GeneeCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneeCommand.swift; sourceTree = "<group>"; };
 		AC91AA5D1E2130A1003E871F /* Initializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Initializer.swift; sourceTree = "<group>"; };
 		AC91AA5E1E2130A1003E871F /* ReactiveProperty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReactiveProperty.swift; sourceTree = "<group>"; };
 		AC91AA5F1E2130A1003E871F /* Stub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stub.swift; sourceTree = "<group>"; };
-		AC91AA621E2130A1003E871F /* Closure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Closure.swift; sourceTree = "<group>"; };
+		AC91AA621E2130A1003E871F /* Function.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Function.swift; sourceTree = "<group>"; };
 		AC91AA631E2130A1003E871F /* ClosureCapture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClosureCapture.swift; path = ../Source/ClosureCapture.swift; sourceTree = "<group>"; };
 		AC91AA641E2130A1003E871F /* Node.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		AC91AA651E2130A1003E871F /* Source.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Source.swift; sourceTree = "<group>"; };
@@ -424,6 +437,10 @@
 				AC3CBEEF1E4FD43900DB93C1 /* SwiftStructDeclarationVisitor.swift */,
 				AC3CBEF11E4FD44800DB93C1 /* SwiftProtocolDeclarationVisitor.swift */,
 				AC3CBEF31E4FDCEF00DB93C1 /* SwiftDeclarationModifierVisitor.swift */,
+				AC3CBEF71E5088F300DB93C1 /* SwiftEnumDeclarationVisitor.swift */,
+				AC3CBEF91E509B9500DB93C1 /* SwiftExtensionDeclarationVisitor.swift */,
+				AC138CEF1E50A49B00653744 /* SwiftFunctionDeclarationVisitor.swift */,
+				AC138CF41E50B0C900653744 /* SwiftParameterVisitor.swift */,
 			);
 			path = Parser;
 			sourceTree = "<group>";
@@ -463,7 +480,7 @@
 		AC91AA601E2130A1003E871F /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				AC91AA621E2130A1003E871F /* Closure.swift */,
+				AC91AA621E2130A1003E871F /* Function.swift */,
 				AC91AA641E2130A1003E871F /* Node.swift */,
 				AC91AA651E2130A1003E871F /* Source.swift */,
 				AC91AA661E2130A1003E871F /* SyntaxTree.swift */,
@@ -472,6 +489,8 @@
 				AC3CBED41E4F7D3400DB93C1 /* Declaration.swift */,
 				AC3CBEEA1E4FB51000DB93C1 /* AccessLevelModifier.swift */,
 				AC3CBEF51E4FDE2A00DB93C1 /* DeclarationModifier.swift */,
+				AC138CF21E50AF5900653744 /* Parameter.swift */,
+				AC138CF61E50C26D00653744 /* Statement.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -782,6 +801,7 @@
 				AC3CBEDF1E4FB11900DB93C1 /* SwiftVariableDeclarationVisitor.swift in Sources */,
 				AC3CBED51E4F7D3400DB93C1 /* Declaration.swift in Sources */,
 				AC3CBEE71E4FB24C00DB93C1 /* SwiftAttributesVisitor.swift in Sources */,
+				AC3CBEFA1E509B9500DB93C1 /* SwiftExtensionDeclarationVisitor.swift in Sources */,
 				AC3CBEB71E4E175F00DB93C1 /* SwiftParserATN.swift in Sources */,
 				AC3CBEF41E4FDCEF00DB93C1 /* SwiftDeclarationModifierVisitor.swift in Sources */,
 				AC3CBEF01E4FD43900DB93C1 /* SwiftStructDeclarationVisitor.swift in Sources */,
@@ -792,15 +812,21 @@
 				AC03434A1E217B9900969C2C /* Buffer.swift in Sources */,
 				AC3CBEBF1E4E249F00DB93C1 /* SwiftSupport.swift in Sources */,
 				AC3CBEC21E4E272200DB93C1 /* SwiftBaseVisitor.swift in Sources */,
+				AC3CBEF81E5088F300DB93C1 /* SwiftEnumDeclarationVisitor.swift in Sources */,
 				AC3CBEDD1E4FB0D400DB93C1 /* SwiftDeclarationVisitor.swift in Sources */,
+				AC138CF31E50AF5900653744 /* Parameter.swift in Sources */,
+				AC138CF01E50A49B00653744 /* SwiftFunctionDeclarationVisitor.swift in Sources */,
 				AC3CBEE11E4FB15300DB93C1 /* SwiftStatementVisitor.swift in Sources */,
 				AC3CBEB11E4E175F00DB93C1 /* SwiftBaseListener.swift in Sources */,
 				AC3CBED91E4FB06D00DB93C1 /* ParserHelpers.swift in Sources */,
 				ACED61591E2146B300BBD92D /* Source.swift in Sources */,
+				AC138CF51E50B0CA00653744 /* SwiftParameterVisitor.swift in Sources */,
 				AC3CBEC31E4E272200DB93C1 /* SwiftVisitor.swift in Sources */,
 				AC3CBEEB1E4FB51000DB93C1 /* AccessLevelModifier.swift in Sources */,
 				AC3CBEB41E4E175F00DB93C1 /* SwiftLexerATN.swift in Sources */,
 				AC3CBEF21E4FD44800DB93C1 /* SwiftProtocolDeclarationVisitor.swift in Sources */,
+				AC138CF11E50A79700653744 /* Function.swift in Sources */,
+				AC138CF71E50C26D00653744 /* Statement.swift in Sources */,
 				AC3CBEDB1E4FB09600DB93C1 /* SwiftDefaultVisitor.swift in Sources */,
 				AC3CBEE51E4FB19400DB93C1 /* SwiftClassDeclarationVisitor.swift in Sources */,
 				AC3CBEB51E4E175F00DB93C1 /* SwiftListener.swift in Sources */,

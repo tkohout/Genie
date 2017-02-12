@@ -287,4 +287,190 @@ class ParserTest: XCTestCase {
         XCTAssertEqual(result?.variables[1].codeBlock, "{ get set }")
     }
     
+    func testThatRawStyleEnumIsParsed() {
+        let code = String(
+            "enum A: String, Equatable {",
+            "   case a = \"A\"",
+            "   var z: String { return \"a\" }",
+            "}"
+        )
+        
+        let source = try! parse(code: code)
+        
+        let result = source.nodes.first as? EnumDeclaration
+        XCTAssertNotNil(result)
+        XCTAssertEqual(result?.name, "A")
+        XCTAssertEqual(result?.inheritedTypes.first, "String")
+        XCTAssertEqual(result?.inheritedTypes[1], "Equatable")
+        XCTAssertEqual(result?.nodes[1].code, "case a = \"A\"")
+        XCTAssertEqual(result?.variables.first?.name, "z")
+    }
+    
+    func testThatUnionStyleEnumIsParsed() {
+        let code = String(
+            "public indirect enum Composite: Equatable {",
+            "   case composite(Composite)",
+            "   case leaf",
+            "}"
+        )
+        
+        let source = try! parse(code: code)
+        
+        let result = source.nodes.first as? EnumDeclaration
+        XCTAssertNotNil(result)
+        XCTAssertEqual(result?.name, "Composite")
+        XCTAssertEqual(result?.accessLevelModifier, .public)
+        XCTAssertEqual(result?.inheritedTypes.first, "Equatable")
+        XCTAssertEqual(result?.nodes[1].code, "case composite(Composite)")
+        XCTAssertEqual(result?.nodes[3].code, "case leaf")
+    }
+    
+    func testThatExtensionIsParsed() {
+        let code = String(
+            "public extension MyClass: CustomStringConvertible {",
+            "   var description: String { return \"\" }",
+            "}"
+        )
+        
+        let source = try! parse(code: code)
+        
+        let result = source.nodes.first as? ExtensionDeclaration
+        XCTAssertNotNil(result)
+        XCTAssertEqual(result?.name, "MyClass")
+        XCTAssertEqual(result?.inheritedTypes.first, "CustomStringConvertible")
+        XCTAssertEqual(result?.accessLevelModifier, .public)
+        
+        XCTAssertEqual(result?.variables.first?.name, "description")
+    }
+    
+    func testThatExtensionWithWhereClauseIsParsed() {
+        let code = String(
+            "private extension Array where Element: String {",
+            "   var x: String { return \"\" }",
+            "}"
+        )
+        
+        let source = try! parse(code: code)
+        
+        let result = source.nodes.first as? ExtensionDeclaration
+        XCTAssertNotNil(result)
+        XCTAssertEqual(result?.name, "Array")
+        XCTAssertEqual(result?.accessLevelModifier, .private)
+        XCTAssertEqual(result?.whereClause, "where Element: String")
+        XCTAssertEqual(result?.variables.first?.name, "x")
+    }
+    
+    func testThatFreeFunctionIsParsed() {
+        let code = String(
+            "func a(toB b: Int) throws -> String {",
+            "  let d = a",
+            "  let e = c",
+            "}"
+        )
+        
+        let source = try! parse(code: code)
+        
+        let result = source.nodes.first as? FunctionDeclaration
+        XCTAssertNotNil(result)
+        XCTAssertEqual(result?.name, "a")
+        XCTAssertEqual(result?.parameters.first?.name, "b")
+        XCTAssertEqual(result?.parameters.first?.externalName, "toB")
+        XCTAssertEqual(result?.returnType, "String")
+        XCTAssertEqual(result?.throws, true)
+        XCTAssertEqual(result?.statements.first?.code, "let d = a")
+        XCTAssertEqual(result?.statements[1].code, "let e = c")
+        
+    }
+    
+    func testThatMethodIsParsed() {
+        let code = String(
+            "class A {",
+            "   private func a(_ b: Int) rethrows {",
+            "   }",
+            "}"
+        )
+        
+        let source = try! parse(code: code)
+        
+        let result = source.nodes.first as? ClassDeclaration
+        XCTAssertNotNil(result)
+        XCTAssertEqual(result?.methods.first?.name, "a")
+        XCTAssertEqual(result?.methods.first?.rethrows, true)
+    }
+    
+    func testThatProtocolMethodIsParsed() {
+        let code = String(
+            "protocol A {",
+            "   private func a()",
+            "}"
+        )
+        
+        let source = try! parse(code: code)
+        
+        let result = source.nodes.first as? ProtocolDeclaration
+        XCTAssertNotNil(result)
+        XCTAssertEqual(result?.methods.first?.name, "a")
+    }
+    
+    func testThatGenericMethodIsParsed() {
+        let code = String(
+            "class A {",
+            "   func a<T>(b: T) where T: Equatable {",
+            "   }",
+            "}"
+        )
+        
+        let source = try! parse(code: code)
+        
+        let result = source.nodes.first as? ClassDeclaration
+        XCTAssertNotNil(result)
+        XCTAssertEqual(result?.methods.first?.name, "a")
+        XCTAssertEqual(result?.methods.first?.genericClause, "<T>")
+        XCTAssertEqual(result?.methods.first?.whereClause, "where T: Equatable")
+    }
+    
+    func testThatParameterWithAttributeIsParsed() {
+        let code = String(
+            "func a(x: @escaping (Int)->Void){",
+            "}"
+        )
+        
+        let source = try! parse(code: code)
+        
+        let result = source.nodes.first as? FunctionDeclaration
+        XCTAssertNotNil(result)
+        XCTAssertEqual(result?.parameters.first?.name, "x")
+        XCTAssertEqual(result?.parameters.first?.typeName, "@escaping (Int)->Void")
+    }
+    
+    func testThatVariadicParameterIsParsed() {
+        let code = String(
+            "func a(x: String ...){",
+            "}"
+        )
+        
+        let source = try! parse(code: code)
+        
+        let result = source.nodes.first as? FunctionDeclaration
+        XCTAssertNotNil(result)
+        XCTAssertEqual(result?.parameters.first?.typeName, "String")
+        XCTAssertEqual(result?.parameters.first?.isVariadic, true)
+    }
+    
+    func testThatParameterWithDefaultArgumentIsParsed() {
+        let code = String(
+            "func a(x: String = \"x\"){",
+            "}"
+        )
+        
+        let source = try! parse(code: code)
+        
+        let result = source.nodes.first as? FunctionDeclaration
+        XCTAssertNotNil(result)
+        XCTAssertEqual(result?.parameters.first?.typeName, "String")
+        XCTAssertEqual(result?.parameters.first?.defaultClause, "= \"x\"")
+    }
+    
 }
+
+
