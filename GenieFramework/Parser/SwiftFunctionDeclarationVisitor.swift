@@ -47,8 +47,8 @@ class SwiftFunctionDeclarationVisitor: SwiftVisitor<Declaration> {
         
         let nodes: [Node]
         
-        if let codeBlock = ctx.function_body()?.code_block() {
-            nodes = codeBlock.statements()?.statement().mapJoinedByIndentation(parentCtx: codeBlock){ $0.accept(SwiftStatementVisitor())! } ?? []
+        if let body = ctx.function_body(), let codeBlock = body.code_block() {
+            nodes = codeBlock.statements()?.statement().mapJoinedByIndentation(parentCtx: body) { $0.accept(SwiftStatementVisitor())! } ?? body.getInnerSourceTextFromBracedBlock().flatMap { [Node(code: $0)] } ?? []
         } else {
             nodes = []
         }

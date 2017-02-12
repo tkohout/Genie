@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Antlr4
 
 class SwiftExtensionDeclarationVisitor: SwiftVisitor<Declaration> {
     
@@ -19,8 +20,10 @@ class SwiftExtensionDeclarationVisitor: SwiftVisitor<Declaration> {
         let inheritedTypes = ctx.type_inheritance_clause()?.type_inheritance_list()?.accept(SwiftTypeInheritanceListVisitor()) ?? []
         
         let body = ctx.extension_body()!
-        let declarations = body.declarations()?.declaration().mapJoinedByIndentation(parentCtx: body) { $0.accept(SwiftDeclarationVisitor())! } ?? []
+        let declarations = body.declarations()?.accept(SwiftDeclarationsVisitor()) ?? body.getInnerSourceTextFromBracedBlock().flatMap { [Node(code: $0)] } ?? []
         
-        return ExtensionDeclaration(code: ctx.getSourceText(), name: extensionName, inheritedTypes: inheritedTypes, attributes: attributes, accessLevelModifier: accessLevelModifier, whereClause: whereClause, nodes: declarations)
+        let code = ctx.getSourceText(Interval(ctx.start!.getStartIndex(), ctx.extension_body()!.start!.getStartIndex() - 1))!
+        
+        return ExtensionDeclaration(code: code, name: extensionName, inheritedTypes: inheritedTypes, attributes: attributes, accessLevelModifier: accessLevelModifier, whereClause: whereClause, nodes: declarations)
     }
 }

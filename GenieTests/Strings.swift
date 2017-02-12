@@ -19,3 +19,10 @@ extension String {
         }
     }
 }
+
+extension String {
+    init(format: [String], _ arguments: CVarArg ... ){
+        let string = format.joined(separator: "\n")
+        self.init(format: string, arguments: arguments)
+    }
+}

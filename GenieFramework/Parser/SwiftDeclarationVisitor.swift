@@ -10,6 +10,7 @@ import Foundation
 
 class SwiftDeclarationsVisitor: SwiftVisitor<[Node]> {
     override func visitDeclarations(_ ctx: SwiftParser.DeclarationsContext) -> [Node] {
+        
         return ctx.declaration().mapJoinedByIndentation(parentCtx: ctx) { $0.accept(SwiftDeclarationVisitor())! }
     }
 }

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Antlr4
 
 class SwiftProtocolDeclarationVisitor: SwiftVisitor<Declaration> {
     
@@ -33,8 +34,13 @@ class SwiftProtocolDeclarationVisitor: SwiftVisitor<Declaration> {
         let className = ctx.protocol_name()!.getText()
         let inheritedTypes = ctx.type_inheritance_clause()?.type_inheritance_list()?.accept(SwiftTypeInheritanceListVisitor()) ?? []
         
-        let declarations = ctx.protocol_body()!.protocol_member_declarations()?.protocol_member_declaration().mapJoinedByIndentation(parentCtx: ctx.protocol_body()!) { $0.accept(SwiftProtocolDeclarationVisitor())! } ?? []
+        let body = ctx.protocol_body()!
         
-        return ProtocolDeclaration(code: ctx.getSourceText(), name: className, inheritedTypes: inheritedTypes, attributes: attributes, accessLevelModifier: accessLevelModifier, nodes: declarations)
+        
+        let declarations = body.protocol_member_declarations()?.protocol_member_declaration().mapJoinedByIndentation(parentCtx: body) { $0.accept(self)! } ?? body.getInnerSourceTextFromBracedBlock().flatMap { [Node(code: $0)] } ?? []
+        
+        let code = ctx.getSourceText(Interval(ctx.start!.getStartIndex(), body.start!.getStartIndex()-1))!
+        
+        return ProtocolDeclaration(code: code, name: className, inheritedTypes: inheritedTypes, attributes: attributes, accessLevelModifier: accessLevelModifier, nodes: declarations)
     }
 }

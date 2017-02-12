@@ -16,6 +16,7 @@
 		6C477B081D7033F400D76FCA /* SourceKittenHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C477B071D7033F400D76FCA /* SourceKittenHelper.swift */; };
 		AC03433E1E2172FD00969C2C /* SourceKittenXPCConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC91AA701E2130A1003E871F /* SourceKittenXPCConnection.swift */; };
 		AC03434A1E217B9900969C2C /* Buffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0343481E217B9900969C2C /* Buffer.swift */; };
+		AC085D9F1E50DE4C004E3E22 /* PrinterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC085D9E1E50DE4C004E3E22 /* PrinterTest.swift */; };
 		AC138CF01E50A49B00653744 /* SwiftFunctionDeclarationVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC138CEF1E50A49B00653744 /* SwiftFunctionDeclarationVisitor.swift */; };
 		AC138CF11E50A79700653744 /* Function.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC91AA621E2130A1003E871F /* Function.swift */; };
 		AC138CF31E50AF5900653744 /* Parameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC138CF21E50AF5900653744 /* Parameter.swift */; };
@@ -206,6 +207,7 @@
 		AC0343431E21778600969C2C /* BufferStub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BufferStub.swift; sourceTree = "<group>"; };
 		AC0343481E217B9900969C2C /* Buffer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Buffer.swift; sourceTree = "<group>"; };
 		AC0343491E217B9900969C2C /* SourceKitRepresentableExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourceKitRepresentableExtensions.swift; sourceTree = "<group>"; };
+		AC085D9E1E50DE4C004E3E22 /* PrinterTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrinterTest.swift; sourceTree = "<group>"; };
 		AC138CEF1E50A49B00653744 /* SwiftFunctionDeclarationVisitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftFunctionDeclarationVisitor.swift; sourceTree = "<group>"; };
 		AC138CF21E50AF5900653744 /* Parameter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parameter.swift; sourceTree = "<group>"; };
 		AC138CF41E50B0C900653744 /* SwiftParameterVisitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftParameterVisitor.swift; sourceTree = "<group>"; };
@@ -535,6 +537,7 @@
 				ACED612B1E21453F00BBD92D /* GenieTests.swift */,
 				ACED612D1E21453F00BBD92D /* Info.plist */,
 				AC3CBEC41E4E2B5A00DB93C1 /* ParserTest.swift */,
+				AC085D9E1E50DE4C004E3E22 /* PrinterTest.swift */,
 			);
 			path = GenieTests;
 			sourceTree = "<group>";
@@ -786,6 +789,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC085D9F1E50DE4C004E3E22 /* PrinterTest.swift in Sources */,
 				AC3CBEC51E4E2B5A00DB93C1 /* ParserTest.swift in Sources */,
 				AC3CBED31E4F6B5B00DB93C1 /* Strings.swift in Sources */,
 				ACE36CA31E22BAE70007F0FD /* Asserts.swift in Sources */,

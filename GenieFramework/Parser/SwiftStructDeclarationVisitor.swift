@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Antlr4
 
 class SwiftStructDeclarationVisitor: SwiftVisitor<Declaration> {
     
@@ -18,8 +19,12 @@ class SwiftStructDeclarationVisitor: SwiftVisitor<Declaration> {
         let genericClause = ctx.generic_parameter_clause()?.getText()
         let inheritedTypes = ctx.type_inheritance_clause()?.type_inheritance_list()?.accept(SwiftTypeInheritanceListVisitor()) ?? []
         
-        let declarations = ctx.struct_body()!.declarations()?.declaration().mapJoinedByIndentation(parentCtx: ctx.struct_body()!) { $0.accept(SwiftDeclarationVisitor())! } ?? []
+        let body = ctx.struct_body()!
         
-        return StructDeclaration(code: ctx.getSourceText(), name: className, inheritedTypes: inheritedTypes, attributes: attributes, accessLevelModifier: accessLevelModifier, genericClause: genericClause, nodes: declarations)
+        let declarations = body.declarations()?.declaration().mapJoinedByIndentation(parentCtx: body) { $0.accept(SwiftDeclarationVisitor())! } ?? body.getInnerSourceTextFromBracedBlock().flatMap { [Node(code: $0)] } ?? []
+        
+        let code = ctx.getSourceText(Interval(ctx.start!.getStartIndex(), body.start!.getStartIndex()-1))!
+        
+        return StructDeclaration(code: code, name: className, inheritedTypes: inheritedTypes, attributes: attributes, accessLevelModifier: accessLevelModifier, genericClause: genericClause, nodes: declarations)
     }
 }

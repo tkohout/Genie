@@ -27,7 +27,14 @@ extension ParserRuleContext {
         }
         return getSourceText(interval) ?? ""
     }
+    
+    func getInnerSourceTextFromBracedBlock() -> String? {
+        //Remove the braces
+        return self.getSourceText(Interval(self.start!.getStartIndex()+1, self.stop!.getStopIndex()-1))
+    }
 }
+
+
 
 
 extension Array where Element: ParserRuleContext {
@@ -45,9 +52,11 @@ extension Array where Element: ParserRuleContext {
             return (nodes, ctx.stop!.getStopIndex())
         }
         
-        if let last = parentCtx.getSourceText(Interval(lastIndex+1, parentCtx.stop!.getStopIndex())) {
+        if let last = parentCtx.getSourceText(Interval(lastIndex+1, parentCtx.stop!.getStopIndex()-1)) {
             nodes.append(Node(code: last))
         }
+        
+        
         
         return nodes
     }
