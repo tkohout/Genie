@@ -63,7 +63,7 @@ public class ProtocolDeclaration: TypeDeclaration {
 public class EnumDeclaration: TypeDeclaration {
     override var keyword: String { return "enum" }
     
-    public var isIndirect: Bool = false
+    public var isIndirect: Bool = false { didSet{ isUpdated = true } }
     
     public init(code: String, name: String, inheritedTypes: [String] = [], attributes: [String] = [], accessLevelModifier: AccessLevelModifier? = nil, genericClause: String? = nil, isIndirect: Bool = false, nodes: [Node] = []) {
         self.isIndirect = isIndirect
@@ -82,7 +82,7 @@ public class EnumDeclaration: TypeDeclaration {
 
 public class ExtensionDeclaration: TypeDeclaration {
     override var keyword: String { return "extension" }
-    public var whereClause: String? = nil
+    public var whereClause: String? = nil { didSet{ isUpdated = true } }
     
     public init(code: String, name: String, inheritedTypes: [String] = [], attributes: [String] = [], accessLevelModifier: AccessLevelModifier? = nil, whereClause: String? = nil, nodes: [Node] = []) {
         self.whereClause = whereClause

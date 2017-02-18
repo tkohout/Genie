@@ -35,9 +35,9 @@ class SwiftDeclarationVisitor: SwiftVisitor<Declaration> {
             return declaration
         } else if let declaration = ctx.protocol_declaration()?.accept(SwiftProtocolDeclarationVisitor()) {
             return declaration
-        } else if let declaration = ctx.initializer_declaration()?.accept(self) {
+        } else if let declaration = ctx.initializer_declaration()?.accept(SwiftFunctionDeclarationVisitor()) {
             return declaration
-        } else if let declaration = ctx.deinitializer_declaration()?.accept(self) {
+        } else if let declaration = ctx.deinitializer_declaration()?.accept(SwiftFunctionDeclarationVisitor()) {
             return declaration
         } else if let declaration = ctx.extension_declaration()?.accept(SwiftExtensionDeclarationVisitor()) {
             return declaration

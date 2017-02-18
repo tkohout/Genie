@@ -75,5 +75,144 @@ class PrinterTest: XCTestCase {
         AssertEqualByLine(result?.code, String(format: template, "Array where Element == X"))
     }
     
+    func testThatUpdatedFunctionIsPrinted() {
+        let template = [
+            "class A {",
+            "   @discardableResult",
+            "   public static func %@<T>(%@) -> T where T: Equatable {",
+            "       var x: Int",
+            "   }",
+            "}"
+        ]
+        
+        let code = String(format: template, "a", "x: Int, y: String")
+        
+        let source = try! parse(code: code)
+        
+        let classDecl = source.nodes.first as? ClassDeclaration
+        let result = classDecl?.methods.first
+        AssertEqualByLine(classDecl?.code, code)
+        
+        result?.name = "b"
+        result?.parameters = [result!.parameters.first!]
+        
+        AssertEqualIgnoringIndentation(classDecl?.code, String(format: template, "b", "x: Int"))
+    }
+    
+    func testThatUpdatedVariableIsPrinted() {
+        let template = [
+            "class A {",
+            "   private(set) static %@ %@: %@ %@",
+            "}"
+        ]
+        
+        let code = String(format: template, "let", "x", "Int", "= 0")
+        
+        let source = try! parse(code: code)
+        
+        let classDecl = source.nodes.first as? ClassDeclaration
+        let result = classDecl?.variables.first
+        AssertEqualByLine(classDecl?.code, code)
+        
+        result?.isConstant = false
+        result?.name = "y"
+        result?.typeName = "String"
+        result?.initializer = "\"\""
+        //result?.codeBlock = "{ return \"\" }"
+        
+        AssertEqualIgnoringIndentation(classDecl?.code, String(format: template, "var", "y", "String", "= \"\""))
+    }
+    
+    func testThatUpdatedVariableWithCodeBlockIsPrinted() {
+        let template = [
+            "class A {",
+            "   private(set) static %@ %@: %@ %@",
+            "}"
+        ]
+        
+        let code = String(format: template, "let", "x", "Int", "= 0")
+        
+        let source = try! parse(code: code)
+        
+        let classDecl = source.nodes.first as? ClassDeclaration
+        let result = classDecl?.variables.first
+        AssertEqualByLine(classDecl?.code, code)
+        
+        result?.isConstant = false
+        result?.name = "y"
+        result?.typeName = "String"
+        result?.initializer = nil
+        result?.codeBlock = "{ return \"\" }"
+        
+        AssertEqualIgnoringIndentation(classDecl?.code, String(format: template, "var", "y", "String", "{ return \"\" }"))
+    }
+    
+    func testThatUpdatedParameterIsPrinted() {
+        let template = [
+            "func a(%@, y: String ...) {",
+            "}"
+        ]
+        
+        let code = String(format: template, "forX x: Int = 0")
+        
+        let source = try! parse(code: code)
+        
+        let funcDecl = source.nodes.first as? FunctionDeclaration
+        let result = funcDecl?.parameters.first
+        AssertEqualByLine(funcDecl?.code, code)
+        
+        result?.externalName = nil
+        result?.name = "y"
+        result?.typeName = "String"
+        result?.defaultClause = "\"\""
+        
+        AssertEqualIgnoringIndentation(funcDecl?.code, String(format: template, "y: String = \"\""))
+    }
+    
+    func testThatUpdatedInitializerIsPrinted(){
+        let template = [
+            "class A {",
+            "   %@ {",
+            "       var x: Int",
+            "   }",
+            "}"
+        ]
+        
+        let code = String(format: template, "init?(x: Int) throws")
+        
+        let source = try! parse(code: code)
+        
+        let classDecl = source.nodes.first as? ClassDeclaration
+        let result = classDecl?.methods.first as? InitializerDeclaration
+        AssertEqualByLine(classDecl?.code, code)
+        
+        result?.parameters = []
+        result?.failable = .implicitlyUnwrapped
+        
+        AssertEqualIgnoringIndentation(classDecl?.code, String(format: template, "init!() throws"))
+    }
+    
+    func testThatUpdatedDeinitializerIsPrinted(){
+        let template = [
+            "class A {",
+            "   %@",
+            "   deinit {",
+            "       var x: Int",
+            "   }",
+            "}"
+        ]
+        
+        let code = String(format: template, "@available(*, 10.0)")
+        
+        let source = try! parse(code: code)
+        
+        let classDecl = source.nodes.first as? ClassDeclaration
+        let result = classDecl?.methods.first as? DeinitializerDeclaration
+        AssertEqualByLine(classDecl?.code, code)
+        result?.attributes = ["@available(*, 9.0)"]
+        
+        AssertEqualIgnoringIndentation(classDecl?.code, String(format: template, "@available(*, 9.0)"))
+    }
+    
     
 }

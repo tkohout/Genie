@@ -20,6 +20,18 @@ func AssertEqualIgnoringIndentation(_ expression1: String, _ expression2: String
     AssertEqualIgnoringIndentation(expression1.components(separatedBy: "\n"), expression2.components(separatedBy: "\n"), fileName: fileName, file: file, line: line)
 }
 
+func AssertEqualIgnoringIndentation(_ expression1: String?, _ expression2: String?, fileName: String? = nil,
+                       file: StaticString = #file, line: UInt = #line){
+    switch (expression1, expression2) {
+    case (.none, .none):
+        return
+    case (.some(let l), .some(let r)):
+        AssertEqualIgnoringIndentation(l.components(separatedBy: "\n"), r.components(separatedBy: "\n"), fileName: fileName, file: file, line: line)
+    default:
+        AssertEqualIgnoringIndentation(expression1, expression2, file: file, line: line)
+    }
+}
+
 func AssertEqualIgnoringIndentation(_ expression1: [String], _ expression2: [String], fileName: String? = nil,
                                     file: StaticString = #file, line: UInt = #line) {
     let expressions = [expression1, expression2].map { $0.map{ $0.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines) }}

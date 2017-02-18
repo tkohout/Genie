@@ -10,11 +10,11 @@ import Foundation
 
 public class Parameter: Node {
     
-    public var name: String
-    public var externalName: String?
-    public var typeName: String?
-    public var defaultClause: String?
-    public var isVariadic: Bool = false
+    public var name: String { didSet{ isUpdated = true } }
+    public var externalName: String? { didSet{ isUpdated = true } }
+    public var typeName: String? { didSet{ isUpdated = true } }
+    public var defaultClause: String? { didSet{ isUpdated = true } }
+    public var isVariadic: Bool = false { didSet{ isUpdated = true } }
     
     public init(code: String, name: String, externalName: String?, typeName: String? = nil, defaultClause: String? = nil, isVariadic: Bool = false) {
         self.name = name
@@ -23,5 +23,18 @@ public class Parameter: Node {
         self.defaultClause = defaultClause
         self.isVariadic = isVariadic
         super.init(code: code)
+    }
+    
+    override var code: String {
+        if isUpdated {
+            let externalName = self.externalName.flatMap { $0 + " " } ?? ""
+            let typeName = self.typeName.flatMap { ": " + $0 } ?? ""
+            let defaultClause = self.defaultClause.flatMap { " = " + $0 } ?? ""
+            let variadic = isVariadic ? " ..." : ""
+            
+            return externalName + name + typeName + variadic + defaultClause
+        } else {
+            return _code
+        }
     }
 }

@@ -8,7 +8,16 @@
 
 import Foundation
 
-public enum Modifier {
+public enum Modifier: CodeConvertible {
     case accessLevel(AccessLevelModifier)
     case declaration(String)
+    
+    var code: String {
+        switch self {
+        case .accessLevel(let accessLevel):
+            return accessLevel.code
+        case .declaration(let declaration):
+            return declaration
+        }
+    }
 }

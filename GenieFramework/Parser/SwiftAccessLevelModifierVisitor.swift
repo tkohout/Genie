@@ -14,14 +14,24 @@ class SwiftAccessLevelModifierVisitor: SwiftVisitor<AccessLevelModifier> {
         switch modifier {
         case "internal":
             return AccessLevelModifier.internal
+        case "internal(set)":
+            return AccessLevelModifier.internalSet
         case "fileprivate":
             return AccessLevelModifier.fileprivate
+        case "fileprivate(set)":
+            return AccessLevelModifier.fileprivateSet
         case "private":
             return AccessLevelModifier.private
+        case "private(set)":
+            return AccessLevelModifier.privateSet
         case "public":
             return AccessLevelModifier.public
+        case "public(set)":
+            return AccessLevelModifier.publicSet
         case "open":
             return AccessLevelModifier.open
+        case "open(set)":
+            return AccessLevelModifier.openSet
         default:
             fatalError("Unrecognized access level modifier")
         }

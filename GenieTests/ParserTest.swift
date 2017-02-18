@@ -412,6 +412,43 @@ class ParserTest: XCTestCase {
         XCTAssertEqual(result?.methods.first?.whereClause, "where T: Equatable")
     }
     
+    func testThatInitializerIsParsed() {
+        let code = String(
+            "class A {",
+            "   required init?(b: String) throws {",
+            "   }",
+            "}"
+        )
+        
+        let source = try! parse(code: code)
+        
+        let result = source.nodes.first as? ClassDeclaration
+        let initializer = result?.methods.first as? InitializerDeclaration
+        XCTAssertNotNil(initializer)
+        XCTAssertEqual(initializer?.name, "init")
+        XCTAssertEqual(initializer?.failable, .optional)
+        XCTAssertEqual(initializer?.parameters.first?.name, "b")
+        XCTAssertEqual(initializer?.throws, true)
+    }
+    
+    func testThatDeinitializerIsParsed() {
+        let code = String(
+            "class A {",
+            "   @available(*, 9.1)",
+            "   deinit {",
+            "   }",
+            "}"
+        )
+        
+        let source = try! parse(code: code)
+        
+        let result = source.nodes.first as? ClassDeclaration
+        let deinitializer = result?.methods.first as? DeinitializerDeclaration
+        XCTAssertNotNil(deinitializer)
+        XCTAssertEqual(deinitializer?.name, "deinit")
+        XCTAssertEqual(deinitializer?.attributes.first, "@available(*, 9.1)")
+    }
+    
     func testThatParameterWithAttributeIsParsed() {
         let code = String(
             "func a(x: @escaping (Int)->Void){",

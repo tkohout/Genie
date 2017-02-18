@@ -49,7 +49,7 @@ class SwiftVariableDeclarationVisitor: SwiftVisitor<Declaration> {
             let attributes: [String] = ctx.attributes()?.accept(SwiftAttributesVisitor()) ?? []
             let modifiers: [Modifier] = ctx.declaration_modifiers()?.accept(SwiftDeclarationModifiersVisitor()) ?? []
             
-            return VariableDeclaration(code: ctx.getSourceText(), name: variable.name, typeName: variable.type, attributes: attributes, modifiers: modifiers, isConstant: true, initializer: variable.initializer)
+            return VariableDeclaration(code: ctx.getSourceText(), name: variable.name, typeName: variable.type, attributes: attributes, isConstant: true, modifiers: modifiers, initializer: variable.initializer)
         }
         
         return Declaration(code: ctx.getSourceText())
@@ -98,7 +98,7 @@ class SwiftVariableDeclarationVisitor: SwiftVisitor<Declaration> {
         }
         
         
-        return VariableDeclaration(code: ctx.getSourceText(), name: name, typeName: type, attributes: attributes, modifiers: modifiers, isConstant: false, initializer: initializer, codeBlock: codeBlock, willSetDidSetBlock: willSetDidSet)
+        return VariableDeclaration(code: ctx.getSourceText(), name: name, typeName: type, attributes: attributes, isConstant: false, modifiers: modifiers, initializer: initializer, codeBlock: codeBlock, willSetDidSetBlock: willSetDidSet)
         
     }
     
