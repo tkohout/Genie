@@ -20,7 +20,7 @@ class SwiftExtensionDeclarationVisitor: SwiftVisitor<Declaration> {
         let inheritedTypes = ctx.type_inheritance_clause()?.type_inheritance_list()?.accept(SwiftTypeInheritanceListVisitor()) ?? []
         
         let body = ctx.extension_body()!
-        let declarations = body.declarations()?.accept(SwiftDeclarationsVisitor()) ?? body.getInnerSourceTextFromBracedBlock().flatMap { [Node(code: $0)] } ?? []
+        let declarations = body.declarations()?.accept(SwiftDeclarationsVisitor()) ?? body.getInnerSourceTextFromBracedBlock().flatMap { [CodeNode(rawCode: $0)] } ?? []
         
         let code = ctx.getSourceText(Interval(ctx.start!.getStartIndex(), ctx.extension_body()!.start!.getStartIndex() - 1))!
         

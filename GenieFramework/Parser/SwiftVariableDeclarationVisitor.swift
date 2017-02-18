@@ -17,7 +17,7 @@ class SwiftTypeAnnotationVisitor: SwiftVisitor<String>{
     }
 }
 
-class SwiftVariableDeclarationVisitor: SwiftVisitor<Declaration> {
+class SwiftVariableDeclarationVisitor: SwiftVisitor<Node> {
     
     private func variablePatternInitializer(_ ctx: SwiftParser.Pattern_initializerContext) -> (name: String, type: String?, initializer: String?)? {
         let pattern = ctx.pattern()
@@ -41,7 +41,7 @@ class SwiftVariableDeclarationVisitor: SwiftVisitor<Declaration> {
         return (name: name, type: type, initializer: initializer)
     }
     
-    override func visitConstant_declaration(_ ctx: SwiftParser.Constant_declarationContext) -> Declaration {
+    override func visitConstant_declaration(_ ctx: SwiftParser.Constant_declarationContext) -> Node {
         
         //TODO: Ignoring multiple variables for now
         if let list = ctx.pattern_initializer_list()?.pattern_initializer(), list.count == 1, let patternInitializer = list.first, let variable = variablePatternInitializer(patternInitializer) {
@@ -49,13 +49,15 @@ class SwiftVariableDeclarationVisitor: SwiftVisitor<Declaration> {
             let attributes: [String] = ctx.attributes()?.accept(SwiftAttributesVisitor()) ?? []
             let modifiers: [Modifier] = ctx.declaration_modifiers()?.accept(SwiftDeclarationModifiersVisitor()) ?? []
             
-            return VariableDeclaration(code: ctx.getSourceText(), name: variable.name, typeName: variable.type, attributes: attributes, isConstant: true, modifiers: modifiers, initializer: variable.initializer)
+            let variable = VariableDeclaration(name: variable.name, typeName: variable.type, attributes: attributes, isConstant: true, modifiers: modifiers, initializer: variable.initializer)
+            variable.rawCode = ctx.getSourceText()
+            return variable
         }
         
-        return Declaration(code: ctx.getSourceText())
+        return CodeNode(rawCode: ctx.getSourceText())
     }
     
-    override func visitVariable_declaration(_ ctx: SwiftParser.Variable_declarationContext) -> Declaration {
+    override func visitVariable_declaration(_ ctx: SwiftParser.Variable_declarationContext) -> Node {
         
         let attributes: [String] = ctx.variable_declaration_head()?.attributes()?.accept(SwiftAttributesVisitor()) ?? []
         let modifiers: [Modifier] = ctx.variable_declaration_head()?.declaration_modifiers()?.accept(SwiftDeclarationModifiersVisitor()) ?? []
@@ -94,15 +96,16 @@ class SwiftVariableDeclarationVisitor: SwiftVisitor<Declaration> {
             name = variableName
             type = variableType
         } else {
-            return Declaration(code: ctx.getSourceText())
+            return CodeNode(rawCode: ctx.getSourceText())
         }
         
         
-        return VariableDeclaration(code: ctx.getSourceText(), name: name, typeName: type, attributes: attributes, isConstant: false, modifiers: modifiers, initializer: initializer, codeBlock: codeBlock, willSetDidSetBlock: willSetDidSet)
-        
+        let variable = VariableDeclaration(name: name, typeName: type, attributes: attributes, isConstant: false, modifiers: modifiers, initializer: initializer, codeBlock: codeBlock, willSetDidSetBlock: willSetDidSet)
+        variable.rawCode = ctx.getSourceText()
+        return variable
     }
     
-    override func visitProtocol_property_declaration(_ ctx: SwiftParser.Protocol_property_declarationContext) -> Declaration {
+    override func visitProtocol_property_declaration(_ ctx: SwiftParser.Protocol_property_declarationContext) -> Node {
         let attributes: [String] = ctx.variable_declaration_head()?.attributes()?.accept(SwiftAttributesVisitor()) ?? []
         let modifiers: [Modifier] = ctx.variable_declaration_head()?.declaration_modifiers()?.accept(SwiftDeclarationModifiersVisitor()) ?? []
         
@@ -110,6 +113,8 @@ class SwiftVariableDeclarationVisitor: SwiftVisitor<Declaration> {
         let type = ctx.type_annotation()?.accept(SwiftTypeAnnotationVisitor())
         let codeBlock = ctx.getter_setter_keyword_block()?.getSourceText()
         
-        return VariableDeclaration(code: ctx.getSourceText(), name: name, typeName: type, attributes: attributes, modifiers: modifiers, codeBlock: codeBlock)
+        let variable = VariableDeclaration(name: name, typeName: type, attributes: attributes, modifiers: modifiers, codeBlock: codeBlock)
+        variable.rawCode = ctx.getSourceText()
+        return variable
     }
 }

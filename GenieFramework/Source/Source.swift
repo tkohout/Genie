@@ -13,8 +13,8 @@ public class Source: Node {
 //    public var declarations: [Node] { return nodes.flatMap { $0 as? Declaration }.flatMap { $0 as? Node } } //TODO: Ugly
 //    public var types: [Type] { return nodes.flatMap { $0 as? Type } }
     
-    init(code: String, nodes: [Node] = []) {
-        super.init(code: code)
+    init(nodes: [Node] = []) {
+        super.init()
         self.nodes = nodes
     }
 }

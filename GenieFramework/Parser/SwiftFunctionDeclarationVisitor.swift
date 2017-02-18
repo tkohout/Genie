@@ -48,7 +48,7 @@ class SwiftFunctionDeclarationVisitor: SwiftVisitor<Declaration> {
         let code: String
         
         if let body = ctx.function_body(), let codeBlock = body.code_block() {
-            nodes = codeBlock.statements()?.statement().mapJoinedByIndentation(parentCtx: body) { $0.accept(SwiftStatementVisitor())! } ?? body.getInnerSourceTextFromBracedBlock().flatMap { [Node(code: $0)] } ?? []
+            nodes = codeBlock.statements()?.statement().mapJoinedByIndentation(parentCtx: body) { $0.accept(SwiftStatementVisitor())! } ?? body.getInnerSourceTextFromBracedBlock().flatMap { [CodeNode(rawCode: $0)] } ?? []
             
             code = ctx.getSourceText(Interval(ctx.start!.getStartIndex(), body.start!.getStartIndex()-1))!
         } else {
@@ -56,7 +56,9 @@ class SwiftFunctionDeclarationVisitor: SwiftVisitor<Declaration> {
             code = ctx.getSourceText()
         }
         
-        return FunctionDeclaration(code: code, name: name, genericClause: genericClause, parameters: parameters, returnType: resultType, attributes: attributes, modifiers: modifiers, whereClause: whereClause, throws: `throws`, rethrows: `rethrows`, nodes: nodes)
+        let function = FunctionDeclaration(name: name, genericClause: genericClause, parameters: parameters, returnType: resultType, attributes: attributes, modifiers: modifiers, whereClause: whereClause, throws: `throws`, rethrows: `rethrows`, nodes: nodes)
+        function.rawCode = code
+        return function
     }
     
     override func visitInitializer_declaration(_ ctx: SwiftParser.Initializer_declarationContext) -> Declaration {
@@ -86,11 +88,13 @@ class SwiftFunctionDeclarationVisitor: SwiftVisitor<Declaration> {
         
         let body = ctx.initializer_body()!
         
-        let nodes = body.code_block()?.statements()?.statement().mapJoinedByIndentation(parentCtx: body) { $0.accept(SwiftStatementVisitor())! } ?? body.getInnerSourceTextFromBracedBlock().flatMap { [Node(code: $0)] } ?? []
+        let nodes = body.code_block()?.statements()?.statement().mapJoinedByIndentation(parentCtx: body) { $0.accept(SwiftStatementVisitor())! } ?? body.getInnerSourceTextFromBracedBlock().flatMap { [CodeNode(rawCode: $0)] } ?? []
         
         let code = ctx.getSourceText(Interval(ctx.start!.getStartIndex(), body.start!.getStartIndex()-1))!
         
-        return InitializerDeclaration(code: code, name: name, failable: failable, genericClause: genericClause, parameters: parameters,  attributes: attributes, modifiers: modifiers, throws: `throws`, rethrows: `rethrows`, nodes: nodes)
+        let initializer = InitializerDeclaration(name: name, failable: failable, genericClause: genericClause, parameters: parameters,  attributes: attributes, modifiers: modifiers, throws: `throws`, rethrows: `rethrows`, nodes: nodes)
+        initializer.rawCode = code
+        return initializer
         
     }
     
@@ -101,11 +105,13 @@ class SwiftFunctionDeclarationVisitor: SwiftVisitor<Declaration> {
         let name = "deinit"
         
         let body = ctx.code_block()!
-        let nodes = body.statements()?.statement().mapJoinedByIndentation(parentCtx: body) { $0.accept(SwiftStatementVisitor())! } ?? body.getInnerSourceTextFromBracedBlock().flatMap { [Node(code: $0)] } ?? []
+        let nodes = body.statements()?.statement().mapJoinedByIndentation(parentCtx: body) { $0.accept(SwiftStatementVisitor())! } ?? body.getInnerSourceTextFromBracedBlock().flatMap { [CodeNode(rawCode: $0)] } ?? []
         
         let code = ctx.getSourceText(Interval(ctx.start!.getStartIndex(), body.start!.getStartIndex()-1))!
         
-        return DeinitializerDeclaration(code: code, name: name, attributes: attributes, nodes: nodes)
+        let deinitializer = DeinitializerDeclaration(name: name, attributes: attributes, nodes: nodes)
+        deinitializer.rawCode = code
+        return deinitializer
     }
     
     override func visitProtocol_method_declaration(_ ctx: SwiftParser.Protocol_method_declarationContext) -> Declaration {
@@ -114,6 +120,9 @@ class SwiftFunctionDeclarationVisitor: SwiftVisitor<Declaration> {
         let (attributes, modifiers) = ctx.function_head()!.accept(SwiftFunctionHeadVisitor())!
         let (resultType, `throws`, `rethrows`, parameters) = ctx.function_signature()!.accept(SwiftFunctionSignatureVisitor())!
         
-        return FunctionDeclaration(code: ctx.getSourceText(), name: name, genericClause: genericClause, parameters: parameters, returnType: resultType, attributes: attributes, modifiers: modifiers, throws: `throws`, rethrows: `rethrows`)
+        let function = FunctionDeclaration(name: name, genericClause: genericClause, parameters: parameters, returnType: resultType, attributes: attributes, modifiers: modifiers, throws: `throws`, rethrows: `rethrows`)
+        function.rawCode = ctx.getSourceText()
+        return function
+        
     }
 }

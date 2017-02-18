@@ -15,8 +15,8 @@ class SwiftDeclarationsVisitor: SwiftVisitor<[Node]> {
     }
 }
 
-class SwiftDeclarationVisitor: SwiftVisitor<Declaration> {
-    override func visitDeclaration(_ ctx: SwiftParser.DeclarationContext) -> Declaration {
+class SwiftDeclarationVisitor: SwiftVisitor<Node> {
+    override func visitDeclaration(_ ctx: SwiftParser.DeclarationContext) -> Node {
         if let declaration = ctx.import_declaration()?.accept(self) {
             return declaration
         } else if let declaration = ctx.constant_declaration()?.accept(SwiftVariableDeclarationVisitor()) {
@@ -50,48 +50,32 @@ class SwiftDeclarationVisitor: SwiftVisitor<Declaration> {
         }
     }
     
-    override func visitImport_declaration(_ ctx: SwiftParser.Import_declarationContext) -> Declaration {
-        return Declaration(code: ctx.getSourceText())
+    override func visitImport_declaration(_ ctx: SwiftParser.Import_declarationContext) -> Node {
+        return CodeNode(rawCode: ctx.getSourceText())
     }
     
-    override func visitTypealias_declaration(_ ctx: SwiftParser.Typealias_declarationContext) -> Declaration {
-        return Declaration(code: ctx.getSourceText())
+    override func visitTypealias_declaration(_ ctx: SwiftParser.Typealias_declarationContext) -> Node {
+        return CodeNode(rawCode: ctx.getSourceText())
     }
     
-    override func visitFunction_declaration(_ ctx: SwiftParser.Function_declarationContext) -> Declaration {
-        return Declaration(code: ctx.getSourceText())
+    override func visitSubscript_declaration(_ ctx: SwiftParser.Subscript_declarationContext) -> Node {
+        return CodeNode(rawCode: ctx.getSourceText())
     }
     
-    override func visitInitializer_declaration(_ ctx: SwiftParser.Initializer_declarationContext) -> Declaration {
-        return Declaration(code: ctx.getSourceText())
+    override func visitOperator_declaration(_ ctx: SwiftParser.Operator_declarationContext) -> Node {
+        return CodeNode(rawCode: ctx.getSourceText())
     }
     
-    override func visitDeinitializer_declaration(_ ctx: SwiftParser.Deinitializer_declarationContext) -> Declaration {
-        return Declaration(code: ctx.getSourceText())
+    override func visitProtocol_initializer_declaration(_ ctx: SwiftParser.Protocol_initializer_declarationContext) -> Node {
+        return CodeNode(rawCode: ctx.getSourceText())
     }
     
-    override func visitSubscript_declaration(_ ctx: SwiftParser.Subscript_declarationContext) -> Declaration {
-        return Declaration(code: ctx.getSourceText())
+    override func visitProtocol_subscript_declaration(_ ctx: SwiftParser.Protocol_subscript_declarationContext) -> Node {
+        return CodeNode(rawCode: ctx.getSourceText())
     }
     
-    override func visitOperator_declaration(_ ctx: SwiftParser.Operator_declarationContext) -> Declaration {
-        return Declaration(code: ctx.getSourceText())
-    }
-    
-    override func visitProtocol_method_declaration(_ ctx: SwiftParser.Protocol_method_declarationContext) -> Declaration {
-        return Declaration(code: ctx.getSourceText())
-    }
-    
-    override func visitProtocol_initializer_declaration(_ ctx: SwiftParser.Protocol_initializer_declarationContext) -> Declaration {
-        return Declaration(code: ctx.getSourceText())
-    }
-    
-    override func visitProtocol_subscript_declaration(_ ctx: SwiftParser.Protocol_subscript_declarationContext) -> Declaration {
-        return Declaration(code: ctx.getSourceText())
-    }
-    
-    override func visitProtocol_associated_type_declaration(_ ctx: SwiftParser.Protocol_associated_type_declarationContext) -> Declaration {
-        return Declaration(code: ctx.getSourceText())
+    override func visitProtocol_associated_type_declaration(_ ctx: SwiftParser.Protocol_associated_type_declarationContext) -> Node {
+        return CodeNode(rawCode: ctx.getSourceText())
     }
     
 }

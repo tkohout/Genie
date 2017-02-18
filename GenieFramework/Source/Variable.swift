@@ -21,7 +21,7 @@ public class VariableDeclaration: Declaration {
     public var willSetDidSetBlock: String? { didSet{ isUpdated = true } }
     public var isConstant: Bool { didSet{ isUpdated = true } }
     
-    public init(code: String, name: String, typeName: String?, attributes: [String] = [], isConstant: Bool = false, modifiers: [Modifier] = [], initializer: String? = nil, codeBlock: String? = nil, willSetDidSetBlock: String? = nil) {
+    public init(name: String, typeName: String?, attributes: [String] = [], isConstant: Bool = false, modifiers: [Modifier] = [], initializer: String? = nil, codeBlock: String? = nil, willSetDidSetBlock: String? = nil) {
         self.name = name
         self.typeName = typeName
         self.attributes = attributes
@@ -30,12 +30,15 @@ public class VariableDeclaration: Declaration {
         self.initializer = initializer
         self.codeBlock = codeBlock
         self.willSetDidSetBlock = willSetDidSetBlock
-        super.init(code: code)
+        super.init()
     }
     
     //MARK: Printing
     override public var code: String {
-        if isUpdated {
+        
+        if let code = rawCode, !isUpdated {
+            return code
+        } else {
             var attributes: String = ""
             if self.attributes.count > 0 {
                 attributes = self.attributes.joined() + "\n"
@@ -49,8 +52,6 @@ public class VariableDeclaration: Declaration {
             let willSetDidSetBlock = self.willSetDidSetBlock.flatMap { " " + $0 } ?? ""
             
             return attributes + modifiers + declaration + name + typeDefinition + initializer + codeBlock + willSetDidSetBlock
-        } else {
-            return _code
         }
         
     }

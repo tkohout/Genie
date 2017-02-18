@@ -20,10 +20,12 @@ class SwiftSourceVisitor: SwiftVisitor<Source> {
         
         //end of top_level != end of file, have to get the rest
         if let lastIndex = ctx.statement().last?.stop?.getStopIndex(), let last = ctx.getSourceText(Interval(lastIndex+1, ctx.stop!.getInputStream()!.size())) {
-            statements.append(Node(code: last))
+            statements.append(CodeNode(rawCode: last))
         }
         
         
-        return Source(code: ctx.getSourceText(), nodes: statements)
+        let source = Source(nodes: statements)
+        source.rawCode = ctx.getSourceText()
+        return source
     }
 }

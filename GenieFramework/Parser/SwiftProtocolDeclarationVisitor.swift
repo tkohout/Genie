@@ -9,9 +9,9 @@
 import Foundation
 import Antlr4
 
-class SwiftProtocolDeclarationVisitor: SwiftVisitor<Declaration> {
+class SwiftProtocolDeclarationVisitor: SwiftVisitor<Node> {
     
-    override func visitProtocol_member_declaration(_ ctx: SwiftParser.Protocol_member_declarationContext) -> Declaration {
+    override func visitProtocol_member_declaration(_ ctx: SwiftParser.Protocol_member_declarationContext) -> Node {
         if let declaration = ctx.protocol_property_declaration()?.accept(SwiftVariableDeclarationVisitor()) {
             return declaration
         } else if let declaration = ctx.protocol_method_declaration()?.accept(SwiftFunctionDeclarationVisitor()) {
@@ -27,7 +27,7 @@ class SwiftProtocolDeclarationVisitor: SwiftVisitor<Declaration> {
         }
     }
     
-    override func visitProtocol_declaration(_ ctx: SwiftParser.Protocol_declarationContext) -> Declaration {
+    override func visitProtocol_declaration(_ ctx: SwiftParser.Protocol_declarationContext) -> Node {
         
         let attributes = ctx.attributes()?.accept(SwiftAttributesVisitor()) ?? []
         let accessLevelModifier = ctx.access_level_modifier()?.accept(SwiftAccessLevelModifierVisitor())
@@ -37,7 +37,7 @@ class SwiftProtocolDeclarationVisitor: SwiftVisitor<Declaration> {
         let body = ctx.protocol_body()!
         
         
-        let declarations = body.protocol_member_declarations()?.protocol_member_declaration().mapJoinedByIndentation(parentCtx: body) { $0.accept(self)! } ?? body.getInnerSourceTextFromBracedBlock().flatMap { [Node(code: $0)] } ?? []
+        let declarations = body.protocol_member_declarations()?.protocol_member_declaration().mapJoinedByIndentation(parentCtx: body) { $0.accept(self)! } ?? body.getInnerSourceTextFromBracedBlock().flatMap { [CodeNode(rawCode: $0)] } ?? []
         
         let code = ctx.getSourceText(Interval(ctx.start!.getStartIndex(), body.start!.getStartIndex()-1))!
         

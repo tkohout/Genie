@@ -27,7 +27,7 @@ public class TypeDeclaration: Declaration {
         self.attributes = attributes
         self.accessLevelModifier = accessLevelModifier
         self.genericClause = genericClause
-        super.init(code: code)
+        super.init()
         self.nodes = nodes
     }
     
@@ -35,12 +35,12 @@ public class TypeDeclaration: Declaration {
     
     override var code: String {
         let head: String
-        if isUpdated {
+        if let code = rawCode, !isUpdated {
+            head = code
+        } else {
             let generics = genericClause ?? ""
             let inheritedString = (inheritedTypes.count > 0) ? ": \(inheritedTypes.joined(separator: ", "))" : ""
             head = keyword + " " + name + generics + inheritedString + " "
-        } else {
-            head = _code
         }
         
         return head + "{" + nodes.map { $0.code }.joined() + "}"
@@ -72,6 +72,7 @@ public class EnumDeclaration: TypeDeclaration {
     
     //MARK: Printing
     override var code: String {
+        
         if isUpdated {
             return (isIndirect ? "indirect " : "") + super.code
         } else {
@@ -92,13 +93,14 @@ public class ExtensionDeclaration: TypeDeclaration {
     //MARK: Printing
     override var code: String {
         let head: String
-        if isUpdated {
+        
+        if let code = rawCode, !isUpdated {
+            head = code
+        } else {
             let generics = genericClause ?? ""
             let inheritedString = (inheritedTypes.count > 0) ? ": \(inheritedTypes.joined(separator: ", "))" : ""
             let whereClause = self.whereClause.flatMap { " " + $0 } ?? ""
             head = keyword + " " + name + generics + inheritedString + whereClause + " "
-        } else {
-            head = _code
         }
         
         return head + "{" + nodes.map { $0.code }.joined() + "}"

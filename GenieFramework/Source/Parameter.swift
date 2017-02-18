@@ -16,25 +16,25 @@ public class Parameter: Node {
     public var defaultClause: String? { didSet{ isUpdated = true } }
     public var isVariadic: Bool = false { didSet{ isUpdated = true } }
     
-    public init(code: String, name: String, externalName: String?, typeName: String? = nil, defaultClause: String? = nil, isVariadic: Bool = false) {
+    public init(name: String, externalName: String?, typeName: String? = nil, defaultClause: String? = nil, isVariadic: Bool = false) {
         self.name = name
         self.externalName = externalName
         self.typeName = typeName
         self.defaultClause = defaultClause
         self.isVariadic = isVariadic
-        super.init(code: code)
+        super.init()
     }
     
     override var code: String {
-        if isUpdated {
+        if let code = rawCode, !isUpdated {
+            return code
+        } else {
             let externalName = self.externalName.flatMap { $0 + " " } ?? ""
             let typeName = self.typeName.flatMap { ": " + $0 } ?? ""
             let defaultClause = self.defaultClause.flatMap { " = " + $0 } ?? ""
             let variadic = isVariadic ? " ..." : ""
             
             return externalName + name + typeName + variadic + defaultClause
-        } else {
-            return _code
         }
     }
 }

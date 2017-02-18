@@ -20,7 +20,7 @@ class SwiftClassDeclarationVisitor: SwiftVisitor<Declaration> {
         
         let body = ctx.class_body()!
         
-        let declarations = body.declarations()?.declaration().mapJoinedByIndentation(parentCtx: body) { $0.accept(SwiftDeclarationVisitor())! } ?? body.getInnerSourceTextFromBracedBlock().flatMap { [Node(code: $0)] } ?? []
+        let declarations = body.declarations()?.declaration().mapJoinedByIndentation(parentCtx: body) { $0.accept(SwiftDeclarationVisitor())! } ?? body.getInnerSourceTextFromBracedBlock().flatMap { [CodeNode(rawCode: $0)] } ?? []
         
         let code = ctx.getSourceText(Interval(ctx.start!.getStartIndex(), body.start!.getStartIndex()-1))!
         

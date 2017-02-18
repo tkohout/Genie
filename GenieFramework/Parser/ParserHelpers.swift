@@ -44,7 +44,7 @@ extension Array where Element: ParserRuleContext {
             var (nodes, lastIndex) = acc
             
             if let before = ctx.getSourceText(Interval(lastIndex+1, ctx.start!.getStartIndex()-1)) {
-                nodes.append(Node(code: before))
+                nodes.append(CodeNode(rawCode: before))
             }
             let statement = transform(ctx)
             nodes.append(statement)
@@ -53,7 +53,7 @@ extension Array where Element: ParserRuleContext {
         }
         
         if let last = parentCtx.getSourceText(Interval(lastIndex+1, parentCtx.stop!.getStopIndex()-1)) {
-            nodes.append(Node(code: last))
+            nodes.append(CodeNode(rawCode: last))
         }
         
         

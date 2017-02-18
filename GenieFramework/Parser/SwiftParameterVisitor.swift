@@ -17,6 +17,8 @@ class SwiftParameterVisitor: SwiftVisitor<Parameter> {
         let defaultClause = ctx.default_argument_clause()?.getSourceText()
         let isVariadic = ctx.range_operator() != nil
     
-        return Parameter(code: ctx.getSourceText(), name: name, externalName: externalName, typeName: type, defaultClause: defaultClause, isVariadic: isVariadic)
+        let parameter = Parameter(name: name, externalName: externalName, typeName: type, defaultClause: defaultClause, isVariadic: isVariadic)
+        parameter.rawCode = ctx.getSourceText()
+        return parameter
     }
 }

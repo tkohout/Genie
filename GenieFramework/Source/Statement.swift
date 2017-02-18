@@ -8,4 +8,5 @@
 
 import Foundation
 
-public class Statement: Node {}
+public class Statement: CodeNode {
+}

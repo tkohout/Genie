@@ -24,17 +24,20 @@ public class Node: CodeConvertible {
     public var nodes: [Node] = []
     public var parent: Node? = nil
     
-    var _code: String
+    var rawCode: String?
     
     //public var range: Range<Int64>? = nil
     
-    public init(code: String) {
-        self._code = code
+    init(){
     }
     
     //MARK: CodeConvertible
     var code: String {
-        return _code
+        if let code = rawCode {
+            return code
+        }
+        assertionFailure("Node has to have rawCode")
+        return ""
     }
     
 //    public func add(node: Node, after: Node?){
@@ -62,6 +65,18 @@ public class Node: CodeConvertible {
 //    }
     
     //MARK: Parsing
+}
+
+public class CodeNode: Node {
+    
+    override init(){
+        super.init()
+    }
+    
+    init(rawCode: String) {
+        super.init()
+        self.rawCode = rawCode
+    }
 }
 
 //public func ==(lhs: Node, rhs: Node) -> Bool {
