@@ -55,6 +55,7 @@ class SwiftEnumDeclarationVisitor: SwiftVisitor<Node> {
             genericClause = union.generic_parameter_clause()?.getSourceText()
             inheritedTypes = union.type_inheritance_clause()?.type_inheritance_list()?.accept(SwiftTypeInheritanceListVisitor()) ?? []
             let body = union.union_style_enum_body()!
+            
             nodes = body.union_style_enum_members()?.union_style_enum_member().mapJoinedByIndentation(parentCtx: body) { $0.accept(self)! } ?? body.getInnerSourceTextFromBracedBlock().flatMap { [CodeNode(rawCode: $0)] } ?? []
         } else if let raw = ctx.raw_value_style_enum() {
             name = raw.enum_name()!.getSourceText()

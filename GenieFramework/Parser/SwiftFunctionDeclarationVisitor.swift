@@ -48,7 +48,7 @@ class SwiftFunctionDeclarationVisitor: SwiftVisitor<Declaration> {
         let code: String
         
         if let body = ctx.function_body(), let codeBlock = body.code_block() {
-            nodes = codeBlock.statements()?.statement().mapJoinedByIndentation(parentCtx: body) { $0.accept(SwiftStatementVisitor())! } ?? body.getInnerSourceTextFromBracedBlock().flatMap { [CodeNode(rawCode: $0)] } ?? []
+            nodes = codeBlock.statements()?.accept(SwiftStatementsVisitor()) ?? body.getInnerSourceTextFromBracedBlock().flatMap { [CodeNode(rawCode: $0)] } ?? []
             
             code = ctx.getSourceText(Interval(ctx.start!.getStartIndex(), body.start!.getStartIndex()-1))!
         } else {
@@ -88,7 +88,7 @@ class SwiftFunctionDeclarationVisitor: SwiftVisitor<Declaration> {
         
         let body = ctx.initializer_body()!
         
-        let nodes = body.code_block()?.statements()?.statement().mapJoinedByIndentation(parentCtx: body) { $0.accept(SwiftStatementVisitor())! } ?? body.getInnerSourceTextFromBracedBlock().flatMap { [CodeNode(rawCode: $0)] } ?? []
+        let nodes = body.code_block()?.statements()?.accept(SwiftStatementsVisitor()) ?? body.getInnerSourceTextFromBracedBlock().flatMap { [CodeNode(rawCode: $0)] } ?? []
         
         let code = ctx.getSourceText(Interval(ctx.start!.getStartIndex(), body.start!.getStartIndex()-1))!
         
@@ -105,7 +105,10 @@ class SwiftFunctionDeclarationVisitor: SwiftVisitor<Declaration> {
         let name = "deinit"
         
         let body = ctx.code_block()!
-        let nodes = body.statements()?.statement().mapJoinedByIndentation(parentCtx: body) { $0.accept(SwiftStatementVisitor())! } ?? body.getInnerSourceTextFromBracedBlock().flatMap { [CodeNode(rawCode: $0)] } ?? []
+        let nodes = body.statements()?.accept(SwiftStatementsVisitor()) ?? body.getInnerSourceTextFromBracedBlock().flatMap { [CodeNode(rawCode: $0)] } ?? []
+//        
+//        
+//        nodes = [Node]()//body.statements()?.statement().mapJoinedByIndentation(parentCtx: body) { $0.accept(SwiftStatementVisitor())! } ?? body.getInnerSourceTextFromBracedBlock().flatMap { [CodeNode(rawCode: $0)] } ?? []
         
         let code = ctx.getSourceText(Interval(ctx.start!.getStartIndex(), body.start!.getStartIndex()-1))!
         

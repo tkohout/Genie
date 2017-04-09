@@ -12,6 +12,9 @@ import Antlr4
 
 
 class SwiftSourceVisitor: SwiftVisitor<Source> {
+    
+    
+    
     override func visitTop_level(_ ctx: SwiftParser.Top_levelContext) -> Source {
         
         var statements: [Node] = []
@@ -21,12 +24,10 @@ class SwiftSourceVisitor: SwiftVisitor<Source> {
             statements.append(CodeNode(rawCode: first))
         }
         
-        statements.append(contentsOf: ctx.statement().mapJoinedByIndentation(parentCtx: ctx) {
-            $0.accept(SwiftStatementVisitor())!
-        })
-        
+        statements.append(contentsOf: ctx.statements()?.accept(SwiftStatementsVisitor()) ?? [])
+  
         //end of top_level != end of file, have to get the rest
-        if let lastIndex = ctx.statement().last?.stop?.getStopIndex(), let last = ctx.getSourceText(Interval(lastIndex+1, ctx.stop!.getInputStream()!.size())) {
+        if let lastIndex = ctx.getStop()?.getStopIndex(), let last = ctx.getSourceText(Interval(lastIndex+1, ctx.stop!.getInputStream()!.size())) {
             statements.append(CodeNode(rawCode: last))
         }
         

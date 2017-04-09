@@ -1,4 +1,4 @@
-// Generated from Swift.g4 by ANTLR 4.6
+// Generated from Swift.g4 by ANTLR 4.7
 import Antlr4
 
 /**
@@ -42,6 +42,18 @@ public protocol SwiftListener: ParseTreeListener {
 	   - ctx: the parse tree
 	 */
 	func exitStatements(_ ctx: SwiftParser.StatementsContext)
+	/**
+	 * Enter a parse tree produced by {@link SwiftParser#statements_impl}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func enterStatements_impl(_ ctx: SwiftParser.Statements_implContext)
+	/**
+	 * Exit a parse tree produced by {@link SwiftParser#statements_impl}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func exitStatements_impl(_ ctx: SwiftParser.Statements_implContext)
 	/**
 	 * Enter a parse tree produced by {@link SwiftParser#loop_statement}.
 	 - Parameters:
@@ -103,18 +115,6 @@ public protocol SwiftListener: ParseTreeListener {
 	 */
 	func exitWhile_statement(_ ctx: SwiftParser.While_statementContext)
 	/**
-	 * Enter a parse tree produced by {@link SwiftParser#condition_clause}.
-	 - Parameters:
-	   - ctx: the parse tree
-	 */
-	func enterCondition_clause(_ ctx: SwiftParser.Condition_clauseContext)
-	/**
-	 * Exit a parse tree produced by {@link SwiftParser#condition_clause}.
-	 - Parameters:
-	   - ctx: the parse tree
-	 */
-	func exitCondition_clause(_ ctx: SwiftParser.Condition_clauseContext)
-	/**
 	 * Enter a parse tree produced by {@link SwiftParser#condition_list}.
 	 - Parameters:
 	   - ctx: the parse tree
@@ -162,42 +162,6 @@ public protocol SwiftListener: ParseTreeListener {
 	   - ctx: the parse tree
 	 */
 	func exitOptional_binding_condition(_ ctx: SwiftParser.Optional_binding_conditionContext)
-	/**
-	 * Enter a parse tree produced by {@link SwiftParser#optional_binding_head}.
-	 - Parameters:
-	   - ctx: the parse tree
-	 */
-	func enterOptional_binding_head(_ ctx: SwiftParser.Optional_binding_headContext)
-	/**
-	 * Exit a parse tree produced by {@link SwiftParser#optional_binding_head}.
-	 - Parameters:
-	   - ctx: the parse tree
-	 */
-	func exitOptional_binding_head(_ ctx: SwiftParser.Optional_binding_headContext)
-	/**
-	 * Enter a parse tree produced by {@link SwiftParser#optional_binding_continuation_list}.
-	 - Parameters:
-	   - ctx: the parse tree
-	 */
-	func enterOptional_binding_continuation_list(_ ctx: SwiftParser.Optional_binding_continuation_listContext)
-	/**
-	 * Exit a parse tree produced by {@link SwiftParser#optional_binding_continuation_list}.
-	 - Parameters:
-	   - ctx: the parse tree
-	 */
-	func exitOptional_binding_continuation_list(_ ctx: SwiftParser.Optional_binding_continuation_listContext)
-	/**
-	 * Enter a parse tree produced by {@link SwiftParser#optional_binding_continuation}.
-	 - Parameters:
-	   - ctx: the parse tree
-	 */
-	func enterOptional_binding_continuation(_ ctx: SwiftParser.Optional_binding_continuationContext)
-	/**
-	 * Exit a parse tree produced by {@link SwiftParser#optional_binding_continuation}.
-	 - Parameters:
-	   - ctx: the parse tree
-	 */
-	func exitOptional_binding_continuation(_ ctx: SwiftParser.Optional_binding_continuationContext)
 	/**
 	 * Enter a parse tree produced by {@link SwiftParser#repeat_while_statement}.
 	 - Parameters:
@@ -451,42 +415,6 @@ public protocol SwiftListener: ParseTreeListener {
 	 */
 	func exitReturn_statement(_ ctx: SwiftParser.Return_statementContext)
 	/**
-	 * Enter a parse tree produced by {@link SwiftParser#availability_condition}.
-	 - Parameters:
-	   - ctx: the parse tree
-	 */
-	func enterAvailability_condition(_ ctx: SwiftParser.Availability_conditionContext)
-	/**
-	 * Exit a parse tree produced by {@link SwiftParser#availability_condition}.
-	 - Parameters:
-	   - ctx: the parse tree
-	 */
-	func exitAvailability_condition(_ ctx: SwiftParser.Availability_conditionContext)
-	/**
-	 * Enter a parse tree produced by {@link SwiftParser#availability_arguments}.
-	 - Parameters:
-	   - ctx: the parse tree
-	 */
-	func enterAvailability_arguments(_ ctx: SwiftParser.Availability_argumentsContext)
-	/**
-	 * Exit a parse tree produced by {@link SwiftParser#availability_arguments}.
-	 - Parameters:
-	   - ctx: the parse tree
-	 */
-	func exitAvailability_arguments(_ ctx: SwiftParser.Availability_argumentsContext)
-	/**
-	 * Enter a parse tree produced by {@link SwiftParser#availability_argument}.
-	 - Parameters:
-	   - ctx: the parse tree
-	 */
-	func enterAvailability_argument(_ ctx: SwiftParser.Availability_argumentContext)
-	/**
-	 * Exit a parse tree produced by {@link SwiftParser#availability_argument}.
-	 - Parameters:
-	   - ctx: the parse tree
-	 */
-	func exitAvailability_argument(_ ctx: SwiftParser.Availability_argumentContext)
-	/**
 	 * Enter a parse tree produced by {@link SwiftParser#throw_statement}.
 	 - Parameters:
 	   - ctx: the parse tree
@@ -559,77 +487,149 @@ public protocol SwiftListener: ParseTreeListener {
 	 */
 	func exitCompiler_control_statement(_ ctx: SwiftParser.Compiler_control_statementContext)
 	/**
-	 * Enter a parse tree produced by {@link SwiftParser#build_configuration_statement}.
+	 * Enter a parse tree produced by {@link SwiftParser#conditional_compilation_block}.
 	 - Parameters:
 	   - ctx: the parse tree
 	 */
-	func enterBuild_configuration_statement(_ ctx: SwiftParser.Build_configuration_statementContext)
+	func enterConditional_compilation_block(_ ctx: SwiftParser.Conditional_compilation_blockContext)
 	/**
-	 * Exit a parse tree produced by {@link SwiftParser#build_configuration_statement}.
+	 * Exit a parse tree produced by {@link SwiftParser#conditional_compilation_block}.
 	 - Parameters:
 	   - ctx: the parse tree
 	 */
-	func exitBuild_configuration_statement(_ ctx: SwiftParser.Build_configuration_statementContext)
+	func exitConditional_compilation_block(_ ctx: SwiftParser.Conditional_compilation_blockContext)
 	/**
-	 * Enter a parse tree produced by {@link SwiftParser#build_configuration_elseif_clauses}.
+	 * Enter a parse tree produced by {@link SwiftParser#if_directive_clause}.
 	 - Parameters:
 	   - ctx: the parse tree
 	 */
-	func enterBuild_configuration_elseif_clauses(_ ctx: SwiftParser.Build_configuration_elseif_clausesContext)
+	func enterIf_directive_clause(_ ctx: SwiftParser.If_directive_clauseContext)
 	/**
-	 * Exit a parse tree produced by {@link SwiftParser#build_configuration_elseif_clauses}.
+	 * Exit a parse tree produced by {@link SwiftParser#if_directive_clause}.
 	 - Parameters:
 	   - ctx: the parse tree
 	 */
-	func exitBuild_configuration_elseif_clauses(_ ctx: SwiftParser.Build_configuration_elseif_clausesContext)
+	func exitIf_directive_clause(_ ctx: SwiftParser.If_directive_clauseContext)
 	/**
-	 * Enter a parse tree produced by {@link SwiftParser#build_configuration_elseif_clause}.
+	 * Enter a parse tree produced by {@link SwiftParser#elseif_directive_clauses}.
 	 - Parameters:
 	   - ctx: the parse tree
 	 */
-	func enterBuild_configuration_elseif_clause(_ ctx: SwiftParser.Build_configuration_elseif_clauseContext)
+	func enterElseif_directive_clauses(_ ctx: SwiftParser.Elseif_directive_clausesContext)
 	/**
-	 * Exit a parse tree produced by {@link SwiftParser#build_configuration_elseif_clause}.
+	 * Exit a parse tree produced by {@link SwiftParser#elseif_directive_clauses}.
 	 - Parameters:
 	   - ctx: the parse tree
 	 */
-	func exitBuild_configuration_elseif_clause(_ ctx: SwiftParser.Build_configuration_elseif_clauseContext)
+	func exitElseif_directive_clauses(_ ctx: SwiftParser.Elseif_directive_clausesContext)
 	/**
-	 * Enter a parse tree produced by {@link SwiftParser#build_configuration_else_clause}.
+	 * Enter a parse tree produced by {@link SwiftParser#elseif_directive_clause}.
 	 - Parameters:
 	   - ctx: the parse tree
 	 */
-	func enterBuild_configuration_else_clause(_ ctx: SwiftParser.Build_configuration_else_clauseContext)
+	func enterElseif_directive_clause(_ ctx: SwiftParser.Elseif_directive_clauseContext)
 	/**
-	 * Exit a parse tree produced by {@link SwiftParser#build_configuration_else_clause}.
+	 * Exit a parse tree produced by {@link SwiftParser#elseif_directive_clause}.
 	 - Parameters:
 	   - ctx: the parse tree
 	 */
-	func exitBuild_configuration_else_clause(_ ctx: SwiftParser.Build_configuration_else_clauseContext)
+	func exitElseif_directive_clause(_ ctx: SwiftParser.Elseif_directive_clauseContext)
 	/**
-	 * Enter a parse tree produced by {@link SwiftParser#build_configuration}.
+	 * Enter a parse tree produced by {@link SwiftParser#else_directive_clause}.
 	 - Parameters:
 	   - ctx: the parse tree
 	 */
-	func enterBuild_configuration(_ ctx: SwiftParser.Build_configurationContext)
+	func enterElse_directive_clause(_ ctx: SwiftParser.Else_directive_clauseContext)
 	/**
-	 * Exit a parse tree produced by {@link SwiftParser#build_configuration}.
+	 * Exit a parse tree produced by {@link SwiftParser#else_directive_clause}.
 	 - Parameters:
 	   - ctx: the parse tree
 	 */
-	func exitBuild_configuration(_ ctx: SwiftParser.Build_configurationContext)
+	func exitElse_directive_clause(_ ctx: SwiftParser.Else_directive_clauseContext)
 	/**
-	 * Enter a parse tree produced by {@link SwiftParser#platform_testing_function}.
+	 * Enter a parse tree produced by {@link SwiftParser#if_directive}.
 	 - Parameters:
 	   - ctx: the parse tree
 	 */
-	func enterPlatform_testing_function(_ ctx: SwiftParser.Platform_testing_functionContext)
+	func enterIf_directive(_ ctx: SwiftParser.If_directiveContext)
 	/**
-	 * Exit a parse tree produced by {@link SwiftParser#platform_testing_function}.
+	 * Exit a parse tree produced by {@link SwiftParser#if_directive}.
 	 - Parameters:
 	   - ctx: the parse tree
 	 */
-	func exitPlatform_testing_function(_ ctx: SwiftParser.Platform_testing_functionContext)
+	func exitIf_directive(_ ctx: SwiftParser.If_directiveContext)
+	/**
+	 * Enter a parse tree produced by {@link SwiftParser#elseif_directive}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func enterElseif_directive(_ ctx: SwiftParser.Elseif_directiveContext)
+	/**
+	 * Exit a parse tree produced by {@link SwiftParser#elseif_directive}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func exitElseif_directive(_ ctx: SwiftParser.Elseif_directiveContext)
+	/**
+	 * Enter a parse tree produced by {@link SwiftParser#else_directive}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func enterElse_directive(_ ctx: SwiftParser.Else_directiveContext)
+	/**
+	 * Exit a parse tree produced by {@link SwiftParser#else_directive}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func exitElse_directive(_ ctx: SwiftParser.Else_directiveContext)
+	/**
+	 * Enter a parse tree produced by {@link SwiftParser#endif_directive}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func enterEndif_directive(_ ctx: SwiftParser.Endif_directiveContext)
+	/**
+	 * Exit a parse tree produced by {@link SwiftParser#endif_directive}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func exitEndif_directive(_ ctx: SwiftParser.Endif_directiveContext)
+	/**
+	 * Enter a parse tree produced by {@link SwiftParser#compilation_condition}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func enterCompilation_condition(_ ctx: SwiftParser.Compilation_conditionContext)
+	/**
+	 * Exit a parse tree produced by {@link SwiftParser#compilation_condition}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func exitCompilation_condition(_ ctx: SwiftParser.Compilation_conditionContext)
+	/**
+	 * Enter a parse tree produced by {@link SwiftParser#platform_condition}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func enterPlatform_condition(_ ctx: SwiftParser.Platform_conditionContext)
+	/**
+	 * Exit a parse tree produced by {@link SwiftParser#platform_condition}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func exitPlatform_condition(_ ctx: SwiftParser.Platform_conditionContext)
+	/**
+	 * Enter a parse tree produced by {@link SwiftParser#swift_version}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func enterSwift_version(_ ctx: SwiftParser.Swift_versionContext)
+	/**
+	 * Exit a parse tree produced by {@link SwiftParser#swift_version}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func exitSwift_version(_ ctx: SwiftParser.Swift_versionContext)
 	/**
 	 * Enter a parse tree produced by {@link SwiftParser#operating_system}.
 	 - Parameters:
@@ -690,6 +690,42 @@ public protocol SwiftListener: ParseTreeListener {
 	   - ctx: the parse tree
 	 */
 	func exitFile_name(_ ctx: SwiftParser.File_nameContext)
+	/**
+	 * Enter a parse tree produced by {@link SwiftParser#availability_condition}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func enterAvailability_condition(_ ctx: SwiftParser.Availability_conditionContext)
+	/**
+	 * Exit a parse tree produced by {@link SwiftParser#availability_condition}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func exitAvailability_condition(_ ctx: SwiftParser.Availability_conditionContext)
+	/**
+	 * Enter a parse tree produced by {@link SwiftParser#availability_arguments}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func enterAvailability_arguments(_ ctx: SwiftParser.Availability_argumentsContext)
+	/**
+	 * Exit a parse tree produced by {@link SwiftParser#availability_arguments}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func exitAvailability_arguments(_ ctx: SwiftParser.Availability_argumentsContext)
+	/**
+	 * Enter a parse tree produced by {@link SwiftParser#availability_argument}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func enterAvailability_argument(_ ctx: SwiftParser.Availability_argumentContext)
+	/**
+	 * Exit a parse tree produced by {@link SwiftParser#availability_argument}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func exitAvailability_argument(_ ctx: SwiftParser.Availability_argumentContext)
 	/**
 	 * Enter a parse tree produced by {@link SwiftParser#generic_parameter_clause}.
 	 - Parameters:
@@ -1135,18 +1171,6 @@ public protocol SwiftListener: ParseTreeListener {
 	 */
 	func exitTypealias_declaration(_ ctx: SwiftParser.Typealias_declarationContext)
 	/**
-	 * Enter a parse tree produced by {@link SwiftParser#typealias_head}.
-	 - Parameters:
-	   - ctx: the parse tree
-	 */
-	func enterTypealias_head(_ ctx: SwiftParser.Typealias_headContext)
-	/**
-	 * Exit a parse tree produced by {@link SwiftParser#typealias_head}.
-	 - Parameters:
-	   - ctx: the parse tree
-	 */
-	func exitTypealias_head(_ ctx: SwiftParser.Typealias_headContext)
-	/**
 	 * Enter a parse tree produced by {@link SwiftParser#typealias_name}.
 	 - Parameters:
 	   - ctx: the parse tree
@@ -1579,6 +1603,18 @@ public protocol SwiftListener: ParseTreeListener {
 	 */
 	func exitStruct_body(_ ctx: SwiftParser.Struct_bodyContext)
 	/**
+	 * Enter a parse tree produced by {@link SwiftParser#struct_member}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func enterStruct_member(_ ctx: SwiftParser.Struct_memberContext)
+	/**
+	 * Exit a parse tree produced by {@link SwiftParser#struct_member}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func exitStruct_member(_ ctx: SwiftParser.Struct_memberContext)
+	/**
 	 * Enter a parse tree produced by {@link SwiftParser#class_declaration}.
 	 - Parameters:
 	   - ctx: the parse tree
@@ -1614,6 +1650,18 @@ public protocol SwiftListener: ParseTreeListener {
 	   - ctx: the parse tree
 	 */
 	func exitClass_body(_ ctx: SwiftParser.Class_bodyContext)
+	/**
+	 * Enter a parse tree produced by {@link SwiftParser#class_member}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func enterClass_member(_ ctx: SwiftParser.Class_memberContext)
+	/**
+	 * Exit a parse tree produced by {@link SwiftParser#class_member}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func exitClass_member(_ ctx: SwiftParser.Class_memberContext)
 	/**
 	 * Enter a parse tree produced by {@link SwiftParser#protocol_declaration}.
 	 - Parameters:
@@ -1651,6 +1699,18 @@ public protocol SwiftListener: ParseTreeListener {
 	 */
 	func exitProtocol_body(_ ctx: SwiftParser.Protocol_bodyContext)
 	/**
+	 * Enter a parse tree produced by {@link SwiftParser#protocol_member}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func enterProtocol_member(_ ctx: SwiftParser.Protocol_memberContext)
+	/**
+	 * Exit a parse tree produced by {@link SwiftParser#protocol_member}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func exitProtocol_member(_ ctx: SwiftParser.Protocol_memberContext)
+	/**
 	 * Enter a parse tree produced by {@link SwiftParser#protocol_member_declaration}.
 	 - Parameters:
 	   - ctx: the parse tree
@@ -1662,18 +1722,6 @@ public protocol SwiftListener: ParseTreeListener {
 	   - ctx: the parse tree
 	 */
 	func exitProtocol_member_declaration(_ ctx: SwiftParser.Protocol_member_declarationContext)
-	/**
-	 * Enter a parse tree produced by {@link SwiftParser#protocol_member_declarations}.
-	 - Parameters:
-	   - ctx: the parse tree
-	 */
-	func enterProtocol_member_declarations(_ ctx: SwiftParser.Protocol_member_declarationsContext)
-	/**
-	 * Exit a parse tree produced by {@link SwiftParser#protocol_member_declarations}.
-	 - Parameters:
-	   - ctx: the parse tree
-	 */
-	func exitProtocol_member_declarations(_ ctx: SwiftParser.Protocol_member_declarationsContext)
 	/**
 	 * Enter a parse tree produced by {@link SwiftParser#protocol_property_declaration}.
 	 - Parameters:
@@ -1807,6 +1855,18 @@ public protocol SwiftListener: ParseTreeListener {
 	 */
 	func exitExtension_body(_ ctx: SwiftParser.Extension_bodyContext)
 	/**
+	 * Enter a parse tree produced by {@link SwiftParser#extension_member}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func enterExtension_member(_ ctx: SwiftParser.Extension_memberContext)
+	/**
+	 * Exit a parse tree produced by {@link SwiftParser#extension_member}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func exitExtension_member(_ ctx: SwiftParser.Extension_memberContext)
+	/**
 	 * Enter a parse tree produced by {@link SwiftParser#subscript_declaration}.
 	 - Parameters:
 	   - ctx: the parse tree
@@ -1891,53 +1951,77 @@ public protocol SwiftListener: ParseTreeListener {
 	 */
 	func exitInfix_operator_declaration(_ ctx: SwiftParser.Infix_operator_declarationContext)
 	/**
-	 * Enter a parse tree produced by {@link SwiftParser#infix_operator_attributes}.
+	 * Enter a parse tree produced by {@link SwiftParser#infix_operator_group}.
 	 - Parameters:
 	   - ctx: the parse tree
 	 */
-	func enterInfix_operator_attributes(_ ctx: SwiftParser.Infix_operator_attributesContext)
+	func enterInfix_operator_group(_ ctx: SwiftParser.Infix_operator_groupContext)
 	/**
-	 * Exit a parse tree produced by {@link SwiftParser#infix_operator_attributes}.
+	 * Exit a parse tree produced by {@link SwiftParser#infix_operator_group}.
 	 - Parameters:
 	   - ctx: the parse tree
 	 */
-	func exitInfix_operator_attributes(_ ctx: SwiftParser.Infix_operator_attributesContext)
+	func exitInfix_operator_group(_ ctx: SwiftParser.Infix_operator_groupContext)
 	/**
-	 * Enter a parse tree produced by {@link SwiftParser#precedence_clause}.
+	 * Enter a parse tree produced by {@link SwiftParser#precedence_group_declaration}.
 	 - Parameters:
 	   - ctx: the parse tree
 	 */
-	func enterPrecedence_clause(_ ctx: SwiftParser.Precedence_clauseContext)
+	func enterPrecedence_group_declaration(_ ctx: SwiftParser.Precedence_group_declarationContext)
 	/**
-	 * Exit a parse tree produced by {@link SwiftParser#precedence_clause}.
+	 * Exit a parse tree produced by {@link SwiftParser#precedence_group_declaration}.
 	 - Parameters:
 	   - ctx: the parse tree
 	 */
-	func exitPrecedence_clause(_ ctx: SwiftParser.Precedence_clauseContext)
+	func exitPrecedence_group_declaration(_ ctx: SwiftParser.Precedence_group_declarationContext)
 	/**
-	 * Enter a parse tree produced by {@link SwiftParser#precedence_level}.
+	 * Enter a parse tree produced by {@link SwiftParser#precedence_group_attribute}.
 	 - Parameters:
 	   - ctx: the parse tree
 	 */
-	func enterPrecedence_level(_ ctx: SwiftParser.Precedence_levelContext)
+	func enterPrecedence_group_attribute(_ ctx: SwiftParser.Precedence_group_attributeContext)
 	/**
-	 * Exit a parse tree produced by {@link SwiftParser#precedence_level}.
+	 * Exit a parse tree produced by {@link SwiftParser#precedence_group_attribute}.
 	 - Parameters:
 	   - ctx: the parse tree
 	 */
-	func exitPrecedence_level(_ ctx: SwiftParser.Precedence_levelContext)
+	func exitPrecedence_group_attribute(_ ctx: SwiftParser.Precedence_group_attributeContext)
 	/**
-	 * Enter a parse tree produced by {@link SwiftParser#associativity_clause}.
+	 * Enter a parse tree produced by {@link SwiftParser#precedence_group_relation}.
 	 - Parameters:
 	   - ctx: the parse tree
 	 */
-	func enterAssociativity_clause(_ ctx: SwiftParser.Associativity_clauseContext)
+	func enterPrecedence_group_relation(_ ctx: SwiftParser.Precedence_group_relationContext)
 	/**
-	 * Exit a parse tree produced by {@link SwiftParser#associativity_clause}.
+	 * Exit a parse tree produced by {@link SwiftParser#precedence_group_relation}.
 	 - Parameters:
 	   - ctx: the parse tree
 	 */
-	func exitAssociativity_clause(_ ctx: SwiftParser.Associativity_clauseContext)
+	func exitPrecedence_group_relation(_ ctx: SwiftParser.Precedence_group_relationContext)
+	/**
+	 * Enter a parse tree produced by {@link SwiftParser#precedence_group_assignment}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func enterPrecedence_group_assignment(_ ctx: SwiftParser.Precedence_group_assignmentContext)
+	/**
+	 * Exit a parse tree produced by {@link SwiftParser#precedence_group_assignment}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func exitPrecedence_group_assignment(_ ctx: SwiftParser.Precedence_group_assignmentContext)
+	/**
+	 * Enter a parse tree produced by {@link SwiftParser#precedence_group_associativity}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func enterPrecedence_group_associativity(_ ctx: SwiftParser.Precedence_group_associativityContext)
+	/**
+	 * Exit a parse tree produced by {@link SwiftParser#precedence_group_associativity}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func exitPrecedence_group_associativity(_ ctx: SwiftParser.Precedence_group_associativityContext)
 	/**
 	 * Enter a parse tree produced by {@link SwiftParser#associativity_name}.
 	 - Parameters:
@@ -1950,6 +2034,30 @@ public protocol SwiftListener: ParseTreeListener {
 	   - ctx: the parse tree
 	 */
 	func exitAssociativity_name(_ ctx: SwiftParser.Associativity_nameContext)
+	/**
+	 * Enter a parse tree produced by {@link SwiftParser#precedence_group_names}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func enterPrecedence_group_names(_ ctx: SwiftParser.Precedence_group_namesContext)
+	/**
+	 * Exit a parse tree produced by {@link SwiftParser#precedence_group_names}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func exitPrecedence_group_names(_ ctx: SwiftParser.Precedence_group_namesContext)
+	/**
+	 * Enter a parse tree produced by {@link SwiftParser#precedence_group_name}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func enterPrecedence_group_name(_ ctx: SwiftParser.Precedence_group_nameContext)
+	/**
+	 * Exit a parse tree produced by {@link SwiftParser#precedence_group_name}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func exitPrecedence_group_name(_ ctx: SwiftParser.Precedence_group_nameContext)
 	/**
 	 * Enter a parse tree produced by {@link SwiftParser#declaration_modifier}.
 	 - Parameters:
@@ -1986,6 +2094,18 @@ public protocol SwiftListener: ParseTreeListener {
 	   - ctx: the parse tree
 	 */
 	func exitAccess_level_modifier(_ ctx: SwiftParser.Access_level_modifierContext)
+	/**
+	 * Enter a parse tree produced by {@link SwiftParser#mutation_modifier}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func enterMutation_modifier(_ ctx: SwiftParser.Mutation_modifierContext)
+	/**
+	 * Exit a parse tree produced by {@link SwiftParser#mutation_modifier}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func exitMutation_modifier(_ ctx: SwiftParser.Mutation_modifierContext)
 	/**
 	 * Enter a parse tree produced by {@link SwiftParser#pattern}.
 	 - Parameters:
@@ -2179,17 +2299,17 @@ public protocol SwiftListener: ParseTreeListener {
 	 */
 	func exitBalanced_token(_ ctx: SwiftParser.Balanced_tokenContext)
 	/**
-	 * Enter a parse tree produced by {@link SwiftParser#any_punctuation}.
+	 * Enter a parse tree produced by {@link SwiftParser#any_punctuation_for_balanced_token}.
 	 - Parameters:
 	   - ctx: the parse tree
 	 */
-	func enterAny_punctuation(_ ctx: SwiftParser.Any_punctuationContext)
+	func enterAny_punctuation_for_balanced_token(_ ctx: SwiftParser.Any_punctuation_for_balanced_tokenContext)
 	/**
-	 * Exit a parse tree produced by {@link SwiftParser#any_punctuation}.
+	 * Exit a parse tree produced by {@link SwiftParser#any_punctuation_for_balanced_token}.
 	 - Parameters:
 	   - ctx: the parse tree
 	 */
-	func exitAny_punctuation(_ ctx: SwiftParser.Any_punctuationContext)
+	func exitAny_punctuation_for_balanced_token(_ ctx: SwiftParser.Any_punctuation_for_balanced_tokenContext)
 	/**
 	 * Enter a parse tree produced by {@link SwiftParser#expression}.
 	 - Parameters:
@@ -2311,18 +2431,6 @@ public protocol SwiftListener: ParseTreeListener {
 	 */
 	func exitPrimary_expression(_ ctx: SwiftParser.Primary_expressionContext)
 	/**
-	 * Enter a parse tree produced by {@link SwiftParser#implicit_member_expression}.
-	 - Parameters:
-	   - ctx: the parse tree
-	 */
-	func enterImplicit_member_expression(_ ctx: SwiftParser.Implicit_member_expressionContext)
-	/**
-	 * Exit a parse tree produced by {@link SwiftParser#implicit_member_expression}.
-	 - Parameters:
-	   - ctx: the parse tree
-	 */
-	func exitImplicit_member_expression(_ ctx: SwiftParser.Implicit_member_expressionContext)
-	/**
 	 * Enter a parse tree produced by {@link SwiftParser#literal_expression}.
 	 - Parameters:
 	   - ctx: the parse tree
@@ -2406,6 +2514,18 @@ public protocol SwiftListener: ParseTreeListener {
 	   - ctx: the parse tree
 	 */
 	func exitDictionary_literal_item(_ ctx: SwiftParser.Dictionary_literal_itemContext)
+	/**
+	 * Enter a parse tree produced by {@link SwiftParser#playground_literal}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func enterPlayground_literal(_ ctx: SwiftParser.Playground_literalContext)
+	/**
+	 * Exit a parse tree produced by {@link SwiftParser#playground_literal}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func exitPlayground_literal(_ ctx: SwiftParser.Playground_literalContext)
 	/**
 	 * Enter a parse tree produced by {@link SwiftParser#self_expression}.
 	 - Parameters:
@@ -2491,6 +2611,66 @@ public protocol SwiftListener: ParseTreeListener {
 	 */
 	func exitClosure_signature(_ ctx: SwiftParser.Closure_signatureContext)
 	/**
+	 * Enter a parse tree produced by {@link SwiftParser#closure_parameter_clause}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func enterClosure_parameter_clause(_ ctx: SwiftParser.Closure_parameter_clauseContext)
+	/**
+	 * Exit a parse tree produced by {@link SwiftParser#closure_parameter_clause}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func exitClosure_parameter_clause(_ ctx: SwiftParser.Closure_parameter_clauseContext)
+	/**
+	 * Enter a parse tree produced by {@link SwiftParser#closure_parameter_clause_identifier_list}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func enterClosure_parameter_clause_identifier_list(_ ctx: SwiftParser.Closure_parameter_clause_identifier_listContext)
+	/**
+	 * Exit a parse tree produced by {@link SwiftParser#closure_parameter_clause_identifier_list}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func exitClosure_parameter_clause_identifier_list(_ ctx: SwiftParser.Closure_parameter_clause_identifier_listContext)
+	/**
+	 * Enter a parse tree produced by {@link SwiftParser#closure_parameter_list}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func enterClosure_parameter_list(_ ctx: SwiftParser.Closure_parameter_listContext)
+	/**
+	 * Exit a parse tree produced by {@link SwiftParser#closure_parameter_list}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func exitClosure_parameter_list(_ ctx: SwiftParser.Closure_parameter_listContext)
+	/**
+	 * Enter a parse tree produced by {@link SwiftParser#closure_parameter}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func enterClosure_parameter(_ ctx: SwiftParser.Closure_parameterContext)
+	/**
+	 * Exit a parse tree produced by {@link SwiftParser#closure_parameter}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func exitClosure_parameter(_ ctx: SwiftParser.Closure_parameterContext)
+	/**
+	 * Enter a parse tree produced by {@link SwiftParser#closure_parameter_name}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func enterClosure_parameter_name(_ ctx: SwiftParser.Closure_parameter_nameContext)
+	/**
+	 * Exit a parse tree produced by {@link SwiftParser#closure_parameter_name}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func exitClosure_parameter_name(_ ctx: SwiftParser.Closure_parameter_nameContext)
+	/**
 	 * Enter a parse tree produced by {@link SwiftParser#capture_list}.
 	 - Parameters:
 	   - ctx: the parse tree
@@ -2539,6 +2719,18 @@ public protocol SwiftListener: ParseTreeListener {
 	 */
 	func exitCapture_specifier(_ ctx: SwiftParser.Capture_specifierContext)
 	/**
+	 * Enter a parse tree produced by {@link SwiftParser#implicit_member_expression}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func enterImplicit_member_expression(_ ctx: SwiftParser.Implicit_member_expressionContext)
+	/**
+	 * Exit a parse tree produced by {@link SwiftParser#implicit_member_expression}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func exitImplicit_member_expression(_ ctx: SwiftParser.Implicit_member_expressionContext)
+	/**
 	 * Enter a parse tree produced by {@link SwiftParser#parenthesized_expression}.
 	 - Parameters:
 	   - ctx: the parse tree
@@ -2551,29 +2743,29 @@ public protocol SwiftListener: ParseTreeListener {
 	 */
 	func exitParenthesized_expression(_ ctx: SwiftParser.Parenthesized_expressionContext)
 	/**
-	 * Enter a parse tree produced by {@link SwiftParser#expression_element_list}.
+	 * Enter a parse tree produced by {@link SwiftParser#tuple_expression}.
 	 - Parameters:
 	   - ctx: the parse tree
 	 */
-	func enterExpression_element_list(_ ctx: SwiftParser.Expression_element_listContext)
+	func enterTuple_expression(_ ctx: SwiftParser.Tuple_expressionContext)
 	/**
-	 * Exit a parse tree produced by {@link SwiftParser#expression_element_list}.
+	 * Exit a parse tree produced by {@link SwiftParser#tuple_expression}.
 	 - Parameters:
 	   - ctx: the parse tree
 	 */
-	func exitExpression_element_list(_ ctx: SwiftParser.Expression_element_listContext)
+	func exitTuple_expression(_ ctx: SwiftParser.Tuple_expressionContext)
 	/**
-	 * Enter a parse tree produced by {@link SwiftParser#expression_element}.
+	 * Enter a parse tree produced by {@link SwiftParser#tuple_element}.
 	 - Parameters:
 	   - ctx: the parse tree
 	 */
-	func enterExpression_element(_ ctx: SwiftParser.Expression_elementContext)
+	func enterTuple_element(_ ctx: SwiftParser.Tuple_elementContext)
 	/**
-	 * Exit a parse tree produced by {@link SwiftParser#expression_element}.
+	 * Exit a parse tree produced by {@link SwiftParser#tuple_element}.
 	 - Parameters:
 	   - ctx: the parse tree
 	 */
-	func exitExpression_element(_ ctx: SwiftParser.Expression_elementContext)
+	func exitTuple_element(_ ctx: SwiftParser.Tuple_elementContext)
 	/**
 	 * Enter a parse tree produced by {@link SwiftParser#wildcard_expression}.
 	 - Parameters:
@@ -2598,6 +2790,32 @@ public protocol SwiftListener: ParseTreeListener {
 	   - ctx: the parse tree
 	 */
 	func exitSelector_expression(_ ctx: SwiftParser.Selector_expressionContext)
+	/**
+	 * Enter a parse tree produced by {@link SwiftParser#key_path_expression}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func enterKey_path_expression(_ ctx: SwiftParser.Key_path_expressionContext)
+	/**
+	 * Exit a parse tree produced by {@link SwiftParser#key_path_expression}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func exitKey_path_expression(_ ctx: SwiftParser.Key_path_expressionContext)
+	/**
+	 * Enter a parse tree produced by the {@code function_call_expression_with_closure}
+	 * labeled alternative in {@link SwiftParser#postfix_expression}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func enterFunction_call_expression_with_closure(_ ctx: SwiftParser.Function_call_expression_with_closureContext)
+	/**
+	 * Exit a parse tree produced by the {@code function_call_expression_with_closure}
+	 * labeled alternative in {@link SwiftParser#postfix_expression}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func exitFunction_call_expression_with_closure(_ ctx: SwiftParser.Function_call_expression_with_closureContext)
 	/**
 	 * Enter a parse tree produced by the {@code function_call_expression}
 	 * labeled alternative in {@link SwiftParser#postfix_expression}.
@@ -2641,20 +2859,6 @@ public protocol SwiftListener: ParseTreeListener {
 	 */
 	func exitInitializer_expression(_ ctx: SwiftParser.Initializer_expressionContext)
 	/**
-	 * Enter a parse tree produced by the {@code dynamic_type_expression}
-	 * labeled alternative in {@link SwiftParser#postfix_expression}.
-	 - Parameters:
-	   - ctx: the parse tree
-	 */
-	func enterDynamic_type_expression(_ ctx: SwiftParser.Dynamic_type_expressionContext)
-	/**
-	 * Exit a parse tree produced by the {@code dynamic_type_expression}
-	 * labeled alternative in {@link SwiftParser#postfix_expression}.
-	 - Parameters:
-	   - ctx: the parse tree
-	 */
-	func exitDynamic_type_expression(_ ctx: SwiftParser.Dynamic_type_expressionContext)
-	/**
 	 * Enter a parse tree produced by the {@code postfix_self_expression}
 	 * labeled alternative in {@link SwiftParser#postfix_expression}.
 	 - Parameters:
@@ -2669,20 +2873,6 @@ public protocol SwiftListener: ParseTreeListener {
 	 */
 	func exitPostfix_self_expression(_ ctx: SwiftParser.Postfix_self_expressionContext)
 	/**
-	 * Enter a parse tree produced by the {@code function_call_with_closure_expression}
-	 * labeled alternative in {@link SwiftParser#postfix_expression}.
-	 - Parameters:
-	   - ctx: the parse tree
-	 */
-	func enterFunction_call_with_closure_expression(_ ctx: SwiftParser.Function_call_with_closure_expressionContext)
-	/**
-	 * Exit a parse tree produced by the {@code function_call_with_closure_expression}
-	 * labeled alternative in {@link SwiftParser#postfix_expression}.
-	 - Parameters:
-	   - ctx: the parse tree
-	 */
-	func exitFunction_call_with_closure_expression(_ ctx: SwiftParser.Function_call_with_closure_expressionContext)
-	/**
 	 * Enter a parse tree produced by the {@code initializer_expression_with_args}
 	 * labeled alternative in {@link SwiftParser#postfix_expression}.
 	 - Parameters:
@@ -2696,6 +2886,20 @@ public protocol SwiftListener: ParseTreeListener {
 	   - ctx: the parse tree
 	 */
 	func exitInitializer_expression_with_args(_ ctx: SwiftParser.Initializer_expression_with_argsContext)
+	/**
+	 * Enter a parse tree produced by the {@code dynamic_type}
+	 * labeled alternative in {@link SwiftParser#postfix_expression}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func enterDynamic_type(_ ctx: SwiftParser.Dynamic_typeContext)
+	/**
+	 * Exit a parse tree produced by the {@code dynamic_type}
+	 * labeled alternative in {@link SwiftParser#postfix_expression}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func exitDynamic_type(_ ctx: SwiftParser.Dynamic_typeContext)
 	/**
 	 * Enter a parse tree produced by the {@code subscript_expression}
 	 * labeled alternative in {@link SwiftParser#postfix_expression}.
@@ -2781,6 +2985,54 @@ public protocol SwiftListener: ParseTreeListener {
 	 */
 	func exitPrimary(_ ctx: SwiftParser.PrimaryContext)
 	/**
+	 * Enter a parse tree produced by {@link SwiftParser#function_call_argument_clause}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func enterFunction_call_argument_clause(_ ctx: SwiftParser.Function_call_argument_clauseContext)
+	/**
+	 * Exit a parse tree produced by {@link SwiftParser#function_call_argument_clause}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func exitFunction_call_argument_clause(_ ctx: SwiftParser.Function_call_argument_clauseContext)
+	/**
+	 * Enter a parse tree produced by {@link SwiftParser#function_call_argument_list}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func enterFunction_call_argument_list(_ ctx: SwiftParser.Function_call_argument_listContext)
+	/**
+	 * Exit a parse tree produced by {@link SwiftParser#function_call_argument_list}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func exitFunction_call_argument_list(_ ctx: SwiftParser.Function_call_argument_listContext)
+	/**
+	 * Enter a parse tree produced by {@link SwiftParser#function_call_argument}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func enterFunction_call_argument(_ ctx: SwiftParser.Function_call_argumentContext)
+	/**
+	 * Exit a parse tree produced by {@link SwiftParser#function_call_argument}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func exitFunction_call_argument(_ ctx: SwiftParser.Function_call_argumentContext)
+	/**
+	 * Enter a parse tree produced by {@link SwiftParser#trailing_closure}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func enterTrailing_closure(_ ctx: SwiftParser.Trailing_closureContext)
+	/**
+	 * Exit a parse tree produced by {@link SwiftParser#trailing_closure}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func exitTrailing_closure(_ ctx: SwiftParser.Trailing_closureContext)
+	/**
 	 * Enter a parse tree produced by {@link SwiftParser#argument_names}.
 	 - Parameters:
 	   - ctx: the parse tree
@@ -2805,29 +3057,185 @@ public protocol SwiftListener: ParseTreeListener {
 	 */
 	func exitArgument_name(_ ctx: SwiftParser.Argument_nameContext)
 	/**
-	 * Enter a parse tree produced by {@link SwiftParser#trailing_closure}.
+	 * Enter a parse tree produced by {@link SwiftParser#dynamic_type_expression}.
 	 - Parameters:
 	   - ctx: the parse tree
 	 */
-	func enterTrailing_closure(_ ctx: SwiftParser.Trailing_closureContext)
+	func enterDynamic_type_expression(_ ctx: SwiftParser.Dynamic_type_expressionContext)
 	/**
-	 * Exit a parse tree produced by {@link SwiftParser#trailing_closure}.
+	 * Exit a parse tree produced by {@link SwiftParser#dynamic_type_expression}.
 	 - Parameters:
 	   - ctx: the parse tree
 	 */
-	func exitTrailing_closure(_ ctx: SwiftParser.Trailing_closureContext)
+	func exitDynamic_type_expression(_ ctx: SwiftParser.Dynamic_type_expressionContext)
 	/**
-	 * Enter a parse tree produced by {@link SwiftParser#type}.
+	 * Enter a parse tree produced by the {@code the_metatype_protocol_type}
+	 * labeled alternative in {@link SwiftParser#type}.
 	 - Parameters:
 	   - ctx: the parse tree
 	 */
-	func enterType(_ ctx: SwiftParser.TypeContext)
+	func enterThe_metatype_protocol_type(_ ctx: SwiftParser.The_metatype_protocol_typeContext)
 	/**
-	 * Exit a parse tree produced by {@link SwiftParser#type}.
+	 * Exit a parse tree produced by the {@code the_metatype_protocol_type}
+	 * labeled alternative in {@link SwiftParser#type}.
 	 - Parameters:
 	   - ctx: the parse tree
 	 */
-	func exitType(_ ctx: SwiftParser.TypeContext)
+	func exitThe_metatype_protocol_type(_ ctx: SwiftParser.The_metatype_protocol_typeContext)
+	/**
+	 * Enter a parse tree produced by the {@code the_function_type}
+	 * labeled alternative in {@link SwiftParser#type}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func enterThe_function_type(_ ctx: SwiftParser.The_function_typeContext)
+	/**
+	 * Exit a parse tree produced by the {@code the_function_type}
+	 * labeled alternative in {@link SwiftParser#type}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func exitThe_function_type(_ ctx: SwiftParser.The_function_typeContext)
+	/**
+	 * Enter a parse tree produced by the {@code the_implicitly_unwrapped_optional_type}
+	 * labeled alternative in {@link SwiftParser#type}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func enterThe_implicitly_unwrapped_optional_type(_ ctx: SwiftParser.The_implicitly_unwrapped_optional_typeContext)
+	/**
+	 * Exit a parse tree produced by the {@code the_implicitly_unwrapped_optional_type}
+	 * labeled alternative in {@link SwiftParser#type}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func exitThe_implicitly_unwrapped_optional_type(_ ctx: SwiftParser.The_implicitly_unwrapped_optional_typeContext)
+	/**
+	 * Enter a parse tree produced by the {@code the_dictionary_type}
+	 * labeled alternative in {@link SwiftParser#type}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func enterThe_dictionary_type(_ ctx: SwiftParser.The_dictionary_typeContext)
+	/**
+	 * Exit a parse tree produced by the {@code the_dictionary_type}
+	 * labeled alternative in {@link SwiftParser#type}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func exitThe_dictionary_type(_ ctx: SwiftParser.The_dictionary_typeContext)
+	/**
+	 * Enter a parse tree produced by the {@code the_optional_type}
+	 * labeled alternative in {@link SwiftParser#type}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func enterThe_optional_type(_ ctx: SwiftParser.The_optional_typeContext)
+	/**
+	 * Exit a parse tree produced by the {@code the_optional_type}
+	 * labeled alternative in {@link SwiftParser#type}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func exitThe_optional_type(_ ctx: SwiftParser.The_optional_typeContext)
+	/**
+	 * Enter a parse tree produced by the {@code the_tuple_type}
+	 * labeled alternative in {@link SwiftParser#type}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func enterThe_tuple_type(_ ctx: SwiftParser.The_tuple_typeContext)
+	/**
+	 * Exit a parse tree produced by the {@code the_tuple_type}
+	 * labeled alternative in {@link SwiftParser#type}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func exitThe_tuple_type(_ ctx: SwiftParser.The_tuple_typeContext)
+	/**
+	 * Enter a parse tree produced by the {@code the_self_type}
+	 * labeled alternative in {@link SwiftParser#type}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func enterThe_self_type(_ ctx: SwiftParser.The_self_typeContext)
+	/**
+	 * Exit a parse tree produced by the {@code the_self_type}
+	 * labeled alternative in {@link SwiftParser#type}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func exitThe_self_type(_ ctx: SwiftParser.The_self_typeContext)
+	/**
+	 * Enter a parse tree produced by the {@code the_array_type}
+	 * labeled alternative in {@link SwiftParser#type}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func enterThe_array_type(_ ctx: SwiftParser.The_array_typeContext)
+	/**
+	 * Exit a parse tree produced by the {@code the_array_type}
+	 * labeled alternative in {@link SwiftParser#type}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func exitThe_array_type(_ ctx: SwiftParser.The_array_typeContext)
+	/**
+	 * Enter a parse tree produced by the {@code the_metatype_type_type}
+	 * labeled alternative in {@link SwiftParser#type}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func enterThe_metatype_type_type(_ ctx: SwiftParser.The_metatype_type_typeContext)
+	/**
+	 * Exit a parse tree produced by the {@code the_metatype_type_type}
+	 * labeled alternative in {@link SwiftParser#type}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func exitThe_metatype_type_type(_ ctx: SwiftParser.The_metatype_type_typeContext)
+	/**
+	 * Enter a parse tree produced by the {@code the_protocol_composition_type}
+	 * labeled alternative in {@link SwiftParser#type}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func enterThe_protocol_composition_type(_ ctx: SwiftParser.The_protocol_composition_typeContext)
+	/**
+	 * Exit a parse tree produced by the {@code the_protocol_composition_type}
+	 * labeled alternative in {@link SwiftParser#type}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func exitThe_protocol_composition_type(_ ctx: SwiftParser.The_protocol_composition_typeContext)
+	/**
+	 * Enter a parse tree produced by the {@code the_any_type}
+	 * labeled alternative in {@link SwiftParser#type}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func enterThe_any_type(_ ctx: SwiftParser.The_any_typeContext)
+	/**
+	 * Exit a parse tree produced by the {@code the_any_type}
+	 * labeled alternative in {@link SwiftParser#type}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func exitThe_any_type(_ ctx: SwiftParser.The_any_typeContext)
+	/**
+	 * Enter a parse tree produced by the {@code the_type_identifier}
+	 * labeled alternative in {@link SwiftParser#type}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func enterThe_type_identifier(_ ctx: SwiftParser.The_type_identifierContext)
+	/**
+	 * Exit a parse tree produced by the {@code the_type_identifier}
+	 * labeled alternative in {@link SwiftParser#type}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func exitThe_type_identifier(_ ctx: SwiftParser.The_type_identifierContext)
 	/**
 	 * Enter a parse tree produced by {@link SwiftParser#type_annotation}.
 	 - Parameters:
@@ -2877,18 +3285,6 @@ public protocol SwiftListener: ParseTreeListener {
 	 */
 	func exitTuple_type(_ ctx: SwiftParser.Tuple_typeContext)
 	/**
-	 * Enter a parse tree produced by {@link SwiftParser#tuple_type_body}.
-	 - Parameters:
-	   - ctx: the parse tree
-	 */
-	func enterTuple_type_body(_ ctx: SwiftParser.Tuple_type_bodyContext)
-	/**
-	 * Exit a parse tree produced by {@link SwiftParser#tuple_type_body}.
-	 - Parameters:
-	   - ctx: the parse tree
-	 */
-	func exitTuple_type_body(_ ctx: SwiftParser.Tuple_type_bodyContext)
-	/**
 	 * Enter a parse tree produced by {@link SwiftParser#tuple_type_element_list}.
 	 - Parameters:
 	   - ctx: the parse tree
@@ -2925,17 +3321,89 @@ public protocol SwiftListener: ParseTreeListener {
 	 */
 	func exitElement_name(_ ctx: SwiftParser.Element_nameContext)
 	/**
-	 * Enter a parse tree produced by {@link SwiftParser#tuple_label_name}.
+	 * Enter a parse tree produced by {@link SwiftParser#function_type}.
 	 - Parameters:
 	   - ctx: the parse tree
 	 */
-	func enterTuple_label_name(_ ctx: SwiftParser.Tuple_label_nameContext)
+	func enterFunction_type(_ ctx: SwiftParser.Function_typeContext)
 	/**
-	 * Exit a parse tree produced by {@link SwiftParser#tuple_label_name}.
+	 * Exit a parse tree produced by {@link SwiftParser#function_type}.
 	 - Parameters:
 	   - ctx: the parse tree
 	 */
-	func exitTuple_label_name(_ ctx: SwiftParser.Tuple_label_nameContext)
+	func exitFunction_type(_ ctx: SwiftParser.Function_typeContext)
+	/**
+	 * Enter a parse tree produced by {@link SwiftParser#function_type_argument_clause}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func enterFunction_type_argument_clause(_ ctx: SwiftParser.Function_type_argument_clauseContext)
+	/**
+	 * Exit a parse tree produced by {@link SwiftParser#function_type_argument_clause}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func exitFunction_type_argument_clause(_ ctx: SwiftParser.Function_type_argument_clauseContext)
+	/**
+	 * Enter a parse tree produced by {@link SwiftParser#function_type_argument_list}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func enterFunction_type_argument_list(_ ctx: SwiftParser.Function_type_argument_listContext)
+	/**
+	 * Exit a parse tree produced by {@link SwiftParser#function_type_argument_list}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func exitFunction_type_argument_list(_ ctx: SwiftParser.Function_type_argument_listContext)
+	/**
+	 * Enter a parse tree produced by {@link SwiftParser#function_type_argument}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func enterFunction_type_argument(_ ctx: SwiftParser.Function_type_argumentContext)
+	/**
+	 * Exit a parse tree produced by {@link SwiftParser#function_type_argument}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func exitFunction_type_argument(_ ctx: SwiftParser.Function_type_argumentContext)
+	/**
+	 * Enter a parse tree produced by {@link SwiftParser#argument_label}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func enterArgument_label(_ ctx: SwiftParser.Argument_labelContext)
+	/**
+	 * Exit a parse tree produced by {@link SwiftParser#argument_label}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func exitArgument_label(_ ctx: SwiftParser.Argument_labelContext)
+	/**
+	 * Enter a parse tree produced by {@link SwiftParser#array_type}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func enterArray_type(_ ctx: SwiftParser.Array_typeContext)
+	/**
+	 * Exit a parse tree produced by {@link SwiftParser#array_type}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func exitArray_type(_ ctx: SwiftParser.Array_typeContext)
+	/**
+	 * Enter a parse tree produced by {@link SwiftParser#dictionary_type}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func enterDictionary_type(_ ctx: SwiftParser.Dictionary_typeContext)
+	/**
+	 * Exit a parse tree produced by {@link SwiftParser#dictionary_type}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func exitDictionary_type(_ ctx: SwiftParser.Dictionary_typeContext)
 	/**
 	 * Enter a parse tree produced by {@link SwiftParser#protocol_composition_type}.
 	 - Parameters:
@@ -2948,18 +3416,6 @@ public protocol SwiftListener: ParseTreeListener {
 	   - ctx: the parse tree
 	 */
 	func exitProtocol_composition_type(_ ctx: SwiftParser.Protocol_composition_typeContext)
-	/**
-	 * Enter a parse tree produced by {@link SwiftParser#protocol_identifier_list}.
-	 - Parameters:
-	   - ctx: the parse tree
-	 */
-	func enterProtocol_identifier_list(_ ctx: SwiftParser.Protocol_identifier_listContext)
-	/**
-	 * Exit a parse tree produced by {@link SwiftParser#protocol_identifier_list}.
-	 - Parameters:
-	   - ctx: the parse tree
-	 */
-	func exitProtocol_identifier_list(_ ctx: SwiftParser.Protocol_identifier_listContext)
 	/**
 	 * Enter a parse tree produced by {@link SwiftParser#protocol_identifier}.
 	 - Parameters:
@@ -3009,89 +3465,53 @@ public protocol SwiftListener: ParseTreeListener {
 	 */
 	func exitClass_requirement(_ ctx: SwiftParser.Class_requirementContext)
 	/**
-	 * Enter a parse tree produced by {@link SwiftParser#identifier}.
+	 * Enter a parse tree produced by {@link SwiftParser#declaration_identifier}.
 	 - Parameters:
 	   - ctx: the parse tree
 	 */
-	func enterIdentifier(_ ctx: SwiftParser.IdentifierContext)
+	func enterDeclaration_identifier(_ ctx: SwiftParser.Declaration_identifierContext)
 	/**
-	 * Exit a parse tree produced by {@link SwiftParser#identifier}.
+	 * Exit a parse tree produced by {@link SwiftParser#declaration_identifier}.
 	 - Parameters:
 	   - ctx: the parse tree
 	 */
-	func exitIdentifier(_ ctx: SwiftParser.IdentifierContext)
+	func exitDeclaration_identifier(_ ctx: SwiftParser.Declaration_identifierContext)
 	/**
-	 * Enter a parse tree produced by {@link SwiftParser#identifier_declaration_context}.
+	 * Enter a parse tree produced by {@link SwiftParser#label_identifier}.
 	 - Parameters:
 	   - ctx: the parse tree
 	 */
-	func enterIdentifier_declaration_context(_ ctx: SwiftParser.Identifier_declaration_contextContext)
+	func enterLabel_identifier(_ ctx: SwiftParser.Label_identifierContext)
 	/**
-	 * Exit a parse tree produced by {@link SwiftParser#identifier_declaration_context}.
+	 * Exit a parse tree produced by {@link SwiftParser#label_identifier}.
 	 - Parameters:
 	   - ctx: the parse tree
 	 */
-	func exitIdentifier_declaration_context(_ ctx: SwiftParser.Identifier_declaration_contextContext)
+	func exitLabel_identifier(_ ctx: SwiftParser.Label_identifierContext)
 	/**
-	 * Enter a parse tree produced by {@link SwiftParser#identifier_argument_context}.
+	 * Enter a parse tree produced by {@link SwiftParser#keyword_as_identifier_in_declarations}.
 	 - Parameters:
 	   - ctx: the parse tree
 	 */
-	func enterIdentifier_argument_context(_ ctx: SwiftParser.Identifier_argument_contextContext)
+	func enterKeyword_as_identifier_in_declarations(_ ctx: SwiftParser.Keyword_as_identifier_in_declarationsContext)
 	/**
-	 * Exit a parse tree produced by {@link SwiftParser#identifier_argument_context}.
+	 * Exit a parse tree produced by {@link SwiftParser#keyword_as_identifier_in_declarations}.
 	 - Parameters:
 	   - ctx: the parse tree
 	 */
-	func exitIdentifier_argument_context(_ ctx: SwiftParser.Identifier_argument_contextContext)
+	func exitKeyword_as_identifier_in_declarations(_ ctx: SwiftParser.Keyword_as_identifier_in_declarationsContext)
 	/**
-	 * Enter a parse tree produced by {@link SwiftParser#identifier_list}.
+	 * Enter a parse tree produced by {@link SwiftParser#keyword_as_identifier_in_labels}.
 	 - Parameters:
 	   - ctx: the parse tree
 	 */
-	func enterIdentifier_list(_ ctx: SwiftParser.Identifier_listContext)
+	func enterKeyword_as_identifier_in_labels(_ ctx: SwiftParser.Keyword_as_identifier_in_labelsContext)
 	/**
-	 * Exit a parse tree produced by {@link SwiftParser#identifier_list}.
+	 * Exit a parse tree produced by {@link SwiftParser#keyword_as_identifier_in_labels}.
 	 - Parameters:
 	   - ctx: the parse tree
 	 */
-	func exitIdentifier_list(_ ctx: SwiftParser.Identifier_listContext)
-	/**
-	 * Enter a parse tree produced by {@link SwiftParser#context_sensitive_keyword}.
-	 - Parameters:
-	   - ctx: the parse tree
-	 */
-	func enterContext_sensitive_keyword(_ ctx: SwiftParser.Context_sensitive_keywordContext)
-	/**
-	 * Exit a parse tree produced by {@link SwiftParser#context_sensitive_keyword}.
-	 - Parameters:
-	   - ctx: the parse tree
-	 */
-	func exitContext_sensitive_keyword(_ ctx: SwiftParser.Context_sensitive_keywordContext)
-	/**
-	 * Enter a parse tree produced by {@link SwiftParser#declaration_allowed_keyword}.
-	 - Parameters:
-	   - ctx: the parse tree
-	 */
-	func enterDeclaration_allowed_keyword(_ ctx: SwiftParser.Declaration_allowed_keywordContext)
-	/**
-	 * Exit a parse tree produced by {@link SwiftParser#declaration_allowed_keyword}.
-	 - Parameters:
-	   - ctx: the parse tree
-	 */
-	func exitDeclaration_allowed_keyword(_ ctx: SwiftParser.Declaration_allowed_keywordContext)
-	/**
-	 * Enter a parse tree produced by {@link SwiftParser#argument_allowed_keyword}.
-	 - Parameters:
-	   - ctx: the parse tree
-	 */
-	func enterArgument_allowed_keyword(_ ctx: SwiftParser.Argument_allowed_keywordContext)
-	/**
-	 * Exit a parse tree produced by {@link SwiftParser#argument_allowed_keyword}.
-	 - Parameters:
-	   - ctx: the parse tree
-	 */
-	func exitArgument_allowed_keyword(_ ctx: SwiftParser.Argument_allowed_keywordContext)
+	func exitKeyword_as_identifier_in_labels(_ ctx: SwiftParser.Keyword_as_identifier_in_labelsContext)
 	/**
 	 * Enter a parse tree produced by {@link SwiftParser#assignment_operator}.
 	 - Parameters:
@@ -3117,29 +3537,41 @@ public protocol SwiftListener: ParseTreeListener {
 	 */
 	func exitNegate_prefix_operator(_ ctx: SwiftParser.Negate_prefix_operatorContext)
 	/**
-	 * Enter a parse tree produced by {@link SwiftParser#build_AND}.
+	 * Enter a parse tree produced by {@link SwiftParser#compilation_condition_AND}.
 	 - Parameters:
 	   - ctx: the parse tree
 	 */
-	func enterBuild_AND(_ ctx: SwiftParser.Build_ANDContext)
+	func enterCompilation_condition_AND(_ ctx: SwiftParser.Compilation_condition_ANDContext)
 	/**
-	 * Exit a parse tree produced by {@link SwiftParser#build_AND}.
+	 * Exit a parse tree produced by {@link SwiftParser#compilation_condition_AND}.
 	 - Parameters:
 	   - ctx: the parse tree
 	 */
-	func exitBuild_AND(_ ctx: SwiftParser.Build_ANDContext)
+	func exitCompilation_condition_AND(_ ctx: SwiftParser.Compilation_condition_ANDContext)
 	/**
-	 * Enter a parse tree produced by {@link SwiftParser#build_OR}.
+	 * Enter a parse tree produced by {@link SwiftParser#compilation_condition_OR}.
 	 - Parameters:
 	   - ctx: the parse tree
 	 */
-	func enterBuild_OR(_ ctx: SwiftParser.Build_ORContext)
+	func enterCompilation_condition_OR(_ ctx: SwiftParser.Compilation_condition_ORContext)
 	/**
-	 * Exit a parse tree produced by {@link SwiftParser#build_OR}.
+	 * Exit a parse tree produced by {@link SwiftParser#compilation_condition_OR}.
 	 - Parameters:
 	   - ctx: the parse tree
 	 */
-	func exitBuild_OR(_ ctx: SwiftParser.Build_ORContext)
+	func exitCompilation_condition_OR(_ ctx: SwiftParser.Compilation_condition_ORContext)
+	/**
+	 * Enter a parse tree produced by {@link SwiftParser#compilation_condition_GE}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func enterCompilation_condition_GE(_ ctx: SwiftParser.Compilation_condition_GEContext)
+	/**
+	 * Exit a parse tree produced by {@link SwiftParser#compilation_condition_GE}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func exitCompilation_condition_GE(_ ctx: SwiftParser.Compilation_condition_GEContext)
 	/**
 	 * Enter a parse tree produced by {@link SwiftParser#arrow_operator}.
 	 - Parameters:

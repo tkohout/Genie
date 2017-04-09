@@ -1,4 +1,4 @@
-// Generated from Swift.g4 by ANTLR 4.6
+// Generated from Swift.g4 by ANTLR 4.7
 import Antlr4
 
 /**
@@ -36,6 +36,16 @@ open class SwiftVisitor<T>: ParseTreeVisitor<T> {
 	- returns: the visitor result
 	 */
 	open func visitStatements(_ ctx: SwiftParser.StatementsContext) -> T{
+	 	fatalError(#function + " must be overridden")
+	}
+
+	/**
+	 * Visit a parse tree produced by {@link SwiftParser#statements_impl}.
+	- Parameters:
+	  - ctx: the parse tree
+	- returns: the visitor result
+	 */
+	open func visitStatements_impl(_ ctx: SwiftParser.Statements_implContext) -> T{
 	 	fatalError(#function + " must be overridden")
 	}
 
@@ -90,16 +100,6 @@ open class SwiftVisitor<T>: ParseTreeVisitor<T> {
 	}
 
 	/**
-	 * Visit a parse tree produced by {@link SwiftParser#condition_clause}.
-	- Parameters:
-	  - ctx: the parse tree
-	- returns: the visitor result
-	 */
-	open func visitCondition_clause(_ ctx: SwiftParser.Condition_clauseContext) -> T{
-	 	fatalError(#function + " must be overridden")
-	}
-
-	/**
 	 * Visit a parse tree produced by {@link SwiftParser#condition_list}.
 	- Parameters:
 	  - ctx: the parse tree
@@ -136,36 +136,6 @@ open class SwiftVisitor<T>: ParseTreeVisitor<T> {
 	- returns: the visitor result
 	 */
 	open func visitOptional_binding_condition(_ ctx: SwiftParser.Optional_binding_conditionContext) -> T{
-	 	fatalError(#function + " must be overridden")
-	}
-
-	/**
-	 * Visit a parse tree produced by {@link SwiftParser#optional_binding_head}.
-	- Parameters:
-	  - ctx: the parse tree
-	- returns: the visitor result
-	 */
-	open func visitOptional_binding_head(_ ctx: SwiftParser.Optional_binding_headContext) -> T{
-	 	fatalError(#function + " must be overridden")
-	}
-
-	/**
-	 * Visit a parse tree produced by {@link SwiftParser#optional_binding_continuation_list}.
-	- Parameters:
-	  - ctx: the parse tree
-	- returns: the visitor result
-	 */
-	open func visitOptional_binding_continuation_list(_ ctx: SwiftParser.Optional_binding_continuation_listContext) -> T{
-	 	fatalError(#function + " must be overridden")
-	}
-
-	/**
-	 * Visit a parse tree produced by {@link SwiftParser#optional_binding_continuation}.
-	- Parameters:
-	  - ctx: the parse tree
-	- returns: the visitor result
-	 */
-	open func visitOptional_binding_continuation(_ ctx: SwiftParser.Optional_binding_continuationContext) -> T{
 	 	fatalError(#function + " must be overridden")
 	}
 
@@ -380,36 +350,6 @@ open class SwiftVisitor<T>: ParseTreeVisitor<T> {
 	}
 
 	/**
-	 * Visit a parse tree produced by {@link SwiftParser#availability_condition}.
-	- Parameters:
-	  - ctx: the parse tree
-	- returns: the visitor result
-	 */
-	open func visitAvailability_condition(_ ctx: SwiftParser.Availability_conditionContext) -> T{
-	 	fatalError(#function + " must be overridden")
-	}
-
-	/**
-	 * Visit a parse tree produced by {@link SwiftParser#availability_arguments}.
-	- Parameters:
-	  - ctx: the parse tree
-	- returns: the visitor result
-	 */
-	open func visitAvailability_arguments(_ ctx: SwiftParser.Availability_argumentsContext) -> T{
-	 	fatalError(#function + " must be overridden")
-	}
-
-	/**
-	 * Visit a parse tree produced by {@link SwiftParser#availability_argument}.
-	- Parameters:
-	  - ctx: the parse tree
-	- returns: the visitor result
-	 */
-	open func visitAvailability_argument(_ ctx: SwiftParser.Availability_argumentContext) -> T{
-	 	fatalError(#function + " must be overridden")
-	}
-
-	/**
 	 * Visit a parse tree produced by {@link SwiftParser#throw_statement}.
 	- Parameters:
 	  - ctx: the parse tree
@@ -470,62 +410,122 @@ open class SwiftVisitor<T>: ParseTreeVisitor<T> {
 	}
 
 	/**
-	 * Visit a parse tree produced by {@link SwiftParser#build_configuration_statement}.
+	 * Visit a parse tree produced by {@link SwiftParser#conditional_compilation_block}.
 	- Parameters:
 	  - ctx: the parse tree
 	- returns: the visitor result
 	 */
-	open func visitBuild_configuration_statement(_ ctx: SwiftParser.Build_configuration_statementContext) -> T{
+	open func visitConditional_compilation_block(_ ctx: SwiftParser.Conditional_compilation_blockContext) -> T{
 	 	fatalError(#function + " must be overridden")
 	}
 
 	/**
-	 * Visit a parse tree produced by {@link SwiftParser#build_configuration_elseif_clauses}.
+	 * Visit a parse tree produced by {@link SwiftParser#if_directive_clause}.
 	- Parameters:
 	  - ctx: the parse tree
 	- returns: the visitor result
 	 */
-	open func visitBuild_configuration_elseif_clauses(_ ctx: SwiftParser.Build_configuration_elseif_clausesContext) -> T{
+	open func visitIf_directive_clause(_ ctx: SwiftParser.If_directive_clauseContext) -> T{
 	 	fatalError(#function + " must be overridden")
 	}
 
 	/**
-	 * Visit a parse tree produced by {@link SwiftParser#build_configuration_elseif_clause}.
+	 * Visit a parse tree produced by {@link SwiftParser#elseif_directive_clauses}.
 	- Parameters:
 	  - ctx: the parse tree
 	- returns: the visitor result
 	 */
-	open func visitBuild_configuration_elseif_clause(_ ctx: SwiftParser.Build_configuration_elseif_clauseContext) -> T{
+	open func visitElseif_directive_clauses(_ ctx: SwiftParser.Elseif_directive_clausesContext) -> T{
 	 	fatalError(#function + " must be overridden")
 	}
 
 	/**
-	 * Visit a parse tree produced by {@link SwiftParser#build_configuration_else_clause}.
+	 * Visit a parse tree produced by {@link SwiftParser#elseif_directive_clause}.
 	- Parameters:
 	  - ctx: the parse tree
 	- returns: the visitor result
 	 */
-	open func visitBuild_configuration_else_clause(_ ctx: SwiftParser.Build_configuration_else_clauseContext) -> T{
+	open func visitElseif_directive_clause(_ ctx: SwiftParser.Elseif_directive_clauseContext) -> T{
 	 	fatalError(#function + " must be overridden")
 	}
 
 	/**
-	 * Visit a parse tree produced by {@link SwiftParser#build_configuration}.
+	 * Visit a parse tree produced by {@link SwiftParser#else_directive_clause}.
 	- Parameters:
 	  - ctx: the parse tree
 	- returns: the visitor result
 	 */
-	open func visitBuild_configuration(_ ctx: SwiftParser.Build_configurationContext) -> T{
+	open func visitElse_directive_clause(_ ctx: SwiftParser.Else_directive_clauseContext) -> T{
 	 	fatalError(#function + " must be overridden")
 	}
 
 	/**
-	 * Visit a parse tree produced by {@link SwiftParser#platform_testing_function}.
+	 * Visit a parse tree produced by {@link SwiftParser#if_directive}.
 	- Parameters:
 	  - ctx: the parse tree
 	- returns: the visitor result
 	 */
-	open func visitPlatform_testing_function(_ ctx: SwiftParser.Platform_testing_functionContext) -> T{
+	open func visitIf_directive(_ ctx: SwiftParser.If_directiveContext) -> T{
+	 	fatalError(#function + " must be overridden")
+	}
+
+	/**
+	 * Visit a parse tree produced by {@link SwiftParser#elseif_directive}.
+	- Parameters:
+	  - ctx: the parse tree
+	- returns: the visitor result
+	 */
+	open func visitElseif_directive(_ ctx: SwiftParser.Elseif_directiveContext) -> T{
+	 	fatalError(#function + " must be overridden")
+	}
+
+	/**
+	 * Visit a parse tree produced by {@link SwiftParser#else_directive}.
+	- Parameters:
+	  - ctx: the parse tree
+	- returns: the visitor result
+	 */
+	open func visitElse_directive(_ ctx: SwiftParser.Else_directiveContext) -> T{
+	 	fatalError(#function + " must be overridden")
+	}
+
+	/**
+	 * Visit a parse tree produced by {@link SwiftParser#endif_directive}.
+	- Parameters:
+	  - ctx: the parse tree
+	- returns: the visitor result
+	 */
+	open func visitEndif_directive(_ ctx: SwiftParser.Endif_directiveContext) -> T{
+	 	fatalError(#function + " must be overridden")
+	}
+
+	/**
+	 * Visit a parse tree produced by {@link SwiftParser#compilation_condition}.
+	- Parameters:
+	  - ctx: the parse tree
+	- returns: the visitor result
+	 */
+	open func visitCompilation_condition(_ ctx: SwiftParser.Compilation_conditionContext) -> T{
+	 	fatalError(#function + " must be overridden")
+	}
+
+	/**
+	 * Visit a parse tree produced by {@link SwiftParser#platform_condition}.
+	- Parameters:
+	  - ctx: the parse tree
+	- returns: the visitor result
+	 */
+	open func visitPlatform_condition(_ ctx: SwiftParser.Platform_conditionContext) -> T{
+	 	fatalError(#function + " must be overridden")
+	}
+
+	/**
+	 * Visit a parse tree produced by {@link SwiftParser#swift_version}.
+	- Parameters:
+	  - ctx: the parse tree
+	- returns: the visitor result
+	 */
+	open func visitSwift_version(_ ctx: SwiftParser.Swift_versionContext) -> T{
 	 	fatalError(#function + " must be overridden")
 	}
 
@@ -576,6 +576,36 @@ open class SwiftVisitor<T>: ParseTreeVisitor<T> {
 	- returns: the visitor result
 	 */
 	open func visitFile_name(_ ctx: SwiftParser.File_nameContext) -> T{
+	 	fatalError(#function + " must be overridden")
+	}
+
+	/**
+	 * Visit a parse tree produced by {@link SwiftParser#availability_condition}.
+	- Parameters:
+	  - ctx: the parse tree
+	- returns: the visitor result
+	 */
+	open func visitAvailability_condition(_ ctx: SwiftParser.Availability_conditionContext) -> T{
+	 	fatalError(#function + " must be overridden")
+	}
+
+	/**
+	 * Visit a parse tree produced by {@link SwiftParser#availability_arguments}.
+	- Parameters:
+	  - ctx: the parse tree
+	- returns: the visitor result
+	 */
+	open func visitAvailability_arguments(_ ctx: SwiftParser.Availability_argumentsContext) -> T{
+	 	fatalError(#function + " must be overridden")
+	}
+
+	/**
+	 * Visit a parse tree produced by {@link SwiftParser#availability_argument}.
+	- Parameters:
+	  - ctx: the parse tree
+	- returns: the visitor result
+	 */
+	open func visitAvailability_argument(_ ctx: SwiftParser.Availability_argumentContext) -> T{
 	 	fatalError(#function + " must be overridden")
 	}
 
@@ -950,16 +980,6 @@ open class SwiftVisitor<T>: ParseTreeVisitor<T> {
 	}
 
 	/**
-	 * Visit a parse tree produced by {@link SwiftParser#typealias_head}.
-	- Parameters:
-	  - ctx: the parse tree
-	- returns: the visitor result
-	 */
-	open func visitTypealias_head(_ ctx: SwiftParser.Typealias_headContext) -> T{
-	 	fatalError(#function + " must be overridden")
-	}
-
-	/**
 	 * Visit a parse tree produced by {@link SwiftParser#typealias_name}.
 	- Parameters:
 	  - ctx: the parse tree
@@ -1320,6 +1340,16 @@ open class SwiftVisitor<T>: ParseTreeVisitor<T> {
 	}
 
 	/**
+	 * Visit a parse tree produced by {@link SwiftParser#struct_member}.
+	- Parameters:
+	  - ctx: the parse tree
+	- returns: the visitor result
+	 */
+	open func visitStruct_member(_ ctx: SwiftParser.Struct_memberContext) -> T{
+	 	fatalError(#function + " must be overridden")
+	}
+
+	/**
 	 * Visit a parse tree produced by {@link SwiftParser#class_declaration}.
 	- Parameters:
 	  - ctx: the parse tree
@@ -1346,6 +1376,16 @@ open class SwiftVisitor<T>: ParseTreeVisitor<T> {
 	- returns: the visitor result
 	 */
 	open func visitClass_body(_ ctx: SwiftParser.Class_bodyContext) -> T{
+	 	fatalError(#function + " must be overridden")
+	}
+
+	/**
+	 * Visit a parse tree produced by {@link SwiftParser#class_member}.
+	- Parameters:
+	  - ctx: the parse tree
+	- returns: the visitor result
+	 */
+	open func visitClass_member(_ ctx: SwiftParser.Class_memberContext) -> T{
 	 	fatalError(#function + " must be overridden")
 	}
 
@@ -1380,22 +1420,22 @@ open class SwiftVisitor<T>: ParseTreeVisitor<T> {
 	}
 
 	/**
+	 * Visit a parse tree produced by {@link SwiftParser#protocol_member}.
+	- Parameters:
+	  - ctx: the parse tree
+	- returns: the visitor result
+	 */
+	open func visitProtocol_member(_ ctx: SwiftParser.Protocol_memberContext) -> T{
+	 	fatalError(#function + " must be overridden")
+	}
+
+	/**
 	 * Visit a parse tree produced by {@link SwiftParser#protocol_member_declaration}.
 	- Parameters:
 	  - ctx: the parse tree
 	- returns: the visitor result
 	 */
 	open func visitProtocol_member_declaration(_ ctx: SwiftParser.Protocol_member_declarationContext) -> T{
-	 	fatalError(#function + " must be overridden")
-	}
-
-	/**
-	 * Visit a parse tree produced by {@link SwiftParser#protocol_member_declarations}.
-	- Parameters:
-	  - ctx: the parse tree
-	- returns: the visitor result
-	 */
-	open func visitProtocol_member_declarations(_ ctx: SwiftParser.Protocol_member_declarationsContext) -> T{
 	 	fatalError(#function + " must be overridden")
 	}
 
@@ -1510,6 +1550,16 @@ open class SwiftVisitor<T>: ParseTreeVisitor<T> {
 	}
 
 	/**
+	 * Visit a parse tree produced by {@link SwiftParser#extension_member}.
+	- Parameters:
+	  - ctx: the parse tree
+	- returns: the visitor result
+	 */
+	open func visitExtension_member(_ ctx: SwiftParser.Extension_memberContext) -> T{
+	 	fatalError(#function + " must be overridden")
+	}
+
+	/**
 	 * Visit a parse tree produced by {@link SwiftParser#subscript_declaration}.
 	- Parameters:
 	  - ctx: the parse tree
@@ -1580,42 +1630,62 @@ open class SwiftVisitor<T>: ParseTreeVisitor<T> {
 	}
 
 	/**
-	 * Visit a parse tree produced by {@link SwiftParser#infix_operator_attributes}.
+	 * Visit a parse tree produced by {@link SwiftParser#infix_operator_group}.
 	- Parameters:
 	  - ctx: the parse tree
 	- returns: the visitor result
 	 */
-	open func visitInfix_operator_attributes(_ ctx: SwiftParser.Infix_operator_attributesContext) -> T{
+	open func visitInfix_operator_group(_ ctx: SwiftParser.Infix_operator_groupContext) -> T{
 	 	fatalError(#function + " must be overridden")
 	}
 
 	/**
-	 * Visit a parse tree produced by {@link SwiftParser#precedence_clause}.
+	 * Visit a parse tree produced by {@link SwiftParser#precedence_group_declaration}.
 	- Parameters:
 	  - ctx: the parse tree
 	- returns: the visitor result
 	 */
-	open func visitPrecedence_clause(_ ctx: SwiftParser.Precedence_clauseContext) -> T{
+	open func visitPrecedence_group_declaration(_ ctx: SwiftParser.Precedence_group_declarationContext) -> T{
 	 	fatalError(#function + " must be overridden")
 	}
 
 	/**
-	 * Visit a parse tree produced by {@link SwiftParser#precedence_level}.
+	 * Visit a parse tree produced by {@link SwiftParser#precedence_group_attribute}.
 	- Parameters:
 	  - ctx: the parse tree
 	- returns: the visitor result
 	 */
-	open func visitPrecedence_level(_ ctx: SwiftParser.Precedence_levelContext) -> T{
+	open func visitPrecedence_group_attribute(_ ctx: SwiftParser.Precedence_group_attributeContext) -> T{
 	 	fatalError(#function + " must be overridden")
 	}
 
 	/**
-	 * Visit a parse tree produced by {@link SwiftParser#associativity_clause}.
+	 * Visit a parse tree produced by {@link SwiftParser#precedence_group_relation}.
 	- Parameters:
 	  - ctx: the parse tree
 	- returns: the visitor result
 	 */
-	open func visitAssociativity_clause(_ ctx: SwiftParser.Associativity_clauseContext) -> T{
+	open func visitPrecedence_group_relation(_ ctx: SwiftParser.Precedence_group_relationContext) -> T{
+	 	fatalError(#function + " must be overridden")
+	}
+
+	/**
+	 * Visit a parse tree produced by {@link SwiftParser#precedence_group_assignment}.
+	- Parameters:
+	  - ctx: the parse tree
+	- returns: the visitor result
+	 */
+	open func visitPrecedence_group_assignment(_ ctx: SwiftParser.Precedence_group_assignmentContext) -> T{
+	 	fatalError(#function + " must be overridden")
+	}
+
+	/**
+	 * Visit a parse tree produced by {@link SwiftParser#precedence_group_associativity}.
+	- Parameters:
+	  - ctx: the parse tree
+	- returns: the visitor result
+	 */
+	open func visitPrecedence_group_associativity(_ ctx: SwiftParser.Precedence_group_associativityContext) -> T{
 	 	fatalError(#function + " must be overridden")
 	}
 
@@ -1626,6 +1696,26 @@ open class SwiftVisitor<T>: ParseTreeVisitor<T> {
 	- returns: the visitor result
 	 */
 	open func visitAssociativity_name(_ ctx: SwiftParser.Associativity_nameContext) -> T{
+	 	fatalError(#function + " must be overridden")
+	}
+
+	/**
+	 * Visit a parse tree produced by {@link SwiftParser#precedence_group_names}.
+	- Parameters:
+	  - ctx: the parse tree
+	- returns: the visitor result
+	 */
+	open func visitPrecedence_group_names(_ ctx: SwiftParser.Precedence_group_namesContext) -> T{
+	 	fatalError(#function + " must be overridden")
+	}
+
+	/**
+	 * Visit a parse tree produced by {@link SwiftParser#precedence_group_name}.
+	- Parameters:
+	  - ctx: the parse tree
+	- returns: the visitor result
+	 */
+	open func visitPrecedence_group_name(_ ctx: SwiftParser.Precedence_group_nameContext) -> T{
 	 	fatalError(#function + " must be overridden")
 	}
 
@@ -1656,6 +1746,16 @@ open class SwiftVisitor<T>: ParseTreeVisitor<T> {
 	- returns: the visitor result
 	 */
 	open func visitAccess_level_modifier(_ ctx: SwiftParser.Access_level_modifierContext) -> T{
+	 	fatalError(#function + " must be overridden")
+	}
+
+	/**
+	 * Visit a parse tree produced by {@link SwiftParser#mutation_modifier}.
+	- Parameters:
+	  - ctx: the parse tree
+	- returns: the visitor result
+	 */
+	open func visitMutation_modifier(_ ctx: SwiftParser.Mutation_modifierContext) -> T{
 	 	fatalError(#function + " must be overridden")
 	}
 
@@ -1820,12 +1920,12 @@ open class SwiftVisitor<T>: ParseTreeVisitor<T> {
 	}
 
 	/**
-	 * Visit a parse tree produced by {@link SwiftParser#any_punctuation}.
+	 * Visit a parse tree produced by {@link SwiftParser#any_punctuation_for_balanced_token}.
 	- Parameters:
 	  - ctx: the parse tree
 	- returns: the visitor result
 	 */
-	open func visitAny_punctuation(_ ctx: SwiftParser.Any_punctuationContext) -> T{
+	open func visitAny_punctuation_for_balanced_token(_ ctx: SwiftParser.Any_punctuation_for_balanced_tokenContext) -> T{
 	 	fatalError(#function + " must be overridden")
 	}
 
@@ -1930,16 +2030,6 @@ open class SwiftVisitor<T>: ParseTreeVisitor<T> {
 	}
 
 	/**
-	 * Visit a parse tree produced by {@link SwiftParser#implicit_member_expression}.
-	- Parameters:
-	  - ctx: the parse tree
-	- returns: the visitor result
-	 */
-	open func visitImplicit_member_expression(_ ctx: SwiftParser.Implicit_member_expressionContext) -> T{
-	 	fatalError(#function + " must be overridden")
-	}
-
-	/**
 	 * Visit a parse tree produced by {@link SwiftParser#literal_expression}.
 	- Parameters:
 	  - ctx: the parse tree
@@ -2006,6 +2096,16 @@ open class SwiftVisitor<T>: ParseTreeVisitor<T> {
 	- returns: the visitor result
 	 */
 	open func visitDictionary_literal_item(_ ctx: SwiftParser.Dictionary_literal_itemContext) -> T{
+	 	fatalError(#function + " must be overridden")
+	}
+
+	/**
+	 * Visit a parse tree produced by {@link SwiftParser#playground_literal}.
+	- Parameters:
+	  - ctx: the parse tree
+	- returns: the visitor result
+	 */
+	open func visitPlayground_literal(_ ctx: SwiftParser.Playground_literalContext) -> T{
 	 	fatalError(#function + " must be overridden")
 	}
 
@@ -2080,6 +2180,56 @@ open class SwiftVisitor<T>: ParseTreeVisitor<T> {
 	}
 
 	/**
+	 * Visit a parse tree produced by {@link SwiftParser#closure_parameter_clause}.
+	- Parameters:
+	  - ctx: the parse tree
+	- returns: the visitor result
+	 */
+	open func visitClosure_parameter_clause(_ ctx: SwiftParser.Closure_parameter_clauseContext) -> T{
+	 	fatalError(#function + " must be overridden")
+	}
+
+	/**
+	 * Visit a parse tree produced by {@link SwiftParser#closure_parameter_clause_identifier_list}.
+	- Parameters:
+	  - ctx: the parse tree
+	- returns: the visitor result
+	 */
+	open func visitClosure_parameter_clause_identifier_list(_ ctx: SwiftParser.Closure_parameter_clause_identifier_listContext) -> T{
+	 	fatalError(#function + " must be overridden")
+	}
+
+	/**
+	 * Visit a parse tree produced by {@link SwiftParser#closure_parameter_list}.
+	- Parameters:
+	  - ctx: the parse tree
+	- returns: the visitor result
+	 */
+	open func visitClosure_parameter_list(_ ctx: SwiftParser.Closure_parameter_listContext) -> T{
+	 	fatalError(#function + " must be overridden")
+	}
+
+	/**
+	 * Visit a parse tree produced by {@link SwiftParser#closure_parameter}.
+	- Parameters:
+	  - ctx: the parse tree
+	- returns: the visitor result
+	 */
+	open func visitClosure_parameter(_ ctx: SwiftParser.Closure_parameterContext) -> T{
+	 	fatalError(#function + " must be overridden")
+	}
+
+	/**
+	 * Visit a parse tree produced by {@link SwiftParser#closure_parameter_name}.
+	- Parameters:
+	  - ctx: the parse tree
+	- returns: the visitor result
+	 */
+	open func visitClosure_parameter_name(_ ctx: SwiftParser.Closure_parameter_nameContext) -> T{
+	 	fatalError(#function + " must be overridden")
+	}
+
+	/**
 	 * Visit a parse tree produced by {@link SwiftParser#capture_list}.
 	- Parameters:
 	  - ctx: the parse tree
@@ -2120,6 +2270,16 @@ open class SwiftVisitor<T>: ParseTreeVisitor<T> {
 	}
 
 	/**
+	 * Visit a parse tree produced by {@link SwiftParser#implicit_member_expression}.
+	- Parameters:
+	  - ctx: the parse tree
+	- returns: the visitor result
+	 */
+	open func visitImplicit_member_expression(_ ctx: SwiftParser.Implicit_member_expressionContext) -> T{
+	 	fatalError(#function + " must be overridden")
+	}
+
+	/**
 	 * Visit a parse tree produced by {@link SwiftParser#parenthesized_expression}.
 	- Parameters:
 	  - ctx: the parse tree
@@ -2130,22 +2290,22 @@ open class SwiftVisitor<T>: ParseTreeVisitor<T> {
 	}
 
 	/**
-	 * Visit a parse tree produced by {@link SwiftParser#expression_element_list}.
+	 * Visit a parse tree produced by {@link SwiftParser#tuple_expression}.
 	- Parameters:
 	  - ctx: the parse tree
 	- returns: the visitor result
 	 */
-	open func visitExpression_element_list(_ ctx: SwiftParser.Expression_element_listContext) -> T{
+	open func visitTuple_expression(_ ctx: SwiftParser.Tuple_expressionContext) -> T{
 	 	fatalError(#function + " must be overridden")
 	}
 
 	/**
-	 * Visit a parse tree produced by {@link SwiftParser#expression_element}.
+	 * Visit a parse tree produced by {@link SwiftParser#tuple_element}.
 	- Parameters:
 	  - ctx: the parse tree
 	- returns: the visitor result
 	 */
-	open func visitExpression_element(_ ctx: SwiftParser.Expression_elementContext) -> T{
+	open func visitTuple_element(_ ctx: SwiftParser.Tuple_elementContext) -> T{
 	 	fatalError(#function + " must be overridden")
 	}
 
@@ -2166,6 +2326,27 @@ open class SwiftVisitor<T>: ParseTreeVisitor<T> {
 	- returns: the visitor result
 	 */
 	open func visitSelector_expression(_ ctx: SwiftParser.Selector_expressionContext) -> T{
+	 	fatalError(#function + " must be overridden")
+	}
+
+	/**
+	 * Visit a parse tree produced by {@link SwiftParser#key_path_expression}.
+	- Parameters:
+	  - ctx: the parse tree
+	- returns: the visitor result
+	 */
+	open func visitKey_path_expression(_ ctx: SwiftParser.Key_path_expressionContext) -> T{
+	 	fatalError(#function + " must be overridden")
+	}
+
+	/**
+	 * Visit a parse tree produced by the {@code function_call_expression_with_closure}
+	 * labeled alternative in {@link SwiftParser#postfix_expression}.
+	- Parameters:
+	  - ctx: the parse tree
+	- returns: the visitor result
+	 */
+	open func visitFunction_call_expression_with_closure(_ ctx: SwiftParser.Function_call_expression_with_closureContext) -> T{
 	 	fatalError(#function + " must be overridden")
 	}
 
@@ -2203,17 +2384,6 @@ open class SwiftVisitor<T>: ParseTreeVisitor<T> {
 	}
 
 	/**
-	 * Visit a parse tree produced by the {@code dynamic_type_expression}
-	 * labeled alternative in {@link SwiftParser#postfix_expression}.
-	- Parameters:
-	  - ctx: the parse tree
-	- returns: the visitor result
-	 */
-	open func visitDynamic_type_expression(_ ctx: SwiftParser.Dynamic_type_expressionContext) -> T{
-	 	fatalError(#function + " must be overridden")
-	}
-
-	/**
 	 * Visit a parse tree produced by the {@code postfix_self_expression}
 	 * labeled alternative in {@link SwiftParser#postfix_expression}.
 	- Parameters:
@@ -2225,17 +2395,6 @@ open class SwiftVisitor<T>: ParseTreeVisitor<T> {
 	}
 
 	/**
-	 * Visit a parse tree produced by the {@code function_call_with_closure_expression}
-	 * labeled alternative in {@link SwiftParser#postfix_expression}.
-	- Parameters:
-	  - ctx: the parse tree
-	- returns: the visitor result
-	 */
-	open func visitFunction_call_with_closure_expression(_ ctx: SwiftParser.Function_call_with_closure_expressionContext) -> T{
-	 	fatalError(#function + " must be overridden")
-	}
-
-	/**
 	 * Visit a parse tree produced by the {@code initializer_expression_with_args}
 	 * labeled alternative in {@link SwiftParser#postfix_expression}.
 	- Parameters:
@@ -2243,6 +2402,17 @@ open class SwiftVisitor<T>: ParseTreeVisitor<T> {
 	- returns: the visitor result
 	 */
 	open func visitInitializer_expression_with_args(_ ctx: SwiftParser.Initializer_expression_with_argsContext) -> T{
+	 	fatalError(#function + " must be overridden")
+	}
+
+	/**
+	 * Visit a parse tree produced by the {@code dynamic_type}
+	 * labeled alternative in {@link SwiftParser#postfix_expression}.
+	- Parameters:
+	  - ctx: the parse tree
+	- returns: the visitor result
+	 */
+	open func visitDynamic_type(_ ctx: SwiftParser.Dynamic_typeContext) -> T{
 	 	fatalError(#function + " must be overridden")
 	}
 
@@ -2313,6 +2483,46 @@ open class SwiftVisitor<T>: ParseTreeVisitor<T> {
 	}
 
 	/**
+	 * Visit a parse tree produced by {@link SwiftParser#function_call_argument_clause}.
+	- Parameters:
+	  - ctx: the parse tree
+	- returns: the visitor result
+	 */
+	open func visitFunction_call_argument_clause(_ ctx: SwiftParser.Function_call_argument_clauseContext) -> T{
+	 	fatalError(#function + " must be overridden")
+	}
+
+	/**
+	 * Visit a parse tree produced by {@link SwiftParser#function_call_argument_list}.
+	- Parameters:
+	  - ctx: the parse tree
+	- returns: the visitor result
+	 */
+	open func visitFunction_call_argument_list(_ ctx: SwiftParser.Function_call_argument_listContext) -> T{
+	 	fatalError(#function + " must be overridden")
+	}
+
+	/**
+	 * Visit a parse tree produced by {@link SwiftParser#function_call_argument}.
+	- Parameters:
+	  - ctx: the parse tree
+	- returns: the visitor result
+	 */
+	open func visitFunction_call_argument(_ ctx: SwiftParser.Function_call_argumentContext) -> T{
+	 	fatalError(#function + " must be overridden")
+	}
+
+	/**
+	 * Visit a parse tree produced by {@link SwiftParser#trailing_closure}.
+	- Parameters:
+	  - ctx: the parse tree
+	- returns: the visitor result
+	 */
+	open func visitTrailing_closure(_ ctx: SwiftParser.Trailing_closureContext) -> T{
+	 	fatalError(#function + " must be overridden")
+	}
+
+	/**
 	 * Visit a parse tree produced by {@link SwiftParser#argument_names}.
 	- Parameters:
 	  - ctx: the parse tree
@@ -2333,22 +2543,144 @@ open class SwiftVisitor<T>: ParseTreeVisitor<T> {
 	}
 
 	/**
-	 * Visit a parse tree produced by {@link SwiftParser#trailing_closure}.
+	 * Visit a parse tree produced by {@link SwiftParser#dynamic_type_expression}.
 	- Parameters:
 	  - ctx: the parse tree
 	- returns: the visitor result
 	 */
-	open func visitTrailing_closure(_ ctx: SwiftParser.Trailing_closureContext) -> T{
+	open func visitDynamic_type_expression(_ ctx: SwiftParser.Dynamic_type_expressionContext) -> T{
 	 	fatalError(#function + " must be overridden")
 	}
 
 	/**
-	 * Visit a parse tree produced by {@link SwiftParser#type}.
+	 * Visit a parse tree produced by the {@code the_metatype_protocol_type}
+	 * labeled alternative in {@link SwiftParser#type}.
 	- Parameters:
 	  - ctx: the parse tree
 	- returns: the visitor result
 	 */
-	open func visitType(_ ctx: SwiftParser.TypeContext) -> T{
+	open func visitThe_metatype_protocol_type(_ ctx: SwiftParser.The_metatype_protocol_typeContext) -> T{
+	 	fatalError(#function + " must be overridden")
+	}
+
+	/**
+	 * Visit a parse tree produced by the {@code the_function_type}
+	 * labeled alternative in {@link SwiftParser#type}.
+	- Parameters:
+	  - ctx: the parse tree
+	- returns: the visitor result
+	 */
+	open func visitThe_function_type(_ ctx: SwiftParser.The_function_typeContext) -> T{
+	 	fatalError(#function + " must be overridden")
+	}
+
+	/**
+	 * Visit a parse tree produced by the {@code the_implicitly_unwrapped_optional_type}
+	 * labeled alternative in {@link SwiftParser#type}.
+	- Parameters:
+	  - ctx: the parse tree
+	- returns: the visitor result
+	 */
+	open func visitThe_implicitly_unwrapped_optional_type(_ ctx: SwiftParser.The_implicitly_unwrapped_optional_typeContext) -> T{
+	 	fatalError(#function + " must be overridden")
+	}
+
+	/**
+	 * Visit a parse tree produced by the {@code the_dictionary_type}
+	 * labeled alternative in {@link SwiftParser#type}.
+	- Parameters:
+	  - ctx: the parse tree
+	- returns: the visitor result
+	 */
+	open func visitThe_dictionary_type(_ ctx: SwiftParser.The_dictionary_typeContext) -> T{
+	 	fatalError(#function + " must be overridden")
+	}
+
+	/**
+	 * Visit a parse tree produced by the {@code the_optional_type}
+	 * labeled alternative in {@link SwiftParser#type}.
+	- Parameters:
+	  - ctx: the parse tree
+	- returns: the visitor result
+	 */
+	open func visitThe_optional_type(_ ctx: SwiftParser.The_optional_typeContext) -> T{
+	 	fatalError(#function + " must be overridden")
+	}
+
+	/**
+	 * Visit a parse tree produced by the {@code the_tuple_type}
+	 * labeled alternative in {@link SwiftParser#type}.
+	- Parameters:
+	  - ctx: the parse tree
+	- returns: the visitor result
+	 */
+	open func visitThe_tuple_type(_ ctx: SwiftParser.The_tuple_typeContext) -> T{
+	 	fatalError(#function + " must be overridden")
+	}
+
+	/**
+	 * Visit a parse tree produced by the {@code the_self_type}
+	 * labeled alternative in {@link SwiftParser#type}.
+	- Parameters:
+	  - ctx: the parse tree
+	- returns: the visitor result
+	 */
+	open func visitThe_self_type(_ ctx: SwiftParser.The_self_typeContext) -> T{
+	 	fatalError(#function + " must be overridden")
+	}
+
+	/**
+	 * Visit a parse tree produced by the {@code the_array_type}
+	 * labeled alternative in {@link SwiftParser#type}.
+	- Parameters:
+	  - ctx: the parse tree
+	- returns: the visitor result
+	 */
+	open func visitThe_array_type(_ ctx: SwiftParser.The_array_typeContext) -> T{
+	 	fatalError(#function + " must be overridden")
+	}
+
+	/**
+	 * Visit a parse tree produced by the {@code the_metatype_type_type}
+	 * labeled alternative in {@link SwiftParser#type}.
+	- Parameters:
+	  - ctx: the parse tree
+	- returns: the visitor result
+	 */
+	open func visitThe_metatype_type_type(_ ctx: SwiftParser.The_metatype_type_typeContext) -> T{
+	 	fatalError(#function + " must be overridden")
+	}
+
+	/**
+	 * Visit a parse tree produced by the {@code the_protocol_composition_type}
+	 * labeled alternative in {@link SwiftParser#type}.
+	- Parameters:
+	  - ctx: the parse tree
+	- returns: the visitor result
+	 */
+	open func visitThe_protocol_composition_type(_ ctx: SwiftParser.The_protocol_composition_typeContext) -> T{
+	 	fatalError(#function + " must be overridden")
+	}
+
+	/**
+	 * Visit a parse tree produced by the {@code the_any_type}
+	 * labeled alternative in {@link SwiftParser#type}.
+	- Parameters:
+	  - ctx: the parse tree
+	- returns: the visitor result
+	 */
+	open func visitThe_any_type(_ ctx: SwiftParser.The_any_typeContext) -> T{
+	 	fatalError(#function + " must be overridden")
+	}
+
+	/**
+	 * Visit a parse tree produced by the {@code the_type_identifier}
+	 * labeled alternative in {@link SwiftParser#type}.
+	- Parameters:
+	  - ctx: the parse tree
+	- returns: the visitor result
+	 */
+	open func visitThe_type_identifier(_ ctx: SwiftParser.The_type_identifierContext) -> T{
 	 	fatalError(#function + " must be overridden")
 	}
 
@@ -2393,16 +2725,6 @@ open class SwiftVisitor<T>: ParseTreeVisitor<T> {
 	}
 
 	/**
-	 * Visit a parse tree produced by {@link SwiftParser#tuple_type_body}.
-	- Parameters:
-	  - ctx: the parse tree
-	- returns: the visitor result
-	 */
-	open func visitTuple_type_body(_ ctx: SwiftParser.Tuple_type_bodyContext) -> T{
-	 	fatalError(#function + " must be overridden")
-	}
-
-	/**
 	 * Visit a parse tree produced by {@link SwiftParser#tuple_type_element_list}.
 	- Parameters:
 	  - ctx: the parse tree
@@ -2433,12 +2755,72 @@ open class SwiftVisitor<T>: ParseTreeVisitor<T> {
 	}
 
 	/**
-	 * Visit a parse tree produced by {@link SwiftParser#tuple_label_name}.
+	 * Visit a parse tree produced by {@link SwiftParser#function_type}.
 	- Parameters:
 	  - ctx: the parse tree
 	- returns: the visitor result
 	 */
-	open func visitTuple_label_name(_ ctx: SwiftParser.Tuple_label_nameContext) -> T{
+	open func visitFunction_type(_ ctx: SwiftParser.Function_typeContext) -> T{
+	 	fatalError(#function + " must be overridden")
+	}
+
+	/**
+	 * Visit a parse tree produced by {@link SwiftParser#function_type_argument_clause}.
+	- Parameters:
+	  - ctx: the parse tree
+	- returns: the visitor result
+	 */
+	open func visitFunction_type_argument_clause(_ ctx: SwiftParser.Function_type_argument_clauseContext) -> T{
+	 	fatalError(#function + " must be overridden")
+	}
+
+	/**
+	 * Visit a parse tree produced by {@link SwiftParser#function_type_argument_list}.
+	- Parameters:
+	  - ctx: the parse tree
+	- returns: the visitor result
+	 */
+	open func visitFunction_type_argument_list(_ ctx: SwiftParser.Function_type_argument_listContext) -> T{
+	 	fatalError(#function + " must be overridden")
+	}
+
+	/**
+	 * Visit a parse tree produced by {@link SwiftParser#function_type_argument}.
+	- Parameters:
+	  - ctx: the parse tree
+	- returns: the visitor result
+	 */
+	open func visitFunction_type_argument(_ ctx: SwiftParser.Function_type_argumentContext) -> T{
+	 	fatalError(#function + " must be overridden")
+	}
+
+	/**
+	 * Visit a parse tree produced by {@link SwiftParser#argument_label}.
+	- Parameters:
+	  - ctx: the parse tree
+	- returns: the visitor result
+	 */
+	open func visitArgument_label(_ ctx: SwiftParser.Argument_labelContext) -> T{
+	 	fatalError(#function + " must be overridden")
+	}
+
+	/**
+	 * Visit a parse tree produced by {@link SwiftParser#array_type}.
+	- Parameters:
+	  - ctx: the parse tree
+	- returns: the visitor result
+	 */
+	open func visitArray_type(_ ctx: SwiftParser.Array_typeContext) -> T{
+	 	fatalError(#function + " must be overridden")
+	}
+
+	/**
+	 * Visit a parse tree produced by {@link SwiftParser#dictionary_type}.
+	- Parameters:
+	  - ctx: the parse tree
+	- returns: the visitor result
+	 */
+	open func visitDictionary_type(_ ctx: SwiftParser.Dictionary_typeContext) -> T{
 	 	fatalError(#function + " must be overridden")
 	}
 
@@ -2449,16 +2831,6 @@ open class SwiftVisitor<T>: ParseTreeVisitor<T> {
 	- returns: the visitor result
 	 */
 	open func visitProtocol_composition_type(_ ctx: SwiftParser.Protocol_composition_typeContext) -> T{
-	 	fatalError(#function + " must be overridden")
-	}
-
-	/**
-	 * Visit a parse tree produced by {@link SwiftParser#protocol_identifier_list}.
-	- Parameters:
-	  - ctx: the parse tree
-	- returns: the visitor result
-	 */
-	open func visitProtocol_identifier_list(_ ctx: SwiftParser.Protocol_identifier_listContext) -> T{
 	 	fatalError(#function + " must be overridden")
 	}
 
@@ -2503,72 +2875,42 @@ open class SwiftVisitor<T>: ParseTreeVisitor<T> {
 	}
 
 	/**
-	 * Visit a parse tree produced by {@link SwiftParser#identifier}.
+	 * Visit a parse tree produced by {@link SwiftParser#declaration_identifier}.
 	- Parameters:
 	  - ctx: the parse tree
 	- returns: the visitor result
 	 */
-	open func visitIdentifier(_ ctx: SwiftParser.IdentifierContext) -> T{
+	open func visitDeclaration_identifier(_ ctx: SwiftParser.Declaration_identifierContext) -> T{
 	 	fatalError(#function + " must be overridden")
 	}
 
 	/**
-	 * Visit a parse tree produced by {@link SwiftParser#identifier_declaration_context}.
+	 * Visit a parse tree produced by {@link SwiftParser#label_identifier}.
 	- Parameters:
 	  - ctx: the parse tree
 	- returns: the visitor result
 	 */
-	open func visitIdentifier_declaration_context(_ ctx: SwiftParser.Identifier_declaration_contextContext) -> T{
+	open func visitLabel_identifier(_ ctx: SwiftParser.Label_identifierContext) -> T{
 	 	fatalError(#function + " must be overridden")
 	}
 
 	/**
-	 * Visit a parse tree produced by {@link SwiftParser#identifier_argument_context}.
+	 * Visit a parse tree produced by {@link SwiftParser#keyword_as_identifier_in_declarations}.
 	- Parameters:
 	  - ctx: the parse tree
 	- returns: the visitor result
 	 */
-	open func visitIdentifier_argument_context(_ ctx: SwiftParser.Identifier_argument_contextContext) -> T{
+	open func visitKeyword_as_identifier_in_declarations(_ ctx: SwiftParser.Keyword_as_identifier_in_declarationsContext) -> T{
 	 	fatalError(#function + " must be overridden")
 	}
 
 	/**
-	 * Visit a parse tree produced by {@link SwiftParser#identifier_list}.
+	 * Visit a parse tree produced by {@link SwiftParser#keyword_as_identifier_in_labels}.
 	- Parameters:
 	  - ctx: the parse tree
 	- returns: the visitor result
 	 */
-	open func visitIdentifier_list(_ ctx: SwiftParser.Identifier_listContext) -> T{
-	 	fatalError(#function + " must be overridden")
-	}
-
-	/**
-	 * Visit a parse tree produced by {@link SwiftParser#context_sensitive_keyword}.
-	- Parameters:
-	  - ctx: the parse tree
-	- returns: the visitor result
-	 */
-	open func visitContext_sensitive_keyword(_ ctx: SwiftParser.Context_sensitive_keywordContext) -> T{
-	 	fatalError(#function + " must be overridden")
-	}
-
-	/**
-	 * Visit a parse tree produced by {@link SwiftParser#declaration_allowed_keyword}.
-	- Parameters:
-	  - ctx: the parse tree
-	- returns: the visitor result
-	 */
-	open func visitDeclaration_allowed_keyword(_ ctx: SwiftParser.Declaration_allowed_keywordContext) -> T{
-	 	fatalError(#function + " must be overridden")
-	}
-
-	/**
-	 * Visit a parse tree produced by {@link SwiftParser#argument_allowed_keyword}.
-	- Parameters:
-	  - ctx: the parse tree
-	- returns: the visitor result
-	 */
-	open func visitArgument_allowed_keyword(_ ctx: SwiftParser.Argument_allowed_keywordContext) -> T{
+	open func visitKeyword_as_identifier_in_labels(_ ctx: SwiftParser.Keyword_as_identifier_in_labelsContext) -> T{
 	 	fatalError(#function + " must be overridden")
 	}
 
@@ -2593,22 +2935,32 @@ open class SwiftVisitor<T>: ParseTreeVisitor<T> {
 	}
 
 	/**
-	 * Visit a parse tree produced by {@link SwiftParser#build_AND}.
+	 * Visit a parse tree produced by {@link SwiftParser#compilation_condition_AND}.
 	- Parameters:
 	  - ctx: the parse tree
 	- returns: the visitor result
 	 */
-	open func visitBuild_AND(_ ctx: SwiftParser.Build_ANDContext) -> T{
+	open func visitCompilation_condition_AND(_ ctx: SwiftParser.Compilation_condition_ANDContext) -> T{
 	 	fatalError(#function + " must be overridden")
 	}
 
 	/**
-	 * Visit a parse tree produced by {@link SwiftParser#build_OR}.
+	 * Visit a parse tree produced by {@link SwiftParser#compilation_condition_OR}.
 	- Parameters:
 	  - ctx: the parse tree
 	- returns: the visitor result
 	 */
-	open func visitBuild_OR(_ ctx: SwiftParser.Build_ORContext) -> T{
+	open func visitCompilation_condition_OR(_ ctx: SwiftParser.Compilation_condition_ORContext) -> T{
+	 	fatalError(#function + " must be overridden")
+	}
+
+	/**
+	 * Visit a parse tree produced by {@link SwiftParser#compilation_condition_GE}.
+	- Parameters:
+	  - ctx: the parse tree
+	- returns: the visitor result
+	 */
+	open func visitCompilation_condition_GE(_ ctx: SwiftParser.Compilation_condition_GEContext) -> T{
 	 	fatalError(#function + " must be overridden")
 	}
 

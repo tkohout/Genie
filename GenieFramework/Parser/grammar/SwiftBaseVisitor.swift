@@ -1,4 +1,4 @@
-// Generated from Swift.g4 by ANTLR 4.6
+// Generated from Swift.g4 by ANTLR 4.7
 import Antlr4
 
 /**
@@ -31,6 +31,13 @@ open class SwiftBaseVisitor<T>: AbstractParseTreeVisitor<T> {
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
 	open func visitStatements(_ ctx: SwiftParser.StatementsContext) -> T? { return visitChildren(ctx) }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	open func visitStatements_impl(_ ctx: SwiftParser.Statements_implContext) -> T? { return visitChildren(ctx) }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -72,13 +79,6 @@ open class SwiftBaseVisitor<T>: AbstractParseTreeVisitor<T> {
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	open func visitCondition_clause(_ ctx: SwiftParser.Condition_clauseContext) -> T? { return visitChildren(ctx) }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
 	open func visitCondition_list(_ ctx: SwiftParser.Condition_listContext) -> T? { return visitChildren(ctx) }
 	/**
 	 * {@inheritDoc}
@@ -101,27 +101,6 @@ open class SwiftBaseVisitor<T>: AbstractParseTreeVisitor<T> {
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
 	open func visitOptional_binding_condition(_ ctx: SwiftParser.Optional_binding_conditionContext) -> T? { return visitChildren(ctx) }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	open func visitOptional_binding_head(_ ctx: SwiftParser.Optional_binding_headContext) -> T? { return visitChildren(ctx) }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	open func visitOptional_binding_continuation_list(_ ctx: SwiftParser.Optional_binding_continuation_listContext) -> T? { return visitChildren(ctx) }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	open func visitOptional_binding_continuation(_ ctx: SwiftParser.Optional_binding_continuationContext) -> T? { return visitChildren(ctx) }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -275,27 +254,6 @@ open class SwiftBaseVisitor<T>: AbstractParseTreeVisitor<T> {
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	open func visitAvailability_condition(_ ctx: SwiftParser.Availability_conditionContext) -> T? { return visitChildren(ctx) }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	open func visitAvailability_arguments(_ ctx: SwiftParser.Availability_argumentsContext) -> T? { return visitChildren(ctx) }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	open func visitAvailability_argument(_ ctx: SwiftParser.Availability_argumentContext) -> T? { return visitChildren(ctx) }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
 	open func visitThrow_statement(_ ctx: SwiftParser.Throw_statementContext) -> T? { return visitChildren(ctx) }
 	/**
 	 * {@inheritDoc}
@@ -338,42 +296,84 @@ open class SwiftBaseVisitor<T>: AbstractParseTreeVisitor<T> {
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	open func visitBuild_configuration_statement(_ ctx: SwiftParser.Build_configuration_statementContext) -> T? { return visitChildren(ctx) }
+	open func visitConditional_compilation_block(_ ctx: SwiftParser.Conditional_compilation_blockContext) -> T? { return visitChildren(ctx) }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	open func visitBuild_configuration_elseif_clauses(_ ctx: SwiftParser.Build_configuration_elseif_clausesContext) -> T? { return visitChildren(ctx) }
+	open func visitIf_directive_clause(_ ctx: SwiftParser.If_directive_clauseContext) -> T? { return visitChildren(ctx) }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	open func visitBuild_configuration_elseif_clause(_ ctx: SwiftParser.Build_configuration_elseif_clauseContext) -> T? { return visitChildren(ctx) }
+	open func visitElseif_directive_clauses(_ ctx: SwiftParser.Elseif_directive_clausesContext) -> T? { return visitChildren(ctx) }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	open func visitBuild_configuration_else_clause(_ ctx: SwiftParser.Build_configuration_else_clauseContext) -> T? { return visitChildren(ctx) }
+	open func visitElseif_directive_clause(_ ctx: SwiftParser.Elseif_directive_clauseContext) -> T? { return visitChildren(ctx) }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	open func visitBuild_configuration(_ ctx: SwiftParser.Build_configurationContext) -> T? { return visitChildren(ctx) }
+	open func visitElse_directive_clause(_ ctx: SwiftParser.Else_directive_clauseContext) -> T? { return visitChildren(ctx) }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	open func visitPlatform_testing_function(_ ctx: SwiftParser.Platform_testing_functionContext) -> T? { return visitChildren(ctx) }
+	open func visitIf_directive(_ ctx: SwiftParser.If_directiveContext) -> T? { return visitChildren(ctx) }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	open func visitElseif_directive(_ ctx: SwiftParser.Elseif_directiveContext) -> T? { return visitChildren(ctx) }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	open func visitElse_directive(_ ctx: SwiftParser.Else_directiveContext) -> T? { return visitChildren(ctx) }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	open func visitEndif_directive(_ ctx: SwiftParser.Endif_directiveContext) -> T? { return visitChildren(ctx) }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	open func visitCompilation_condition(_ ctx: SwiftParser.Compilation_conditionContext) -> T? { return visitChildren(ctx) }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	open func visitPlatform_condition(_ ctx: SwiftParser.Platform_conditionContext) -> T? { return visitChildren(ctx) }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	open func visitSwift_version(_ ctx: SwiftParser.Swift_versionContext) -> T? { return visitChildren(ctx) }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -409,6 +409,27 @@ open class SwiftBaseVisitor<T>: AbstractParseTreeVisitor<T> {
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
 	open func visitFile_name(_ ctx: SwiftParser.File_nameContext) -> T? { return visitChildren(ctx) }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	open func visitAvailability_condition(_ ctx: SwiftParser.Availability_conditionContext) -> T? { return visitChildren(ctx) }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	open func visitAvailability_arguments(_ ctx: SwiftParser.Availability_argumentsContext) -> T? { return visitChildren(ctx) }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	open func visitAvailability_argument(_ ctx: SwiftParser.Availability_argumentContext) -> T? { return visitChildren(ctx) }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -674,13 +695,6 @@ open class SwiftBaseVisitor<T>: AbstractParseTreeVisitor<T> {
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	open func visitTypealias_head(_ ctx: SwiftParser.Typealias_headContext) -> T? { return visitChildren(ctx) }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
 	open func visitTypealias_name(_ ctx: SwiftParser.Typealias_nameContext) -> T? { return visitChildren(ctx) }
 	/**
 	 * {@inheritDoc}
@@ -933,6 +947,13 @@ open class SwiftBaseVisitor<T>: AbstractParseTreeVisitor<T> {
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
+	open func visitStruct_member(_ ctx: SwiftParser.Struct_memberContext) -> T? { return visitChildren(ctx) }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
 	open func visitClass_declaration(_ ctx: SwiftParser.Class_declarationContext) -> T? { return visitChildren(ctx) }
 	/**
 	 * {@inheritDoc}
@@ -948,6 +969,13 @@ open class SwiftBaseVisitor<T>: AbstractParseTreeVisitor<T> {
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
 	open func visitClass_body(_ ctx: SwiftParser.Class_bodyContext) -> T? { return visitChildren(ctx) }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	open func visitClass_member(_ ctx: SwiftParser.Class_memberContext) -> T? { return visitChildren(ctx) }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -975,14 +1003,14 @@ open class SwiftBaseVisitor<T>: AbstractParseTreeVisitor<T> {
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	open func visitProtocol_member_declaration(_ ctx: SwiftParser.Protocol_member_declarationContext) -> T? { return visitChildren(ctx) }
+	open func visitProtocol_member(_ ctx: SwiftParser.Protocol_memberContext) -> T? { return visitChildren(ctx) }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	open func visitProtocol_member_declarations(_ ctx: SwiftParser.Protocol_member_declarationsContext) -> T? { return visitChildren(ctx) }
+	open func visitProtocol_member_declaration(_ ctx: SwiftParser.Protocol_member_declarationContext) -> T? { return visitChildren(ctx) }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -1066,6 +1094,13 @@ open class SwiftBaseVisitor<T>: AbstractParseTreeVisitor<T> {
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
+	open func visitExtension_member(_ ctx: SwiftParser.Extension_memberContext) -> T? { return visitChildren(ctx) }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
 	open func visitSubscript_declaration(_ ctx: SwiftParser.Subscript_declarationContext) -> T? { return visitChildren(ctx) }
 	/**
 	 * {@inheritDoc}
@@ -1115,28 +1150,42 @@ open class SwiftBaseVisitor<T>: AbstractParseTreeVisitor<T> {
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	open func visitInfix_operator_attributes(_ ctx: SwiftParser.Infix_operator_attributesContext) -> T? { return visitChildren(ctx) }
+	open func visitInfix_operator_group(_ ctx: SwiftParser.Infix_operator_groupContext) -> T? { return visitChildren(ctx) }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	open func visitPrecedence_clause(_ ctx: SwiftParser.Precedence_clauseContext) -> T? { return visitChildren(ctx) }
+	open func visitPrecedence_group_declaration(_ ctx: SwiftParser.Precedence_group_declarationContext) -> T? { return visitChildren(ctx) }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	open func visitPrecedence_level(_ ctx: SwiftParser.Precedence_levelContext) -> T? { return visitChildren(ctx) }
+	open func visitPrecedence_group_attribute(_ ctx: SwiftParser.Precedence_group_attributeContext) -> T? { return visitChildren(ctx) }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	open func visitAssociativity_clause(_ ctx: SwiftParser.Associativity_clauseContext) -> T? { return visitChildren(ctx) }
+	open func visitPrecedence_group_relation(_ ctx: SwiftParser.Precedence_group_relationContext) -> T? { return visitChildren(ctx) }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	open func visitPrecedence_group_assignment(_ ctx: SwiftParser.Precedence_group_assignmentContext) -> T? { return visitChildren(ctx) }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	open func visitPrecedence_group_associativity(_ ctx: SwiftParser.Precedence_group_associativityContext) -> T? { return visitChildren(ctx) }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -1144,6 +1193,20 @@ open class SwiftBaseVisitor<T>: AbstractParseTreeVisitor<T> {
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
 	open func visitAssociativity_name(_ ctx: SwiftParser.Associativity_nameContext) -> T? { return visitChildren(ctx) }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	open func visitPrecedence_group_names(_ ctx: SwiftParser.Precedence_group_namesContext) -> T? { return visitChildren(ctx) }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	open func visitPrecedence_group_name(_ ctx: SwiftParser.Precedence_group_nameContext) -> T? { return visitChildren(ctx) }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -1165,6 +1228,13 @@ open class SwiftBaseVisitor<T>: AbstractParseTreeVisitor<T> {
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
 	open func visitAccess_level_modifier(_ ctx: SwiftParser.Access_level_modifierContext) -> T? { return visitChildren(ctx) }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	open func visitMutation_modifier(_ ctx: SwiftParser.Mutation_modifierContext) -> T? { return visitChildren(ctx) }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -1283,7 +1353,7 @@ open class SwiftBaseVisitor<T>: AbstractParseTreeVisitor<T> {
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	open func visitAny_punctuation(_ ctx: SwiftParser.Any_punctuationContext) -> T? { return visitChildren(ctx) }
+	open func visitAny_punctuation_for_balanced_token(_ ctx: SwiftParser.Any_punctuation_for_balanced_tokenContext) -> T? { return visitChildren(ctx) }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -1360,13 +1430,6 @@ open class SwiftBaseVisitor<T>: AbstractParseTreeVisitor<T> {
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	open func visitImplicit_member_expression(_ ctx: SwiftParser.Implicit_member_expressionContext) -> T? { return visitChildren(ctx) }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
 	open func visitLiteral_expression(_ ctx: SwiftParser.Literal_expressionContext) -> T? { return visitChildren(ctx) }
 	/**
 	 * {@inheritDoc}
@@ -1410,6 +1473,13 @@ open class SwiftBaseVisitor<T>: AbstractParseTreeVisitor<T> {
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
 	open func visitDictionary_literal_item(_ ctx: SwiftParser.Dictionary_literal_itemContext) -> T? { return visitChildren(ctx) }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	open func visitPlayground_literal(_ ctx: SwiftParser.Playground_literalContext) -> T? { return visitChildren(ctx) }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -1465,6 +1535,41 @@ open class SwiftBaseVisitor<T>: AbstractParseTreeVisitor<T> {
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
+	open func visitClosure_parameter_clause(_ ctx: SwiftParser.Closure_parameter_clauseContext) -> T? { return visitChildren(ctx) }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	open func visitClosure_parameter_clause_identifier_list(_ ctx: SwiftParser.Closure_parameter_clause_identifier_listContext) -> T? { return visitChildren(ctx) }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	open func visitClosure_parameter_list(_ ctx: SwiftParser.Closure_parameter_listContext) -> T? { return visitChildren(ctx) }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	open func visitClosure_parameter(_ ctx: SwiftParser.Closure_parameterContext) -> T? { return visitChildren(ctx) }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	open func visitClosure_parameter_name(_ ctx: SwiftParser.Closure_parameter_nameContext) -> T? { return visitChildren(ctx) }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
 	open func visitCapture_list(_ ctx: SwiftParser.Capture_listContext) -> T? { return visitChildren(ctx) }
 	/**
 	 * {@inheritDoc}
@@ -1493,6 +1598,13 @@ open class SwiftBaseVisitor<T>: AbstractParseTreeVisitor<T> {
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
+	open func visitImplicit_member_expression(_ ctx: SwiftParser.Implicit_member_expressionContext) -> T? { return visitChildren(ctx) }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
 	open func visitParenthesized_expression(_ ctx: SwiftParser.Parenthesized_expressionContext) -> T? { return visitChildren(ctx) }
 	/**
 	 * {@inheritDoc}
@@ -1500,14 +1612,14 @@ open class SwiftBaseVisitor<T>: AbstractParseTreeVisitor<T> {
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	open func visitExpression_element_list(_ ctx: SwiftParser.Expression_element_listContext) -> T? { return visitChildren(ctx) }
+	open func visitTuple_expression(_ ctx: SwiftParser.Tuple_expressionContext) -> T? { return visitChildren(ctx) }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	open func visitExpression_element(_ ctx: SwiftParser.Expression_elementContext) -> T? { return visitChildren(ctx) }
+	open func visitTuple_element(_ ctx: SwiftParser.Tuple_elementContext) -> T? { return visitChildren(ctx) }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -1522,6 +1634,20 @@ open class SwiftBaseVisitor<T>: AbstractParseTreeVisitor<T> {
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
 	open func visitSelector_expression(_ ctx: SwiftParser.Selector_expressionContext) -> T? { return visitChildren(ctx) }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	open func visitKey_path_expression(_ ctx: SwiftParser.Key_path_expressionContext) -> T? { return visitChildren(ctx) }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	open func visitFunction_call_expression_with_closure(_ ctx: SwiftParser.Function_call_expression_with_closureContext) -> T? { return visitChildren(ctx) }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -1549,13 +1675,6 @@ open class SwiftBaseVisitor<T>: AbstractParseTreeVisitor<T> {
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	open func visitDynamic_type_expression(_ ctx: SwiftParser.Dynamic_type_expressionContext) -> T? { return visitChildren(ctx) }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
 	open func visitPostfix_self_expression(_ ctx: SwiftParser.Postfix_self_expressionContext) -> T? { return visitChildren(ctx) }
 	/**
 	 * {@inheritDoc}
@@ -1563,14 +1682,14 @@ open class SwiftBaseVisitor<T>: AbstractParseTreeVisitor<T> {
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	open func visitFunction_call_with_closure_expression(_ ctx: SwiftParser.Function_call_with_closure_expressionContext) -> T? { return visitChildren(ctx) }
+	open func visitInitializer_expression_with_args(_ ctx: SwiftParser.Initializer_expression_with_argsContext) -> T? { return visitChildren(ctx) }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	open func visitInitializer_expression_with_args(_ ctx: SwiftParser.Initializer_expression_with_argsContext) -> T? { return visitChildren(ctx) }
+	open func visitDynamic_type(_ ctx: SwiftParser.Dynamic_typeContext) -> T? { return visitChildren(ctx) }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -1619,6 +1738,34 @@ open class SwiftBaseVisitor<T>: AbstractParseTreeVisitor<T> {
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
+	open func visitFunction_call_argument_clause(_ ctx: SwiftParser.Function_call_argument_clauseContext) -> T? { return visitChildren(ctx) }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	open func visitFunction_call_argument_list(_ ctx: SwiftParser.Function_call_argument_listContext) -> T? { return visitChildren(ctx) }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	open func visitFunction_call_argument(_ ctx: SwiftParser.Function_call_argumentContext) -> T? { return visitChildren(ctx) }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	open func visitTrailing_closure(_ ctx: SwiftParser.Trailing_closureContext) -> T? { return visitChildren(ctx) }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
 	open func visitArgument_names(_ ctx: SwiftParser.Argument_namesContext) -> T? { return visitChildren(ctx) }
 	/**
 	 * {@inheritDoc}
@@ -1633,14 +1780,91 @@ open class SwiftBaseVisitor<T>: AbstractParseTreeVisitor<T> {
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	open func visitTrailing_closure(_ ctx: SwiftParser.Trailing_closureContext) -> T? { return visitChildren(ctx) }
+	open func visitDynamic_type_expression(_ ctx: SwiftParser.Dynamic_type_expressionContext) -> T? { return visitChildren(ctx) }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	open func visitType(_ ctx: SwiftParser.TypeContext) -> T? { return visitChildren(ctx) }
+	open func visitThe_metatype_protocol_type(_ ctx: SwiftParser.The_metatype_protocol_typeContext) -> T? { return visitChildren(ctx) }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	open func visitThe_function_type(_ ctx: SwiftParser.The_function_typeContext) -> T? { return visitChildren(ctx) }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	open func visitThe_implicitly_unwrapped_optional_type(_ ctx: SwiftParser.The_implicitly_unwrapped_optional_typeContext) -> T? { return visitChildren(ctx) }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	open func visitThe_dictionary_type(_ ctx: SwiftParser.The_dictionary_typeContext) -> T? { return visitChildren(ctx) }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	open func visitThe_optional_type(_ ctx: SwiftParser.The_optional_typeContext) -> T? { return visitChildren(ctx) }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	open func visitThe_tuple_type(_ ctx: SwiftParser.The_tuple_typeContext) -> T? { return visitChildren(ctx) }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	open func visitThe_self_type(_ ctx: SwiftParser.The_self_typeContext) -> T? { return visitChildren(ctx) }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	open func visitThe_array_type(_ ctx: SwiftParser.The_array_typeContext) -> T? { return visitChildren(ctx) }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	open func visitThe_metatype_type_type(_ ctx: SwiftParser.The_metatype_type_typeContext) -> T? { return visitChildren(ctx) }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	open func visitThe_protocol_composition_type(_ ctx: SwiftParser.The_protocol_composition_typeContext) -> T? { return visitChildren(ctx) }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	open func visitThe_any_type(_ ctx: SwiftParser.The_any_typeContext) -> T? { return visitChildren(ctx) }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	open func visitThe_type_identifier(_ ctx: SwiftParser.The_type_identifierContext) -> T? { return visitChildren(ctx) }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -1675,13 +1899,6 @@ open class SwiftBaseVisitor<T>: AbstractParseTreeVisitor<T> {
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	open func visitTuple_type_body(_ ctx: SwiftParser.Tuple_type_bodyContext) -> T? { return visitChildren(ctx) }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
 	open func visitTuple_type_element_list(_ ctx: SwiftParser.Tuple_type_element_listContext) -> T? { return visitChildren(ctx) }
 	/**
 	 * {@inheritDoc}
@@ -1703,7 +1920,49 @@ open class SwiftBaseVisitor<T>: AbstractParseTreeVisitor<T> {
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	open func visitTuple_label_name(_ ctx: SwiftParser.Tuple_label_nameContext) -> T? { return visitChildren(ctx) }
+	open func visitFunction_type(_ ctx: SwiftParser.Function_typeContext) -> T? { return visitChildren(ctx) }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	open func visitFunction_type_argument_clause(_ ctx: SwiftParser.Function_type_argument_clauseContext) -> T? { return visitChildren(ctx) }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	open func visitFunction_type_argument_list(_ ctx: SwiftParser.Function_type_argument_listContext) -> T? { return visitChildren(ctx) }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	open func visitFunction_type_argument(_ ctx: SwiftParser.Function_type_argumentContext) -> T? { return visitChildren(ctx) }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	open func visitArgument_label(_ ctx: SwiftParser.Argument_labelContext) -> T? { return visitChildren(ctx) }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	open func visitArray_type(_ ctx: SwiftParser.Array_typeContext) -> T? { return visitChildren(ctx) }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	open func visitDictionary_type(_ ctx: SwiftParser.Dictionary_typeContext) -> T? { return visitChildren(ctx) }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -1711,13 +1970,6 @@ open class SwiftBaseVisitor<T>: AbstractParseTreeVisitor<T> {
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
 	open func visitProtocol_composition_type(_ ctx: SwiftParser.Protocol_composition_typeContext) -> T? { return visitChildren(ctx) }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	open func visitProtocol_identifier_list(_ ctx: SwiftParser.Protocol_identifier_listContext) -> T? { return visitChildren(ctx) }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -1752,49 +2004,28 @@ open class SwiftBaseVisitor<T>: AbstractParseTreeVisitor<T> {
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	open func visitIdentifier(_ ctx: SwiftParser.IdentifierContext) -> T? { return visitChildren(ctx) }
+	open func visitDeclaration_identifier(_ ctx: SwiftParser.Declaration_identifierContext) -> T? { return visitChildren(ctx) }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	open func visitIdentifier_declaration_context(_ ctx: SwiftParser.Identifier_declaration_contextContext) -> T? { return visitChildren(ctx) }
+	open func visitLabel_identifier(_ ctx: SwiftParser.Label_identifierContext) -> T? { return visitChildren(ctx) }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	open func visitIdentifier_argument_context(_ ctx: SwiftParser.Identifier_argument_contextContext) -> T? { return visitChildren(ctx) }
+	open func visitKeyword_as_identifier_in_declarations(_ ctx: SwiftParser.Keyword_as_identifier_in_declarationsContext) -> T? { return visitChildren(ctx) }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	open func visitIdentifier_list(_ ctx: SwiftParser.Identifier_listContext) -> T? { return visitChildren(ctx) }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	open func visitContext_sensitive_keyword(_ ctx: SwiftParser.Context_sensitive_keywordContext) -> T? { return visitChildren(ctx) }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	open func visitDeclaration_allowed_keyword(_ ctx: SwiftParser.Declaration_allowed_keywordContext) -> T? { return visitChildren(ctx) }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	open func visitArgument_allowed_keyword(_ ctx: SwiftParser.Argument_allowed_keywordContext) -> T? { return visitChildren(ctx) }
+	open func visitKeyword_as_identifier_in_labels(_ ctx: SwiftParser.Keyword_as_identifier_in_labelsContext) -> T? { return visitChildren(ctx) }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -1815,14 +2046,21 @@ open class SwiftBaseVisitor<T>: AbstractParseTreeVisitor<T> {
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	open func visitBuild_AND(_ ctx: SwiftParser.Build_ANDContext) -> T? { return visitChildren(ctx) }
+	open func visitCompilation_condition_AND(_ ctx: SwiftParser.Compilation_condition_ANDContext) -> T? { return visitChildren(ctx) }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	open func visitBuild_OR(_ ctx: SwiftParser.Build_ORContext) -> T? { return visitChildren(ctx) }
+	open func visitCompilation_condition_OR(_ ctx: SwiftParser.Compilation_condition_ORContext) -> T? { return visitChildren(ctx) }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	open func visitCompilation_condition_GE(_ ctx: SwiftParser.Compilation_condition_GEContext) -> T? { return visitChildren(ctx) }
 	/**
 	 * {@inheritDoc}
 	 *

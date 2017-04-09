@@ -1,4 +1,4 @@
-// Generated from Swift.g4 by ANTLR 4.6
+// Generated from Swift.g4 by ANTLR 4.7
 
 import Antlr4
 
@@ -48,6 +48,19 @@ open class SwiftBaseListener: SwiftListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	open func exitStatements(_ ctx: SwiftParser.StatementsContext) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func enterStatements_impl(_ ctx: SwiftParser.Statements_implContext) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func exitStatements_impl(_ ctx: SwiftParser.Statements_implContext) { }
 
 	/**
 	 * {@inheritDoc}
@@ -119,19 +132,6 @@ open class SwiftBaseListener: SwiftListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	open func enterCondition_clause(_ ctx: SwiftParser.Condition_clauseContext) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	open func exitCondition_clause(_ ctx: SwiftParser.Condition_clauseContext) { }
-
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	open func enterCondition_list(_ ctx: SwiftParser.Condition_listContext) { }
 	/**
 	 * {@inheritDoc}
@@ -178,45 +178,6 @@ open class SwiftBaseListener: SwiftListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	open func exitOptional_binding_condition(_ ctx: SwiftParser.Optional_binding_conditionContext) { }
-
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	open func enterOptional_binding_head(_ ctx: SwiftParser.Optional_binding_headContext) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	open func exitOptional_binding_head(_ ctx: SwiftParser.Optional_binding_headContext) { }
-
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	open func enterOptional_binding_continuation_list(_ ctx: SwiftParser.Optional_binding_continuation_listContext) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	open func exitOptional_binding_continuation_list(_ ctx: SwiftParser.Optional_binding_continuation_listContext) { }
-
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	open func enterOptional_binding_continuation(_ ctx: SwiftParser.Optional_binding_continuationContext) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	open func exitOptional_binding_continuation(_ ctx: SwiftParser.Optional_binding_continuationContext) { }
 
 	/**
 	 * {@inheritDoc}
@@ -496,45 +457,6 @@ open class SwiftBaseListener: SwiftListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	open func enterAvailability_condition(_ ctx: SwiftParser.Availability_conditionContext) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	open func exitAvailability_condition(_ ctx: SwiftParser.Availability_conditionContext) { }
-
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	open func enterAvailability_arguments(_ ctx: SwiftParser.Availability_argumentsContext) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	open func exitAvailability_arguments(_ ctx: SwiftParser.Availability_argumentsContext) { }
-
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	open func enterAvailability_argument(_ ctx: SwiftParser.Availability_argumentContext) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	open func exitAvailability_argument(_ ctx: SwiftParser.Availability_argumentContext) { }
-
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	open func enterThrow_statement(_ ctx: SwiftParser.Throw_statementContext) { }
 	/**
 	 * {@inheritDoc}
@@ -613,78 +535,156 @@ open class SwiftBaseListener: SwiftListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	open func enterBuild_configuration_statement(_ ctx: SwiftParser.Build_configuration_statementContext) { }
+	open func enterConditional_compilation_block(_ ctx: SwiftParser.Conditional_compilation_blockContext) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	open func exitBuild_configuration_statement(_ ctx: SwiftParser.Build_configuration_statementContext) { }
+	open func exitConditional_compilation_block(_ ctx: SwiftParser.Conditional_compilation_blockContext) { }
 
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	open func enterBuild_configuration_elseif_clauses(_ ctx: SwiftParser.Build_configuration_elseif_clausesContext) { }
+	open func enterIf_directive_clause(_ ctx: SwiftParser.If_directive_clauseContext) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	open func exitBuild_configuration_elseif_clauses(_ ctx: SwiftParser.Build_configuration_elseif_clausesContext) { }
+	open func exitIf_directive_clause(_ ctx: SwiftParser.If_directive_clauseContext) { }
 
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	open func enterBuild_configuration_elseif_clause(_ ctx: SwiftParser.Build_configuration_elseif_clauseContext) { }
+	open func enterElseif_directive_clauses(_ ctx: SwiftParser.Elseif_directive_clausesContext) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	open func exitBuild_configuration_elseif_clause(_ ctx: SwiftParser.Build_configuration_elseif_clauseContext) { }
+	open func exitElseif_directive_clauses(_ ctx: SwiftParser.Elseif_directive_clausesContext) { }
 
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	open func enterBuild_configuration_else_clause(_ ctx: SwiftParser.Build_configuration_else_clauseContext) { }
+	open func enterElseif_directive_clause(_ ctx: SwiftParser.Elseif_directive_clauseContext) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	open func exitBuild_configuration_else_clause(_ ctx: SwiftParser.Build_configuration_else_clauseContext) { }
+	open func exitElseif_directive_clause(_ ctx: SwiftParser.Elseif_directive_clauseContext) { }
 
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	open func enterBuild_configuration(_ ctx: SwiftParser.Build_configurationContext) { }
+	open func enterElse_directive_clause(_ ctx: SwiftParser.Else_directive_clauseContext) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	open func exitBuild_configuration(_ ctx: SwiftParser.Build_configurationContext) { }
+	open func exitElse_directive_clause(_ ctx: SwiftParser.Else_directive_clauseContext) { }
 
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	open func enterPlatform_testing_function(_ ctx: SwiftParser.Platform_testing_functionContext) { }
+	open func enterIf_directive(_ ctx: SwiftParser.If_directiveContext) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	open func exitPlatform_testing_function(_ ctx: SwiftParser.Platform_testing_functionContext) { }
+	open func exitIf_directive(_ ctx: SwiftParser.If_directiveContext) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func enterElseif_directive(_ ctx: SwiftParser.Elseif_directiveContext) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func exitElseif_directive(_ ctx: SwiftParser.Elseif_directiveContext) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func enterElse_directive(_ ctx: SwiftParser.Else_directiveContext) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func exitElse_directive(_ ctx: SwiftParser.Else_directiveContext) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func enterEndif_directive(_ ctx: SwiftParser.Endif_directiveContext) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func exitEndif_directive(_ ctx: SwiftParser.Endif_directiveContext) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func enterCompilation_condition(_ ctx: SwiftParser.Compilation_conditionContext) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func exitCompilation_condition(_ ctx: SwiftParser.Compilation_conditionContext) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func enterPlatform_condition(_ ctx: SwiftParser.Platform_conditionContext) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func exitPlatform_condition(_ ctx: SwiftParser.Platform_conditionContext) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func enterSwift_version(_ ctx: SwiftParser.Swift_versionContext) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func exitSwift_version(_ ctx: SwiftParser.Swift_versionContext) { }
 
 	/**
 	 * {@inheritDoc}
@@ -750,6 +750,45 @@ open class SwiftBaseListener: SwiftListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	open func exitFile_name(_ ctx: SwiftParser.File_nameContext) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func enterAvailability_condition(_ ctx: SwiftParser.Availability_conditionContext) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func exitAvailability_condition(_ ctx: SwiftParser.Availability_conditionContext) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func enterAvailability_arguments(_ ctx: SwiftParser.Availability_argumentsContext) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func exitAvailability_arguments(_ ctx: SwiftParser.Availability_argumentsContext) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func enterAvailability_argument(_ ctx: SwiftParser.Availability_argumentContext) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func exitAvailability_argument(_ ctx: SwiftParser.Availability_argumentContext) { }
 
 	/**
 	 * {@inheritDoc}
@@ -1237,19 +1276,6 @@ open class SwiftBaseListener: SwiftListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	open func enterTypealias_head(_ ctx: SwiftParser.Typealias_headContext) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	open func exitTypealias_head(_ ctx: SwiftParser.Typealias_headContext) { }
-
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	open func enterTypealias_name(_ ctx: SwiftParser.Typealias_nameContext) { }
 	/**
 	 * {@inheritDoc}
@@ -1718,6 +1744,19 @@ open class SwiftBaseListener: SwiftListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	open func enterStruct_member(_ ctx: SwiftParser.Struct_memberContext) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func exitStruct_member(_ ctx: SwiftParser.Struct_memberContext) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	open func enterClass_declaration(_ ctx: SwiftParser.Class_declarationContext) { }
 	/**
 	 * {@inheritDoc}
@@ -1751,6 +1790,19 @@ open class SwiftBaseListener: SwiftListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	open func exitClass_body(_ ctx: SwiftParser.Class_bodyContext) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func enterClass_member(_ ctx: SwiftParser.Class_memberContext) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func exitClass_member(_ ctx: SwiftParser.Class_memberContext) { }
 
 	/**
 	 * {@inheritDoc}
@@ -1796,6 +1848,19 @@ open class SwiftBaseListener: SwiftListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	open func enterProtocol_member(_ ctx: SwiftParser.Protocol_memberContext) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func exitProtocol_member(_ ctx: SwiftParser.Protocol_memberContext) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	open func enterProtocol_member_declaration(_ ctx: SwiftParser.Protocol_member_declarationContext) { }
 	/**
 	 * {@inheritDoc}
@@ -1803,19 +1868,6 @@ open class SwiftBaseListener: SwiftListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	open func exitProtocol_member_declaration(_ ctx: SwiftParser.Protocol_member_declarationContext) { }
-
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	open func enterProtocol_member_declarations(_ ctx: SwiftParser.Protocol_member_declarationsContext) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	open func exitProtocol_member_declarations(_ ctx: SwiftParser.Protocol_member_declarationsContext) { }
 
 	/**
 	 * {@inheritDoc}
@@ -1965,6 +2017,19 @@ open class SwiftBaseListener: SwiftListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	open func enterExtension_member(_ ctx: SwiftParser.Extension_memberContext) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func exitExtension_member(_ ctx: SwiftParser.Extension_memberContext) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	open func enterSubscript_declaration(_ ctx: SwiftParser.Subscript_declarationContext) { }
 	/**
 	 * {@inheritDoc}
@@ -2056,52 +2121,78 @@ open class SwiftBaseListener: SwiftListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	open func enterInfix_operator_attributes(_ ctx: SwiftParser.Infix_operator_attributesContext) { }
+	open func enterInfix_operator_group(_ ctx: SwiftParser.Infix_operator_groupContext) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	open func exitInfix_operator_attributes(_ ctx: SwiftParser.Infix_operator_attributesContext) { }
+	open func exitInfix_operator_group(_ ctx: SwiftParser.Infix_operator_groupContext) { }
 
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	open func enterPrecedence_clause(_ ctx: SwiftParser.Precedence_clauseContext) { }
+	open func enterPrecedence_group_declaration(_ ctx: SwiftParser.Precedence_group_declarationContext) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	open func exitPrecedence_clause(_ ctx: SwiftParser.Precedence_clauseContext) { }
+	open func exitPrecedence_group_declaration(_ ctx: SwiftParser.Precedence_group_declarationContext) { }
 
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	open func enterPrecedence_level(_ ctx: SwiftParser.Precedence_levelContext) { }
+	open func enterPrecedence_group_attribute(_ ctx: SwiftParser.Precedence_group_attributeContext) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	open func exitPrecedence_level(_ ctx: SwiftParser.Precedence_levelContext) { }
+	open func exitPrecedence_group_attribute(_ ctx: SwiftParser.Precedence_group_attributeContext) { }
 
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	open func enterAssociativity_clause(_ ctx: SwiftParser.Associativity_clauseContext) { }
+	open func enterPrecedence_group_relation(_ ctx: SwiftParser.Precedence_group_relationContext) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	open func exitAssociativity_clause(_ ctx: SwiftParser.Associativity_clauseContext) { }
+	open func exitPrecedence_group_relation(_ ctx: SwiftParser.Precedence_group_relationContext) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func enterPrecedence_group_assignment(_ ctx: SwiftParser.Precedence_group_assignmentContext) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func exitPrecedence_group_assignment(_ ctx: SwiftParser.Precedence_group_assignmentContext) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func enterPrecedence_group_associativity(_ ctx: SwiftParser.Precedence_group_associativityContext) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func exitPrecedence_group_associativity(_ ctx: SwiftParser.Precedence_group_associativityContext) { }
 
 	/**
 	 * {@inheritDoc}
@@ -2115,6 +2206,32 @@ open class SwiftBaseListener: SwiftListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	open func exitAssociativity_name(_ ctx: SwiftParser.Associativity_nameContext) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func enterPrecedence_group_names(_ ctx: SwiftParser.Precedence_group_namesContext) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func exitPrecedence_group_names(_ ctx: SwiftParser.Precedence_group_namesContext) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func enterPrecedence_group_name(_ ctx: SwiftParser.Precedence_group_nameContext) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func exitPrecedence_group_name(_ ctx: SwiftParser.Precedence_group_nameContext) { }
 
 	/**
 	 * {@inheritDoc}
@@ -2154,6 +2271,19 @@ open class SwiftBaseListener: SwiftListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	open func exitAccess_level_modifier(_ ctx: SwiftParser.Access_level_modifierContext) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func enterMutation_modifier(_ ctx: SwiftParser.Mutation_modifierContext) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func exitMutation_modifier(_ ctx: SwiftParser.Mutation_modifierContext) { }
 
 	/**
 	 * {@inheritDoc}
@@ -2368,13 +2498,13 @@ open class SwiftBaseListener: SwiftListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	open func enterAny_punctuation(_ ctx: SwiftParser.Any_punctuationContext) { }
+	open func enterAny_punctuation_for_balanced_token(_ ctx: SwiftParser.Any_punctuation_for_balanced_tokenContext) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	open func exitAny_punctuation(_ ctx: SwiftParser.Any_punctuationContext) { }
+	open func exitAny_punctuation_for_balanced_token(_ ctx: SwiftParser.Any_punctuation_for_balanced_tokenContext) { }
 
 	/**
 	 * {@inheritDoc}
@@ -2511,19 +2641,6 @@ open class SwiftBaseListener: SwiftListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	open func enterImplicit_member_expression(_ ctx: SwiftParser.Implicit_member_expressionContext) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	open func exitImplicit_member_expression(_ ctx: SwiftParser.Implicit_member_expressionContext) { }
-
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	open func enterLiteral_expression(_ ctx: SwiftParser.Literal_expressionContext) { }
 	/**
 	 * {@inheritDoc}
@@ -2609,6 +2726,19 @@ open class SwiftBaseListener: SwiftListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	open func exitDictionary_literal_item(_ ctx: SwiftParser.Dictionary_literal_itemContext) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func enterPlayground_literal(_ ctx: SwiftParser.Playground_literalContext) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func exitPlayground_literal(_ ctx: SwiftParser.Playground_literalContext) { }
 
 	/**
 	 * {@inheritDoc}
@@ -2706,6 +2836,71 @@ open class SwiftBaseListener: SwiftListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	open func enterClosure_parameter_clause(_ ctx: SwiftParser.Closure_parameter_clauseContext) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func exitClosure_parameter_clause(_ ctx: SwiftParser.Closure_parameter_clauseContext) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func enterClosure_parameter_clause_identifier_list(_ ctx: SwiftParser.Closure_parameter_clause_identifier_listContext) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func exitClosure_parameter_clause_identifier_list(_ ctx: SwiftParser.Closure_parameter_clause_identifier_listContext) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func enterClosure_parameter_list(_ ctx: SwiftParser.Closure_parameter_listContext) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func exitClosure_parameter_list(_ ctx: SwiftParser.Closure_parameter_listContext) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func enterClosure_parameter(_ ctx: SwiftParser.Closure_parameterContext) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func exitClosure_parameter(_ ctx: SwiftParser.Closure_parameterContext) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func enterClosure_parameter_name(_ ctx: SwiftParser.Closure_parameter_nameContext) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func exitClosure_parameter_name(_ ctx: SwiftParser.Closure_parameter_nameContext) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	open func enterCapture_list(_ ctx: SwiftParser.Capture_listContext) { }
 	/**
 	 * {@inheritDoc}
@@ -2758,6 +2953,19 @@ open class SwiftBaseListener: SwiftListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	open func enterImplicit_member_expression(_ ctx: SwiftParser.Implicit_member_expressionContext) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func exitImplicit_member_expression(_ ctx: SwiftParser.Implicit_member_expressionContext) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	open func enterParenthesized_expression(_ ctx: SwiftParser.Parenthesized_expressionContext) { }
 	/**
 	 * {@inheritDoc}
@@ -2771,26 +2979,26 @@ open class SwiftBaseListener: SwiftListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	open func enterExpression_element_list(_ ctx: SwiftParser.Expression_element_listContext) { }
+	open func enterTuple_expression(_ ctx: SwiftParser.Tuple_expressionContext) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	open func exitExpression_element_list(_ ctx: SwiftParser.Expression_element_listContext) { }
+	open func exitTuple_expression(_ ctx: SwiftParser.Tuple_expressionContext) { }
 
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	open func enterExpression_element(_ ctx: SwiftParser.Expression_elementContext) { }
+	open func enterTuple_element(_ ctx: SwiftParser.Tuple_elementContext) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	open func exitExpression_element(_ ctx: SwiftParser.Expression_elementContext) { }
+	open func exitTuple_element(_ ctx: SwiftParser.Tuple_elementContext) { }
 
 	/**
 	 * {@inheritDoc}
@@ -2817,6 +3025,32 @@ open class SwiftBaseListener: SwiftListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	open func exitSelector_expression(_ ctx: SwiftParser.Selector_expressionContext) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func enterKey_path_expression(_ ctx: SwiftParser.Key_path_expressionContext) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func exitKey_path_expression(_ ctx: SwiftParser.Key_path_expressionContext) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func enterFunction_call_expression_with_closure(_ ctx: SwiftParser.Function_call_expression_with_closureContext) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func exitFunction_call_expression_with_closure(_ ctx: SwiftParser.Function_call_expression_with_closureContext) { }
 
 	/**
 	 * {@inheritDoc}
@@ -2862,19 +3096,6 @@ open class SwiftBaseListener: SwiftListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	open func enterDynamic_type_expression(_ ctx: SwiftParser.Dynamic_type_expressionContext) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	open func exitDynamic_type_expression(_ ctx: SwiftParser.Dynamic_type_expressionContext) { }
-
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	open func enterPostfix_self_expression(_ ctx: SwiftParser.Postfix_self_expressionContext) { }
 	/**
 	 * {@inheritDoc}
@@ -2888,19 +3109,6 @@ open class SwiftBaseListener: SwiftListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	open func enterFunction_call_with_closure_expression(_ ctx: SwiftParser.Function_call_with_closure_expressionContext) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	open func exitFunction_call_with_closure_expression(_ ctx: SwiftParser.Function_call_with_closure_expressionContext) { }
-
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	open func enterInitializer_expression_with_args(_ ctx: SwiftParser.Initializer_expression_with_argsContext) { }
 	/**
 	 * {@inheritDoc}
@@ -2908,6 +3116,19 @@ open class SwiftBaseListener: SwiftListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	open func exitInitializer_expression_with_args(_ ctx: SwiftParser.Initializer_expression_with_argsContext) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func enterDynamic_type(_ ctx: SwiftParser.Dynamic_typeContext) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func exitDynamic_type(_ ctx: SwiftParser.Dynamic_typeContext) { }
 
 	/**
 	 * {@inheritDoc}
@@ -2992,6 +3213,58 @@ open class SwiftBaseListener: SwiftListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	open func enterFunction_call_argument_clause(_ ctx: SwiftParser.Function_call_argument_clauseContext) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func exitFunction_call_argument_clause(_ ctx: SwiftParser.Function_call_argument_clauseContext) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func enterFunction_call_argument_list(_ ctx: SwiftParser.Function_call_argument_listContext) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func exitFunction_call_argument_list(_ ctx: SwiftParser.Function_call_argument_listContext) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func enterFunction_call_argument(_ ctx: SwiftParser.Function_call_argumentContext) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func exitFunction_call_argument(_ ctx: SwiftParser.Function_call_argumentContext) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func enterTrailing_closure(_ ctx: SwiftParser.Trailing_closureContext) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func exitTrailing_closure(_ ctx: SwiftParser.Trailing_closureContext) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	open func enterArgument_names(_ ctx: SwiftParser.Argument_namesContext) { }
 	/**
 	 * {@inheritDoc}
@@ -3018,26 +3291,169 @@ open class SwiftBaseListener: SwiftListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	open func enterTrailing_closure(_ ctx: SwiftParser.Trailing_closureContext) { }
+	open func enterDynamic_type_expression(_ ctx: SwiftParser.Dynamic_type_expressionContext) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	open func exitTrailing_closure(_ ctx: SwiftParser.Trailing_closureContext) { }
+	open func exitDynamic_type_expression(_ ctx: SwiftParser.Dynamic_type_expressionContext) { }
 
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	open func enterType(_ ctx: SwiftParser.TypeContext) { }
+	open func enterThe_metatype_protocol_type(_ ctx: SwiftParser.The_metatype_protocol_typeContext) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	open func exitType(_ ctx: SwiftParser.TypeContext) { }
+	open func exitThe_metatype_protocol_type(_ ctx: SwiftParser.The_metatype_protocol_typeContext) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func enterThe_function_type(_ ctx: SwiftParser.The_function_typeContext) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func exitThe_function_type(_ ctx: SwiftParser.The_function_typeContext) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func enterThe_implicitly_unwrapped_optional_type(_ ctx: SwiftParser.The_implicitly_unwrapped_optional_typeContext) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func exitThe_implicitly_unwrapped_optional_type(_ ctx: SwiftParser.The_implicitly_unwrapped_optional_typeContext) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func enterThe_dictionary_type(_ ctx: SwiftParser.The_dictionary_typeContext) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func exitThe_dictionary_type(_ ctx: SwiftParser.The_dictionary_typeContext) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func enterThe_optional_type(_ ctx: SwiftParser.The_optional_typeContext) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func exitThe_optional_type(_ ctx: SwiftParser.The_optional_typeContext) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func enterThe_tuple_type(_ ctx: SwiftParser.The_tuple_typeContext) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func exitThe_tuple_type(_ ctx: SwiftParser.The_tuple_typeContext) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func enterThe_self_type(_ ctx: SwiftParser.The_self_typeContext) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func exitThe_self_type(_ ctx: SwiftParser.The_self_typeContext) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func enterThe_array_type(_ ctx: SwiftParser.The_array_typeContext) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func exitThe_array_type(_ ctx: SwiftParser.The_array_typeContext) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func enterThe_metatype_type_type(_ ctx: SwiftParser.The_metatype_type_typeContext) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func exitThe_metatype_type_type(_ ctx: SwiftParser.The_metatype_type_typeContext) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func enterThe_protocol_composition_type(_ ctx: SwiftParser.The_protocol_composition_typeContext) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func exitThe_protocol_composition_type(_ ctx: SwiftParser.The_protocol_composition_typeContext) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func enterThe_any_type(_ ctx: SwiftParser.The_any_typeContext) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func exitThe_any_type(_ ctx: SwiftParser.The_any_typeContext) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func enterThe_type_identifier(_ ctx: SwiftParser.The_type_identifierContext) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func exitThe_type_identifier(_ ctx: SwiftParser.The_type_identifierContext) { }
 
 	/**
 	 * {@inheritDoc}
@@ -3096,19 +3512,6 @@ open class SwiftBaseListener: SwiftListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	open func enterTuple_type_body(_ ctx: SwiftParser.Tuple_type_bodyContext) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	open func exitTuple_type_body(_ ctx: SwiftParser.Tuple_type_bodyContext) { }
-
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	open func enterTuple_type_element_list(_ ctx: SwiftParser.Tuple_type_element_listContext) { }
 	/**
 	 * {@inheritDoc}
@@ -3148,13 +3551,91 @@ open class SwiftBaseListener: SwiftListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	open func enterTuple_label_name(_ ctx: SwiftParser.Tuple_label_nameContext) { }
+	open func enterFunction_type(_ ctx: SwiftParser.Function_typeContext) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	open func exitTuple_label_name(_ ctx: SwiftParser.Tuple_label_nameContext) { }
+	open func exitFunction_type(_ ctx: SwiftParser.Function_typeContext) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func enterFunction_type_argument_clause(_ ctx: SwiftParser.Function_type_argument_clauseContext) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func exitFunction_type_argument_clause(_ ctx: SwiftParser.Function_type_argument_clauseContext) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func enterFunction_type_argument_list(_ ctx: SwiftParser.Function_type_argument_listContext) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func exitFunction_type_argument_list(_ ctx: SwiftParser.Function_type_argument_listContext) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func enterFunction_type_argument(_ ctx: SwiftParser.Function_type_argumentContext) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func exitFunction_type_argument(_ ctx: SwiftParser.Function_type_argumentContext) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func enterArgument_label(_ ctx: SwiftParser.Argument_labelContext) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func exitArgument_label(_ ctx: SwiftParser.Argument_labelContext) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func enterArray_type(_ ctx: SwiftParser.Array_typeContext) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func exitArray_type(_ ctx: SwiftParser.Array_typeContext) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func enterDictionary_type(_ ctx: SwiftParser.Dictionary_typeContext) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func exitDictionary_type(_ ctx: SwiftParser.Dictionary_typeContext) { }
 
 	/**
 	 * {@inheritDoc}
@@ -3168,19 +3649,6 @@ open class SwiftBaseListener: SwiftListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	open func exitProtocol_composition_type(_ ctx: SwiftParser.Protocol_composition_typeContext) { }
-
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	open func enterProtocol_identifier_list(_ ctx: SwiftParser.Protocol_identifier_listContext) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	open func exitProtocol_identifier_list(_ ctx: SwiftParser.Protocol_identifier_listContext) { }
 
 	/**
 	 * {@inheritDoc}
@@ -3239,91 +3707,52 @@ open class SwiftBaseListener: SwiftListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	open func enterIdentifier(_ ctx: SwiftParser.IdentifierContext) { }
+	open func enterDeclaration_identifier(_ ctx: SwiftParser.Declaration_identifierContext) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	open func exitIdentifier(_ ctx: SwiftParser.IdentifierContext) { }
+	open func exitDeclaration_identifier(_ ctx: SwiftParser.Declaration_identifierContext) { }
 
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	open func enterIdentifier_declaration_context(_ ctx: SwiftParser.Identifier_declaration_contextContext) { }
+	open func enterLabel_identifier(_ ctx: SwiftParser.Label_identifierContext) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	open func exitIdentifier_declaration_context(_ ctx: SwiftParser.Identifier_declaration_contextContext) { }
+	open func exitLabel_identifier(_ ctx: SwiftParser.Label_identifierContext) { }
 
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	open func enterIdentifier_argument_context(_ ctx: SwiftParser.Identifier_argument_contextContext) { }
+	open func enterKeyword_as_identifier_in_declarations(_ ctx: SwiftParser.Keyword_as_identifier_in_declarationsContext) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	open func exitIdentifier_argument_context(_ ctx: SwiftParser.Identifier_argument_contextContext) { }
+	open func exitKeyword_as_identifier_in_declarations(_ ctx: SwiftParser.Keyword_as_identifier_in_declarationsContext) { }
 
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	open func enterIdentifier_list(_ ctx: SwiftParser.Identifier_listContext) { }
+	open func enterKeyword_as_identifier_in_labels(_ ctx: SwiftParser.Keyword_as_identifier_in_labelsContext) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	open func exitIdentifier_list(_ ctx: SwiftParser.Identifier_listContext) { }
-
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	open func enterContext_sensitive_keyword(_ ctx: SwiftParser.Context_sensitive_keywordContext) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	open func exitContext_sensitive_keyword(_ ctx: SwiftParser.Context_sensitive_keywordContext) { }
-
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	open func enterDeclaration_allowed_keyword(_ ctx: SwiftParser.Declaration_allowed_keywordContext) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	open func exitDeclaration_allowed_keyword(_ ctx: SwiftParser.Declaration_allowed_keywordContext) { }
-
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	open func enterArgument_allowed_keyword(_ ctx: SwiftParser.Argument_allowed_keywordContext) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	open func exitArgument_allowed_keyword(_ ctx: SwiftParser.Argument_allowed_keywordContext) { }
+	open func exitKeyword_as_identifier_in_labels(_ ctx: SwiftParser.Keyword_as_identifier_in_labelsContext) { }
 
 	/**
 	 * {@inheritDoc}
@@ -3356,26 +3785,39 @@ open class SwiftBaseListener: SwiftListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	open func enterBuild_AND(_ ctx: SwiftParser.Build_ANDContext) { }
+	open func enterCompilation_condition_AND(_ ctx: SwiftParser.Compilation_condition_ANDContext) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	open func exitBuild_AND(_ ctx: SwiftParser.Build_ANDContext) { }
+	open func exitCompilation_condition_AND(_ ctx: SwiftParser.Compilation_condition_ANDContext) { }
 
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	open func enterBuild_OR(_ ctx: SwiftParser.Build_ORContext) { }
+	open func enterCompilation_condition_OR(_ ctx: SwiftParser.Compilation_condition_ORContext) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	open func exitBuild_OR(_ ctx: SwiftParser.Build_ORContext) { }
+	open func exitCompilation_condition_OR(_ ctx: SwiftParser.Compilation_condition_ORContext) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func enterCompilation_condition_GE(_ ctx: SwiftParser.Compilation_condition_GEContext) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func exitCompilation_condition_GE(_ ctx: SwiftParser.Compilation_condition_GEContext) { }
 
 	/**
 	 * {@inheritDoc}

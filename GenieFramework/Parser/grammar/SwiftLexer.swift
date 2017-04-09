@@ -1,4 +1,4 @@
-// Generated from Swift.g4 by ANTLR 4.6
+// Generated from Swift.g4 by ANTLR 4.7
 import Antlr4
 
 open class SwiftLexer: Lexer {
@@ -29,17 +29,26 @@ open class SwiftLexer: Lexer {
                    T__85=86, T__86=87, T__87=88, T__88=89, T__89=90, T__90=91, 
                    T__91=92, T__92=93, T__93=94, T__94=95, T__95=96, T__96=97, 
                    T__97=98, T__98=99, T__99=100, T__100=101, T__101=102, 
-                   T__102=103, T__103=104, T__104=105, T__105=106, Platform=107, 
-                   Identifier=108, DOT=109, LCURLY=110, LPAREN=111, LBRACK=112, 
-                   RCURLY=113, RPAREN=114, RBRACK=115, COMMA=116, COLON=117, 
-                   SEMI=118, LT=119, GT=120, UNDERSCORE=121, BANG=122, QUESTION=123, 
-                   AT=124, AND=125, SUB=126, EQUAL=127, OR=128, DIV=129, 
-                   ADD=130, MUL=131, MOD=132, CARET=133, TILDE=134, Operator_head_other=135, 
-                   Operator_following_character=136, Implicit_parameter_name=137, 
-                   Binary_literal=138, Octal_literal=139, Decimal_literal=140, 
-                   Pure_decimal_digits=141, Hexadecimal_literal=142, Floating_point_literal=143, 
-                   Static_string_literal=144, Interpolated_string_literal=145, 
-                   WS=146, Block_comment=147, Line_comment=148
+                   T__102=103, T__103=104, T__104=105, T__105=106, T__106=107, 
+                   T__107=108, T__108=109, T__109=110, T__110=111, T__111=112, 
+                   T__112=113, T__113=114, T__114=115, T__115=116, T__116=117, 
+                   T__117=118, T__118=119, T__119=120, T__120=121, T__121=122, 
+                   T__122=123, T__123=124, T__124=125, T__125=126, T__126=127, 
+                   T__127=128, T__128=129, T__129=130, Platform_name_platform_version=131, 
+                   Identifier=132, DOT=133, LCURLY=134, LPAREN=135, LBRACK=136, 
+                   RCURLY=137, RPAREN=138, RBRACK=139, COMMA=140, COLON=141, 
+                   SEMI=142, LT=143, GT=144, UNDERSCORE=145, BANG=146, QUESTION=147, 
+                   AT=148, AND=149, SUB=150, EQUAL=151, OR=152, DIV=153, 
+                   ADD=154, MUL=155, MOD=156, CARET=157, TILDE=158, Operator_head_other=159, 
+                   Operator_following_character=160, Implicit_parameter_name=161, 
+                   Binary_literal=162, Octal_literal=163, Decimal_literal=164, 
+                   Pure_decimal_digits=165, Hexadecimal_literal=166, Floating_point_literal=167, 
+                   Static_string_literal=168, Interpolated_string_literal=169, 
+                   WS=170, Block_comment=171, Line_comment=172
+	public static let channelNames: [String] = [
+		"DEFAULT_TOKEN_CHANNEL", "HIDDEN"
+	]
+
 	public static let modeNames: [String] = [
 		"DEFAULT_MODE"
 	]
@@ -58,42 +67,50 @@ open class SwiftLexer: Lexer {
 		"T__81", "T__82", "T__83", "T__84", "T__85", "T__86", "T__87", "T__88", 
 		"T__89", "T__90", "T__91", "T__92", "T__93", "T__94", "T__95", "T__96", 
 		"T__97", "T__98", "T__99", "T__100", "T__101", "T__102", "T__103", "T__104", 
-		"T__105", "Platform", "Platform_name", "Platform_version", "Identifier", 
-		"Identifier_head", "Identifier_character", "Identifier_characters", "DOT", 
-		"LCURLY", "LPAREN", "LBRACK", "RCURLY", "RPAREN", "RBRACK", "COMMA", "COLON", 
-		"SEMI", "LT", "GT", "UNDERSCORE", "BANG", "QUESTION", "AT", "AND", "SUB", 
-		"EQUAL", "OR", "DIV", "ADD", "MUL", "MOD", "CARET", "TILDE", "Operator_head_other", 
-		"Operator_following_character", "Implicit_parameter_name", "Binary_literal", 
-		"Binary_digit", "Binary_literal_character", "Binary_literal_characters", 
-		"Octal_literal", "Octal_digit", "Octal_literal_character", "Octal_literal_characters", 
-		"Decimal_literal", "Pure_decimal_digits", "Decimal_digit", "Decimal_literal_character", 
-		"Decimal_literal_characters", "Hexadecimal_literal", "Hexadecimal_digit", 
-		"Hexadecimal_literal_character", "Hexadecimal_literal_characters", "Floating_point_literal", 
-		"Decimal_fraction", "Decimal_exponent", "Hexadecimal_fraction", "Hexadecimal_exponent", 
-		"Floating_point_e", "Floating_point_p", "Sign", "Static_string_literal", 
-		"Quoted_text", "Quoted_text_item", "Escaped_character", "Interpolated_string_literal", 
-		"Interpolated_text_item", "WS", "Block_comment", "Line_comment"
+		"T__105", "T__106", "T__107", "T__108", "T__109", "T__110", "T__111", 
+		"T__112", "T__113", "T__114", "T__115", "T__116", "T__117", "T__118", 
+		"T__119", "T__120", "T__121", "T__122", "T__123", "T__124", "T__125", 
+		"T__126", "T__127", "T__128", "T__129", "Platform_name_platform_version", 
+		"Platform_name", "Platform_version", "Identifier", "Identifier_head", 
+		"Identifier_character", "Identifier_characters", "DOT", "LCURLY", "LPAREN", 
+		"LBRACK", "RCURLY", "RPAREN", "RBRACK", "COMMA", "COLON", "SEMI", "LT", 
+		"GT", "UNDERSCORE", "BANG", "QUESTION", "AT", "AND", "SUB", "EQUAL", "OR", 
+		"DIV", "ADD", "MUL", "MOD", "CARET", "TILDE", "Operator_head_other", "Operator_following_character", 
+		"Implicit_parameter_name", "Binary_literal", "Binary_digit", "Binary_literal_character", 
+		"Binary_literal_characters", "Octal_literal", "Octal_digit", "Octal_literal_character", 
+		"Octal_literal_characters", "Decimal_literal", "Pure_decimal_digits", 
+		"Decimal_digit", "Decimal_literal_character", "Decimal_literal_characters", 
+		"Hexadecimal_literal", "Hexadecimal_digit", "Hexadecimal_literal_character", 
+		"Hexadecimal_literal_characters", "Floating_point_literal", "Decimal_fraction", 
+		"Decimal_exponent", "Hexadecimal_fraction", "Hexadecimal_exponent", "Floating_point_e", 
+		"Floating_point_p", "Sign", "Static_string_literal", "Quoted_text", "Quoted_text_item", 
+		"Escaped_character", "Interpolated_string_literal", "Interpolated_text_item", 
+		"WS", "Block_comment", "Line_comment"
 	]
 
 	private static let _LITERAL_NAMES: [String?] = [
 		nil, "'for'", "'case'", "'in'", "'while'", "'let'", "'var'", "'repeat'", 
 		"'if'", "'else'", "'guard'", "'switch'", "'default'", "'where'", "'break'", 
-		"'continue'", "'fallthrough'", "'return'", "'#available'", "'throw'", 
-		"'defer'", "'do'", "'catch'", "'#if'", "'#endif'", "'#elseif'", "'#else'", 
-		"'os'", "'arch'", "'macOS'", "'iOS'", "'watchOS'", "'tvOS'", "'i386'", 
-		"'x86_64'", "'arm'", "'arm64'", "'#line'", "'import'", "'typealias'", 
-		"'struct'", "'class'", "'enum'", "'protocol'", "'func'", "'get'", "'set'", 
-		"'willSet'", "'didSet'", "'throws'", "'rethrows'", "'->'", "'indirect'", 
-		"'associatedtype'", "'init'", "'deinit'", "'extension'", "'subscript'", 
-		"'prefix'", "'operator'", "'postfix'", "'infix'", "'precedence'", "'associativity'", 
-		"'left'", "'right'", "'none'", "'convenience'", "'dynamic'", "'final'", 
-		"'lazy'", "'mutating'", "'nonmutating'", "'optional'", "'override'", "'required'", 
-		"'static'", "'unowned'", "'safe'", "'unsafe'", "'weak'", "'internal'", 
-		"'fileprivate'", "'private'", "'public'", "'open'", "'is'", "'as'", "'#'", 
-		"'`'", "'try'", "'__FILE__'", "'__LINE__'", "'__COLUMN__'", "'__FUNCTION__'", 
-		"'self'", "'super'", "'unowned(safe)'", "'unowned(unsafe)'", "'#selector'", 
-		"'dynamicType'", "'Type'", "'Protocol'", "'inout'", "'true'", "'false'", 
-		"'nil'", nil, nil, "'.'", "'{'", "'('", "'['", "'}'", "')'", "']'", "','", 
+		"'continue'", "'fallthrough'", "'return'", "'throw'", "'defer'", "'do'", 
+		"'catch'", "'#if'", "'#elseif'", "'#else'", "'#endif'", "'os'", "'arch'", 
+		"'swift'", "'#sourceLocation'", "'file'", "'line'", "'#available'", "'import'", 
+		"'typealias'", "'struct'", "'class'", "'enum'", "'protocol'", "'func'", 
+		"'get'", "'set'", "'willSet'", "'didSet'", "'throws'", "'rethrows'", "'->'", 
+		"'indirect'", "'final'", "'associatedtype'", "'init'", "'deinit'", "'extension'", 
+		"'subscript'", "'prefix'", "'operator'", "'postfix'", "'infix'", "'precedencegroup'", 
+		"'higherThan'", "'lowerThan'", "'assignment'", "'associativity'", "'left'", 
+		"'right'", "'none'", "'convenience'", "'dynamic'", "'lazy'", "'optional'", 
+		"'override'", "'required'", "'static'", "'unowned'", "'safe'", "'unsafe'", 
+		"'weak'", "'private'", "'fileprivate'", "'internal'", "'public'", "'open'", 
+		"'mutating'", "'nonmutating'", "'is'", "'as'", "'#'", "'`'", "'try'", 
+		"'#file'", "'#line'", "'#column'", "'#function'", "'#dsohandle'", "'#colorLiteral'", 
+		"'red'", "'green'", "'blue'", "'alpha'", "'#fileLiteral'", "'resourceName'", 
+		"'#imageLiteral'", "'self'", "'Self'", "'super'", "'unowned(safe)'", "'unowned(unsafe)'", 
+		"'#selector'", "'getter:'", "'setter:'", "'#keyPath'", "'type'", "'of'", 
+		"'Type'", "'Protocol'", "'Any'", "'inout'", "'arm'", "'arm64'", "'i386'", 
+		"'iOS'", "'iOSApplicationExtension'", "'macOS'", "'macOSApplicationExtension'", 
+		"'precedence'", "'tvOS'", "'watchOS'", "'x86_64'", "'false'", "'nil'", 
+		"'true'", nil, nil, "'.'", "'{'", "'('", "'['", "'}'", "')'", "']'", "','", 
 		"':'", "';'", "'<'", "'>'", "'_'", "'!'", "'?'", "'@'", "'&'", "'-'", 
 		"'='", "'|'", "'/'", "'+'", "'*'", "'%'", "'^'", "'~'"
 	]
@@ -105,7 +122,9 @@ open class SwiftLexer: Lexer {
 		nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, 
 		nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, 
 		nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, 
-		nil, nil, nil, nil, nil, nil, nil, nil, nil, "Platform", "Identifier", 
+		nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, 
+		nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, 
+		nil, nil, nil, nil, nil, "Platform_name_platform_version", "Identifier", 
 		"DOT", "LCURLY", "LPAREN", "LBRACK", "RCURLY", "RPAREN", "RBRACK", "COMMA", 
 		"COLON", "SEMI", "LT", "GT", "UNDERSCORE", "BANG", "QUESTION", "AT", "AND", 
 		"SUB", "EQUAL", "OR", "DIV", "ADD", "MUL", "MOD", "CARET", "TILDE", "Operator_head_other", 
@@ -146,7 +165,7 @@ open class SwiftLexer: Lexer {
     }
 
 	public override init(_ input: CharStream) {
-	    RuntimeMetaData.checkVersion("4.6", RuntimeMetaData.VERSION)
+	    RuntimeMetaData.checkVersion("4.7", RuntimeMetaData.VERSION)
 		super.init(input)
 		_interp = LexerATNSimulator(self, SwiftLexer._ATN, SwiftLexer._decisionToDFA, SwiftLexer._sharedContextCache)
 	}
@@ -159,6 +178,9 @@ open class SwiftLexer: Lexer {
 
 	override
 	open func getSerializedATN() -> String { return SwiftLexer._serializedATN }
+
+	override
+	open func getChannelNames() -> [String] { return SwiftLexer.channelNames }
 
 	override
 	open func getModeNames() -> [String] { return SwiftLexer.modeNames }

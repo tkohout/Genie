@@ -36,8 +36,17 @@ class SwiftProtocolDeclarationVisitor: SwiftVisitor<Node> {
         
         let body = ctx.protocol_body()!
         
+        var declarations = body.protocol_member().mapJoinedByIndentation(parentCtx: body) { member in
+            if let declaration = member.protocol_member_declaration()?.accept(self) {
+                return declaration
+            } else {
+                return CodeNode(rawCode: member.getSourceText())
+            }
+        }
         
-        let declarations = body.protocol_member_declarations()?.protocol_member_declaration().mapJoinedByIndentation(parentCtx: body) { $0.accept(self)! } ?? body.getInnerSourceTextFromBracedBlock().flatMap { [CodeNode(rawCode: $0)] } ?? []
+        if declarations.count == 0 {
+            declarations = body.getInnerSourceTextFromBracedBlock().flatMap { [CodeNode(rawCode: $0)] } ?? []
+        }
         
         let code = ctx.getSourceText(Interval(ctx.start!.getStartIndex(), body.start!.getStartIndex()-1))!
         

@@ -247,10 +247,11 @@ class ParserTest: XCTestCase {
         XCTAssertNotNil(variable)
     }
     
+    
     func testThatProtocolIsParsed() {
         let code = String(
             "protocol A: B, C {",
-            "   associatedType D",
+            "   associatedtype D",
             "   var z: String { get }",
             "   var y: Int { get set }",
             "   func a() -> String",
@@ -532,12 +533,21 @@ class ParserTest: XCTestCase {
         XCTAssertNotNil(source)
     }
     
-    func testThatLabelInFunctionTypeIsParsed() {
-        let code = "public typealias RequestRetryCompletion = (_ shouldRetry: Bool, _ timeDelay: TimeInterval) -> Void"
-        
+    class X {
+        let x: ((_ shouldRetry: Bool, _ timeDelay: TimeInterval) -> Void)? = nil
+    }
+    
+    func testThatFunctionWithLabelsIsParsed() {
+        let code = String (
+                "class X {",
+                "let x: ((_ shouldRetry: Bool, _ timeDelay: TimeInterval) -> Void)? = nil",
+                "}"
+        )
         let source = try! parse(code: code)
+        let result = source.nodes.first as? ClassDeclaration
         
-        XCTAssertNotNil(source)
+        XCTAssertEqual(result?.variables.first?.name, "x")
+        XCTAssertEqual(result?.variables.first?.typeName, "((_ shouldRetry: Bool, _ timeDelay: TimeInterval) -> Void)?")
         
     }
     
@@ -577,7 +587,7 @@ class ParserTest: XCTestCase {
     }
     
     
-    func xtestThatAFileIsNotChanged() {
+    func testThatAFileIsNotChanged() {
         let path = Bundle(for: type(of: self)).resourcePath!
         let fileManager = FileManager.default
         
@@ -600,7 +610,7 @@ class ParserTest: XCTestCase {
     
     
     
-    func testThatSourcesAreNotChanged() {
+    func xtestThatSourcesAreNotChanged() {
         let path = Bundle(for: type(of: self)).resourcePath!
         let fileManager = FileManager.default
         

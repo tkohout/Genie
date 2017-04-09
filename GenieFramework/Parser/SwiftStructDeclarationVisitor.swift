@@ -21,7 +21,17 @@ class SwiftStructDeclarationVisitor: SwiftVisitor<Declaration> {
         
         let body = ctx.struct_body()!
         
-        let declarations = body.declarations()?.declaration().mapJoinedByIndentation(parentCtx: body) { $0.accept(SwiftDeclarationVisitor())! } ?? body.getInnerSourceTextFromBracedBlock().flatMap { [CodeNode(rawCode: $0)] } ?? []
+        var declarations = body.struct_member().mapJoinedByIndentation(parentCtx: body) { member in
+            if let declaration = member.declaration()?.accept(SwiftDeclarationVisitor()) {
+                return declaration
+            } else {
+                return CodeNode(rawCode: member.getSourceText())
+            }
+        }
+        
+        if declarations.count == 0 {
+            declarations = body.getInnerSourceTextFromBracedBlock().flatMap { [CodeNode(rawCode: $0)] } ?? []
+        }
         
         let code = ctx.getSourceText(Interval(ctx.start!.getStartIndex(), body.start!.getStartIndex()-1))!
         

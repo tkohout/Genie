@@ -7,6 +7,31 @@
 //
 
 import Foundation
+import Antlr4
+
+class SwiftStatementsVisitor: SwiftVisitor<[Node]> {
+    override func visitStatements(_ ctx: SwiftParser.StatementsContext) -> [Node] {
+//        return ctx.statement().mapJoinedByIndentation(parentCtx: ctx, transform: { $0.accept(SwiftStatementVisitor())! } )
+        
+        
+        
+        return ctx.statements_impl().flatMap { collectStatements($0) }?.mapJoinedByIndentation(parentCtx: ctx.parent as! ParserRuleContext){
+            $0.accept(SwiftStatementVisitor())!
+        } ?? []
+    }
+    
+    func collectStatements(_ ctx: SwiftParser.Statements_implContext) -> [ParserRuleContext] {
+        let statement = ctx.statement().flatMap { [$0] } ?? []
+        let statements = ctx.statements_impl().flatMap { collectStatements($0) } ?? []
+        return statement + statements
+    }
+    
+    override func visitStatements_impl(_ ctx: SwiftParser.Statements_implContext) -> [Node] {
+        let statement = ctx.statement()?.accept(SwiftStatementVisitor()).flatMap { [$0] } ?? []
+        let statements = ctx.statements_impl()?.accept(self) ?? []
+        return statement + statements
+    }
+}
 
 class SwiftStatementVisitor: SwiftVisitor<Node> {
     override func visitStatement(_ ctx: SwiftParser.StatementContext) -> Node {
