@@ -477,6 +477,34 @@ class ParserTest: XCTestCase {
         XCTAssertEqual(result?.parameters.first?.isVariadic, true)
     }
     
+    func testThatStringLiteralIsParsed() {
+        let code = String(
+        "extension AFError.ParameterEncodingFailureReason {",
+        "   var localizedDescription: String {",
+        "       return \"JSON could not be encoded because of error:\\n\\(error.localizedDescription)\"",
+        "   }",
+        "}"
+        )
+        
+        let source = try! parse(code: code)
+        
+        let result = source.nodes.first as? ExtensionDeclaration
+        XCTAssertNotNil(result)
+    }
+    
+    func xtestThatReservedKeywordsAreParsedAsParameters() {
+        let code = String(
+        "public enum AFError: Error {",
+        "case bodyPartFilenameInvalid(in: URL)",
+        "}"
+        )
+        
+        let source = try! parse(code: code)
+        
+        let result = source.nodes.first as? EnumDeclaration
+        XCTAssertNotNil(result)
+    }
+    
     func testThatParameterWithDefaultArgumentIsParsed() {
         let code = String(
             "func a(x: String = \"x\"){",
@@ -491,6 +519,109 @@ class ParserTest: XCTestCase {
         XCTAssertEqual(result?.parameters.first?.defaultClause, "= \"x\"")
     }
     
+    func testThatMultipleWhileConditionsArePassed() {
+        let code = String(
+        "private func write(_ buffer: inout [UInt8], to outputStream: OutputStream) throws {",
+        "    while bytesToWrite > 0, outputStream.hasSpaceAvailable {",
+        "    }",
+        "}"
+        )
+        
+        let source = try! parse(code: code)
+        
+        XCTAssertNotNil(source)
+    }
+    
+    func testThatLabelInFunctionTypeIsParsed() {
+        let code = "public typealias RequestRetryCompletion = (_ shouldRetry: Bool, _ timeDelay: TimeInterval) -> Void"
+        
+        let source = try! parse(code: code)
+        
+        XCTAssertNotNil(source)
+        
+    }
+    
+    func testThatCompilerStatementIsParsedInClass() {
+        let code = String(
+            "class SessionDelegate: NSObject {",
+            "   #if !os(watchOS)",
+            "       func some(){}",
+            "   #endif",
+            "}"
+        )
+        
+        let source = try! parse(code: code)
+        
+        XCTAssertNotNil(source)
+    }
+    
+    
+    func xtestThis() {
+        let code = String(
+            "func cURLRepresentation() -> String {",
+            "        if let credentialStorage = self.session.configuration.urlCredentialStorage {",
+            "            let protectionSpace = URLProtectionSpace(",
+            "                host: host,",
+            "                port: url.port ?? 0,",
+            "                protocol: url.scheme,",
+            "                realm: host,",
+            "                authenticationMethod: NSURLAuthenticationMethodHTTPBasic",
+            "            )",
+            "}",
+            "}"
+        )
+        
+        let source = try! parse(code: code)
+        
+        XCTAssertNotNil(source)
+    }
+    
+    
+    func xtestThatAFileIsNotChanged() {
+        let path = Bundle(for: type(of: self)).resourcePath!
+        let fileManager = FileManager.default
+        
+        let sources = try! fileManager.contentsOfDirectory(atPath: path)
+        sources.filter { $0 == "Request.txt" }.forEach { sourcePath in
+            let sourceData = fileManager.contents(atPath: path + "/" + sourcePath)!
+            let code = String(data: sourceData, encoding: String.Encoding.utf8)!
+            
+            print(sourcePath)
+            let parsed = try! parse(code: code)
+            
+            //            print(code)
+            //            print(parsed.code)
+            
+            AssertEqualIgnoringIndentation(code, parsed.code, fileName: sourcePath)
+        }
+        
+        
+    }
+    
+    
+    
+    func xtestThatSourcesAreNotChanged() {
+        let path = Bundle(for: type(of: self)).resourcePath!
+        let fileManager = FileManager.default
+        
+        let sources = try! fileManager.contentsOfDirectory(atPath: path)
+        sources.filter { $0.components(separatedBy: ".").last == "txt" }.forEach { sourcePath in
+            let sourceData = fileManager.contents(atPath: path + "/" + sourcePath)!
+            let code = String(data: sourceData, encoding: String.Encoding.utf8)!
+            
+            print(sourcePath)
+            let parsed = try! parse(code: code)
+            
+//            print(code)
+//            print(parsed.code)
+            
+            AssertEqualIgnoringIndentation(code, parsed.code, fileName: sourcePath)
+        }
+        
+        
+    }
 }
+
+
 
 

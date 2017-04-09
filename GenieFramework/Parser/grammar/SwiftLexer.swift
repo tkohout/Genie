@@ -1,4 +1,4 @@
-// Generated from grammar/Swift.g4 by ANTLR 4.6
+// Generated from Swift.g4 by ANTLR 4.6
 import Antlr4
 
 open class SwiftLexer: Lexer {
@@ -80,22 +80,22 @@ open class SwiftLexer: Lexer {
 		"'if'", "'else'", "'guard'", "'switch'", "'default'", "'where'", "'break'", 
 		"'continue'", "'fallthrough'", "'return'", "'#available'", "'throw'", 
 		"'defer'", "'do'", "'catch'", "'#if'", "'#endif'", "'#elseif'", "'#else'", 
-		"'os'", "'arch'", "'OSX'", "'iOS'", "'watchOS'", "'tvOS'", "'i386'", "'x86_64'", 
-		"'arm'", "'arm64'", "'#line'", "'import'", "'typealias'", "'struct'", 
-		"'class'", "'enum'", "'protocol'", "'func'", "'get'", "'set'", "'willSet'", 
-		"'didSet'", "'throws'", "'rethrows'", "'->'", "'indirect'", "'associatedtype'", 
-		"'init'", "'deinit'", "'extension'", "'subscript'", "'prefix'", "'operator'", 
-		"'postfix'", "'infix'", "'precedence'", "'associativity'", "'left'", "'right'", 
-		"'none'", "'convenience'", "'dynamic'", "'final'", "'lazy'", "'mutating'", 
-		"'nonmutating'", "'optional'", "'override'", "'required'", "'static'", 
-		"'unowned'", "'safe'", "'unsafe'", "'weak'", "'internal'", "'fileprivate'", 
-		"'private'", "'public'", "'open'", "'is'", "'as'", "'#'", "'`'", "'try'", 
-		"'__FILE__'", "'__LINE__'", "'__COLUMN__'", "'__FUNCTION__'", "'self'", 
-		"'super'", "'unowned(safe)'", "'unowned(unsafe)'", "'#selector'", "'dynamicType'", 
-		"'Type'", "'Protocol'", "'inout'", "'true'", "'false'", "'nil'", nil, 
-		nil, "'.'", "'{'", "'('", "'['", "'}'", "')'", "']'", "','", "':'", "';'", 
-		"'<'", "'>'", "'_'", "'!'", "'?'", "'@'", "'&'", "'-'", "'='", "'|'", 
-		"'/'", "'+'", "'*'", "'%'", "'^'", "'~'"
+		"'os'", "'arch'", "'macOS'", "'iOS'", "'watchOS'", "'tvOS'", "'i386'", 
+		"'x86_64'", "'arm'", "'arm64'", "'#line'", "'import'", "'typealias'", 
+		"'struct'", "'class'", "'enum'", "'protocol'", "'func'", "'get'", "'set'", 
+		"'willSet'", "'didSet'", "'throws'", "'rethrows'", "'->'", "'indirect'", 
+		"'associatedtype'", "'init'", "'deinit'", "'extension'", "'subscript'", 
+		"'prefix'", "'operator'", "'postfix'", "'infix'", "'precedence'", "'associativity'", 
+		"'left'", "'right'", "'none'", "'convenience'", "'dynamic'", "'final'", 
+		"'lazy'", "'mutating'", "'nonmutating'", "'optional'", "'override'", "'required'", 
+		"'static'", "'unowned'", "'safe'", "'unsafe'", "'weak'", "'internal'", 
+		"'fileprivate'", "'private'", "'public'", "'open'", "'is'", "'as'", "'#'", 
+		"'`'", "'try'", "'__FILE__'", "'__LINE__'", "'__COLUMN__'", "'__FUNCTION__'", 
+		"'self'", "'super'", "'unowned(safe)'", "'unowned(unsafe)'", "'#selector'", 
+		"'dynamicType'", "'Type'", "'Protocol'", "'inout'", "'true'", "'false'", 
+		"'nil'", nil, nil, "'.'", "'{'", "'('", "'['", "'}'", "')'", "']'", "','", 
+		"':'", "';'", "'<'", "'>'", "'_'", "'!'", "'?'", "'@'", "'&'", "'-'", 
+		"'='", "'|'", "'/'", "'+'", "'*'", "'%'", "'^'", "'~'"
 	]
 	private static let _SYMBOLIC_NAMES: [String?] = [
 		nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, 

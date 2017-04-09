@@ -1,0 +1,3 @@
+framework module Antlr4 {
+    header "Antlr4-Swift.h"
+}

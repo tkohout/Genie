@@ -1,4 +1,4 @@
-// Generated from grammar/Swift.g4 by ANTLR 4.6
+// Generated from Swift.g4 by ANTLR 4.6
 import Antlr4
 
 /**

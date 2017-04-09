@@ -45,6 +45,8 @@ class SwiftDeclarationVisitor: SwiftVisitor<Node> {
             return declaration
         } else if let declaration = ctx.operator_declaration()?.accept(self) {
             return declaration
+        } else if let declaration = ctx.compiler_control_statement()?.accept(SwiftStatementVisitor()) {
+            return declaration
         } else {
             fatalError("Unrecognized type of declaration")
         }
@@ -77,5 +79,7 @@ class SwiftDeclarationVisitor: SwiftVisitor<Node> {
     override func visitProtocol_associated_type_declaration(_ ctx: SwiftParser.Protocol_associated_type_declarationContext) -> Node {
         return CodeNode(rawCode: ctx.getSourceText())
     }
+    
+    
     
 }

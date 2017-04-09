@@ -94,7 +94,8 @@ condition_clause
 
 condition_list : condition (',' condition)* ;
 condition
- : availability_condition
+ : expression
+ | availability_condition
  | case_condition
  | optional_binding_condition
  ;
@@ -189,9 +190,10 @@ Platform : Platform_name WS? Platform_version ;
 fragment
 Platform_name
  : 'iOS' | 'iOSApplicationExtension'
- | 'OSX' | 'OSXApplicationExtension'
- | 'watchOS'
- | 'tvOS' // ?
+ | 'macOS' | 'macOSApplicationExtension'
+ | 'watchOS' | 'watchOSApplicationExtension'
+ | 'tvOS' | 'tvOSApplicationExtension'
+ | 'swift'
  ;
 
 fragment
@@ -240,7 +242,7 @@ platform_testing_function : 'os' '(' operating_system ')'
  | 'arch' '(' architecture ')'
  ;
 
-operating_system : 'OSX' | 'iOS' | 'watchOS' | 'tvOS' ;
+operating_system : 'macOS' | 'iOS' | 'watchOS' | 'tvOS' ;
 architecture : 'i386' | 'x86_64' | 'arm' | 'arm64' ;
 
 // GRAMMAR OF A LINE CONTROL STATEMENT
@@ -299,6 +301,7 @@ declaration
  | extension_declaration
  | subscript_declaration
  | operator_declaration
+ | compiler_control_statement
  ;
 
 declarations : declaration+ ;
@@ -598,6 +601,7 @@ balanced_token
  | '{' balanced_tokens? '}'
  | identifier | expression | context_sensitive_keyword | literal | operator_name
  | any_punctuation
+ | Platform
 // | Any punctuation except ( ,  ')' , '[' , ']' , { , or } TODO add?
  ;
 any_punctuation : '.' | ',' | ':' | ';' | '=' | '@' | '#' | '&' | '->' | '`' | '?' | '!' ;
@@ -723,7 +727,9 @@ capture_specifier : 'weak' | 'unowned' | 'unowned(safe)' | 'unowned(unsafe)'  ;
 
 parenthesized_expression : '(' expression_element_list? ')'  ;
 expression_element_list : expression_element (',' expression_element)* ;
-expression_element : expression | identifier ':' expression  ;
+expression_element 
+: expression | identifier ':' expression 
+| operator_name | identifier ':' operator_name  ;
 
 // GRAMMAR OF A WILDCARD EXPRESSION
 
@@ -799,7 +805,7 @@ type
 
 // GRAMMAR OF A TYPE ANNOTATION
 
-type_annotation : ':' attributes? type  ;
+type_annotation : ':' attributes? 'inout'? type  ;
 
 // GRAMMAR OF A TYPE IDENTIFIER
 
@@ -815,8 +821,19 @@ type_name : identifier ;
 tuple_type : '(' tuple_type_body? ')'  ;
 tuple_type_body : tuple_type_element_list range_operator? ;
 tuple_type_element_list : tuple_type_element | tuple_type_element ',' tuple_type_element_list  ;
-tuple_type_element : attributes? 'inout'? type | 'inout'? element_name type_annotation ;
+tuple_type_element : attributes? 'inout'? type | identifier? element_name type_annotation ;
 element_name : identifier ;
+
+/*
+function-type → attributes­opt­function-type-argument-clause­throws­opt­->­type­
+function-type → attributes­opt­function-type-argument-clause­rethrows­->­type­
+function-type-argument-clause → (­)­
+function-type-argument-clause → (­function-type-argument-list­...­opt­)­
+function-type-argument-list → function-type-argument­  function-type-argument­,­function-type-argument-list­
+function-type-argument → attributes­opt­inout­opt­type­  argument-label­type-annotation­
+argument-label → identifier­
+
+*/
 
 // GRAMMAR OF A FUNCTION TYPE
 
@@ -909,6 +926,7 @@ context_sensitive_keyword :
  'nonmutating' | 'optional' | 'operator' | 'override' |
  'postfix' | 'precedence' | 'prefix' | 'Protocol' | 'required' | 'right' |
  'set' | 'Type' | 'unowned' | 'unowned' | 'weak' | 'willSet'
+ //| 'for' | 'in' | 'default' | 'open' | 'protocol'
  ;
 
 // GRAMMAR OF OPERATORS
@@ -1149,8 +1167,8 @@ fragment Quoted_text_item
 
 fragment
 Escaped_character
-  //: '\\' [0\\tnr\"\']
-  : '\\x' Hexadecimal_digit Hexadecimal_digit
+  : '\\' [0\\tnr\"\']
+  | '\\x' Hexadecimal_digit Hexadecimal_digit
   | '\\u' '{' Hexadecimal_digit Hexadecimal_digit Hexadecimal_digit Hexadecimal_digit '}'
   | '\\u' '{' Hexadecimal_digit Hexadecimal_digit Hexadecimal_digit Hexadecimal_digit Hexadecimal_digit Hexadecimal_digit Hexadecimal_digit Hexadecimal_digit '}'
   ;

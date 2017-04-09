@@ -70,6 +70,23 @@
 		ACB1D2A11E21A44700CEFF0F /* Yams.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = ACB985A71E2136F300127FD9 /* Yams.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		ACB985A81E2136F300127FD9 /* Yams.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACB985A71E2136F300127FD9 /* Yams.framework */; };
 		ACB985A91E2137DF00127FD9 /* SourceKittenHelper.xpc in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6C477AED1D70305900D76FCA /* SourceKittenHelper.xpc */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		ACC3772C1E64BC61005A098C /* AFError.txt in Resources */ = {isa = PBXBuildFile; fileRef = ACC3771B1E64BC61005A098C /* AFError.txt */; };
+		ACC3772D1E64BC61005A098C /* Alamofire.txt in Resources */ = {isa = PBXBuildFile; fileRef = ACC3771C1E64BC61005A098C /* Alamofire.txt */; };
+		ACC3772E1E64BC61005A098C /* DispatchQueue+Alamofire.txt in Resources */ = {isa = PBXBuildFile; fileRef = ACC3771D1E64BC61005A098C /* DispatchQueue+Alamofire.txt */; };
+		ACC3772F1E64BC61005A098C /* MultipartFormData.txt in Resources */ = {isa = PBXBuildFile; fileRef = ACC3771E1E64BC61005A098C /* MultipartFormData.txt */; };
+		ACC377301E64BC61005A098C /* NetworkReachabilityManager.txt in Resources */ = {isa = PBXBuildFile; fileRef = ACC3771F1E64BC61005A098C /* NetworkReachabilityManager.txt */; };
+		ACC377311E64BC61005A098C /* Notifications.txt in Resources */ = {isa = PBXBuildFile; fileRef = ACC377201E64BC61005A098C /* Notifications.txt */; };
+		ACC377321E64BC61005A098C /* ParameterEncoding.txt in Resources */ = {isa = PBXBuildFile; fileRef = ACC377211E64BC61005A098C /* ParameterEncoding.txt */; };
+		ACC377331E64BC61005A098C /* Request.txt in Resources */ = {isa = PBXBuildFile; fileRef = ACC377221E64BC61005A098C /* Request.txt */; };
+		ACC377341E64BC61005A098C /* Response.txt in Resources */ = {isa = PBXBuildFile; fileRef = ACC377231E64BC61005A098C /* Response.txt */; };
+		ACC377351E64BC61005A098C /* ResponseSerialization.txt in Resources */ = {isa = PBXBuildFile; fileRef = ACC377241E64BC61005A098C /* ResponseSerialization.txt */; };
+		ACC377361E64BC61005A098C /* Result.txt in Resources */ = {isa = PBXBuildFile; fileRef = ACC377251E64BC61005A098C /* Result.txt */; };
+		ACC377371E64BC61005A098C /* ServerTrustPolicy.txt in Resources */ = {isa = PBXBuildFile; fileRef = ACC377261E64BC61005A098C /* ServerTrustPolicy.txt */; };
+		ACC377381E64BC61005A098C /* SessionDelegate.txt in Resources */ = {isa = PBXBuildFile; fileRef = ACC377271E64BC61005A098C /* SessionDelegate.txt */; };
+		ACC377391E64BC61005A098C /* SessionManager.txt in Resources */ = {isa = PBXBuildFile; fileRef = ACC377281E64BC61005A098C /* SessionManager.txt */; };
+		ACC3773A1E64BC61005A098C /* TaskDelegate.txt in Resources */ = {isa = PBXBuildFile; fileRef = ACC377291E64BC61005A098C /* TaskDelegate.txt */; };
+		ACC3773B1E64BC61005A098C /* Timeline.txt in Resources */ = {isa = PBXBuildFile; fileRef = ACC3772A1E64BC61005A098C /* Timeline.txt */; };
+		ACC3773C1E64BC61005A098C /* Validation.txt in Resources */ = {isa = PBXBuildFile; fileRef = ACC3772B1E64BC61005A098C /* Validation.txt */; };
 		ACE36CA31E22BAE70007F0FD /* Asserts.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE36CA21E22BAE70007F0FD /* Asserts.swift */; };
 		ACED61481E21467B00BBD92D /* GenieFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = ACED61461E21467B00BBD92D /* GenieFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ACED61581E2146B300BBD92D /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC91AA641E2130A1003E871F /* Node.swift */; };
@@ -264,6 +281,23 @@
 		AC91AA711E2130A1003E871F /* Dwifft.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dwifft.swift; sourceTree = "<group>"; };
 		AC941E8C1E213BE1004D8A03 /* SWXMLHash.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SWXMLHash.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Genie-gnjkibsipwxrbzfukpgdagpvfryi/Build/Products/Debug/SWXMLHash.framework"; sourceTree = "<group>"; };
 		ACB985A71E2136F300127FD9 /* Yams.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Yams.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Genie-gnjkibsipwxrbzfukpgdagpvfryi/Build/Products/Debug/Yams.framework"; sourceTree = "<group>"; };
+		ACC3771B1E64BC61005A098C /* AFError.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AFError.txt; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		ACC3771C1E64BC61005A098C /* Alamofire.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Alamofire.txt; sourceTree = "<group>"; };
+		ACC3771D1E64BC61005A098C /* DispatchQueue+Alamofire.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "DispatchQueue+Alamofire.txt"; sourceTree = "<group>"; };
+		ACC3771E1E64BC61005A098C /* MultipartFormData.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MultipartFormData.txt; sourceTree = "<group>"; };
+		ACC3771F1E64BC61005A098C /* NetworkReachabilityManager.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NetworkReachabilityManager.txt; sourceTree = "<group>"; };
+		ACC377201E64BC61005A098C /* Notifications.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Notifications.txt; sourceTree = "<group>"; };
+		ACC377211E64BC61005A098C /* ParameterEncoding.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ParameterEncoding.txt; sourceTree = "<group>"; };
+		ACC377221E64BC61005A098C /* Request.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Request.txt; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		ACC377231E64BC61005A098C /* Response.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Response.txt; sourceTree = "<group>"; };
+		ACC377241E64BC61005A098C /* ResponseSerialization.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ResponseSerialization.txt; sourceTree = "<group>"; };
+		ACC377251E64BC61005A098C /* Result.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Result.txt; sourceTree = "<group>"; };
+		ACC377261E64BC61005A098C /* ServerTrustPolicy.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ServerTrustPolicy.txt; sourceTree = "<group>"; };
+		ACC377271E64BC61005A098C /* SessionDelegate.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SessionDelegate.txt; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		ACC377281E64BC61005A098C /* SessionManager.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SessionManager.txt; sourceTree = "<group>"; };
+		ACC377291E64BC61005A098C /* TaskDelegate.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TaskDelegate.txt; sourceTree = "<group>"; };
+		ACC3772A1E64BC61005A098C /* Timeline.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Timeline.txt; sourceTree = "<group>"; };
+		ACC3772B1E64BC61005A098C /* Validation.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Validation.txt; sourceTree = "<group>"; };
 		ACE36CA01E22B5790007F0FD /* ReactivePropertyTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReactivePropertyTest.swift; sourceTree = "<group>"; };
 		ACE36CA21E22BAE70007F0FD /* Asserts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Asserts.swift; sourceTree = "<group>"; };
 		ACED61291E21453F00BBD92D /* GenieTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GenieTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -514,6 +548,38 @@
 			path = SourceKitten;
 			sourceTree = "<group>";
 		};
+		ACC377191E64BC61005A098C /* SwiftResources */ = {
+			isa = PBXGroup;
+			children = (
+				ACC3771A1E64BC61005A098C /* Alamofire-4.2.0 */,
+			);
+			path = SwiftResources;
+			sourceTree = "<group>";
+		};
+		ACC3771A1E64BC61005A098C /* Alamofire-4.2.0 */ = {
+			isa = PBXGroup;
+			children = (
+				ACC3771B1E64BC61005A098C /* AFError.txt */,
+				ACC3771C1E64BC61005A098C /* Alamofire.txt */,
+				ACC3771D1E64BC61005A098C /* DispatchQueue+Alamofire.txt */,
+				ACC3771E1E64BC61005A098C /* MultipartFormData.txt */,
+				ACC3771F1E64BC61005A098C /* NetworkReachabilityManager.txt */,
+				ACC377201E64BC61005A098C /* Notifications.txt */,
+				ACC377211E64BC61005A098C /* ParameterEncoding.txt */,
+				ACC377221E64BC61005A098C /* Request.txt */,
+				ACC377231E64BC61005A098C /* Response.txt */,
+				ACC377241E64BC61005A098C /* ResponseSerialization.txt */,
+				ACC377251E64BC61005A098C /* Result.txt */,
+				ACC377261E64BC61005A098C /* ServerTrustPolicy.txt */,
+				ACC377271E64BC61005A098C /* SessionDelegate.txt */,
+				ACC377281E64BC61005A098C /* SessionManager.txt */,
+				ACC377291E64BC61005A098C /* TaskDelegate.txt */,
+				ACC3772A1E64BC61005A098C /* Timeline.txt */,
+				ACC3772B1E64BC61005A098C /* Validation.txt */,
+			);
+			path = "Alamofire-4.2.0";
+			sourceTree = "<group>";
+		};
 		ACE36CA41E22BAEC0007F0FD /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -526,6 +592,7 @@
 		ACED612A1E21453F00BBD92D /* GenieTests */ = {
 			isa = PBXGroup;
 			children = (
+				ACC377191E64BC61005A098C /* SwiftResources */,
 				ACE36CA41E22BAEC0007F0FD /* Helpers */,
 				AC0343421E21775000969C2C /* Stubs */,
 				ACED61331E21460A00BBD92D /* ClosureCaptureTest.swift */,
@@ -745,6 +812,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACC3773A1E64BC61005A098C /* TaskDelegate.txt in Resources */,
+				ACC3773B1E64BC61005A098C /* Timeline.txt in Resources */,
+				ACC377371E64BC61005A098C /* ServerTrustPolicy.txt in Resources */,
+				ACC377391E64BC61005A098C /* SessionManager.txt in Resources */,
+				ACC3772C1E64BC61005A098C /* AFError.txt in Resources */,
+				ACC377361E64BC61005A098C /* Result.txt in Resources */,
+				ACC377301E64BC61005A098C /* NetworkReachabilityManager.txt in Resources */,
+				ACC377351E64BC61005A098C /* ResponseSerialization.txt in Resources */,
+				ACC377331E64BC61005A098C /* Request.txt in Resources */,
+				ACC3772D1E64BC61005A098C /* Alamofire.txt in Resources */,
+				ACC377341E64BC61005A098C /* Response.txt in Resources */,
+				ACC3773C1E64BC61005A098C /* Validation.txt in Resources */,
+				ACC377321E64BC61005A098C /* ParameterEncoding.txt in Resources */,
+				ACC377381E64BC61005A098C /* SessionDelegate.txt in Resources */,
+				ACC377311E64BC61005A098C /* Notifications.txt in Resources */,
+				ACC3772E1E64BC61005A098C /* DispatchQueue+Alamofire.txt in Resources */,
+				ACC3772F1E64BC61005A098C /* MultipartFormData.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
