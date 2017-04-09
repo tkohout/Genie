@@ -26,7 +26,7 @@ class SwiftVariableDeclarationVisitor: SwiftVisitor<Node> {
         
         if let wildcard = pattern?.wildcard_pattern()?.getText() {
             name = wildcard
-        } else if let identifier = pattern?.identifier_pattern()?.identifier()?.getSourceText() {
+        } else if let identifier = pattern?.identifier_pattern()?.identifier_declaration_context()?.getSourceText() {
             name = identifier
         } else if let tuple = pattern?.tuple_pattern()?.getSourceText() {
             name = tuple

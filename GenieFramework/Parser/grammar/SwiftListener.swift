@@ -2925,6 +2925,18 @@ public protocol SwiftListener: ParseTreeListener {
 	 */
 	func exitElement_name(_ ctx: SwiftParser.Element_nameContext)
 	/**
+	 * Enter a parse tree produced by {@link SwiftParser#tuple_label_name}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func enterTuple_label_name(_ ctx: SwiftParser.Tuple_label_nameContext)
+	/**
+	 * Exit a parse tree produced by {@link SwiftParser#tuple_label_name}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func exitTuple_label_name(_ ctx: SwiftParser.Tuple_label_nameContext)
+	/**
 	 * Enter a parse tree produced by {@link SwiftParser#protocol_composition_type}.
 	 - Parameters:
 	   - ctx: the parse tree
@@ -3009,6 +3021,30 @@ public protocol SwiftListener: ParseTreeListener {
 	 */
 	func exitIdentifier(_ ctx: SwiftParser.IdentifierContext)
 	/**
+	 * Enter a parse tree produced by {@link SwiftParser#identifier_declaration_context}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func enterIdentifier_declaration_context(_ ctx: SwiftParser.Identifier_declaration_contextContext)
+	/**
+	 * Exit a parse tree produced by {@link SwiftParser#identifier_declaration_context}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func exitIdentifier_declaration_context(_ ctx: SwiftParser.Identifier_declaration_contextContext)
+	/**
+	 * Enter a parse tree produced by {@link SwiftParser#identifier_argument_context}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func enterIdentifier_argument_context(_ ctx: SwiftParser.Identifier_argument_contextContext)
+	/**
+	 * Exit a parse tree produced by {@link SwiftParser#identifier_argument_context}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func exitIdentifier_argument_context(_ ctx: SwiftParser.Identifier_argument_contextContext)
+	/**
 	 * Enter a parse tree produced by {@link SwiftParser#identifier_list}.
 	 - Parameters:
 	   - ctx: the parse tree
@@ -3032,6 +3068,30 @@ public protocol SwiftListener: ParseTreeListener {
 	   - ctx: the parse tree
 	 */
 	func exitContext_sensitive_keyword(_ ctx: SwiftParser.Context_sensitive_keywordContext)
+	/**
+	 * Enter a parse tree produced by {@link SwiftParser#declaration_allowed_keyword}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func enterDeclaration_allowed_keyword(_ ctx: SwiftParser.Declaration_allowed_keywordContext)
+	/**
+	 * Exit a parse tree produced by {@link SwiftParser#declaration_allowed_keyword}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func exitDeclaration_allowed_keyword(_ ctx: SwiftParser.Declaration_allowed_keywordContext)
+	/**
+	 * Enter a parse tree produced by {@link SwiftParser#argument_allowed_keyword}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func enterArgument_allowed_keyword(_ ctx: SwiftParser.Argument_allowed_keywordContext)
+	/**
+	 * Exit a parse tree produced by {@link SwiftParser#argument_allowed_keyword}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func exitArgument_allowed_keyword(_ ctx: SwiftParser.Argument_allowed_keywordContext)
 	/**
 	 * Enter a parse tree produced by {@link SwiftParser#assignment_operator}.
 	 - Parameters:

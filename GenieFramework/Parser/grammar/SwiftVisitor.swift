@@ -2433,6 +2433,16 @@ open class SwiftVisitor<T>: ParseTreeVisitor<T> {
 	}
 
 	/**
+	 * Visit a parse tree produced by {@link SwiftParser#tuple_label_name}.
+	- Parameters:
+	  - ctx: the parse tree
+	- returns: the visitor result
+	 */
+	open func visitTuple_label_name(_ ctx: SwiftParser.Tuple_label_nameContext) -> T{
+	 	fatalError(#function + " must be overridden")
+	}
+
+	/**
 	 * Visit a parse tree produced by {@link SwiftParser#protocol_composition_type}.
 	- Parameters:
 	  - ctx: the parse tree
@@ -2503,6 +2513,26 @@ open class SwiftVisitor<T>: ParseTreeVisitor<T> {
 	}
 
 	/**
+	 * Visit a parse tree produced by {@link SwiftParser#identifier_declaration_context}.
+	- Parameters:
+	  - ctx: the parse tree
+	- returns: the visitor result
+	 */
+	open func visitIdentifier_declaration_context(_ ctx: SwiftParser.Identifier_declaration_contextContext) -> T{
+	 	fatalError(#function + " must be overridden")
+	}
+
+	/**
+	 * Visit a parse tree produced by {@link SwiftParser#identifier_argument_context}.
+	- Parameters:
+	  - ctx: the parse tree
+	- returns: the visitor result
+	 */
+	open func visitIdentifier_argument_context(_ ctx: SwiftParser.Identifier_argument_contextContext) -> T{
+	 	fatalError(#function + " must be overridden")
+	}
+
+	/**
 	 * Visit a parse tree produced by {@link SwiftParser#identifier_list}.
 	- Parameters:
 	  - ctx: the parse tree
@@ -2519,6 +2549,26 @@ open class SwiftVisitor<T>: ParseTreeVisitor<T> {
 	- returns: the visitor result
 	 */
 	open func visitContext_sensitive_keyword(_ ctx: SwiftParser.Context_sensitive_keywordContext) -> T{
+	 	fatalError(#function + " must be overridden")
+	}
+
+	/**
+	 * Visit a parse tree produced by {@link SwiftParser#declaration_allowed_keyword}.
+	- Parameters:
+	  - ctx: the parse tree
+	- returns: the visitor result
+	 */
+	open func visitDeclaration_allowed_keyword(_ ctx: SwiftParser.Declaration_allowed_keywordContext) -> T{
+	 	fatalError(#function + " must be overridden")
+	}
+
+	/**
+	 * Visit a parse tree produced by {@link SwiftParser#argument_allowed_keyword}.
+	- Parameters:
+	  - ctx: the parse tree
+	- returns: the visitor result
+	 */
+	open func visitArgument_allowed_keyword(_ ctx: SwiftParser.Argument_allowed_keywordContext) -> T{
 	 	fatalError(#function + " must be overridden")
 	}
 

@@ -148,7 +148,7 @@ where_expression : expression ;
 
 labeled_statement : statement_label loop_statement | statement_label if_statement | statement_label switch_statement ;
 statement_label : label_name ':' ;
-label_name : identifier  ;
+label_name : identifier_declaration_context  ;
 
 // GRAMMAR OF A CONTROL TRANSFER STATEMENT
 
@@ -230,7 +230,7 @@ build_configuration_elseif_clause : '#elseif' build_configuration statements? ;
 build_configuration_else_clause : '#else' statements? ;
 
 build_configuration : platform_testing_function
- | identifier
+ | identifier_declaration_context
  | boolean_literal
  | '(' build_configuration ')'
  | '!' build_configuration
@@ -320,7 +320,7 @@ code_block : '{' statements? '}' ;
 import_declaration : attributes? 'import' import_kind? import_path  ;
 import_kind : 'typealias' | 'struct' | 'class' | 'enum' | 'protocol' | 'var' | 'func'  ;
 import_path : import_path_identifier | import_path_identifier '.' import_path  ;
-import_path_identifier : identifier | operator_name  ;
+import_path_identifier : identifier_declaration_context | operator_name  ;
 
 // GRAMMAR OF A CONSTANT DECLARATION
 
@@ -346,12 +346,12 @@ variable_declaration
  ;
 
 variable_declaration_head : attributes? declaration_modifiers? 'var'  ;
-variable_name : identifier  ;
+variable_name : identifier_declaration_context  ;
 
 getter_setter_block : '{' getter_clause setter_clause?'}'  | '{' setter_clause getter_clause '}'  ;
 getter_clause : attributes? 'get' code_block  ;
 setter_clause : attributes? 'set' setter_name? code_block  ;
-setter_name : '(' identifier ')'  ;
+setter_name : '(' identifier_declaration_context ')'  ;
 
 getter_setter_keyword_block : '{' getter_keyword_clause setter_keyword_clause?'}' | '{' setter_keyword_clause getter_keyword_clause '}'  ;
 getter_keyword_clause : attributes? 'get'  ;
@@ -365,7 +365,7 @@ didSet_clause : attributes? 'didSet' setter_name? code_block  ;
 
 typealias_declaration : typealias_head typealias_assignment  ;
 typealias_head : attributes? access_level_modifier? 'typealias' typealias_name  ;
-typealias_name : identifier  ;
+typealias_name : identifier_declaration_context  ;
 typealias_assignment : assignment_operator type  ;
 
 // GRAMMAR OF A FUNCTION DECLARATION
@@ -375,7 +375,7 @@ function_declaration
    function_body?
  ;
 function_head : attributes? declaration_modifiers? 'func'  ;
-function_name : identifier |  operator_name  ;
+function_name : identifier_declaration_context |  operator_name  ;
 function_signature
  : parameter_clause 'throws'? function_result?
  | parameter_clause 'rethrows' function_result?
@@ -390,8 +390,8 @@ parameter
  | external_parameter_name? local_parameter_name type_annotation
  | external_parameter_name? local_parameter_name type_annotation range_operator
  ;
-external_parameter_name : identifier | '_'  ;
-local_parameter_name : identifier | '_'  ;
+external_parameter_name : identifier_argument_context | '_'  ;
+local_parameter_name : identifier_argument_context | '_'  ;
 default_argument_clause : assignment_operator expression  ;
 
 
@@ -405,8 +405,8 @@ union_style_enum_member : declaration | union_style_enum_case_clause  ;
 union_style_enum_case_clause : attributes? 'indirect'? 'case' union_style_enum_case_list  ;
 union_style_enum_case_list : union_style_enum_case | union_style_enum_case ',' union_style_enum_case_list  ;
 union_style_enum_case : enum_case_name tuple_type? ;
-enum_name : identifier  ;
-enum_case_name : identifier  ;
+enum_name : identifier_declaration_context  ;
+enum_case_name : identifier_declaration_context  ;
 raw_value_style_enum : 'enum' enum_name generic_parameter_clause? type_inheritance_clause raw_value_style_enum_body ;
 raw_value_style_enum_body : '{' raw_value_style_enum_members '}' ;
 raw_value_style_enum_members : raw_value_style_enum_member+ ;
@@ -420,7 +420,7 @@ raw_value_literal : numeric_literal | Static_string_literal | boolean_literal ;
 // GRAMMAR OF A STRUCTURE DECLARATION TODO did not update
 
 struct_declaration : attributes? access_level_modifier? 'struct' struct_name generic_parameter_clause? type_inheritance_clause? struct_body  ;
-struct_name : identifier  ;
+struct_name : identifier_declaration_context  ;
 struct_body : '{' declarations?'}'  ;
 
 // GRAMMAR OF A CLASS DECLARATION
@@ -429,13 +429,13 @@ class_declaration
  : attributes? access_level_modifier? 'class' class_name
    generic_parameter_clause? type_inheritance_clause? class_body
  ;
-class_name : identifier ;
+class_name : identifier_declaration_context ;
 class_body : '{' declarations? '}'  ;
 
 // GRAMMAR OF A PROTOCOL DECLARATION
 
 protocol_declaration : attributes? access_level_modifier? 'protocol' protocol_name type_inheritance_clause? protocol_body  ;
-protocol_name : identifier  ;
+protocol_name : identifier_declaration_context  ;
 protocol_body : '{' protocol_member_declarations? '}'  ;
 
 protocol_member_declaration : protocol_property_declaration
@@ -556,7 +556,7 @@ wildcard_pattern : '_'  ;
 
 // GRAMMAR OF AN IDENTIFIER PATTERN
 
-identifier_pattern : identifier ;
+identifier_pattern : identifier_declaration_context ;
 
 // GRAMMAR OF A VALUE_BINDING PATTERN
 
@@ -620,7 +620,7 @@ prefix_expression
   | in_out_expression
   ;
 
-in_out_expression : '&' identifier ;
+in_out_expression : '&' identifier_declaration_context ;
 
 // GRAMMAR OF A TRY EXPRESSION
 
@@ -656,7 +656,7 @@ type_casting_operator
 // GRAMMAR OF A PRIMARY EXPRESSION
 
 primary_expression
- : identifier generic_argument_clause?
+ : identifier_declaration_context generic_argument_clause?
  | literal_expression
  | self_expression
  | superclass_expression
@@ -667,7 +667,7 @@ primary_expression
  | selector_expression
  ;
 
-implicit_member_expression : '.' identifier ;
+implicit_member_expression : '.' identifier_declaration_context ;
 
 // GRAMMAR OF A LITERAL EXPRESSION
 
@@ -689,7 +689,7 @@ dictionary_literal_item  : expression ':' expression  ;
 
 self_expression
  : 'self'
- | 'self' '.' identifier
+ | 'self' '.' identifier_declaration_context
  | 'self' '[' expression_list ']'
  | 'self' '.' 'init'
  ;
@@ -702,7 +702,7 @@ superclass_expression
   | superclass_initializer_expression
   ;
 
-superclass_method_expression	  : 'super' '.' identifier  ;
+superclass_method_expression	  : 'super' '.' identifier_declaration_context  ;
 superclass_subscript_expression   : 'super' '[' expression ']'  ;
 superclass_initializer_expression : 'super' '.' 'init'  ;
 
@@ -728,8 +728,8 @@ capture_specifier : 'weak' | 'unowned' | 'unowned(safe)' | 'unowned(unsafe)'  ;
 parenthesized_expression : '(' expression_element_list? ')'  ;
 expression_element_list : expression_element (',' expression_element)* ;
 expression_element 
-: expression | identifier ':' expression 
-| operator_name | identifier ':' operator_name  ;
+: expression | identifier_argument_context ':' expression 
+| operator_name | identifier_argument_context ':' operator_name  ;
 
 // GRAMMAR OF A WILDCARD EXPRESSION
 
@@ -749,8 +749,8 @@ postfix_expression
  | postfix_expression '.' 'init'                                  # initializer_expression
  | postfix_expression '.' 'init' '(' argument_names ')'           # initializer_expression_with_args
  | postfix_expression '.' Pure_decimal_digits                     # explicit_member_expression1
- | postfix_expression '.' identifier generic_argument_clause?     # explicit_member_expression2
- | postfix_expression '.' identifier '(' argument_names ')'       # explicit_member_expression3
+ | postfix_expression '.' identifier_argument_context generic_argument_clause?     # explicit_member_expression2
+ | postfix_expression '.' identifier_argument_context '(' argument_names ')'       # explicit_member_expression3
 // This does't exist in the swift grammar, but this valid swift statement fails without it
 // self.addTarget(self, action: #selector(nameOfAction(_:)))
  | postfix_expression '(' argument_names ')'                      # explicit_member_expression4
@@ -783,7 +783,7 @@ postfix_expression
 
 argument_names : argument_name argument_names? ;
 
-argument_name : identifier ':' ;
+argument_name : identifier_argument_context ':' ;
 
 trailing_closure : closure_expression ;
 
@@ -814,15 +814,16 @@ type_identifier
  | type_name generic_argument_clause? '.' type_identifier
  ;
 
-type_name : identifier ;
+type_name : identifier_declaration_context ;
 
 // GRAMMAR OF A TUPLE TYPE
 
 tuple_type : '(' tuple_type_body? ')'  ;
 tuple_type_body : tuple_type_element_list range_operator? ;
 tuple_type_element_list : tuple_type_element | tuple_type_element ',' tuple_type_element_list  ;
-tuple_type_element : attributes? 'inout'? type | identifier? element_name type_annotation ;
-element_name : identifier ;
+tuple_type_element : attributes? 'inout'? type | tuple_label_name? element_name type_annotation ;
+element_name : identifier_argument_context ;
+tuple_label_name : identifier_argument_context ;
 
 /*
 function-type → attributes­opt­function-type-argument-clause­throws­opt­->­type­
@@ -885,13 +886,16 @@ class_requirement : 'class' ;
 
 identifier : Identifier | context_sensitive_keyword ;
 
+identifier_declaration_context : identifier | declaration_allowed_keyword ;
+identifier_argument_context : identifier | argument_allowed_keyword ;
+
 Identifier
  : Identifier_head Identifier_characters?
  | '`' Identifier_head Identifier_characters? '`'
  | Implicit_parameter_name
  ;
 
-identifier_list : identifier (',' identifier)* ;
+identifier_list : identifier_declaration_context (',' identifier_declaration_context)* ;
 
 fragment Identifier_head : [a-zA-Z]
  | '_'
@@ -923,11 +927,26 @@ fragment Identifier_characters : Identifier_character+ ;
 context_sensitive_keyword :
  'associativity' | 'convenience' | 'dynamic' | 'didSet' |
  'final' | 'get' | 'infix' | 'indirect' | 'lazy' | 'left' | 'mutating' | 'none' |
- 'nonmutating' | 'optional' | 'operator' | 'override' |
+ 'nonmutating' | 'optional' | 'override' |
  'postfix' | 'precedence' | 'prefix' | 'Protocol' | 'required' | 'right' |
- 'set' | 'Type' | 'unowned' | 'unowned' | 'weak' | 'willSet'
+ 'set' | 'Type' | 'unowned' | 'weak' | 'willSet'
  //| 'for' | 'in' | 'default' | 'open' | 'protocol'
  ;
+
+// Variable declaration, enum case declaration
+// Enum can also have unowned(safe) which is valid enum case but that is extra edge case
+ declaration_allowed_keyword :
+'os' | 'arch' | 'macOS' | 'iOS' | 'watchOS' | 'tvOS' | 'i386' | 'x86_64' | 'arm'
+ | 'arm64' | 'safe' | 'unsafe' | 'open' | 'dynamicType' 
+;
+
+argument_allowed_keyword :
+'for' | 'case' | 'in' | 'while' | 'repeat' | 'if' | 'else' | 'guard' | 'switch' | 'default' | 'where' | 'break' | 'continue' | 'fallthrough' 
+| 'return' | 'throw' | 'defer' | 'do' | 'catch' | 'os' | 'arch' | 'macOS' | 'iOS' | 'watchOS' | 'tvOS' | 'i386' | 'x86_64' | 'arm' | 'arm64' 
+| 'import' | 'typealias' | 'struct' | 'class' | 'enum' | 'protocol' | 'func' | 'throws' | 'rethrows' | 'associatedtype' | 'init' | 'deinit' 
+| 'extension' | 'subscript' | 'static' | 'safe' | 'unsafe' | 'internal' | 'fileprivate' | 'private' | 'public' | 'open' | 'is' | 'as' | 'try' 
+| '__FILE__' | '__LINE__' | '__COLUMN__' | '__FUNCTION__' | 'self' | 'super' | 'dynamicType' | 'true' | 'false' | 'nil'
+;
 
 // GRAMMAR OF OPERATORS
 

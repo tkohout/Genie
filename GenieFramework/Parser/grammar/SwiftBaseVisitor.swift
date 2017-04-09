@@ -1703,6 +1703,13 @@ open class SwiftBaseVisitor<T>: AbstractParseTreeVisitor<T> {
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
+	open func visitTuple_label_name(_ ctx: SwiftParser.Tuple_label_nameContext) -> T? { return visitChildren(ctx) }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
 	open func visitProtocol_composition_type(_ ctx: SwiftParser.Protocol_composition_typeContext) -> T? { return visitChildren(ctx) }
 	/**
 	 * {@inheritDoc}
@@ -1752,6 +1759,20 @@ open class SwiftBaseVisitor<T>: AbstractParseTreeVisitor<T> {
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
+	open func visitIdentifier_declaration_context(_ ctx: SwiftParser.Identifier_declaration_contextContext) -> T? { return visitChildren(ctx) }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	open func visitIdentifier_argument_context(_ ctx: SwiftParser.Identifier_argument_contextContext) -> T? { return visitChildren(ctx) }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
 	open func visitIdentifier_list(_ ctx: SwiftParser.Identifier_listContext) -> T? { return visitChildren(ctx) }
 	/**
 	 * {@inheritDoc}
@@ -1760,6 +1781,20 @@ open class SwiftBaseVisitor<T>: AbstractParseTreeVisitor<T> {
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
 	open func visitContext_sensitive_keyword(_ ctx: SwiftParser.Context_sensitive_keywordContext) -> T? { return visitChildren(ctx) }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	open func visitDeclaration_allowed_keyword(_ ctx: SwiftParser.Declaration_allowed_keywordContext) -> T? { return visitChildren(ctx) }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	open func visitArgument_allowed_keyword(_ ctx: SwiftParser.Argument_allowed_keywordContext) -> T? { return visitChildren(ctx) }
 	/**
 	 * {@inheritDoc}
 	 *

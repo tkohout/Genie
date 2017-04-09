@@ -3148,6 +3148,19 @@ open class SwiftBaseListener: SwiftListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	open func enterTuple_label_name(_ ctx: SwiftParser.Tuple_label_nameContext) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func exitTuple_label_name(_ ctx: SwiftParser.Tuple_label_nameContext) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	open func enterProtocol_composition_type(_ ctx: SwiftParser.Protocol_composition_typeContext) { }
 	/**
 	 * {@inheritDoc}
@@ -3239,6 +3252,32 @@ open class SwiftBaseListener: SwiftListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	open func enterIdentifier_declaration_context(_ ctx: SwiftParser.Identifier_declaration_contextContext) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func exitIdentifier_declaration_context(_ ctx: SwiftParser.Identifier_declaration_contextContext) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func enterIdentifier_argument_context(_ ctx: SwiftParser.Identifier_argument_contextContext) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func exitIdentifier_argument_context(_ ctx: SwiftParser.Identifier_argument_contextContext) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	open func enterIdentifier_list(_ ctx: SwiftParser.Identifier_listContext) { }
 	/**
 	 * {@inheritDoc}
@@ -3259,6 +3298,32 @@ open class SwiftBaseListener: SwiftListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	open func exitContext_sensitive_keyword(_ ctx: SwiftParser.Context_sensitive_keywordContext) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func enterDeclaration_allowed_keyword(_ ctx: SwiftParser.Declaration_allowed_keywordContext) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func exitDeclaration_allowed_keyword(_ ctx: SwiftParser.Declaration_allowed_keywordContext) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func enterArgument_allowed_keyword(_ ctx: SwiftParser.Argument_allowed_keywordContext) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func exitArgument_allowed_keyword(_ ctx: SwiftParser.Argument_allowed_keywordContext) { }
 
 	/**
 	 * {@inheritDoc}

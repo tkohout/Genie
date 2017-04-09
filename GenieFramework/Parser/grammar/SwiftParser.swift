@@ -150,20 +150,23 @@ open class SwiftParser: Parser {
                    RULE_type = 220, RULE_type_annotation = 221, RULE_type_identifier = 222, 
                    RULE_type_name = 223, RULE_tuple_type = 224, RULE_tuple_type_body = 225, 
                    RULE_tuple_type_element_list = 226, RULE_tuple_type_element = 227, 
-                   RULE_element_name = 228, RULE_protocol_composition_type = 229, 
-                   RULE_protocol_identifier_list = 230, RULE_protocol_identifier = 231, 
-                   RULE_type_inheritance_clause = 232, RULE_type_inheritance_list = 233, 
-                   RULE_class_requirement = 234, RULE_identifier = 235, 
-                   RULE_identifier_list = 236, RULE_context_sensitive_keyword = 237, 
-                   RULE_assignment_operator = 238, RULE_negate_prefix_operator = 239, 
-                   RULE_build_AND = 240, RULE_build_OR = 241, RULE_arrow_operator = 242, 
-                   RULE_range_operator = 243, RULE_same_type_equals = 244, 
-                   RULE_binary_operator = 245, RULE_prefix_operator = 246, 
-                   RULE_postfix_operator = 247, RULE_operator_name = 248, 
-                   RULE_operator_character = 249, RULE_operator_head = 250, 
-                   RULE_dot_operator_head = 251, RULE_dot_operator_character = 252, 
-                   RULE_literal = 253, RULE_numeric_literal = 254, RULE_boolean_literal = 255, 
-                   RULE_nil_literal = 256, RULE_integer_literal = 257, RULE_string_literal = 258
+                   RULE_element_name = 228, RULE_tuple_label_name = 229, 
+                   RULE_protocol_composition_type = 230, RULE_protocol_identifier_list = 231, 
+                   RULE_protocol_identifier = 232, RULE_type_inheritance_clause = 233, 
+                   RULE_type_inheritance_list = 234, RULE_class_requirement = 235, 
+                   RULE_identifier = 236, RULE_identifier_declaration_context = 237, 
+                   RULE_identifier_argument_context = 238, RULE_identifier_list = 239, 
+                   RULE_context_sensitive_keyword = 240, RULE_declaration_allowed_keyword = 241, 
+                   RULE_argument_allowed_keyword = 242, RULE_assignment_operator = 243, 
+                   RULE_negate_prefix_operator = 244, RULE_build_AND = 245, 
+                   RULE_build_OR = 246, RULE_arrow_operator = 247, RULE_range_operator = 248, 
+                   RULE_same_type_equals = 249, RULE_binary_operator = 250, 
+                   RULE_prefix_operator = 251, RULE_postfix_operator = 252, 
+                   RULE_operator_name = 253, RULE_operator_character = 254, 
+                   RULE_operator_head = 255, RULE_dot_operator_head = 256, 
+                   RULE_dot_operator_character = 257, RULE_literal = 258, 
+                   RULE_numeric_literal = 259, RULE_boolean_literal = 260, 
+                   RULE_nil_literal = 261, RULE_integer_literal = 262, RULE_string_literal = 263
 	public static let ruleNames: [String] = [
 		"top_level", "statement", "statements", "loop_statement", "for_statement", 
 		"for_init", "for_in_statement", "while_statement", "condition_clause", 
@@ -227,15 +230,16 @@ open class SwiftParser: Parser {
 		"wildcard_expression", "selector_expression", "postfix_expression", "argument_names", 
 		"argument_name", "trailing_closure", "type", "type_annotation", "type_identifier", 
 		"type_name", "tuple_type", "tuple_type_body", "tuple_type_element_list", 
-		"tuple_type_element", "element_name", "protocol_composition_type", "protocol_identifier_list", 
-		"protocol_identifier", "type_inheritance_clause", "type_inheritance_list", 
-		"class_requirement", "identifier", "identifier_list", "context_sensitive_keyword", 
-		"assignment_operator", "negate_prefix_operator", "build_AND", "build_OR", 
-		"arrow_operator", "range_operator", "same_type_equals", "binary_operator", 
-		"prefix_operator", "postfix_operator", "operator_name", "operator_character", 
-		"operator_head", "dot_operator_head", "dot_operator_character", "literal", 
-		"numeric_literal", "boolean_literal", "nil_literal", "integer_literal", 
-		"string_literal"
+		"tuple_type_element", "element_name", "tuple_label_name", "protocol_composition_type", 
+		"protocol_identifier_list", "protocol_identifier", "type_inheritance_clause", 
+		"type_inheritance_list", "class_requirement", "identifier", "identifier_declaration_context", 
+		"identifier_argument_context", "identifier_list", "context_sensitive_keyword", 
+		"declaration_allowed_keyword", "argument_allowed_keyword", "assignment_operator", 
+		"negate_prefix_operator", "build_AND", "build_OR", "arrow_operator", "range_operator", 
+		"same_type_equals", "binary_operator", "prefix_operator", "postfix_operator", 
+		"operator_name", "operator_character", "operator_head", "dot_operator_head", 
+		"dot_operator_character", "literal", "numeric_literal", "boolean_literal", 
+		"nil_literal", "integer_literal", "string_literal"
 	]
 
 	private static let _LITERAL_NAMES: [String?] = [
@@ -368,21 +372,21 @@ open class SwiftParser: Parser {
 		do {
 			var _alt:Int
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(521)
+		 	setState(531)
 		 	try _errHandler.sync(self)
 		 	_alt = try getInterpreter().adaptivePredict(_input,0,_ctx)
 		 	while (_alt != 2 && _alt != ATN.INVALID_ALT_NUMBER) {
 		 		if ( _alt==1 ) {
-		 			setState(518)
+		 			setState(528)
 		 			try statement()
 
 		 	 
 		 		}
-		 		setState(523)
+		 		setState(533)
 		 		try _errHandler.sync(self)
 		 		_alt = try getInterpreter().adaptivePredict(_input,0,_ctx)
 		 	}
-		 	setState(524)
+		 	setState(534)
 		 	try match(SwiftParser.Tokens.EOF.rawValue)
 
 		}
@@ -455,18 +459,18 @@ open class SwiftParser: Parser {
 	    		try! exitRule()
 	    }
 		do {
-		 	setState(559)
+		 	setState(569)
 		 	try _errHandler.sync(self)
 		 	switch(try getInterpreter().adaptivePredict(_input,9, _ctx)) {
 		 	case 1:
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(526)
+		 		setState(536)
 		 		try expression()
-		 		setState(528)
+		 		setState(538)
 		 		try _errHandler.sync(self)
 		 		switch (try getInterpreter().adaptivePredict(_input,1,_ctx)) {
 		 		case 1:
-		 			setState(527)
+		 			setState(537)
 		 			try match(SwiftParser.Tokens.SEMI.rawValue)
 
 		 			break
@@ -476,13 +480,13 @@ open class SwiftParser: Parser {
 		 		break
 		 	case 2:
 		 		try enterOuterAlt(_localctx, 2)
-		 		setState(530)
+		 		setState(540)
 		 		try declaration()
-		 		setState(532)
+		 		setState(542)
 		 		try _errHandler.sync(self)
 		 		switch (try getInterpreter().adaptivePredict(_input,2,_ctx)) {
 		 		case 1:
-		 			setState(531)
+		 			setState(541)
 		 			try match(SwiftParser.Tokens.SEMI.rawValue)
 
 		 			break
@@ -492,13 +496,13 @@ open class SwiftParser: Parser {
 		 		break
 		 	case 3:
 		 		try enterOuterAlt(_localctx, 3)
-		 		setState(534)
+		 		setState(544)
 		 		try loop_statement()
-		 		setState(536)
+		 		setState(546)
 		 		try _errHandler.sync(self)
 		 		switch (try getInterpreter().adaptivePredict(_input,3,_ctx)) {
 		 		case 1:
-		 			setState(535)
+		 			setState(545)
 		 			try match(SwiftParser.Tokens.SEMI.rawValue)
 
 		 			break
@@ -508,13 +512,13 @@ open class SwiftParser: Parser {
 		 		break
 		 	case 4:
 		 		try enterOuterAlt(_localctx, 4)
-		 		setState(538)
+		 		setState(548)
 		 		try branch_statement()
-		 		setState(540)
+		 		setState(550)
 		 		try _errHandler.sync(self)
 		 		switch (try getInterpreter().adaptivePredict(_input,4,_ctx)) {
 		 		case 1:
-		 			setState(539)
+		 			setState(549)
 		 			try match(SwiftParser.Tokens.SEMI.rawValue)
 
 		 			break
@@ -524,13 +528,13 @@ open class SwiftParser: Parser {
 		 		break
 		 	case 5:
 		 		try enterOuterAlt(_localctx, 5)
-		 		setState(542)
+		 		setState(552)
 		 		try labeled_statement()
-		 		setState(544)
+		 		setState(554)
 		 		try _errHandler.sync(self)
 		 		switch (try getInterpreter().adaptivePredict(_input,5,_ctx)) {
 		 		case 1:
-		 			setState(543)
+		 			setState(553)
 		 			try match(SwiftParser.Tokens.SEMI.rawValue)
 
 		 			break
@@ -540,13 +544,13 @@ open class SwiftParser: Parser {
 		 		break
 		 	case 6:
 		 		try enterOuterAlt(_localctx, 6)
-		 		setState(546)
+		 		setState(556)
 		 		try control_transfer_statement()
-		 		setState(548)
+		 		setState(558)
 		 		try _errHandler.sync(self)
 		 		switch (try getInterpreter().adaptivePredict(_input,6,_ctx)) {
 		 		case 1:
-		 			setState(547)
+		 			setState(557)
 		 			try match(SwiftParser.Tokens.SEMI.rawValue)
 
 		 			break
@@ -556,13 +560,13 @@ open class SwiftParser: Parser {
 		 		break
 		 	case 7:
 		 		try enterOuterAlt(_localctx, 7)
-		 		setState(550)
+		 		setState(560)
 		 		try defer_statement()
-		 		setState(552)
+		 		setState(562)
 		 		try _errHandler.sync(self)
 		 		switch (try getInterpreter().adaptivePredict(_input,7,_ctx)) {
 		 		case 1:
-		 			setState(551)
+		 			setState(561)
 		 			try match(SwiftParser.Tokens.SEMI.rawValue)
 
 		 			break
@@ -572,13 +576,13 @@ open class SwiftParser: Parser {
 		 		break
 		 	case 8:
 		 		try enterOuterAlt(_localctx, 8)
-		 		setState(554)
+		 		setState(564)
 		 		try do_statement()
-		 		setState(556)
+		 		setState(566)
 		 		try _errHandler.sync(self)
 		 		switch (try getInterpreter().adaptivePredict(_input,8,_ctx)) {
 		 		case 1:
-		 			setState(555)
+		 			setState(565)
 		 			try match(SwiftParser.Tokens.SEMI.rawValue)
 
 		 			break
@@ -588,7 +592,7 @@ open class SwiftParser: Parser {
 		 		break
 		 	case 9:
 		 		try enterOuterAlt(_localctx, 9)
-		 		setState(558)
+		 		setState(568)
 		 		try compiler_control_statement()
 
 		 		break
@@ -645,13 +649,13 @@ open class SwiftParser: Parser {
 		do {
 			var _alt:Int
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(562); 
+		 	setState(572); 
 		 	try _errHandler.sync(self)
 		 	_alt = 1;
 		 	repeat {
 		 		switch (_alt) {
 		 		case 1:
-		 			setState(561)
+		 			setState(571)
 		 			try statement()
 
 
@@ -659,7 +663,7 @@ open class SwiftParser: Parser {
 		 		default:
 		 			throw try ANTLRException.recognition(e: NoViableAltException(self))
 		 		}
-		 		setState(564); 
+		 		setState(574); 
 		 		try _errHandler.sync(self)
 		 		_alt = try getInterpreter().adaptivePredict(_input,10,_ctx)
 		 	} while (_alt != 2 && _alt !=  ATN.INVALID_ALT_NUMBER)
@@ -719,30 +723,30 @@ open class SwiftParser: Parser {
 	    		try! exitRule()
 	    }
 		do {
-		 	setState(570)
+		 	setState(580)
 		 	try _errHandler.sync(self)
 		 	switch(try getInterpreter().adaptivePredict(_input,11, _ctx)) {
 		 	case 1:
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(566)
+		 		setState(576)
 		 		try for_statement()
 
 		 		break
 		 	case 2:
 		 		try enterOuterAlt(_localctx, 2)
-		 		setState(567)
+		 		setState(577)
 		 		try for_in_statement()
 
 		 		break
 		 	case 3:
 		 		try enterOuterAlt(_localctx, 3)
-		 		setState(568)
+		 		setState(578)
 		 		try while_statement()
 
 		 		break
 		 	case 4:
 		 		try enterOuterAlt(_localctx, 4)
-		 		setState(569)
+		 		setState(579)
 		 		try repeat_while_statement()
 
 		 		break
@@ -803,63 +807,31 @@ open class SwiftParser: Parser {
 	    		try! exitRule()
 	    }
 		do {
-		 	setState(600)
+		 	setState(610)
 		 	try _errHandler.sync(self)
 		 	switch(try getInterpreter().adaptivePredict(_input,18, _ctx)) {
 		 	case 1:
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(572)
+		 		setState(582)
 		 		try match(SwiftParser.Tokens.T__0.rawValue)
-		 		setState(574)
+		 		setState(584)
 		 		try _errHandler.sync(self)
 		 		switch (try getInterpreter().adaptivePredict(_input,12,_ctx)) {
 		 		case 1:
-		 			setState(573)
+		 			setState(583)
 		 			try for_init()
 
 		 			break
 		 		default: break
 		 		}
-		 		setState(576)
+		 		setState(586)
 		 		try match(SwiftParser.Tokens.SEMI.rawValue)
-		 		setState(578)
+		 		setState(588)
 		 		try _errHandler.sync(self)
 		 		switch (try getInterpreter().adaptivePredict(_input,13,_ctx)) {
 		 		case 1:
-		 			setState(577)
-		 			try expression()
-
-		 			break
-		 		default: break
-		 		}
-		 		setState(580)
-		 		try match(SwiftParser.Tokens.SEMI.rawValue)
-		 		setState(582)
-		 		try _errHandler.sync(self)
-		 		switch (try getInterpreter().adaptivePredict(_input,14,_ctx)) {
-		 		case 1:
-		 			setState(581)
-		 			try expression()
-
-		 			break
-		 		default: break
-		 		}
-		 		setState(584)
-		 		try code_block()
-
-		 		break
-		 	case 2:
-		 		try enterOuterAlt(_localctx, 2)
-		 		setState(585)
-		 		try match(SwiftParser.Tokens.T__0.rawValue)
-		 		setState(586)
-		 		try match(SwiftParser.Tokens.LPAREN.rawValue)
-		 		setState(588)
-		 		try _errHandler.sync(self)
-		 		switch (try getInterpreter().adaptivePredict(_input,15,_ctx)) {
-		 		case 1:
 		 			setState(587)
-		 			try for_init()
+		 			try expression()
 
 		 			break
 		 		default: break
@@ -868,7 +840,7 @@ open class SwiftParser: Parser {
 		 		try match(SwiftParser.Tokens.SEMI.rawValue)
 		 		setState(592)
 		 		try _errHandler.sync(self)
-		 		switch (try getInterpreter().adaptivePredict(_input,16,_ctx)) {
+		 		switch (try getInterpreter().adaptivePredict(_input,14,_ctx)) {
 		 		case 1:
 		 			setState(591)
 		 			try expression()
@@ -877,20 +849,52 @@ open class SwiftParser: Parser {
 		 		default: break
 		 		}
 		 		setState(594)
-		 		try match(SwiftParser.Tokens.SEMI.rawValue)
+		 		try code_block()
+
+		 		break
+		 	case 2:
+		 		try enterOuterAlt(_localctx, 2)
+		 		setState(595)
+		 		try match(SwiftParser.Tokens.T__0.rawValue)
 		 		setState(596)
+		 		try match(SwiftParser.Tokens.LPAREN.rawValue)
+		 		setState(598)
 		 		try _errHandler.sync(self)
-		 		switch (try getInterpreter().adaptivePredict(_input,17,_ctx)) {
+		 		switch (try getInterpreter().adaptivePredict(_input,15,_ctx)) {
 		 		case 1:
-		 			setState(595)
+		 			setState(597)
+		 			try for_init()
+
+		 			break
+		 		default: break
+		 		}
+		 		setState(600)
+		 		try match(SwiftParser.Tokens.SEMI.rawValue)
+		 		setState(602)
+		 		try _errHandler.sync(self)
+		 		switch (try getInterpreter().adaptivePredict(_input,16,_ctx)) {
+		 		case 1:
+		 			setState(601)
 		 			try expression()
 
 		 			break
 		 		default: break
 		 		}
-		 		setState(598)
+		 		setState(604)
+		 		try match(SwiftParser.Tokens.SEMI.rawValue)
+		 		setState(606)
+		 		try _errHandler.sync(self)
+		 		switch (try getInterpreter().adaptivePredict(_input,17,_ctx)) {
+		 		case 1:
+		 			setState(605)
+		 			try expression()
+
+		 			break
+		 		default: break
+		 		}
+		 		setState(608)
 		 		try match(SwiftParser.Tokens.RPAREN.rawValue)
-		 		setState(599)
+		 		setState(609)
 		 		try code_block()
 
 		 		break
@@ -945,18 +949,18 @@ open class SwiftParser: Parser {
 	    		try! exitRule()
 	    }
 		do {
-		 	setState(604)
+		 	setState(614)
 		 	try _errHandler.sync(self)
 		 	switch(try getInterpreter().adaptivePredict(_input,19, _ctx)) {
 		 	case 1:
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(602)
+		 		setState(612)
 		 		try variable_declaration()
 
 		 		break
 		 	case 2:
 		 		try enterOuterAlt(_localctx, 2)
-		 		setState(603)
+		 		setState(613)
 		 		try expression_list()
 
 		 		break
@@ -1019,25 +1023,25 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(606)
+		 	setState(616)
 		 	try match(SwiftParser.Tokens.T__0.rawValue)
-		 	setState(608)
+		 	setState(618)
 		 	try _errHandler.sync(self)
 		 	switch (try getInterpreter().adaptivePredict(_input,20,_ctx)) {
 		 	case 1:
-		 		setState(607)
+		 		setState(617)
 		 		try match(SwiftParser.Tokens.T__1.rawValue)
 
 		 		break
 		 	default: break
 		 	}
-		 	setState(610)
+		 	setState(620)
 		 	try pattern(0)
-		 	setState(611)
+		 	setState(621)
 		 	try match(SwiftParser.Tokens.T__2.rawValue)
-		 	setState(612)
+		 	setState(622)
 		 	try expression()
-		 	setState(614)
+		 	setState(624)
 		 	try _errHandler.sync(self)
 		 	_la = try _input.LA(1)
 		 	if (//closure
@@ -1045,12 +1049,12 @@ open class SwiftParser: Parser {
 		 	      let testSet: Bool = _la == SwiftParser.Tokens.T__12.rawValue
 		 	      return testSet
 		 	 }()) {
-		 		setState(613)
+		 		setState(623)
 		 		try where_clause()
 
 		 	}
 
-		 	setState(616)
+		 	setState(626)
 		 	try code_block()
 
 		}
@@ -1103,11 +1107,11 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(618)
+		 	setState(628)
 		 	try match(SwiftParser.Tokens.T__3.rawValue)
-		 	setState(619)
+		 	setState(629)
 		 	try condition_clause()
-		 	setState(620)
+		 	setState(630)
 		 	try code_block()
 
 		}
@@ -1162,38 +1166,38 @@ open class SwiftParser: Parser {
 	    		try! exitRule()
 	    }
 		do {
-		 	setState(632)
+		 	setState(642)
 		 	try _errHandler.sync(self)
 		 	switch(try getInterpreter().adaptivePredict(_input,22, _ctx)) {
 		 	case 1:
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(622)
+		 		setState(632)
 		 		try expression()
 
 		 		break
 		 	case 2:
 		 		try enterOuterAlt(_localctx, 2)
-		 		setState(623)
+		 		setState(633)
 		 		try expression()
-		 		setState(624)
+		 		setState(634)
 		 		try match(SwiftParser.Tokens.COMMA.rawValue)
-		 		setState(625)
+		 		setState(635)
 		 		try condition_list()
 
 		 		break
 		 	case 3:
 		 		try enterOuterAlt(_localctx, 3)
-		 		setState(627)
+		 		setState(637)
 		 		try condition_list()
 
 		 		break
 		 	case 4:
 		 		try enterOuterAlt(_localctx, 4)
-		 		setState(628)
+		 		setState(638)
 		 		try availability_condition()
-		 		setState(629)
+		 		setState(639)
 		 		try match(SwiftParser.Tokens.COMMA.rawValue)
-		 		setState(630)
+		 		setState(640)
 		 		try expression()
 
 		 		break
@@ -1250,9 +1254,9 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(634)
+		 	setState(644)
 		 	try condition()
-		 	setState(639)
+		 	setState(649)
 		 	try _errHandler.sync(self)
 		 	_la = try _input.LA(1)
 		 	while (//closure
@@ -1260,13 +1264,13 @@ open class SwiftParser: Parser {
 		 	      let testSet: Bool = _la == SwiftParser.Tokens.COMMA.rawValue
 		 	      return testSet
 		 	 }()) {
-		 		setState(635)
+		 		setState(645)
 		 		try match(SwiftParser.Tokens.COMMA.rawValue)
-		 		setState(636)
+		 		setState(646)
 		 		try condition()
 
 
-		 		setState(641)
+		 		setState(651)
 		 		try _errHandler.sync(self)
 		 		_la = try _input.LA(1)
 		 	}
@@ -1326,30 +1330,30 @@ open class SwiftParser: Parser {
 	    		try! exitRule()
 	    }
 		do {
-		 	setState(646)
+		 	setState(656)
 		 	try _errHandler.sync(self)
 		 	switch(try getInterpreter().adaptivePredict(_input,24, _ctx)) {
 		 	case 1:
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(642)
+		 		setState(652)
 		 		try expression()
 
 		 		break
 		 	case 2:
 		 		try enterOuterAlt(_localctx, 2)
-		 		setState(643)
+		 		setState(653)
 		 		try availability_condition()
 
 		 		break
 		 	case 3:
 		 		try enterOuterAlt(_localctx, 3)
-		 		setState(644)
+		 		setState(654)
 		 		try case_condition()
 
 		 		break
 		 	case 4:
 		 		try enterOuterAlt(_localctx, 4)
-		 		setState(645)
+		 		setState(655)
 		 		try optional_binding_condition()
 
 		 		break
@@ -1409,13 +1413,13 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(648)
+		 	setState(658)
 		 	try match(SwiftParser.Tokens.T__1.rawValue)
-		 	setState(649)
+		 	setState(659)
 		 	try pattern(0)
-		 	setState(650)
+		 	setState(660)
 		 	try initializer()
-		 	setState(652)
+		 	setState(662)
 		 	try _errHandler.sync(self)
 		 	_la = try _input.LA(1)
 		 	if (//closure
@@ -1423,7 +1427,7 @@ open class SwiftParser: Parser {
 		 	      let testSet: Bool = _la == SwiftParser.Tokens.T__12.rawValue
 		 	      return testSet
 		 	 }()) {
-		 		setState(651)
+		 		setState(661)
 		 		try where_clause()
 
 		 	}
@@ -1483,19 +1487,19 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(654)
+		 	setState(664)
 		 	try optional_binding_head()
-		 	setState(656)
+		 	setState(666)
 		 	try _errHandler.sync(self)
 		 	switch (try getInterpreter().adaptivePredict(_input,26,_ctx)) {
 		 	case 1:
-		 		setState(655)
+		 		setState(665)
 		 		try optional_binding_continuation_list()
 
 		 		break
 		 	default: break
 		 	}
-		 	setState(659)
+		 	setState(669)
 		 	try _errHandler.sync(self)
 		 	_la = try _input.LA(1)
 		 	if (//closure
@@ -1503,7 +1507,7 @@ open class SwiftParser: Parser {
 		 	      let testSet: Bool = _la == SwiftParser.Tokens.T__12.rawValue
 		 	      return testSet
 		 	 }()) {
-		 		setState(658)
+		 		setState(668)
 		 		try where_clause()
 
 		 	}
@@ -1558,27 +1562,27 @@ open class SwiftParser: Parser {
 	    		try! exitRule()
 	    }
 		do {
-		 	setState(669)
+		 	setState(679)
 		 	try _errHandler.sync(self)
 		 	switch (SwiftParser.Tokens(rawValue: try _input.LA(1))!) {
 		 	case .T__4:
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(661)
+		 		setState(671)
 		 		try match(SwiftParser.Tokens.T__4.rawValue)
-		 		setState(662)
+		 		setState(672)
 		 		try pattern(0)
-		 		setState(663)
+		 		setState(673)
 		 		try initializer()
 
 		 		break
 
 		 	case .T__5:
 		 		try enterOuterAlt(_localctx, 2)
-		 		setState(665)
+		 		setState(675)
 		 		try match(SwiftParser.Tokens.T__5.rawValue)
-		 		setState(666)
+		 		setState(676)
 		 		try pattern(0)
-		 		setState(667)
+		 		setState(677)
 		 		try initializer()
 
 		 		break
@@ -1636,23 +1640,23 @@ open class SwiftParser: Parser {
 		do {
 			var _alt:Int
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(671)
+		 	setState(681)
 		 	try match(SwiftParser.Tokens.COMMA.rawValue)
-		 	setState(672)
+		 	setState(682)
 		 	try optional_binding_continuation()
-		 	setState(677)
+		 	setState(687)
 		 	try _errHandler.sync(self)
 		 	_alt = try getInterpreter().adaptivePredict(_input,29,_ctx)
 		 	while (_alt != 2 && _alt != ATN.INVALID_ALT_NUMBER) {
 		 		if ( _alt==1 ) {
-		 			setState(673)
+		 			setState(683)
 		 			try match(SwiftParser.Tokens.COMMA.rawValue)
-		 			setState(674)
+		 			setState(684)
 		 			try optional_binding_continuation()
 
 		 	 
 		 		}
-		 		setState(679)
+		 		setState(689)
 		 		try _errHandler.sync(self)
 		 		_alt = try getInterpreter().adaptivePredict(_input,29,_ctx)
 		 	}
@@ -1709,20 +1713,20 @@ open class SwiftParser: Parser {
 	    		try! exitRule()
 	    }
 		do {
-		 	setState(684)
+		 	setState(694)
 		 	try _errHandler.sync(self)
 		 	switch(try getInterpreter().adaptivePredict(_input,30, _ctx)) {
 		 	case 1:
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(680)
+		 		setState(690)
 		 		try pattern(0)
-		 		setState(681)
+		 		setState(691)
 		 		try initializer()
 
 		 		break
 		 	case 2:
 		 		try enterOuterAlt(_localctx, 2)
-		 		setState(683)
+		 		setState(693)
 		 		try optional_binding_head()
 
 		 		break
@@ -1778,13 +1782,13 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(686)
+		 	setState(696)
 		 	try match(SwiftParser.Tokens.T__6.rawValue)
-		 	setState(687)
+		 	setState(697)
 		 	try code_block()
-		 	setState(688)
+		 	setState(698)
 		 	try match(SwiftParser.Tokens.T__3.rawValue)
-		 	setState(689)
+		 	setState(699)
 		 	try expression()
 
 		}
@@ -1839,26 +1843,26 @@ open class SwiftParser: Parser {
 	    		try! exitRule()
 	    }
 		do {
-		 	setState(694)
+		 	setState(704)
 		 	try _errHandler.sync(self)
 		 	switch (SwiftParser.Tokens(rawValue: try _input.LA(1))!) {
 		 	case .T__7:
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(691)
+		 		setState(701)
 		 		try if_statement()
 
 		 		break
 
 		 	case .T__9:
 		 		try enterOuterAlt(_localctx, 2)
-		 		setState(692)
+		 		setState(702)
 		 		try guard_statement()
 
 		 		break
 
 		 	case .T__10:
 		 		try enterOuterAlt(_localctx, 3)
-		 		setState(693)
+		 		setState(703)
 		 		try switch_statement()
 
 		 		break
@@ -1918,17 +1922,17 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(696)
+		 	setState(706)
 		 	try match(SwiftParser.Tokens.T__7.rawValue)
-		 	setState(697)
+		 	setState(707)
 		 	try condition_clause()
-		 	setState(698)
+		 	setState(708)
 		 	try code_block()
-		 	setState(700)
+		 	setState(710)
 		 	try _errHandler.sync(self)
 		 	switch (try getInterpreter().adaptivePredict(_input,32,_ctx)) {
 		 	case 1:
-		 		setState(699)
+		 		setState(709)
 		 		try else_clause()
 
 		 		break
@@ -1984,22 +1988,22 @@ open class SwiftParser: Parser {
 	    		try! exitRule()
 	    }
 		do {
-		 	setState(706)
+		 	setState(716)
 		 	try _errHandler.sync(self)
 		 	switch(try getInterpreter().adaptivePredict(_input,33, _ctx)) {
 		 	case 1:
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(702)
+		 		setState(712)
 		 		try match(SwiftParser.Tokens.T__8.rawValue)
-		 		setState(703)
+		 		setState(713)
 		 		try code_block()
 
 		 		break
 		 	case 2:
 		 		try enterOuterAlt(_localctx, 2)
-		 		setState(704)
+		 		setState(714)
 		 		try match(SwiftParser.Tokens.T__8.rawValue)
-		 		setState(705)
+		 		setState(715)
 		 		try if_statement()
 
 		 		break
@@ -2055,13 +2059,13 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(708)
+		 	setState(718)
 		 	try match(SwiftParser.Tokens.T__9.rawValue)
-		 	setState(709)
+		 	setState(719)
 		 	try condition_clause()
-		 	setState(710)
+		 	setState(720)
 		 	try match(SwiftParser.Tokens.T__8.rawValue)
-		 	setState(711)
+		 	setState(721)
 		 	try code_block()
 
 		}
@@ -2115,13 +2119,13 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(713)
+		 	setState(723)
 		 	try match(SwiftParser.Tokens.T__10.rawValue)
-		 	setState(714)
+		 	setState(724)
 		 	try expression()
-		 	setState(715)
+		 	setState(725)
 		 	try match(SwiftParser.Tokens.LCURLY.rawValue)
-		 	setState(717)
+		 	setState(727)
 		 	try _errHandler.sync(self)
 		 	_la = try _input.LA(1)
 		 	if (//closure
@@ -2129,12 +2133,12 @@ open class SwiftParser: Parser {
 		 	      let testSet: Bool = _la == SwiftParser.Tokens.T__1.rawValue || _la == SwiftParser.Tokens.T__11.rawValue
 		 	      return testSet
 		 	 }()) {
-		 		setState(716)
+		 		setState(726)
 		 		try switch_cases()
 
 		 	}
 
-		 	setState(719)
+		 	setState(729)
 		 	try match(SwiftParser.Tokens.RCURLY.rawValue)
 
 		}
@@ -2188,9 +2192,9 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(721)
+		 	setState(731)
 		 	try switch_case()
-		 	setState(723)
+		 	setState(733)
 		 	try _errHandler.sync(self)
 		 	_la = try _input.LA(1)
 		 	if (//closure
@@ -2198,7 +2202,7 @@ open class SwiftParser: Parser {
 		 	      let testSet: Bool = _la == SwiftParser.Tokens.T__1.rawValue || _la == SwiftParser.Tokens.T__11.rawValue
 		 	      return testSet
 		 	 }()) {
-		 		setState(722)
+		 		setState(732)
 		 		try switch_cases()
 
 		 	}
@@ -2256,23 +2260,23 @@ open class SwiftParser: Parser {
 	    		try! exitRule()
 	    }
 		do {
-		 	setState(731)
+		 	setState(741)
 		 	try _errHandler.sync(self)
 		 	switch (SwiftParser.Tokens(rawValue: try _input.LA(1))!) {
 		 	case .T__1:
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(725)
+		 		setState(735)
 		 		try case_label()
-		 		setState(726)
+		 		setState(736)
 		 		try statements()
 
 		 		break
 
 		 	case .T__11:
 		 		try enterOuterAlt(_localctx, 2)
-		 		setState(728)
+		 		setState(738)
 		 		try default_label()
-		 		setState(729)
+		 		setState(739)
 		 		try statements()
 
 		 		break
@@ -2326,11 +2330,11 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(733)
+		 	setState(743)
 		 	try match(SwiftParser.Tokens.T__1.rawValue)
-		 	setState(734)
+		 	setState(744)
 		 	try case_item_list()
-		 	setState(735)
+		 	setState(745)
 		 	try match(SwiftParser.Tokens.COLON.rawValue)
 
 		}
@@ -2386,14 +2390,14 @@ open class SwiftParser: Parser {
 	    		try! exitRule()
 	    }
 		do {
-		 	setState(748)
+		 	setState(758)
 		 	try _errHandler.sync(self)
 		 	switch(try getInterpreter().adaptivePredict(_input,39, _ctx)) {
 		 	case 1:
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(737)
+		 		setState(747)
 		 		try pattern(0)
-		 		setState(739)
+		 		setState(749)
 		 		try _errHandler.sync(self)
 		 		_la = try _input.LA(1)
 		 		if (//closure
@@ -2401,7 +2405,7 @@ open class SwiftParser: Parser {
 		 		      let testSet: Bool = _la == SwiftParser.Tokens.T__12.rawValue
 		 		      return testSet
 		 		 }()) {
-		 			setState(738)
+		 			setState(748)
 		 			try where_clause()
 
 		 		}
@@ -2410,9 +2414,9 @@ open class SwiftParser: Parser {
 		 		break
 		 	case 2:
 		 		try enterOuterAlt(_localctx, 2)
-		 		setState(741)
+		 		setState(751)
 		 		try pattern(0)
-		 		setState(743)
+		 		setState(753)
 		 		try _errHandler.sync(self)
 		 		_la = try _input.LA(1)
 		 		if (//closure
@@ -2420,14 +2424,14 @@ open class SwiftParser: Parser {
 		 		      let testSet: Bool = _la == SwiftParser.Tokens.T__12.rawValue
 		 		      return testSet
 		 		 }()) {
-		 			setState(742)
+		 			setState(752)
 		 			try where_clause()
 
 		 		}
 
-		 		setState(745)
+		 		setState(755)
 		 		try match(SwiftParser.Tokens.COMMA.rawValue)
-		 		setState(746)
+		 		setState(756)
 		 		try case_item_list()
 
 		 		break
@@ -2477,9 +2481,9 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(750)
+		 	setState(760)
 		 	try match(SwiftParser.Tokens.T__11.rawValue)
-		 	setState(751)
+		 	setState(761)
 		 	try match(SwiftParser.Tokens.COLON.rawValue)
 
 		}
@@ -2529,9 +2533,9 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(753)
+		 	setState(763)
 		 	try match(SwiftParser.Tokens.T__12.rawValue)
-		 	setState(754)
+		 	setState(764)
 		 	try where_expression()
 
 		}
@@ -2581,7 +2585,7 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(756)
+		 	setState(766)
 		 	try expression()
 
 		}
@@ -2639,30 +2643,30 @@ open class SwiftParser: Parser {
 	    		try! exitRule()
 	    }
 		do {
-		 	setState(767)
+		 	setState(777)
 		 	try _errHandler.sync(self)
 		 	switch(try getInterpreter().adaptivePredict(_input,40, _ctx)) {
 		 	case 1:
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(758)
+		 		setState(768)
 		 		try statement_label()
-		 		setState(759)
+		 		setState(769)
 		 		try loop_statement()
 
 		 		break
 		 	case 2:
 		 		try enterOuterAlt(_localctx, 2)
-		 		setState(761)
+		 		setState(771)
 		 		try statement_label()
-		 		setState(762)
+		 		setState(772)
 		 		try if_statement()
 
 		 		break
 		 	case 3:
 		 		try enterOuterAlt(_localctx, 3)
-		 		setState(764)
+		 		setState(774)
 		 		try statement_label()
-		 		setState(765)
+		 		setState(775)
 		 		try switch_statement()
 
 		 		break
@@ -2715,9 +2719,9 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(769)
+		 	setState(779)
 		 	try label_name()
-		 	setState(770)
+		 	setState(780)
 		 	try match(SwiftParser.Tokens.COLON.rawValue)
 
 		}
@@ -2730,8 +2734,8 @@ open class SwiftParser: Parser {
 		return _localctx
 	}
 	open class Label_nameContext:ParserRuleContext {
-		open func identifier() -> IdentifierContext? {
-			return getRuleContext(IdentifierContext.self,0)
+		open func identifier_declaration_context() -> Identifier_declaration_contextContext? {
+			return getRuleContext(Identifier_declaration_contextContext.self,0)
 		}
 		open override func getRuleIndex() -> Int { return SwiftParser.RULE_label_name }
 		override
@@ -2767,8 +2771,8 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(772)
-		 	try identifier()
+		 	setState(782)
+		 	try identifier_declaration_context()
 
 		}
 		catch ANTLRException.recognition(let re) {
@@ -2828,40 +2832,40 @@ open class SwiftParser: Parser {
 	    		try! exitRule()
 	    }
 		do {
-		 	setState(779)
+		 	setState(789)
 		 	try _errHandler.sync(self)
 		 	switch (SwiftParser.Tokens(rawValue: try _input.LA(1))!) {
 		 	case .T__13:
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(774)
+		 		setState(784)
 		 		try break_statement()
 
 		 		break
 
 		 	case .T__14:
 		 		try enterOuterAlt(_localctx, 2)
-		 		setState(775)
+		 		setState(785)
 		 		try continue_statement()
 
 		 		break
 
 		 	case .T__15:
 		 		try enterOuterAlt(_localctx, 3)
-		 		setState(776)
+		 		setState(786)
 		 		try fallthrough_statement()
 
 		 		break
 
 		 	case .T__16:
 		 		try enterOuterAlt(_localctx, 4)
-		 		setState(777)
+		 		setState(787)
 		 		try return_statement()
 
 		 		break
 
 		 	case .T__18:
 		 		try enterOuterAlt(_localctx, 5)
-		 		setState(778)
+		 		setState(788)
 		 		try throw_statement()
 
 		 		break
@@ -2915,13 +2919,13 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(781)
+		 	setState(791)
 		 	try match(SwiftParser.Tokens.T__13.rawValue)
-		 	setState(783)
+		 	setState(793)
 		 	try _errHandler.sync(self)
 		 	switch (try getInterpreter().adaptivePredict(_input,42,_ctx)) {
 		 	case 1:
-		 		setState(782)
+		 		setState(792)
 		 		try label_name()
 
 		 		break
@@ -2975,13 +2979,13 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(785)
+		 	setState(795)
 		 	try match(SwiftParser.Tokens.T__14.rawValue)
-		 	setState(787)
+		 	setState(797)
 		 	try _errHandler.sync(self)
 		 	switch (try getInterpreter().adaptivePredict(_input,43,_ctx)) {
 		 	case 1:
-		 		setState(786)
+		 		setState(796)
 		 		try label_name()
 
 		 		break
@@ -3032,7 +3036,7 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(789)
+		 	setState(799)
 		 	try match(SwiftParser.Tokens.T__15.rawValue)
 
 		}
@@ -3082,13 +3086,13 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(791)
+		 	setState(801)
 		 	try match(SwiftParser.Tokens.T__16.rawValue)
-		 	setState(793)
+		 	setState(803)
 		 	try _errHandler.sync(self)
 		 	switch (try getInterpreter().adaptivePredict(_input,44,_ctx)) {
 		 	case 1:
-		 		setState(792)
+		 		setState(802)
 		 		try expression()
 
 		 		break
@@ -3142,13 +3146,13 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(795)
+		 	setState(805)
 		 	try match(SwiftParser.Tokens.T__17.rawValue)
-		 	setState(796)
+		 	setState(806)
 		 	try match(SwiftParser.Tokens.LPAREN.rawValue)
-		 	setState(797)
+		 	setState(807)
 		 	try availability_arguments()
-		 	setState(798)
+		 	setState(808)
 		 	try match(SwiftParser.Tokens.RPAREN.rawValue)
 
 		}
@@ -3202,9 +3206,9 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(800)
+		 	setState(810)
 		 	try availability_argument()
-		 	setState(805)
+		 	setState(815)
 		 	try _errHandler.sync(self)
 		 	_la = try _input.LA(1)
 		 	while (//closure
@@ -3212,13 +3216,13 @@ open class SwiftParser: Parser {
 		 	      let testSet: Bool = _la == SwiftParser.Tokens.COMMA.rawValue
 		 	      return testSet
 		 	 }()) {
-		 		setState(801)
+		 		setState(811)
 		 		try match(SwiftParser.Tokens.COMMA.rawValue)
-		 		setState(802)
+		 		setState(812)
 		 		try availability_argument()
 
 
-		 		setState(807)
+		 		setState(817)
 		 		try _errHandler.sync(self)
 		 		_la = try _input.LA(1)
 		 	}
@@ -3269,7 +3273,7 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(808)
+		 	setState(818)
 		 	_la = try _input.LA(1)
 		 	if (!(//closure
 		 	 { () -> Bool in
@@ -3330,9 +3334,9 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(810)
+		 	setState(820)
 		 	try match(SwiftParser.Tokens.T__18.rawValue)
-		 	setState(811)
+		 	setState(821)
 		 	try expression()
 
 		}
@@ -3382,9 +3386,9 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(813)
+		 	setState(823)
 		 	try match(SwiftParser.Tokens.T__19.rawValue)
-		 	setState(814)
+		 	setState(824)
 		 	try code_block()
 
 		}
@@ -3437,15 +3441,15 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(816)
+		 	setState(826)
 		 	try match(SwiftParser.Tokens.T__20.rawValue)
-		 	setState(817)
+		 	setState(827)
 		 	try code_block()
-		 	setState(819)
+		 	setState(829)
 		 	try _errHandler.sync(self)
 		 	switch (try getInterpreter().adaptivePredict(_input,46,_ctx)) {
 		 	case 1:
-		 		setState(818)
+		 		setState(828)
 		 		try catch_clauses()
 
 		 		break
@@ -3502,13 +3506,13 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(821)
+		 	setState(831)
 		 	try catch_clause()
-		 	setState(823)
+		 	setState(833)
 		 	try _errHandler.sync(self)
 		 	switch (try getInterpreter().adaptivePredict(_input,47,_ctx)) {
 		 	case 1:
-		 		setState(822)
+		 		setState(832)
 		 		try catch_clauses()
 
 		 		break
@@ -3569,19 +3573,19 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(825)
+		 	setState(835)
 		 	try match(SwiftParser.Tokens.T__21.rawValue)
-		 	setState(827)
+		 	setState(837)
 		 	try _errHandler.sync(self)
 		 	switch (try getInterpreter().adaptivePredict(_input,48,_ctx)) {
 		 	case 1:
-		 		setState(826)
+		 		setState(836)
 		 		try pattern(0)
 
 		 		break
 		 	default: break
 		 	}
-		 	setState(830)
+		 	setState(840)
 		 	try _errHandler.sync(self)
 		 	_la = try _input.LA(1)
 		 	if (//closure
@@ -3589,12 +3593,12 @@ open class SwiftParser: Parser {
 		 	      let testSet: Bool = _la == SwiftParser.Tokens.T__12.rawValue
 		 	      return testSet
 		 	 }()) {
-		 		setState(829)
+		 		setState(839)
 		 		try where_clause()
 
 		 	}
 
-		 	setState(832)
+		 	setState(842)
 		 	try code_block()
 
 		}
@@ -3646,19 +3650,19 @@ open class SwiftParser: Parser {
 	    		try! exitRule()
 	    }
 		do {
-		 	setState(836)
+		 	setState(846)
 		 	try _errHandler.sync(self)
 		 	switch (SwiftParser.Tokens(rawValue: try _input.LA(1))!) {
 		 	case .T__22:
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(834)
+		 		setState(844)
 		 		try build_configuration_statement()
 
 		 		break
 
 		 	case .T__36:
 		 		try enterOuterAlt(_localctx, 2)
-		 		setState(835)
+		 		setState(845)
 		 		try line_control_statement()
 
 		 		break
@@ -3722,21 +3726,21 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(838)
+		 	setState(848)
 		 	try match(SwiftParser.Tokens.T__22.rawValue)
-		 	setState(839)
+		 	setState(849)
 		 	try build_configuration(0)
-		 	setState(841)
+		 	setState(851)
 		 	try _errHandler.sync(self)
 		 	switch (try getInterpreter().adaptivePredict(_input,51,_ctx)) {
 		 	case 1:
-		 		setState(840)
+		 		setState(850)
 		 		try statements()
 
 		 		break
 		 	default: break
 		 	}
-		 	setState(844)
+		 	setState(854)
 		 	try _errHandler.sync(self)
 		 	_la = try _input.LA(1)
 		 	if (//closure
@@ -3744,12 +3748,12 @@ open class SwiftParser: Parser {
 		 	      let testSet: Bool = _la == SwiftParser.Tokens.T__24.rawValue
 		 	      return testSet
 		 	 }()) {
-		 		setState(843)
+		 		setState(853)
 		 		try build_configuration_elseif_clauses()
 
 		 	}
 
-		 	setState(847)
+		 	setState(857)
 		 	try _errHandler.sync(self)
 		 	_la = try _input.LA(1)
 		 	if (//closure
@@ -3757,12 +3761,12 @@ open class SwiftParser: Parser {
 		 	      let testSet: Bool = _la == SwiftParser.Tokens.T__25.rawValue
 		 	      return testSet
 		 	 }()) {
-		 		setState(846)
+		 		setState(856)
 		 		try build_configuration_else_clause()
 
 		 	}
 
-		 	setState(849)
+		 	setState(859)
 		 	try match(SwiftParser.Tokens.T__23.rawValue)
 
 		}
@@ -3816,9 +3820,9 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(851)
+		 	setState(861)
 		 	try build_configuration_elseif_clause()
-		 	setState(853)
+		 	setState(863)
 		 	try _errHandler.sync(self)
 		 	_la = try _input.LA(1)
 		 	if (//closure
@@ -3826,7 +3830,7 @@ open class SwiftParser: Parser {
 		 	      let testSet: Bool = _la == SwiftParser.Tokens.T__24.rawValue
 		 	      return testSet
 		 	 }()) {
-		 		setState(852)
+		 		setState(862)
 		 		try build_configuration_elseif_clauses()
 
 		 	}
@@ -3882,15 +3886,15 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(855)
+		 	setState(865)
 		 	try match(SwiftParser.Tokens.T__24.rawValue)
-		 	setState(856)
+		 	setState(866)
 		 	try build_configuration(0)
-		 	setState(858)
+		 	setState(868)
 		 	try _errHandler.sync(self)
 		 	switch (try getInterpreter().adaptivePredict(_input,55,_ctx)) {
 		 	case 1:
-		 		setState(857)
+		 		setState(867)
 		 		try statements()
 
 		 		break
@@ -3944,13 +3948,13 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(860)
+		 	setState(870)
 		 	try match(SwiftParser.Tokens.T__25.rawValue)
-		 	setState(862)
+		 	setState(872)
 		 	try _errHandler.sync(self)
 		 	switch (try getInterpreter().adaptivePredict(_input,56,_ctx)) {
 		 	case 1:
-		 		setState(861)
+		 		setState(871)
 		 		try statements()
 
 		 		break
@@ -3971,8 +3975,8 @@ open class SwiftParser: Parser {
 		open func platform_testing_function() -> Platform_testing_functionContext? {
 			return getRuleContext(Platform_testing_functionContext.self,0)
 		}
-		open func identifier() -> IdentifierContext? {
-			return getRuleContext(IdentifierContext.self,0)
+		open func identifier_declaration_context() -> Identifier_declaration_contextContext? {
+			return getRuleContext(Identifier_declaration_contextContext.self,0)
 		}
 		open func boolean_literal() -> Boolean_literalContext? {
 			return getRuleContext(Boolean_literalContext.self,0)
@@ -4032,76 +4036,44 @@ open class SwiftParser: Parser {
 		do {
 			var _alt: Int
 			try enterOuterAlt(_localctx, 1)
-			setState(874)
+			setState(884)
 			try _errHandler.sync(self)
-			switch (SwiftParser.Tokens(rawValue: try _input.LA(1))!) {
-			case .T__26:fallthrough
-			case .T__27:
-				setState(865)
+			switch(try getInterpreter().adaptivePredict(_input,57, _ctx)) {
+			case 1:
+				setState(875)
 				try platform_testing_function()
 
 				break
-			case .T__44:fallthrough
-			case .T__45:fallthrough
-			case .T__46:fallthrough
-			case .T__47:fallthrough
-			case .T__51:fallthrough
-			case .T__57:fallthrough
-			case .T__58:fallthrough
-			case .T__59:fallthrough
-			case .T__60:fallthrough
-			case .T__61:fallthrough
-			case .T__62:fallthrough
-			case .T__63:fallthrough
-			case .T__64:fallthrough
-			case .T__65:fallthrough
-			case .T__66:fallthrough
-			case .T__67:fallthrough
-			case .T__68:fallthrough
-			case .T__69:fallthrough
-			case .T__70:fallthrough
-			case .T__71:fallthrough
-			case .T__72:fallthrough
-			case .T__73:fallthrough
-			case .T__74:fallthrough
-			case .T__76:fallthrough
-			case .T__79:fallthrough
-			case .T__100:fallthrough
-			case .T__101:fallthrough
-			case .Identifier:
-				setState(866)
-				try identifier()
+			case 2:
+				setState(876)
+				try identifier_declaration_context()
 
 				break
-			case .T__103:fallthrough
-			case .T__104:
-				setState(867)
+			case 3:
+				setState(877)
 				try boolean_literal()
 
 				break
-
-			case .LPAREN:
-				setState(868)
+			case 4:
+				setState(878)
 				try match(SwiftParser.Tokens.LPAREN.rawValue)
-				setState(869)
+				setState(879)
 				try build_configuration(0)
-				setState(870)
+				setState(880)
 				try match(SwiftParser.Tokens.RPAREN.rawValue)
 
 				break
-
-			case .BANG:
-				setState(872)
+			case 5:
+				setState(882)
 				try match(SwiftParser.Tokens.BANG.rawValue)
-				setState(873)
+				setState(883)
 				try build_configuration(3)
 
 				break
-			default:
-				throw try ANTLRException.recognition(e: NoViableAltException(self))
+			default: break
 			}
 			_ctx!.stop = try _input.LT(-1)
-			setState(886)
+			setState(896)
 			try _errHandler.sync(self)
 			_alt = try getInterpreter().adaptivePredict(_input,59,_ctx)
 			while (_alt != 2 && _alt != ATN.INVALID_ALT_NUMBER) {
@@ -4110,32 +4082,32 @@ open class SwiftParser: Parser {
 					   try triggerExitRuleEvent()
 					}
 					_prevctx = _localctx
-					setState(884)
+					setState(894)
 					try _errHandler.sync(self)
 					switch(try getInterpreter().adaptivePredict(_input,58, _ctx)) {
 					case 1:
 						_localctx = Build_configurationContext(_parentctx, _parentState);
 						try pushNewRecursionContext(_localctx, _startState, SwiftParser.RULE_build_configuration)
-						setState(876)
+						setState(886)
 						if (!(precpred(_ctx, 2))) {
 						    throw try ANTLRException.recognition(e:FailedPredicateException(self, "precpred(_ctx, 2)"))
 						}
-						setState(877)
+						setState(887)
 						try build_AND()
-						setState(878)
+						setState(888)
 						try build_configuration(3)
 
 						break
 					case 2:
 						_localctx = Build_configurationContext(_parentctx, _parentState);
 						try pushNewRecursionContext(_localctx, _startState, SwiftParser.RULE_build_configuration)
-						setState(880)
+						setState(890)
 						if (!(precpred(_ctx, 1))) {
 						    throw try ANTLRException.recognition(e:FailedPredicateException(self, "precpred(_ctx, 1)"))
 						}
-						setState(881)
+						setState(891)
 						try build_OR()
-						setState(882)
+						setState(892)
 						try build_configuration(2)
 
 						break
@@ -4143,7 +4115,7 @@ open class SwiftParser: Parser {
 					}
 			 
 				}
-				setState(888)
+				setState(898)
 				try _errHandler.sync(self)
 				_alt = try getInterpreter().adaptivePredict(_input,59,_ctx)
 			}
@@ -4197,31 +4169,31 @@ open class SwiftParser: Parser {
 	    		try! exitRule()
 	    }
 		do {
-		 	setState(899)
+		 	setState(909)
 		 	try _errHandler.sync(self)
 		 	switch (SwiftParser.Tokens(rawValue: try _input.LA(1))!) {
 		 	case .T__26:
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(889)
+		 		setState(899)
 		 		try match(SwiftParser.Tokens.T__26.rawValue)
-		 		setState(890)
+		 		setState(900)
 		 		try match(SwiftParser.Tokens.LPAREN.rawValue)
-		 		setState(891)
+		 		setState(901)
 		 		try operating_system()
-		 		setState(892)
+		 		setState(902)
 		 		try match(SwiftParser.Tokens.RPAREN.rawValue)
 
 		 		break
 
 		 	case .T__27:
 		 		try enterOuterAlt(_localctx, 2)
-		 		setState(894)
+		 		setState(904)
 		 		try match(SwiftParser.Tokens.T__27.rawValue)
-		 		setState(895)
+		 		setState(905)
 		 		try match(SwiftParser.Tokens.LPAREN.rawValue)
-		 		setState(896)
+		 		setState(906)
 		 		try architecture()
-		 		setState(897)
+		 		setState(907)
 		 		try match(SwiftParser.Tokens.RPAREN.rawValue)
 
 		 		break
@@ -4273,7 +4245,7 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(901)
+		 	setState(911)
 		 	_la = try _input.LA(1)
 		 	if (!(//closure
 		 	 { () -> Bool in
@@ -4335,7 +4307,7 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(903)
+		 	setState(913)
 		 	_la = try _input.LA(1)
 		 	if (!(//closure
 		 	 { () -> Bool in
@@ -4401,22 +4373,22 @@ open class SwiftParser: Parser {
 	    		try! exitRule()
 	    }
 		do {
-		 	setState(910)
+		 	setState(920)
 		 	try _errHandler.sync(self)
 		 	switch(try getInterpreter().adaptivePredict(_input,61, _ctx)) {
 		 	case 1:
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(905)
+		 		setState(915)
 		 		try match(SwiftParser.Tokens.T__36.rawValue)
 
 		 		break
 		 	case 2:
 		 		try enterOuterAlt(_localctx, 2)
-		 		setState(906)
+		 		setState(916)
 		 		try match(SwiftParser.Tokens.T__36.rawValue)
-		 		setState(907)
+		 		setState(917)
 		 		try line_number()
-		 		setState(908)
+		 		setState(918)
 		 		try file_name()
 
 		 		break
@@ -4469,7 +4441,7 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(912)
+		 	setState(922)
 		 	try integer_literal()
 
 		}
@@ -4517,7 +4489,7 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(914)
+		 	setState(924)
 		 	try match(SwiftParser.Tokens.Static_string_literal.rawValue)
 
 		}
@@ -4567,11 +4539,11 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(916)
+		 	setState(926)
 		 	try match(SwiftParser.Tokens.LT.rawValue)
-		 	setState(917)
+		 	setState(927)
 		 	try generic_parameter_list()
-		 	setState(918)
+		 	setState(928)
 		 	try match(SwiftParser.Tokens.GT.rawValue)
 
 		}
@@ -4625,9 +4597,9 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(920)
+		 	setState(930)
 		 	try generic_parameter()
-		 	setState(925)
+		 	setState(935)
 		 	try _errHandler.sync(self)
 		 	_la = try _input.LA(1)
 		 	while (//closure
@@ -4635,13 +4607,13 @@ open class SwiftParser: Parser {
 		 	      let testSet: Bool = _la == SwiftParser.Tokens.COMMA.rawValue
 		 	      return testSet
 		 	 }()) {
-		 		setState(921)
+		 		setState(931)
 		 		try match(SwiftParser.Tokens.COMMA.rawValue)
-		 		setState(922)
+		 		setState(932)
 		 		try generic_parameter()
 
 
-		 		setState(927)
+		 		setState(937)
 		 		try _errHandler.sync(self)
 		 		_la = try _input.LA(1)
 		 	}
@@ -4698,32 +4670,32 @@ open class SwiftParser: Parser {
 	    		try! exitRule()
 	    }
 		do {
-		 	setState(937)
+		 	setState(947)
 		 	try _errHandler.sync(self)
 		 	switch(try getInterpreter().adaptivePredict(_input,63, _ctx)) {
 		 	case 1:
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(928)
+		 		setState(938)
 		 		try type_name()
 
 		 		break
 		 	case 2:
 		 		try enterOuterAlt(_localctx, 2)
-		 		setState(929)
+		 		setState(939)
 		 		try type_name()
-		 		setState(930)
+		 		setState(940)
 		 		try match(SwiftParser.Tokens.COLON.rawValue)
-		 		setState(931)
+		 		setState(941)
 		 		try type_identifier()
 
 		 		break
 		 	case 3:
 		 		try enterOuterAlt(_localctx, 3)
-		 		setState(933)
+		 		setState(943)
 		 		try type_name()
-		 		setState(934)
+		 		setState(944)
 		 		try match(SwiftParser.Tokens.COLON.rawValue)
-		 		setState(935)
+		 		setState(945)
 		 		try protocol_composition_type()
 
 		 		break
@@ -4776,9 +4748,9 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(939)
+		 	setState(949)
 		 	try match(SwiftParser.Tokens.T__12.rawValue)
-		 	setState(940)
+		 	setState(950)
 		 	try requirement_list()
 
 		}
@@ -4830,22 +4802,22 @@ open class SwiftParser: Parser {
 	    		try! exitRule()
 	    }
 		do {
-		 	setState(947)
+		 	setState(957)
 		 	try _errHandler.sync(self)
 		 	switch(try getInterpreter().adaptivePredict(_input,64, _ctx)) {
 		 	case 1:
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(942)
+		 		setState(952)
 		 		try requirement()
 
 		 		break
 		 	case 2:
 		 		try enterOuterAlt(_localctx, 2)
-		 		setState(943)
+		 		setState(953)
 		 		try requirement()
-		 		setState(944)
+		 		setState(954)
 		 		try match(SwiftParser.Tokens.COMMA.rawValue)
-		 		setState(945)
+		 		setState(955)
 		 		try requirement_list()
 
 		 		break
@@ -4900,18 +4872,18 @@ open class SwiftParser: Parser {
 	    		try! exitRule()
 	    }
 		do {
-		 	setState(951)
+		 	setState(961)
 		 	try _errHandler.sync(self)
 		 	switch(try getInterpreter().adaptivePredict(_input,65, _ctx)) {
 		 	case 1:
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(949)
+		 		setState(959)
 		 		try conformance_requirement()
 
 		 		break
 		 	case 2:
 		 		try enterOuterAlt(_localctx, 2)
-		 		setState(950)
+		 		setState(960)
 		 		try same_type_requirement()
 
 		 		break
@@ -4969,26 +4941,26 @@ open class SwiftParser: Parser {
 	    		try! exitRule()
 	    }
 		do {
-		 	setState(961)
+		 	setState(971)
 		 	try _errHandler.sync(self)
 		 	switch(try getInterpreter().adaptivePredict(_input,66, _ctx)) {
 		 	case 1:
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(953)
+		 		setState(963)
 		 		try type_identifier()
-		 		setState(954)
+		 		setState(964)
 		 		try match(SwiftParser.Tokens.COLON.rawValue)
-		 		setState(955)
+		 		setState(965)
 		 		try type_identifier()
 
 		 		break
 		 	case 2:
 		 		try enterOuterAlt(_localctx, 2)
-		 		setState(957)
+		 		setState(967)
 		 		try type_identifier()
-		 		setState(958)
+		 		setState(968)
 		 		try match(SwiftParser.Tokens.COLON.rawValue)
-		 		setState(959)
+		 		setState(969)
 		 		try protocol_composition_type()
 
 		 		break
@@ -5047,11 +5019,11 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(963)
+		 	setState(973)
 		 	try type_identifier()
-		 	setState(964)
+		 	setState(974)
 		 	try same_type_equals()
-		 	setState(965)
+		 	setState(975)
 		 	try type(0)
 
 		}
@@ -5101,11 +5073,11 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(967)
+		 	setState(977)
 		 	try match(SwiftParser.Tokens.LT.rawValue)
-		 	setState(968)
+		 	setState(978)
 		 	try generic_argument_list()
-		 	setState(969)
+		 	setState(979)
 		 	try match(SwiftParser.Tokens.GT.rawValue)
 
 		}
@@ -5159,9 +5131,9 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(971)
+		 	setState(981)
 		 	try generic_argument()
-		 	setState(976)
+		 	setState(986)
 		 	try _errHandler.sync(self)
 		 	_la = try _input.LA(1)
 		 	while (//closure
@@ -5169,13 +5141,13 @@ open class SwiftParser: Parser {
 		 	      let testSet: Bool = _la == SwiftParser.Tokens.COMMA.rawValue
 		 	      return testSet
 		 	 }()) {
-		 		setState(972)
+		 		setState(982)
 		 		try match(SwiftParser.Tokens.COMMA.rawValue)
-		 		setState(973)
+		 		setState(983)
 		 		try generic_argument()
 
 
-		 		setState(978)
+		 		setState(988)
 		 		try _errHandler.sync(self)
 		 		_la = try _input.LA(1)
 		 	}
@@ -5227,7 +5199,7 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(979)
+		 	setState(989)
 		 	try type(0)
 
 		}
@@ -5318,96 +5290,96 @@ open class SwiftParser: Parser {
 	    		try! exitRule()
 	    }
 		do {
-		 	setState(996)
+		 	setState(1006)
 		 	try _errHandler.sync(self)
 		 	switch(try getInterpreter().adaptivePredict(_input,68, _ctx)) {
 		 	case 1:
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(981)
+		 		setState(991)
 		 		try import_declaration()
 
 		 		break
 		 	case 2:
 		 		try enterOuterAlt(_localctx, 2)
-		 		setState(982)
+		 		setState(992)
 		 		try constant_declaration()
 
 		 		break
 		 	case 3:
 		 		try enterOuterAlt(_localctx, 3)
-		 		setState(983)
+		 		setState(993)
 		 		try variable_declaration()
 
 		 		break
 		 	case 4:
 		 		try enterOuterAlt(_localctx, 4)
-		 		setState(984)
+		 		setState(994)
 		 		try typealias_declaration()
 
 		 		break
 		 	case 5:
 		 		try enterOuterAlt(_localctx, 5)
-		 		setState(985)
+		 		setState(995)
 		 		try function_declaration()
 
 		 		break
 		 	case 6:
 		 		try enterOuterAlt(_localctx, 6)
-		 		setState(986)
+		 		setState(996)
 		 		try enum_declaration()
 
 		 		break
 		 	case 7:
 		 		try enterOuterAlt(_localctx, 7)
-		 		setState(987)
+		 		setState(997)
 		 		try struct_declaration()
 
 		 		break
 		 	case 8:
 		 		try enterOuterAlt(_localctx, 8)
-		 		setState(988)
+		 		setState(998)
 		 		try class_declaration()
 
 		 		break
 		 	case 9:
 		 		try enterOuterAlt(_localctx, 9)
-		 		setState(989)
+		 		setState(999)
 		 		try protocol_declaration()
 
 		 		break
 		 	case 10:
 		 		try enterOuterAlt(_localctx, 10)
-		 		setState(990)
+		 		setState(1000)
 		 		try initializer_declaration()
 
 		 		break
 		 	case 11:
 		 		try enterOuterAlt(_localctx, 11)
-		 		setState(991)
+		 		setState(1001)
 		 		try deinitializer_declaration()
 
 		 		break
 		 	case 12:
 		 		try enterOuterAlt(_localctx, 12)
-		 		setState(992)
+		 		setState(1002)
 		 		try extension_declaration()
 
 		 		break
 		 	case 13:
 		 		try enterOuterAlt(_localctx, 13)
-		 		setState(993)
+		 		setState(1003)
 		 		try subscript_declaration()
 
 		 		break
 		 	case 14:
 		 		try enterOuterAlt(_localctx, 14)
-		 		setState(994)
+		 		setState(1004)
 		 		try operator_declaration()
 
 		 		break
 		 	case 15:
 		 		try enterOuterAlt(_localctx, 15)
-		 		setState(995)
+		 		setState(1005)
 		 		try compiler_control_statement()
 
 		 		break
@@ -5464,21 +5436,21 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(999) 
+		 	setState(1009) 
 		 	try _errHandler.sync(self)
 		 	_la = try _input.LA(1)
 		 	repeat {
-		 		setState(998)
+		 		setState(1008)
 		 		try declaration()
 
 
-		 		setState(1001); 
+		 		setState(1011); 
 		 		try _errHandler.sync(self)
 		 		_la = try _input.LA(1)
 		 	} while (//closure
 		 	 { () -> Bool in
 		 	      var testSet: Bool = {  () -> Bool in
-		 	   let testArray: [Int] = [_la, SwiftParser.Tokens.T__4.rawValue,SwiftParser.Tokens.T__5.rawValue,SwiftParser.Tokens.T__22.rawValue,SwiftParser.Tokens.T__36.rawValue,SwiftParser.Tokens.T__37.rawValue,SwiftParser.Tokens.T__38.rawValue,SwiftParser.Tokens.T__39.rawValue,SwiftParser.Tokens.T__40.rawValue,SwiftParser.Tokens.T__41.rawValue,SwiftParser.Tokens.T__42.rawValue,SwiftParser.Tokens.T__43.rawValue,SwiftParser.Tokens.T__44.rawValue,SwiftParser.Tokens.T__45.rawValue,SwiftParser.Tokens.T__46.rawValue,SwiftParser.Tokens.T__47.rawValue,SwiftParser.Tokens.T__51.rawValue,SwiftParser.Tokens.T__53.rawValue,SwiftParser.Tokens.T__54.rawValue,SwiftParser.Tokens.T__55.rawValue,SwiftParser.Tokens.T__56.rawValue,SwiftParser.Tokens.T__57.rawValue,SwiftParser.Tokens.T__58.rawValue,SwiftParser.Tokens.T__59.rawValue,SwiftParser.Tokens.T__60.rawValue,SwiftParser.Tokens.T__61.rawValue,SwiftParser.Tokens.T__62.rawValue]
+		 	   let testArray: [Int] = [_la, SwiftParser.Tokens.T__4.rawValue,SwiftParser.Tokens.T__5.rawValue,SwiftParser.Tokens.T__22.rawValue,SwiftParser.Tokens.T__36.rawValue,SwiftParser.Tokens.T__37.rawValue,SwiftParser.Tokens.T__38.rawValue,SwiftParser.Tokens.T__39.rawValue,SwiftParser.Tokens.T__40.rawValue,SwiftParser.Tokens.T__41.rawValue,SwiftParser.Tokens.T__42.rawValue,SwiftParser.Tokens.T__43.rawValue,SwiftParser.Tokens.T__44.rawValue,SwiftParser.Tokens.T__45.rawValue,SwiftParser.Tokens.T__46.rawValue,SwiftParser.Tokens.T__47.rawValue,SwiftParser.Tokens.T__51.rawValue,SwiftParser.Tokens.T__53.rawValue,SwiftParser.Tokens.T__54.rawValue,SwiftParser.Tokens.T__55.rawValue,SwiftParser.Tokens.T__56.rawValue,SwiftParser.Tokens.T__57.rawValue,SwiftParser.Tokens.T__59.rawValue,SwiftParser.Tokens.T__60.rawValue,SwiftParser.Tokens.T__61.rawValue,SwiftParser.Tokens.T__62.rawValue]
 		 	    return  Utils.testBitLeftShiftArray(testArray, 0)
 		 	}()
 		 	          testSet = testSet || {  () -> Bool in
@@ -5535,11 +5507,11 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1004)
+		 	setState(1014)
 		 	try _errHandler.sync(self)
 		 	switch (try getInterpreter().adaptivePredict(_input,70,_ctx)) {
 		 	case 1:
-		 		setState(1003)
+		 		setState(1013)
 		 		try statements()
 
 		 		break
@@ -5593,19 +5565,19 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1006)
+		 	setState(1016)
 		 	try match(SwiftParser.Tokens.LCURLY.rawValue)
-		 	setState(1008)
+		 	setState(1018)
 		 	try _errHandler.sync(self)
 		 	switch (try getInterpreter().adaptivePredict(_input,71,_ctx)) {
 		 	case 1:
-		 		setState(1007)
+		 		setState(1017)
 		 		try statements()
 
 		 		break
 		 	default: break
 		 	}
-		 	setState(1010)
+		 	setState(1020)
 		 	try match(SwiftParser.Tokens.RCURLY.rawValue)
 
 		}
@@ -5662,13 +5634,13 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1013)
+		 	setState(1023)
 		 	try _errHandler.sync(self)
 		 	_la = try _input.LA(1)
 		 	if (//closure
 		 	 { () -> Bool in
 		 	      var testSet: Bool = {  () -> Bool in
-		 	   let testArray: [Int] = [_la, SwiftParser.Tokens.T__44.rawValue,SwiftParser.Tokens.T__45.rawValue,SwiftParser.Tokens.T__46.rawValue,SwiftParser.Tokens.T__47.rawValue,SwiftParser.Tokens.T__51.rawValue,SwiftParser.Tokens.T__57.rawValue,SwiftParser.Tokens.T__58.rawValue,SwiftParser.Tokens.T__59.rawValue,SwiftParser.Tokens.T__60.rawValue,SwiftParser.Tokens.T__61.rawValue,SwiftParser.Tokens.T__62.rawValue]
+		 	   let testArray: [Int] = [_la, SwiftParser.Tokens.T__44.rawValue,SwiftParser.Tokens.T__45.rawValue,SwiftParser.Tokens.T__46.rawValue,SwiftParser.Tokens.T__47.rawValue,SwiftParser.Tokens.T__51.rawValue,SwiftParser.Tokens.T__57.rawValue,SwiftParser.Tokens.T__59.rawValue,SwiftParser.Tokens.T__60.rawValue,SwiftParser.Tokens.T__61.rawValue,SwiftParser.Tokens.T__62.rawValue]
 		 	    return  Utils.testBitLeftShiftArray(testArray, 0)
 		 	}()
 		 	          testSet = testSet || {  () -> Bool in
@@ -5677,14 +5649,14 @@ open class SwiftParser: Parser {
 		 	          }()
 		 	      return testSet
 		 	 }()) {
-		 		setState(1012)
+		 		setState(1022)
 		 		try attributes()
 
 		 	}
 
-		 	setState(1015)
+		 	setState(1025)
 		 	try match(SwiftParser.Tokens.T__37.rawValue)
-		 	setState(1017)
+		 	setState(1027)
 		 	try _errHandler.sync(self)
 		 	_la = try _input.LA(1)
 		 	if (//closure
@@ -5695,12 +5667,12 @@ open class SwiftParser: Parser {
 		 	}()
 		 	      return testSet
 		 	 }()) {
-		 		setState(1016)
+		 		setState(1026)
 		 		try import_kind()
 
 		 	}
 
-		 	setState(1019)
+		 	setState(1029)
 		 	try import_path()
 
 		}
@@ -5748,7 +5720,7 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1021)
+		 	setState(1031)
 		 	_la = try _input.LA(1)
 		 	if (!(//closure
 		 	 { () -> Bool in
@@ -5814,22 +5786,22 @@ open class SwiftParser: Parser {
 	    		try! exitRule()
 	    }
 		do {
-		 	setState(1028)
+		 	setState(1038)
 		 	try _errHandler.sync(self)
 		 	switch(try getInterpreter().adaptivePredict(_input,74, _ctx)) {
 		 	case 1:
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(1023)
+		 		setState(1033)
 		 		try import_path_identifier()
 
 		 		break
 		 	case 2:
 		 		try enterOuterAlt(_localctx, 2)
-		 		setState(1024)
+		 		setState(1034)
 		 		try import_path_identifier()
-		 		setState(1025)
+		 		setState(1035)
 		 		try match(SwiftParser.Tokens.DOT.rawValue)
-		 		setState(1026)
+		 		setState(1036)
 		 		try import_path()
 
 		 		break
@@ -5845,8 +5817,8 @@ open class SwiftParser: Parser {
 		return _localctx
 	}
 	open class Import_path_identifierContext:ParserRuleContext {
-		open func identifier() -> IdentifierContext? {
-			return getRuleContext(IdentifierContext.self,0)
+		open func identifier_declaration_context() -> Identifier_declaration_contextContext? {
+			return getRuleContext(Identifier_declaration_contextContext.self,0)
 		}
 		open func operator_name() -> Operator_nameContext? {
 			return getRuleContext(Operator_nameContext.self,0)
@@ -5884,16 +5856,25 @@ open class SwiftParser: Parser {
 	    		try! exitRule()
 	    }
 		do {
-		 	setState(1032)
+		 	setState(1042)
 		 	try _errHandler.sync(self)
 		 	switch (SwiftParser.Tokens(rawValue: try _input.LA(1))!) {
+		 	case .T__26:fallthrough
+		 	case .T__27:fallthrough
+		 	case .T__28:fallthrough
+		 	case .T__29:fallthrough
+		 	case .T__30:fallthrough
+		 	case .T__31:fallthrough
+		 	case .T__32:fallthrough
+		 	case .T__33:fallthrough
+		 	case .T__34:fallthrough
+		 	case .T__35:fallthrough
 		 	case .T__44:fallthrough
 		 	case .T__45:fallthrough
 		 	case .T__46:fallthrough
 		 	case .T__47:fallthrough
 		 	case .T__51:fallthrough
 		 	case .T__57:fallthrough
-		 	case .T__58:fallthrough
 		 	case .T__59:fallthrough
 		 	case .T__60:fallthrough
 		 	case .T__61:fallthrough
@@ -5911,13 +5892,17 @@ open class SwiftParser: Parser {
 		 	case .T__73:fallthrough
 		 	case .T__74:fallthrough
 		 	case .T__76:fallthrough
+		 	case .T__77:fallthrough
+		 	case .T__78:fallthrough
 		 	case .T__79:fallthrough
+		 	case .T__84:fallthrough
+		 	case .T__99:fallthrough
 		 	case .T__100:fallthrough
 		 	case .T__101:fallthrough
 		 	case .Identifier:
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(1030)
-		 		try identifier()
+		 		setState(1040)
+		 		try identifier_declaration_context()
 
 		 		break
 		 	case .DOT:fallthrough
@@ -5937,7 +5922,7 @@ open class SwiftParser: Parser {
 		 	case .TILDE:fallthrough
 		 	case .Operator_head_other:
 		 		try enterOuterAlt(_localctx, 2)
-		 		setState(1031)
+		 		setState(1041)
 		 		try operator_name()
 
 		 		break
@@ -5998,17 +5983,17 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1035)
+		 	setState(1045)
 		 	try _errHandler.sync(self)
 		 	switch (try getInterpreter().adaptivePredict(_input,76,_ctx)) {
 		 	case 1:
-		 		setState(1034)
+		 		setState(1044)
 		 		try attributes()
 
 		 		break
 		 	default: break
 		 	}
-		 	setState(1038)
+		 	setState(1048)
 		 	try _errHandler.sync(self)
 		 	_la = try _input.LA(1)
 		 	if (//closure
@@ -6019,14 +6004,14 @@ open class SwiftParser: Parser {
 		 	}()
 		 	      return testSet
 		 	 }()) {
-		 		setState(1037)
+		 		setState(1047)
 		 		try declaration_modifiers()
 
 		 	}
 
-		 	setState(1040)
+		 	setState(1050)
 		 	try match(SwiftParser.Tokens.T__4.rawValue)
-		 	setState(1041)
+		 	setState(1051)
 		 	try pattern_initializer_list()
 
 		}
@@ -6080,21 +6065,21 @@ open class SwiftParser: Parser {
 		do {
 			var _alt:Int
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1043)
+		 	setState(1053)
 		 	try pattern_initializer()
-		 	setState(1048)
+		 	setState(1058)
 		 	try _errHandler.sync(self)
 		 	_alt = try getInterpreter().adaptivePredict(_input,78,_ctx)
 		 	while (_alt != 2 && _alt != ATN.INVALID_ALT_NUMBER) {
 		 		if ( _alt==1 ) {
-		 			setState(1044)
+		 			setState(1054)
 		 			try match(SwiftParser.Tokens.COMMA.rawValue)
-		 			setState(1045)
+		 			setState(1055)
 		 			try pattern_initializer()
 
 		 	 
 		 		}
-		 		setState(1050)
+		 		setState(1060)
 		 		try _errHandler.sync(self)
 		 		_alt = try getInterpreter().adaptivePredict(_input,78,_ctx)
 		 	}
@@ -6149,13 +6134,13 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1051)
+		 	setState(1061)
 		 	try pattern(0)
-		 	setState(1053)
+		 	setState(1063)
 		 	try _errHandler.sync(self)
 		 	switch (try getInterpreter().adaptivePredict(_input,79,_ctx)) {
 		 	case 1:
-		 		setState(1052)
+		 		setState(1062)
 		 		try initializer()
 
 		 		break
@@ -6212,9 +6197,9 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1055)
+		 	setState(1065)
 		 	try assignment_operator()
-		 	setState(1056)
+		 	setState(1066)
 		 	try expression()
 
 		}
@@ -6290,35 +6275,11 @@ open class SwiftParser: Parser {
 	    		try! exitRule()
 	    }
 		do {
-		 	setState(1093)
+		 	setState(1103)
 		 	try _errHandler.sync(self)
 		 	switch(try getInterpreter().adaptivePredict(_input,82, _ctx)) {
 		 	case 1:
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(1058)
-		 		try variable_declaration_head()
-		 		setState(1059)
-		 		try variable_name()
-		 		setState(1060)
-		 		try type_annotation()
-		 		setState(1061)
-		 		try code_block()
-
-		 		break
-		 	case 2:
-		 		try enterOuterAlt(_localctx, 2)
-		 		setState(1063)
-		 		try variable_declaration_head()
-		 		setState(1064)
-		 		try variable_name()
-		 		setState(1065)
-		 		try type_annotation()
-		 		setState(1066)
-		 		try getter_setter_block()
-
-		 		break
-		 	case 3:
-		 		try enterOuterAlt(_localctx, 3)
 		 		setState(1068)
 		 		try variable_declaration_head()
 		 		setState(1069)
@@ -6326,60 +6287,84 @@ open class SwiftParser: Parser {
 		 		setState(1070)
 		 		try type_annotation()
 		 		setState(1071)
-		 		try getter_setter_keyword_block()
+		 		try code_block()
 
 		 		break
-		 	case 4:
-		 		try enterOuterAlt(_localctx, 4)
+		 	case 2:
+		 		try enterOuterAlt(_localctx, 2)
 		 		setState(1073)
 		 		try variable_declaration_head()
 		 		setState(1074)
 		 		try variable_name()
 		 		setState(1075)
 		 		try type_annotation()
-		 		setState(1077)
+		 		setState(1076)
+		 		try getter_setter_block()
+
+		 		break
+		 	case 3:
+		 		try enterOuterAlt(_localctx, 3)
+		 		setState(1078)
+		 		try variable_declaration_head()
+		 		setState(1079)
+		 		try variable_name()
+		 		setState(1080)
+		 		try type_annotation()
+		 		setState(1081)
+		 		try getter_setter_keyword_block()
+
+		 		break
+		 	case 4:
+		 		try enterOuterAlt(_localctx, 4)
+		 		setState(1083)
+		 		try variable_declaration_head()
+		 		setState(1084)
+		 		try variable_name()
+		 		setState(1085)
+		 		try type_annotation()
+		 		setState(1087)
 		 		try _errHandler.sync(self)
 		 		switch (try getInterpreter().adaptivePredict(_input,80,_ctx)) {
 		 		case 1:
-		 			setState(1076)
+		 			setState(1086)
 		 			try initializer()
 
 		 			break
 		 		default: break
 		 		}
-		 		setState(1079)
+		 		setState(1089)
 		 		try willSet_didSet_block()
 
 		 		break
 		 	case 5:
 		 		try enterOuterAlt(_localctx, 5)
-		 		setState(1081)
+		 		setState(1091)
 		 		try variable_declaration_head()
-		 		setState(1082)
+		 		setState(1092)
 		 		try variable_name()
-		 		setState(1083)
+		 		setState(1093)
 		 		try type_annotation()
-		 		setState(1084)
+		 		setState(1094)
 		 		try type_annotation()
-		 		setState(1086)
+		 		setState(1096)
 		 		try _errHandler.sync(self)
 		 		switch (try getInterpreter().adaptivePredict(_input,81,_ctx)) {
 		 		case 1:
-		 			setState(1085)
+		 			setState(1095)
 		 			try initializer()
 
 		 			break
 		 		default: break
 		 		}
-		 		setState(1088)
+		 		setState(1098)
 		 		try willSet_didSet_block()
 
 		 		break
 		 	case 6:
 		 		try enterOuterAlt(_localctx, 6)
-		 		setState(1090)
+		 		setState(1100)
 		 		try variable_declaration_head()
-		 		setState(1091)
+		 		setState(1101)
 		 		try pattern_initializer_list()
 
 		 		break
@@ -6436,17 +6421,17 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1096)
+		 	setState(1106)
 		 	try _errHandler.sync(self)
 		 	switch (try getInterpreter().adaptivePredict(_input,83,_ctx)) {
 		 	case 1:
-		 		setState(1095)
+		 		setState(1105)
 		 		try attributes()
 
 		 		break
 		 	default: break
 		 	}
-		 	setState(1099)
+		 	setState(1109)
 		 	try _errHandler.sync(self)
 		 	_la = try _input.LA(1)
 		 	if (//closure
@@ -6457,12 +6442,12 @@ open class SwiftParser: Parser {
 		 	}()
 		 	      return testSet
 		 	 }()) {
-		 		setState(1098)
+		 		setState(1108)
 		 		try declaration_modifiers()
 
 		 	}
 
-		 	setState(1101)
+		 	setState(1111)
 		 	try match(SwiftParser.Tokens.T__5.rawValue)
 
 		}
@@ -6475,8 +6460,8 @@ open class SwiftParser: Parser {
 		return _localctx
 	}
 	open class Variable_nameContext:ParserRuleContext {
-		open func identifier() -> IdentifierContext? {
-			return getRuleContext(IdentifierContext.self,0)
+		open func identifier_declaration_context() -> Identifier_declaration_contextContext? {
+			return getRuleContext(Identifier_declaration_contextContext.self,0)
 		}
 		open override func getRuleIndex() -> Int { return SwiftParser.RULE_variable_name }
 		override
@@ -6512,8 +6497,8 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1103)
-		 	try identifier()
+		 	setState(1113)
+		 	try identifier_declaration_context()
 
 		}
 		catch ANTLRException.recognition(let re) {
@@ -6565,22 +6550,22 @@ open class SwiftParser: Parser {
 	    		try! exitRule()
 	    }
 		do {
-		 	setState(1117)
+		 	setState(1127)
 		 	try _errHandler.sync(self)
 		 	switch(try getInterpreter().adaptivePredict(_input,86, _ctx)) {
 		 	case 1:
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(1105)
+		 		setState(1115)
 		 		try match(SwiftParser.Tokens.LCURLY.rawValue)
-		 		setState(1106)
+		 		setState(1116)
 		 		try getter_clause()
-		 		setState(1108)
+		 		setState(1118)
 		 		try _errHandler.sync(self)
 		 		_la = try _input.LA(1)
 		 		if (//closure
 		 		 { () -> Bool in
 		 		      var testSet: Bool = {  () -> Bool in
-		 		   let testArray: [Int] = [_la, SwiftParser.Tokens.T__44.rawValue,SwiftParser.Tokens.T__45.rawValue,SwiftParser.Tokens.T__46.rawValue,SwiftParser.Tokens.T__47.rawValue,SwiftParser.Tokens.T__51.rawValue,SwiftParser.Tokens.T__57.rawValue,SwiftParser.Tokens.T__58.rawValue,SwiftParser.Tokens.T__59.rawValue,SwiftParser.Tokens.T__60.rawValue,SwiftParser.Tokens.T__61.rawValue,SwiftParser.Tokens.T__62.rawValue]
+		 		   let testArray: [Int] = [_la, SwiftParser.Tokens.T__44.rawValue,SwiftParser.Tokens.T__45.rawValue,SwiftParser.Tokens.T__46.rawValue,SwiftParser.Tokens.T__47.rawValue,SwiftParser.Tokens.T__51.rawValue,SwiftParser.Tokens.T__57.rawValue,SwiftParser.Tokens.T__59.rawValue,SwiftParser.Tokens.T__60.rawValue,SwiftParser.Tokens.T__61.rawValue,SwiftParser.Tokens.T__62.rawValue]
 		 		    return  Utils.testBitLeftShiftArray(testArray, 0)
 		 		}()
 		 		          testSet = testSet || {  () -> Bool in
@@ -6589,24 +6574,24 @@ open class SwiftParser: Parser {
 		 		          }()
 		 		      return testSet
 		 		 }()) {
-		 			setState(1107)
+		 			setState(1117)
 		 			try setter_clause()
 
 		 		}
 
-		 		setState(1110)
+		 		setState(1120)
 		 		try match(SwiftParser.Tokens.RCURLY.rawValue)
 
 		 		break
 		 	case 2:
 		 		try enterOuterAlt(_localctx, 2)
-		 		setState(1112)
+		 		setState(1122)
 		 		try match(SwiftParser.Tokens.LCURLY.rawValue)
-		 		setState(1113)
+		 		setState(1123)
 		 		try setter_clause()
-		 		setState(1114)
+		 		setState(1124)
 		 		try getter_clause()
-		 		setState(1115)
+		 		setState(1125)
 		 		try match(SwiftParser.Tokens.RCURLY.rawValue)
 
 		 		break
@@ -6662,19 +6647,19 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1120)
+		 	setState(1130)
 		 	try _errHandler.sync(self)
 		 	switch (try getInterpreter().adaptivePredict(_input,87,_ctx)) {
 		 	case 1:
-		 		setState(1119)
+		 		setState(1129)
 		 		try attributes()
 
 		 		break
 		 	default: break
 		 	}
-		 	setState(1122)
+		 	setState(1132)
 		 	try match(SwiftParser.Tokens.T__44.rawValue)
-		 	setState(1123)
+		 	setState(1133)
 		 	try code_block()
 
 		}
@@ -6731,19 +6716,19 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1126)
+		 	setState(1136)
 		 	try _errHandler.sync(self)
 		 	switch (try getInterpreter().adaptivePredict(_input,88,_ctx)) {
 		 	case 1:
-		 		setState(1125)
+		 		setState(1135)
 		 		try attributes()
 
 		 		break
 		 	default: break
 		 	}
-		 	setState(1128)
+		 	setState(1138)
 		 	try match(SwiftParser.Tokens.T__45.rawValue)
-		 	setState(1130)
+		 	setState(1140)
 		 	try _errHandler.sync(self)
 		 	_la = try _input.LA(1)
 		 	if (//closure
@@ -6751,12 +6736,12 @@ open class SwiftParser: Parser {
 		 	      let testSet: Bool = _la == SwiftParser.Tokens.LPAREN.rawValue
 		 	      return testSet
 		 	 }()) {
-		 		setState(1129)
+		 		setState(1139)
 		 		try setter_name()
 
 		 	}
 
-		 	setState(1132)
+		 	setState(1142)
 		 	try code_block()
 
 		}
@@ -6769,8 +6754,8 @@ open class SwiftParser: Parser {
 		return _localctx
 	}
 	open class Setter_nameContext:ParserRuleContext {
-		open func identifier() -> IdentifierContext? {
-			return getRuleContext(IdentifierContext.self,0)
+		open func identifier_declaration_context() -> Identifier_declaration_contextContext? {
+			return getRuleContext(Identifier_declaration_contextContext.self,0)
 		}
 		open override func getRuleIndex() -> Int { return SwiftParser.RULE_setter_name }
 		override
@@ -6806,11 +6791,11 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1134)
+		 	setState(1144)
 		 	try match(SwiftParser.Tokens.LPAREN.rawValue)
-		 	setState(1135)
-		 	try identifier()
-		 	setState(1136)
+		 	setState(1145)
+		 	try identifier_declaration_context()
+		 	setState(1146)
 		 	try match(SwiftParser.Tokens.RPAREN.rawValue)
 
 		}
@@ -6863,22 +6848,22 @@ open class SwiftParser: Parser {
 	    		try! exitRule()
 	    }
 		do {
-		 	setState(1150)
+		 	setState(1160)
 		 	try _errHandler.sync(self)
 		 	switch(try getInterpreter().adaptivePredict(_input,91, _ctx)) {
 		 	case 1:
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(1138)
+		 		setState(1148)
 		 		try match(SwiftParser.Tokens.LCURLY.rawValue)
-		 		setState(1139)
+		 		setState(1149)
 		 		try getter_keyword_clause()
-		 		setState(1141)
+		 		setState(1151)
 		 		try _errHandler.sync(self)
 		 		_la = try _input.LA(1)
 		 		if (//closure
 		 		 { () -> Bool in
 		 		      var testSet: Bool = {  () -> Bool in
-		 		   let testArray: [Int] = [_la, SwiftParser.Tokens.T__44.rawValue,SwiftParser.Tokens.T__45.rawValue,SwiftParser.Tokens.T__46.rawValue,SwiftParser.Tokens.T__47.rawValue,SwiftParser.Tokens.T__51.rawValue,SwiftParser.Tokens.T__57.rawValue,SwiftParser.Tokens.T__58.rawValue,SwiftParser.Tokens.T__59.rawValue,SwiftParser.Tokens.T__60.rawValue,SwiftParser.Tokens.T__61.rawValue,SwiftParser.Tokens.T__62.rawValue]
+		 		   let testArray: [Int] = [_la, SwiftParser.Tokens.T__44.rawValue,SwiftParser.Tokens.T__45.rawValue,SwiftParser.Tokens.T__46.rawValue,SwiftParser.Tokens.T__47.rawValue,SwiftParser.Tokens.T__51.rawValue,SwiftParser.Tokens.T__57.rawValue,SwiftParser.Tokens.T__59.rawValue,SwiftParser.Tokens.T__60.rawValue,SwiftParser.Tokens.T__61.rawValue,SwiftParser.Tokens.T__62.rawValue]
 		 		    return  Utils.testBitLeftShiftArray(testArray, 0)
 		 		}()
 		 		          testSet = testSet || {  () -> Bool in
@@ -6887,24 +6872,24 @@ open class SwiftParser: Parser {
 		 		          }()
 		 		      return testSet
 		 		 }()) {
-		 			setState(1140)
+		 			setState(1150)
 		 			try setter_keyword_clause()
 
 		 		}
 
-		 		setState(1143)
+		 		setState(1153)
 		 		try match(SwiftParser.Tokens.RCURLY.rawValue)
 
 		 		break
 		 	case 2:
 		 		try enterOuterAlt(_localctx, 2)
-		 		setState(1145)
+		 		setState(1155)
 		 		try match(SwiftParser.Tokens.LCURLY.rawValue)
-		 		setState(1146)
+		 		setState(1156)
 		 		try setter_keyword_clause()
-		 		setState(1147)
+		 		setState(1157)
 		 		try getter_keyword_clause()
-		 		setState(1148)
+		 		setState(1158)
 		 		try match(SwiftParser.Tokens.RCURLY.rawValue)
 
 		 		break
@@ -6957,17 +6942,17 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1153)
+		 	setState(1163)
 		 	try _errHandler.sync(self)
 		 	switch (try getInterpreter().adaptivePredict(_input,92,_ctx)) {
 		 	case 1:
-		 		setState(1152)
+		 		setState(1162)
 		 		try attributes()
 
 		 		break
 		 	default: break
 		 	}
-		 	setState(1155)
+		 	setState(1165)
 		 	try match(SwiftParser.Tokens.T__44.rawValue)
 
 		}
@@ -7017,17 +7002,17 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1158)
+		 	setState(1168)
 		 	try _errHandler.sync(self)
 		 	switch (try getInterpreter().adaptivePredict(_input,93,_ctx)) {
 		 	case 1:
-		 		setState(1157)
+		 		setState(1167)
 		 		try attributes()
 
 		 		break
 		 	default: break
 		 	}
-		 	setState(1160)
+		 	setState(1170)
 		 	try match(SwiftParser.Tokens.T__45.rawValue)
 
 		}
@@ -7080,22 +7065,22 @@ open class SwiftParser: Parser {
 	    		try! exitRule()
 	    }
 		do {
-		 	setState(1174)
+		 	setState(1184)
 		 	try _errHandler.sync(self)
 		 	switch(try getInterpreter().adaptivePredict(_input,95, _ctx)) {
 		 	case 1:
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(1162)
+		 		setState(1172)
 		 		try match(SwiftParser.Tokens.LCURLY.rawValue)
-		 		setState(1163)
+		 		setState(1173)
 		 		try willSet_clause()
-		 		setState(1165)
+		 		setState(1175)
 		 		try _errHandler.sync(self)
 		 		_la = try _input.LA(1)
 		 		if (//closure
 		 		 { () -> Bool in
 		 		      var testSet: Bool = {  () -> Bool in
-		 		   let testArray: [Int] = [_la, SwiftParser.Tokens.T__44.rawValue,SwiftParser.Tokens.T__45.rawValue,SwiftParser.Tokens.T__46.rawValue,SwiftParser.Tokens.T__47.rawValue,SwiftParser.Tokens.T__51.rawValue,SwiftParser.Tokens.T__57.rawValue,SwiftParser.Tokens.T__58.rawValue,SwiftParser.Tokens.T__59.rawValue,SwiftParser.Tokens.T__60.rawValue,SwiftParser.Tokens.T__61.rawValue,SwiftParser.Tokens.T__62.rawValue]
+		 		   let testArray: [Int] = [_la, SwiftParser.Tokens.T__44.rawValue,SwiftParser.Tokens.T__45.rawValue,SwiftParser.Tokens.T__46.rawValue,SwiftParser.Tokens.T__47.rawValue,SwiftParser.Tokens.T__51.rawValue,SwiftParser.Tokens.T__57.rawValue,SwiftParser.Tokens.T__59.rawValue,SwiftParser.Tokens.T__60.rawValue,SwiftParser.Tokens.T__61.rawValue,SwiftParser.Tokens.T__62.rawValue]
 		 		    return  Utils.testBitLeftShiftArray(testArray, 0)
 		 		}()
 		 		          testSet = testSet || {  () -> Bool in
@@ -7104,24 +7089,24 @@ open class SwiftParser: Parser {
 		 		          }()
 		 		      return testSet
 		 		 }()) {
-		 			setState(1164)
+		 			setState(1174)
 		 			try didSet_clause()
 
 		 		}
 
-		 		setState(1167)
+		 		setState(1177)
 		 		try match(SwiftParser.Tokens.RCURLY.rawValue)
 
 		 		break
 		 	case 2:
 		 		try enterOuterAlt(_localctx, 2)
-		 		setState(1169)
+		 		setState(1179)
 		 		try match(SwiftParser.Tokens.LCURLY.rawValue)
-		 		setState(1170)
+		 		setState(1180)
 		 		try didSet_clause()
-		 		setState(1171)
+		 		setState(1181)
 		 		try willSet_clause()
-		 		setState(1172)
+		 		setState(1182)
 		 		try match(SwiftParser.Tokens.RCURLY.rawValue)
 
 		 		break
@@ -7181,19 +7166,19 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1177)
+		 	setState(1187)
 		 	try _errHandler.sync(self)
 		 	switch (try getInterpreter().adaptivePredict(_input,96,_ctx)) {
 		 	case 1:
-		 		setState(1176)
+		 		setState(1186)
 		 		try attributes()
 
 		 		break
 		 	default: break
 		 	}
-		 	setState(1179)
+		 	setState(1189)
 		 	try match(SwiftParser.Tokens.T__46.rawValue)
-		 	setState(1181)
+		 	setState(1191)
 		 	try _errHandler.sync(self)
 		 	_la = try _input.LA(1)
 		 	if (//closure
@@ -7201,12 +7186,12 @@ open class SwiftParser: Parser {
 		 	      let testSet: Bool = _la == SwiftParser.Tokens.LPAREN.rawValue
 		 	      return testSet
 		 	 }()) {
-		 		setState(1180)
+		 		setState(1190)
 		 		try setter_name()
 
 		 	}
 
-		 	setState(1183)
+		 	setState(1193)
 		 	try code_block()
 
 		}
@@ -7263,19 +7248,19 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1186)
+		 	setState(1196)
 		 	try _errHandler.sync(self)
 		 	switch (try getInterpreter().adaptivePredict(_input,98,_ctx)) {
 		 	case 1:
-		 		setState(1185)
+		 		setState(1195)
 		 		try attributes()
 
 		 		break
 		 	default: break
 		 	}
-		 	setState(1188)
+		 	setState(1198)
 		 	try match(SwiftParser.Tokens.T__47.rawValue)
-		 	setState(1190)
+		 	setState(1200)
 		 	try _errHandler.sync(self)
 		 	_la = try _input.LA(1)
 		 	if (//closure
@@ -7283,12 +7268,12 @@ open class SwiftParser: Parser {
 		 	      let testSet: Bool = _la == SwiftParser.Tokens.LPAREN.rawValue
 		 	      return testSet
 		 	 }()) {
-		 		setState(1189)
+		 		setState(1199)
 		 		try setter_name()
 
 		 	}
 
-		 	setState(1192)
+		 	setState(1202)
 		 	try code_block()
 
 		}
@@ -7341,9 +7326,9 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1194)
+		 	setState(1204)
 		 	try typealias_head()
-		 	setState(1195)
+		 	setState(1205)
 		 	try typealias_assignment()
 
 		}
@@ -7400,13 +7385,13 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1198)
+		 	setState(1208)
 		 	try _errHandler.sync(self)
 		 	_la = try _input.LA(1)
 		 	if (//closure
 		 	 { () -> Bool in
 		 	      var testSet: Bool = {  () -> Bool in
-		 	   let testArray: [Int] = [_la, SwiftParser.Tokens.T__44.rawValue,SwiftParser.Tokens.T__45.rawValue,SwiftParser.Tokens.T__46.rawValue,SwiftParser.Tokens.T__47.rawValue,SwiftParser.Tokens.T__51.rawValue,SwiftParser.Tokens.T__57.rawValue,SwiftParser.Tokens.T__58.rawValue,SwiftParser.Tokens.T__59.rawValue,SwiftParser.Tokens.T__60.rawValue,SwiftParser.Tokens.T__61.rawValue,SwiftParser.Tokens.T__62.rawValue]
+		 	   let testArray: [Int] = [_la, SwiftParser.Tokens.T__44.rawValue,SwiftParser.Tokens.T__45.rawValue,SwiftParser.Tokens.T__46.rawValue,SwiftParser.Tokens.T__47.rawValue,SwiftParser.Tokens.T__51.rawValue,SwiftParser.Tokens.T__57.rawValue,SwiftParser.Tokens.T__59.rawValue,SwiftParser.Tokens.T__60.rawValue,SwiftParser.Tokens.T__61.rawValue,SwiftParser.Tokens.T__62.rawValue]
 		 	    return  Utils.testBitLeftShiftArray(testArray, 0)
 		 	}()
 		 	          testSet = testSet || {  () -> Bool in
@@ -7415,12 +7400,12 @@ open class SwiftParser: Parser {
 		 	          }()
 		 	      return testSet
 		 	 }()) {
-		 		setState(1197)
+		 		setState(1207)
 		 		try attributes()
 
 		 	}
 
-		 	setState(1201)
+		 	setState(1211)
 		 	try _errHandler.sync(self)
 		 	_la = try _input.LA(1)
 		 	if (//closure
@@ -7431,14 +7416,14 @@ open class SwiftParser: Parser {
 		 	}()
 		 	      return testSet
 		 	 }()) {
-		 		setState(1200)
+		 		setState(1210)
 		 		try access_level_modifier()
 
 		 	}
 
-		 	setState(1203)
+		 	setState(1213)
 		 	try match(SwiftParser.Tokens.T__38.rawValue)
-		 	setState(1204)
+		 	setState(1214)
 		 	try typealias_name()
 
 		}
@@ -7451,8 +7436,8 @@ open class SwiftParser: Parser {
 		return _localctx
 	}
 	open class Typealias_nameContext:ParserRuleContext {
-		open func identifier() -> IdentifierContext? {
-			return getRuleContext(IdentifierContext.self,0)
+		open func identifier_declaration_context() -> Identifier_declaration_contextContext? {
+			return getRuleContext(Identifier_declaration_contextContext.self,0)
 		}
 		open override func getRuleIndex() -> Int { return SwiftParser.RULE_typealias_name }
 		override
@@ -7488,8 +7473,8 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1206)
-		 	try identifier()
+		 	setState(1216)
+		 	try identifier_declaration_context()
 
 		}
 		catch ANTLRException.recognition(let re) {
@@ -7541,9 +7526,9 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1208)
+		 	setState(1218)
 		 	try assignment_operator()
-		 	setState(1209)
+		 	setState(1219)
 		 	try type(0)
 
 		}
@@ -7609,11 +7594,11 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1211)
+		 	setState(1221)
 		 	try function_head()
-		 	setState(1212)
+		 	setState(1222)
 		 	try function_name()
-		 	setState(1214)
+		 	setState(1224)
 		 	try _errHandler.sync(self)
 		 	_la = try _input.LA(1)
 		 	if (//closure
@@ -7621,28 +7606,28 @@ open class SwiftParser: Parser {
 		 	      let testSet: Bool = _la == SwiftParser.Tokens.LT.rawValue
 		 	      return testSet
 		 	 }()) {
-		 		setState(1213)
+		 		setState(1223)
 		 		try generic_parameter_clause()
 
 		 	}
 
-		 	setState(1216)
+		 	setState(1226)
 		 	try function_signature()
-		 	setState(1218)
+		 	setState(1228)
 		 	try _errHandler.sync(self)
 		 	switch (try getInterpreter().adaptivePredict(_input,103,_ctx)) {
 		 	case 1:
-		 		setState(1217)
+		 		setState(1227)
 		 		try generic_where_clause()
 
 		 		break
 		 	default: break
 		 	}
-		 	setState(1221)
+		 	setState(1231)
 		 	try _errHandler.sync(self)
 		 	switch (try getInterpreter().adaptivePredict(_input,104,_ctx)) {
 		 	case 1:
-		 		setState(1220)
+		 		setState(1230)
 		 		try function_body()
 
 		 		break
@@ -7700,17 +7685,17 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1224)
+		 	setState(1234)
 		 	try _errHandler.sync(self)
 		 	switch (try getInterpreter().adaptivePredict(_input,105,_ctx)) {
 		 	case 1:
-		 		setState(1223)
+		 		setState(1233)
 		 		try attributes()
 
 		 		break
 		 	default: break
 		 	}
-		 	setState(1227)
+		 	setState(1237)
 		 	try _errHandler.sync(self)
 		 	_la = try _input.LA(1)
 		 	if (//closure
@@ -7721,12 +7706,12 @@ open class SwiftParser: Parser {
 		 	}()
 		 	      return testSet
 		 	 }()) {
-		 		setState(1226)
+		 		setState(1236)
 		 		try declaration_modifiers()
 
 		 	}
 
-		 	setState(1229)
+		 	setState(1239)
 		 	try match(SwiftParser.Tokens.T__43.rawValue)
 
 		}
@@ -7739,8 +7724,8 @@ open class SwiftParser: Parser {
 		return _localctx
 	}
 	open class Function_nameContext:ParserRuleContext {
-		open func identifier() -> IdentifierContext? {
-			return getRuleContext(IdentifierContext.self,0)
+		open func identifier_declaration_context() -> Identifier_declaration_contextContext? {
+			return getRuleContext(Identifier_declaration_contextContext.self,0)
 		}
 		open func operator_name() -> Operator_nameContext? {
 			return getRuleContext(Operator_nameContext.self,0)
@@ -7778,16 +7763,25 @@ open class SwiftParser: Parser {
 	    		try! exitRule()
 	    }
 		do {
-		 	setState(1233)
+		 	setState(1243)
 		 	try _errHandler.sync(self)
 		 	switch (SwiftParser.Tokens(rawValue: try _input.LA(1))!) {
+		 	case .T__26:fallthrough
+		 	case .T__27:fallthrough
+		 	case .T__28:fallthrough
+		 	case .T__29:fallthrough
+		 	case .T__30:fallthrough
+		 	case .T__31:fallthrough
+		 	case .T__32:fallthrough
+		 	case .T__33:fallthrough
+		 	case .T__34:fallthrough
+		 	case .T__35:fallthrough
 		 	case .T__44:fallthrough
 		 	case .T__45:fallthrough
 		 	case .T__46:fallthrough
 		 	case .T__47:fallthrough
 		 	case .T__51:fallthrough
 		 	case .T__57:fallthrough
-		 	case .T__58:fallthrough
 		 	case .T__59:fallthrough
 		 	case .T__60:fallthrough
 		 	case .T__61:fallthrough
@@ -7805,13 +7799,17 @@ open class SwiftParser: Parser {
 		 	case .T__73:fallthrough
 		 	case .T__74:fallthrough
 		 	case .T__76:fallthrough
+		 	case .T__77:fallthrough
+		 	case .T__78:fallthrough
 		 	case .T__79:fallthrough
+		 	case .T__84:fallthrough
+		 	case .T__99:fallthrough
 		 	case .T__100:fallthrough
 		 	case .T__101:fallthrough
 		 	case .Identifier:
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(1231)
-		 		try identifier()
+		 		setState(1241)
+		 		try identifier_declaration_context()
 
 		 		break
 		 	case .DOT:fallthrough
@@ -7831,7 +7829,7 @@ open class SwiftParser: Parser {
 		 	case .TILDE:fallthrough
 		 	case .Operator_head_other:
 		 		try enterOuterAlt(_localctx, 2)
-		 		setState(1232)
+		 		setState(1242)
 		 		try operator_name()
 
 		 		break
@@ -7887,28 +7885,28 @@ open class SwiftParser: Parser {
 	    		try! exitRule()
 	    }
 		do {
-		 	setState(1247)
+		 	setState(1257)
 		 	try _errHandler.sync(self)
 		 	switch(try getInterpreter().adaptivePredict(_input,111, _ctx)) {
 		 	case 1:
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(1235)
+		 		setState(1245)
 		 		try parameter_clause()
-		 		setState(1237)
+		 		setState(1247)
 		 		try _errHandler.sync(self)
 		 		switch (try getInterpreter().adaptivePredict(_input,108,_ctx)) {
 		 		case 1:
-		 			setState(1236)
+		 			setState(1246)
 		 			try match(SwiftParser.Tokens.T__48.rawValue)
 
 		 			break
 		 		default: break
 		 		}
-		 		setState(1240)
+		 		setState(1250)
 		 		try _errHandler.sync(self)
 		 		switch (try getInterpreter().adaptivePredict(_input,109,_ctx)) {
 		 		case 1:
-		 			setState(1239)
+		 			setState(1249)
 		 			try function_result()
 
 		 			break
@@ -7918,15 +7916,15 @@ open class SwiftParser: Parser {
 		 		break
 		 	case 2:
 		 		try enterOuterAlt(_localctx, 2)
-		 		setState(1242)
+		 		setState(1252)
 		 		try parameter_clause()
-		 		setState(1243)
+		 		setState(1253)
 		 		try match(SwiftParser.Tokens.T__49.rawValue)
-		 		setState(1245)
+		 		setState(1255)
 		 		try _errHandler.sync(self)
 		 		switch (try getInterpreter().adaptivePredict(_input,110,_ctx)) {
 		 		case 1:
-		 			setState(1244)
+		 			setState(1254)
 		 			try function_result()
 
 		 			break
@@ -7986,19 +7984,19 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1249)
+		 	setState(1259)
 		 	try match(SwiftParser.Tokens.T__50.rawValue)
-		 	setState(1251)
+		 	setState(1261)
 		 	try _errHandler.sync(self)
 		 	switch (try getInterpreter().adaptivePredict(_input,112,_ctx)) {
 		 	case 1:
-		 		setState(1250)
+		 		setState(1260)
 		 		try attributes()
 
 		 		break
 		 	default: break
 		 	}
-		 	setState(1253)
+		 	setState(1263)
 		 	try type(0)
 
 		}
@@ -8048,7 +8046,7 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1255)
+		 	setState(1265)
 		 	try code_block()
 
 		}
@@ -8097,24 +8095,24 @@ open class SwiftParser: Parser {
 	    		try! exitRule()
 	    }
 		do {
-		 	setState(1263)
+		 	setState(1273)
 		 	try _errHandler.sync(self)
 		 	switch(try getInterpreter().adaptivePredict(_input,113, _ctx)) {
 		 	case 1:
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(1257)
+		 		setState(1267)
 		 		try match(SwiftParser.Tokens.LPAREN.rawValue)
-		 		setState(1258)
+		 		setState(1268)
 		 		try match(SwiftParser.Tokens.RPAREN.rawValue)
 
 		 		break
 		 	case 2:
 		 		try enterOuterAlt(_localctx, 2)
-		 		setState(1259)
+		 		setState(1269)
 		 		try match(SwiftParser.Tokens.LPAREN.rawValue)
-		 		setState(1260)
+		 		setState(1270)
 		 		try parameter_list()
-		 		setState(1261)
+		 		setState(1271)
 		 		try match(SwiftParser.Tokens.RPAREN.rawValue)
 
 		 		break
@@ -8171,9 +8169,9 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1265)
+		 	setState(1275)
 		 	try parameter()
-		 	setState(1270)
+		 	setState(1280)
 		 	try _errHandler.sync(self)
 		 	_la = try _input.LA(1)
 		 	while (//closure
@@ -8181,13 +8179,13 @@ open class SwiftParser: Parser {
 		 	      let testSet: Bool = _la == SwiftParser.Tokens.COMMA.rawValue
 		 	      return testSet
 		 	 }()) {
-		 		setState(1266)
+		 		setState(1276)
 		 		try match(SwiftParser.Tokens.COMMA.rawValue)
-		 		setState(1267)
+		 		setState(1277)
 		 		try parameter()
 
 
-		 		setState(1272)
+		 		setState(1282)
 		 		try _errHandler.sync(self)
 		 		_la = try _input.LA(1)
 		 	}
@@ -8250,50 +8248,14 @@ open class SwiftParser: Parser {
 	    		try! exitRule()
 	    }
 		do {
-		 	setState(1296)
+		 	setState(1306)
 		 	try _errHandler.sync(self)
 		 	switch(try getInterpreter().adaptivePredict(_input,120, _ctx)) {
 		 	case 1:
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(1274)
-		 		try _errHandler.sync(self)
-		 		switch (try getInterpreter().adaptivePredict(_input,115,_ctx)) {
-		 		case 1:
-		 			setState(1273)
-		 			try external_parameter_name()
-
-		 			break
-		 		default: break
-		 		}
-		 		setState(1276)
-		 		try local_parameter_name()
-		 		setState(1278)
-		 		try _errHandler.sync(self)
-		 		switch (try getInterpreter().adaptivePredict(_input,116,_ctx)) {
-		 		case 1:
-		 			setState(1277)
-		 			try type_annotation()
-
-		 			break
-		 		default: break
-		 		}
-		 		setState(1281)
-		 		try _errHandler.sync(self)
-		 		switch (try getInterpreter().adaptivePredict(_input,117,_ctx)) {
-		 		case 1:
-		 			setState(1280)
-		 			try default_argument_clause()
-
-		 			break
-		 		default: break
-		 		}
-
-		 		break
-		 	case 2:
-		 		try enterOuterAlt(_localctx, 2)
 		 		setState(1284)
 		 		try _errHandler.sync(self)
-		 		switch (try getInterpreter().adaptivePredict(_input,118,_ctx)) {
+		 		switch (try getInterpreter().adaptivePredict(_input,115,_ctx)) {
 		 		case 1:
 		 			setState(1283)
 		 			try external_parameter_name()
@@ -8303,27 +8265,63 @@ open class SwiftParser: Parser {
 		 		}
 		 		setState(1286)
 		 		try local_parameter_name()
-		 		setState(1287)
-		 		try type_annotation()
+		 		setState(1288)
+		 		try _errHandler.sync(self)
+		 		switch (try getInterpreter().adaptivePredict(_input,116,_ctx)) {
+		 		case 1:
+		 			setState(1287)
+		 			try type_annotation()
+
+		 			break
+		 		default: break
+		 		}
+		 		setState(1291)
+		 		try _errHandler.sync(self)
+		 		switch (try getInterpreter().adaptivePredict(_input,117,_ctx)) {
+		 		case 1:
+		 			setState(1290)
+		 			try default_argument_clause()
+
+		 			break
+		 		default: break
+		 		}
 
 		 		break
-		 	case 3:
-		 		try enterOuterAlt(_localctx, 3)
-		 		setState(1290)
+		 	case 2:
+		 		try enterOuterAlt(_localctx, 2)
+		 		setState(1294)
 		 		try _errHandler.sync(self)
-		 		switch (try getInterpreter().adaptivePredict(_input,119,_ctx)) {
+		 		switch (try getInterpreter().adaptivePredict(_input,118,_ctx)) {
 		 		case 1:
-		 			setState(1289)
+		 			setState(1293)
 		 			try external_parameter_name()
 
 		 			break
 		 		default: break
 		 		}
-		 		setState(1292)
+		 		setState(1296)
 		 		try local_parameter_name()
-		 		setState(1293)
+		 		setState(1297)
 		 		try type_annotation()
-		 		setState(1294)
+
+		 		break
+		 	case 3:
+		 		try enterOuterAlt(_localctx, 3)
+		 		setState(1300)
+		 		try _errHandler.sync(self)
+		 		switch (try getInterpreter().adaptivePredict(_input,119,_ctx)) {
+		 		case 1:
+		 			setState(1299)
+		 			try external_parameter_name()
+
+		 			break
+		 		default: break
+		 		}
+		 		setState(1302)
+		 		try local_parameter_name()
+		 		setState(1303)
+		 		try type_annotation()
+		 		setState(1304)
 		 		try range_operator()
 
 		 		break
@@ -8339,8 +8337,8 @@ open class SwiftParser: Parser {
 		return _localctx
 	}
 	open class External_parameter_nameContext:ParserRuleContext {
-		open func identifier() -> IdentifierContext? {
-			return getRuleContext(IdentifierContext.self,0)
+		open func identifier_argument_context() -> Identifier_argument_contextContext? {
+			return getRuleContext(Identifier_argument_contextContext.self,0)
 		}
 		open override func getRuleIndex() -> Int { return SwiftParser.RULE_external_parameter_name }
 		override
@@ -8375,16 +8373,58 @@ open class SwiftParser: Parser {
 	    		try! exitRule()
 	    }
 		do {
-		 	setState(1300)
+		 	setState(1310)
 		 	try _errHandler.sync(self)
 		 	switch (SwiftParser.Tokens(rawValue: try _input.LA(1))!) {
+		 	case .T__0:fallthrough
+		 	case .T__1:fallthrough
+		 	case .T__2:fallthrough
+		 	case .T__3:fallthrough
+		 	case .T__6:fallthrough
+		 	case .T__7:fallthrough
+		 	case .T__8:fallthrough
+		 	case .T__9:fallthrough
+		 	case .T__10:fallthrough
+		 	case .T__11:fallthrough
+		 	case .T__12:fallthrough
+		 	case .T__13:fallthrough
+		 	case .T__14:fallthrough
+		 	case .T__15:fallthrough
+		 	case .T__16:fallthrough
+		 	case .T__18:fallthrough
+		 	case .T__19:fallthrough
+		 	case .T__20:fallthrough
+		 	case .T__21:fallthrough
+		 	case .T__26:fallthrough
+		 	case .T__27:fallthrough
+		 	case .T__28:fallthrough
+		 	case .T__29:fallthrough
+		 	case .T__30:fallthrough
+		 	case .T__31:fallthrough
+		 	case .T__32:fallthrough
+		 	case .T__33:fallthrough
+		 	case .T__34:fallthrough
+		 	case .T__35:fallthrough
+		 	case .T__37:fallthrough
+		 	case .T__38:fallthrough
+		 	case .T__39:fallthrough
+		 	case .T__40:fallthrough
+		 	case .T__41:fallthrough
+		 	case .T__42:fallthrough
+		 	case .T__43:fallthrough
 		 	case .T__44:fallthrough
 		 	case .T__45:fallthrough
 		 	case .T__46:fallthrough
 		 	case .T__47:fallthrough
+		 	case .T__48:fallthrough
+		 	case .T__49:fallthrough
 		 	case .T__51:fallthrough
+		 	case .T__52:fallthrough
+		 	case .T__53:fallthrough
+		 	case .T__54:fallthrough
+		 	case .T__55:fallthrough
+		 	case .T__56:fallthrough
 		 	case .T__57:fallthrough
-		 	case .T__58:fallthrough
 		 	case .T__59:fallthrough
 		 	case .T__60:fallthrough
 		 	case .T__61:fallthrough
@@ -8401,20 +8441,41 @@ open class SwiftParser: Parser {
 		 	case .T__72:fallthrough
 		 	case .T__73:fallthrough
 		 	case .T__74:fallthrough
+		 	case .T__75:fallthrough
 		 	case .T__76:fallthrough
+		 	case .T__77:fallthrough
+		 	case .T__78:fallthrough
 		 	case .T__79:fallthrough
+		 	case .T__80:fallthrough
+		 	case .T__81:fallthrough
+		 	case .T__82:fallthrough
+		 	case .T__83:fallthrough
+		 	case .T__84:fallthrough
+		 	case .T__85:fallthrough
+		 	case .T__86:fallthrough
+		 	case .T__89:fallthrough
+		 	case .T__90:fallthrough
+		 	case .T__91:fallthrough
+		 	case .T__92:fallthrough
+		 	case .T__93:fallthrough
+		 	case .T__94:fallthrough
+		 	case .T__95:fallthrough
+		 	case .T__99:fallthrough
 		 	case .T__100:fallthrough
 		 	case .T__101:fallthrough
+		 	case .T__103:fallthrough
+		 	case .T__104:fallthrough
+		 	case .T__105:fallthrough
 		 	case .Identifier:
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(1298)
-		 		try identifier()
+		 		setState(1308)
+		 		try identifier_argument_context()
 
 		 		break
 
 		 	case .UNDERSCORE:
 		 		try enterOuterAlt(_localctx, 2)
-		 		setState(1299)
+		 		setState(1309)
 		 		try match(SwiftParser.Tokens.UNDERSCORE.rawValue)
 
 		 		break
@@ -8431,8 +8492,8 @@ open class SwiftParser: Parser {
 		return _localctx
 	}
 	open class Local_parameter_nameContext:ParserRuleContext {
-		open func identifier() -> IdentifierContext? {
-			return getRuleContext(IdentifierContext.self,0)
+		open func identifier_argument_context() -> Identifier_argument_contextContext? {
+			return getRuleContext(Identifier_argument_contextContext.self,0)
 		}
 		open override func getRuleIndex() -> Int { return SwiftParser.RULE_local_parameter_name }
 		override
@@ -8467,16 +8528,58 @@ open class SwiftParser: Parser {
 	    		try! exitRule()
 	    }
 		do {
-		 	setState(1304)
+		 	setState(1314)
 		 	try _errHandler.sync(self)
 		 	switch (SwiftParser.Tokens(rawValue: try _input.LA(1))!) {
+		 	case .T__0:fallthrough
+		 	case .T__1:fallthrough
+		 	case .T__2:fallthrough
+		 	case .T__3:fallthrough
+		 	case .T__6:fallthrough
+		 	case .T__7:fallthrough
+		 	case .T__8:fallthrough
+		 	case .T__9:fallthrough
+		 	case .T__10:fallthrough
+		 	case .T__11:fallthrough
+		 	case .T__12:fallthrough
+		 	case .T__13:fallthrough
+		 	case .T__14:fallthrough
+		 	case .T__15:fallthrough
+		 	case .T__16:fallthrough
+		 	case .T__18:fallthrough
+		 	case .T__19:fallthrough
+		 	case .T__20:fallthrough
+		 	case .T__21:fallthrough
+		 	case .T__26:fallthrough
+		 	case .T__27:fallthrough
+		 	case .T__28:fallthrough
+		 	case .T__29:fallthrough
+		 	case .T__30:fallthrough
+		 	case .T__31:fallthrough
+		 	case .T__32:fallthrough
+		 	case .T__33:fallthrough
+		 	case .T__34:fallthrough
+		 	case .T__35:fallthrough
+		 	case .T__37:fallthrough
+		 	case .T__38:fallthrough
+		 	case .T__39:fallthrough
+		 	case .T__40:fallthrough
+		 	case .T__41:fallthrough
+		 	case .T__42:fallthrough
+		 	case .T__43:fallthrough
 		 	case .T__44:fallthrough
 		 	case .T__45:fallthrough
 		 	case .T__46:fallthrough
 		 	case .T__47:fallthrough
+		 	case .T__48:fallthrough
+		 	case .T__49:fallthrough
 		 	case .T__51:fallthrough
+		 	case .T__52:fallthrough
+		 	case .T__53:fallthrough
+		 	case .T__54:fallthrough
+		 	case .T__55:fallthrough
+		 	case .T__56:fallthrough
 		 	case .T__57:fallthrough
-		 	case .T__58:fallthrough
 		 	case .T__59:fallthrough
 		 	case .T__60:fallthrough
 		 	case .T__61:fallthrough
@@ -8493,20 +8596,41 @@ open class SwiftParser: Parser {
 		 	case .T__72:fallthrough
 		 	case .T__73:fallthrough
 		 	case .T__74:fallthrough
+		 	case .T__75:fallthrough
 		 	case .T__76:fallthrough
+		 	case .T__77:fallthrough
+		 	case .T__78:fallthrough
 		 	case .T__79:fallthrough
+		 	case .T__80:fallthrough
+		 	case .T__81:fallthrough
+		 	case .T__82:fallthrough
+		 	case .T__83:fallthrough
+		 	case .T__84:fallthrough
+		 	case .T__85:fallthrough
+		 	case .T__86:fallthrough
+		 	case .T__89:fallthrough
+		 	case .T__90:fallthrough
+		 	case .T__91:fallthrough
+		 	case .T__92:fallthrough
+		 	case .T__93:fallthrough
+		 	case .T__94:fallthrough
+		 	case .T__95:fallthrough
+		 	case .T__99:fallthrough
 		 	case .T__100:fallthrough
 		 	case .T__101:fallthrough
+		 	case .T__103:fallthrough
+		 	case .T__104:fallthrough
+		 	case .T__105:fallthrough
 		 	case .Identifier:
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(1302)
-		 		try identifier()
+		 		setState(1312)
+		 		try identifier_argument_context()
 
 		 		break
 
 		 	case .UNDERSCORE:
 		 		try enterOuterAlt(_localctx, 2)
-		 		setState(1303)
+		 		setState(1313)
 		 		try match(SwiftParser.Tokens.UNDERSCORE.rawValue)
 
 		 		break
@@ -8563,9 +8687,9 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1306)
+		 	setState(1316)
 		 	try assignment_operator()
-		 	setState(1307)
+		 	setState(1317)
 		 	try expression()
 
 		}
@@ -8624,22 +8748,22 @@ open class SwiftParser: Parser {
 	    		try! exitRule()
 	    }
 		do {
-		 	setState(1323)
+		 	setState(1333)
 		 	try _errHandler.sync(self)
 		 	switch(try getInterpreter().adaptivePredict(_input,127, _ctx)) {
 		 	case 1:
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(1310)
+		 		setState(1320)
 		 		try _errHandler.sync(self)
 		 		switch (try getInterpreter().adaptivePredict(_input,123,_ctx)) {
 		 		case 1:
-		 			setState(1309)
+		 			setState(1319)
 		 			try attributes()
 
 		 			break
 		 		default: break
 		 		}
-		 		setState(1313)
+		 		setState(1323)
 		 		try _errHandler.sync(self)
 		 		_la = try _input.LA(1)
 		 		if (//closure
@@ -8650,24 +8774,24 @@ open class SwiftParser: Parser {
 		 		}()
 		 		      return testSet
 		 		 }()) {
-		 			setState(1312)
+		 			setState(1322)
 		 			try access_level_modifier()
 
 		 		}
 
-		 		setState(1315)
+		 		setState(1325)
 		 		try union_style_enum()
 
 		 		break
 		 	case 2:
 		 		try enterOuterAlt(_localctx, 2)
-		 		setState(1317)
+		 		setState(1327)
 		 		try _errHandler.sync(self)
 		 		_la = try _input.LA(1)
 		 		if (//closure
 		 		 { () -> Bool in
 		 		      var testSet: Bool = {  () -> Bool in
-		 		   let testArray: [Int] = [_la, SwiftParser.Tokens.T__44.rawValue,SwiftParser.Tokens.T__45.rawValue,SwiftParser.Tokens.T__46.rawValue,SwiftParser.Tokens.T__47.rawValue,SwiftParser.Tokens.T__51.rawValue,SwiftParser.Tokens.T__57.rawValue,SwiftParser.Tokens.T__58.rawValue,SwiftParser.Tokens.T__59.rawValue,SwiftParser.Tokens.T__60.rawValue,SwiftParser.Tokens.T__61.rawValue,SwiftParser.Tokens.T__62.rawValue]
+		 		   let testArray: [Int] = [_la, SwiftParser.Tokens.T__44.rawValue,SwiftParser.Tokens.T__45.rawValue,SwiftParser.Tokens.T__46.rawValue,SwiftParser.Tokens.T__47.rawValue,SwiftParser.Tokens.T__51.rawValue,SwiftParser.Tokens.T__57.rawValue,SwiftParser.Tokens.T__59.rawValue,SwiftParser.Tokens.T__60.rawValue,SwiftParser.Tokens.T__61.rawValue,SwiftParser.Tokens.T__62.rawValue]
 		 		    return  Utils.testBitLeftShiftArray(testArray, 0)
 		 		}()
 		 		          testSet = testSet || {  () -> Bool in
@@ -8676,12 +8800,12 @@ open class SwiftParser: Parser {
 		 		          }()
 		 		      return testSet
 		 		 }()) {
-		 			setState(1316)
+		 			setState(1326)
 		 			try attributes()
 
 		 		}
 
-		 		setState(1320)
+		 		setState(1330)
 		 		try _errHandler.sync(self)
 		 		_la = try _input.LA(1)
 		 		if (//closure
@@ -8692,12 +8816,12 @@ open class SwiftParser: Parser {
 		 		}()
 		 		      return testSet
 		 		 }()) {
-		 			setState(1319)
+		 			setState(1329)
 		 			try access_level_modifier()
 
 		 		}
 
-		 		setState(1322)
+		 		setState(1332)
 		 		try raw_value_style_enum()
 
 		 		break
@@ -8760,7 +8884,7 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1326)
+		 	setState(1336)
 		 	try _errHandler.sync(self)
 		 	_la = try _input.LA(1)
 		 	if (//closure
@@ -8768,16 +8892,16 @@ open class SwiftParser: Parser {
 		 	      let testSet: Bool = _la == SwiftParser.Tokens.T__51.rawValue
 		 	      return testSet
 		 	 }()) {
-		 		setState(1325)
+		 		setState(1335)
 		 		try match(SwiftParser.Tokens.T__51.rawValue)
 
 		 	}
 
-		 	setState(1328)
+		 	setState(1338)
 		 	try match(SwiftParser.Tokens.T__41.rawValue)
-		 	setState(1329)
+		 	setState(1339)
 		 	try enum_name()
-		 	setState(1331)
+		 	setState(1341)
 		 	try _errHandler.sync(self)
 		 	_la = try _input.LA(1)
 		 	if (//closure
@@ -8785,12 +8909,12 @@ open class SwiftParser: Parser {
 		 	      let testSet: Bool = _la == SwiftParser.Tokens.LT.rawValue
 		 	      return testSet
 		 	 }()) {
-		 		setState(1330)
+		 		setState(1340)
 		 		try generic_parameter_clause()
 
 		 	}
 
-		 	setState(1334)
+		 	setState(1344)
 		 	try _errHandler.sync(self)
 		 	_la = try _input.LA(1)
 		 	if (//closure
@@ -8798,12 +8922,12 @@ open class SwiftParser: Parser {
 		 	      let testSet: Bool = _la == SwiftParser.Tokens.COLON.rawValue
 		 	      return testSet
 		 	 }()) {
-		 		setState(1333)
+		 		setState(1343)
 		 		try type_inheritance_clause()
 
 		 	}
 
-		 	setState(1336)
+		 	setState(1346)
 		 	try union_style_enum_body()
 
 		}
@@ -8854,15 +8978,15 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1338)
+		 	setState(1348)
 		 	try match(SwiftParser.Tokens.LCURLY.rawValue)
-		 	setState(1340)
+		 	setState(1350)
 		 	try _errHandler.sync(self)
 		 	_la = try _input.LA(1)
 		 	if (//closure
 		 	 { () -> Bool in
 		 	      var testSet: Bool = {  () -> Bool in
-		 	   let testArray: [Int] = [_la, SwiftParser.Tokens.T__1.rawValue,SwiftParser.Tokens.T__4.rawValue,SwiftParser.Tokens.T__5.rawValue,SwiftParser.Tokens.T__22.rawValue,SwiftParser.Tokens.T__36.rawValue,SwiftParser.Tokens.T__37.rawValue,SwiftParser.Tokens.T__38.rawValue,SwiftParser.Tokens.T__39.rawValue,SwiftParser.Tokens.T__40.rawValue,SwiftParser.Tokens.T__41.rawValue,SwiftParser.Tokens.T__42.rawValue,SwiftParser.Tokens.T__43.rawValue,SwiftParser.Tokens.T__44.rawValue,SwiftParser.Tokens.T__45.rawValue,SwiftParser.Tokens.T__46.rawValue,SwiftParser.Tokens.T__47.rawValue,SwiftParser.Tokens.T__51.rawValue,SwiftParser.Tokens.T__53.rawValue,SwiftParser.Tokens.T__54.rawValue,SwiftParser.Tokens.T__55.rawValue,SwiftParser.Tokens.T__56.rawValue,SwiftParser.Tokens.T__57.rawValue,SwiftParser.Tokens.T__58.rawValue,SwiftParser.Tokens.T__59.rawValue,SwiftParser.Tokens.T__60.rawValue,SwiftParser.Tokens.T__61.rawValue,SwiftParser.Tokens.T__62.rawValue]
+		 	   let testArray: [Int] = [_la, SwiftParser.Tokens.T__1.rawValue,SwiftParser.Tokens.T__4.rawValue,SwiftParser.Tokens.T__5.rawValue,SwiftParser.Tokens.T__22.rawValue,SwiftParser.Tokens.T__36.rawValue,SwiftParser.Tokens.T__37.rawValue,SwiftParser.Tokens.T__38.rawValue,SwiftParser.Tokens.T__39.rawValue,SwiftParser.Tokens.T__40.rawValue,SwiftParser.Tokens.T__41.rawValue,SwiftParser.Tokens.T__42.rawValue,SwiftParser.Tokens.T__43.rawValue,SwiftParser.Tokens.T__44.rawValue,SwiftParser.Tokens.T__45.rawValue,SwiftParser.Tokens.T__46.rawValue,SwiftParser.Tokens.T__47.rawValue,SwiftParser.Tokens.T__51.rawValue,SwiftParser.Tokens.T__53.rawValue,SwiftParser.Tokens.T__54.rawValue,SwiftParser.Tokens.T__55.rawValue,SwiftParser.Tokens.T__56.rawValue,SwiftParser.Tokens.T__57.rawValue,SwiftParser.Tokens.T__59.rawValue,SwiftParser.Tokens.T__60.rawValue,SwiftParser.Tokens.T__61.rawValue,SwiftParser.Tokens.T__62.rawValue]
 		 	    return  Utils.testBitLeftShiftArray(testArray, 0)
 		 	}()
 		 	          testSet = testSet || {  () -> Bool in
@@ -8871,12 +8995,12 @@ open class SwiftParser: Parser {
 		 	          }()
 		 	      return testSet
 		 	 }()) {
-		 		setState(1339)
+		 		setState(1349)
 		 		try union_style_enum_members()
 
 		 	}
 
-		 	setState(1342)
+		 	setState(1352)
 		 	try match(SwiftParser.Tokens.RCURLY.rawValue)
 
 		}
@@ -8930,21 +9054,21 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1345) 
+		 	setState(1355) 
 		 	try _errHandler.sync(self)
 		 	_la = try _input.LA(1)
 		 	repeat {
-		 		setState(1344)
+		 		setState(1354)
 		 		try union_style_enum_member()
 
 
-		 		setState(1347); 
+		 		setState(1357); 
 		 		try _errHandler.sync(self)
 		 		_la = try _input.LA(1)
 		 	} while (//closure
 		 	 { () -> Bool in
 		 	      var testSet: Bool = {  () -> Bool in
-		 	   let testArray: [Int] = [_la, SwiftParser.Tokens.T__1.rawValue,SwiftParser.Tokens.T__4.rawValue,SwiftParser.Tokens.T__5.rawValue,SwiftParser.Tokens.T__22.rawValue,SwiftParser.Tokens.T__36.rawValue,SwiftParser.Tokens.T__37.rawValue,SwiftParser.Tokens.T__38.rawValue,SwiftParser.Tokens.T__39.rawValue,SwiftParser.Tokens.T__40.rawValue,SwiftParser.Tokens.T__41.rawValue,SwiftParser.Tokens.T__42.rawValue,SwiftParser.Tokens.T__43.rawValue,SwiftParser.Tokens.T__44.rawValue,SwiftParser.Tokens.T__45.rawValue,SwiftParser.Tokens.T__46.rawValue,SwiftParser.Tokens.T__47.rawValue,SwiftParser.Tokens.T__51.rawValue,SwiftParser.Tokens.T__53.rawValue,SwiftParser.Tokens.T__54.rawValue,SwiftParser.Tokens.T__55.rawValue,SwiftParser.Tokens.T__56.rawValue,SwiftParser.Tokens.T__57.rawValue,SwiftParser.Tokens.T__58.rawValue,SwiftParser.Tokens.T__59.rawValue,SwiftParser.Tokens.T__60.rawValue,SwiftParser.Tokens.T__61.rawValue,SwiftParser.Tokens.T__62.rawValue]
+		 	   let testArray: [Int] = [_la, SwiftParser.Tokens.T__1.rawValue,SwiftParser.Tokens.T__4.rawValue,SwiftParser.Tokens.T__5.rawValue,SwiftParser.Tokens.T__22.rawValue,SwiftParser.Tokens.T__36.rawValue,SwiftParser.Tokens.T__37.rawValue,SwiftParser.Tokens.T__38.rawValue,SwiftParser.Tokens.T__39.rawValue,SwiftParser.Tokens.T__40.rawValue,SwiftParser.Tokens.T__41.rawValue,SwiftParser.Tokens.T__42.rawValue,SwiftParser.Tokens.T__43.rawValue,SwiftParser.Tokens.T__44.rawValue,SwiftParser.Tokens.T__45.rawValue,SwiftParser.Tokens.T__46.rawValue,SwiftParser.Tokens.T__47.rawValue,SwiftParser.Tokens.T__51.rawValue,SwiftParser.Tokens.T__53.rawValue,SwiftParser.Tokens.T__54.rawValue,SwiftParser.Tokens.T__55.rawValue,SwiftParser.Tokens.T__56.rawValue,SwiftParser.Tokens.T__57.rawValue,SwiftParser.Tokens.T__59.rawValue,SwiftParser.Tokens.T__60.rawValue,SwiftParser.Tokens.T__61.rawValue,SwiftParser.Tokens.T__62.rawValue]
 		 	    return  Utils.testBitLeftShiftArray(testArray, 0)
 		 	}()
 		 	          testSet = testSet || {  () -> Bool in
@@ -9003,18 +9127,18 @@ open class SwiftParser: Parser {
 	    		try! exitRule()
 	    }
 		do {
-		 	setState(1351)
+		 	setState(1361)
 		 	try _errHandler.sync(self)
 		 	switch(try getInterpreter().adaptivePredict(_input,133, _ctx)) {
 		 	case 1:
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(1349)
+		 		setState(1359)
 		 		try declaration()
 
 		 		break
 		 	case 2:
 		 		try enterOuterAlt(_localctx, 2)
-		 		setState(1350)
+		 		setState(1360)
 		 		try union_style_enum_case_clause()
 
 		 		break
@@ -9071,17 +9195,17 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1354)
+		 	setState(1364)
 		 	try _errHandler.sync(self)
 		 	switch (try getInterpreter().adaptivePredict(_input,134,_ctx)) {
 		 	case 1:
-		 		setState(1353)
+		 		setState(1363)
 		 		try attributes()
 
 		 		break
 		 	default: break
 		 	}
-		 	setState(1357)
+		 	setState(1367)
 		 	try _errHandler.sync(self)
 		 	_la = try _input.LA(1)
 		 	if (//closure
@@ -9089,14 +9213,14 @@ open class SwiftParser: Parser {
 		 	      let testSet: Bool = _la == SwiftParser.Tokens.T__51.rawValue
 		 	      return testSet
 		 	 }()) {
-		 		setState(1356)
+		 		setState(1366)
 		 		try match(SwiftParser.Tokens.T__51.rawValue)
 
 		 	}
 
-		 	setState(1359)
+		 	setState(1369)
 		 	try match(SwiftParser.Tokens.T__1.rawValue)
-		 	setState(1360)
+		 	setState(1370)
 		 	try union_style_enum_case_list()
 
 		}
@@ -9148,22 +9272,22 @@ open class SwiftParser: Parser {
 	    		try! exitRule()
 	    }
 		do {
-		 	setState(1367)
+		 	setState(1377)
 		 	try _errHandler.sync(self)
 		 	switch(try getInterpreter().adaptivePredict(_input,136, _ctx)) {
 		 	case 1:
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(1362)
+		 		setState(1372)
 		 		try union_style_enum_case()
 
 		 		break
 		 	case 2:
 		 		try enterOuterAlt(_localctx, 2)
-		 		setState(1363)
+		 		setState(1373)
 		 		try union_style_enum_case()
-		 		setState(1364)
+		 		setState(1374)
 		 		try match(SwiftParser.Tokens.COMMA.rawValue)
-		 		setState(1365)
+		 		setState(1375)
 		 		try union_style_enum_case_list()
 
 		 		break
@@ -9220,9 +9344,9 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1369)
+		 	setState(1379)
 		 	try enum_case_name()
-		 	setState(1371)
+		 	setState(1381)
 		 	try _errHandler.sync(self)
 		 	_la = try _input.LA(1)
 		 	if (//closure
@@ -9230,7 +9354,7 @@ open class SwiftParser: Parser {
 		 	      let testSet: Bool = _la == SwiftParser.Tokens.LPAREN.rawValue
 		 	      return testSet
 		 	 }()) {
-		 		setState(1370)
+		 		setState(1380)
 		 		try tuple_type()
 
 		 	}
@@ -9246,8 +9370,8 @@ open class SwiftParser: Parser {
 		return _localctx
 	}
 	open class Enum_nameContext:ParserRuleContext {
-		open func identifier() -> IdentifierContext? {
-			return getRuleContext(IdentifierContext.self,0)
+		open func identifier_declaration_context() -> Identifier_declaration_contextContext? {
+			return getRuleContext(Identifier_declaration_contextContext.self,0)
 		}
 		open override func getRuleIndex() -> Int { return SwiftParser.RULE_enum_name }
 		override
@@ -9283,8 +9407,8 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1373)
-		 	try identifier()
+		 	setState(1383)
+		 	try identifier_declaration_context()
 
 		}
 		catch ANTLRException.recognition(let re) {
@@ -9296,8 +9420,8 @@ open class SwiftParser: Parser {
 		return _localctx
 	}
 	open class Enum_case_nameContext:ParserRuleContext {
-		open func identifier() -> IdentifierContext? {
-			return getRuleContext(IdentifierContext.self,0)
+		open func identifier_declaration_context() -> Identifier_declaration_contextContext? {
+			return getRuleContext(Identifier_declaration_contextContext.self,0)
 		}
 		open override func getRuleIndex() -> Int { return SwiftParser.RULE_enum_case_name }
 		override
@@ -9333,8 +9457,8 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1375)
-		 	try identifier()
+		 	setState(1385)
+		 	try identifier_declaration_context()
 
 		}
 		catch ANTLRException.recognition(let re) {
@@ -9393,11 +9517,11 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1377)
+		 	setState(1387)
 		 	try match(SwiftParser.Tokens.T__41.rawValue)
-		 	setState(1378)
+		 	setState(1388)
 		 	try enum_name()
-		 	setState(1380)
+		 	setState(1390)
 		 	try _errHandler.sync(self)
 		 	_la = try _input.LA(1)
 		 	if (//closure
@@ -9405,14 +9529,14 @@ open class SwiftParser: Parser {
 		 	      let testSet: Bool = _la == SwiftParser.Tokens.LT.rawValue
 		 	      return testSet
 		 	 }()) {
-		 		setState(1379)
+		 		setState(1389)
 		 		try generic_parameter_clause()
 
 		 	}
 
-		 	setState(1382)
+		 	setState(1392)
 		 	try type_inheritance_clause()
-		 	setState(1383)
+		 	setState(1393)
 		 	try raw_value_style_enum_body()
 
 		}
@@ -9462,11 +9586,11 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1385)
+		 	setState(1395)
 		 	try match(SwiftParser.Tokens.LCURLY.rawValue)
-		 	setState(1386)
+		 	setState(1396)
 		 	try raw_value_style_enum_members()
-		 	setState(1387)
+		 	setState(1397)
 		 	try match(SwiftParser.Tokens.RCURLY.rawValue)
 
 		}
@@ -9520,21 +9644,21 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1390) 
+		 	setState(1400) 
 		 	try _errHandler.sync(self)
 		 	_la = try _input.LA(1)
 		 	repeat {
-		 		setState(1389)
+		 		setState(1399)
 		 		try raw_value_style_enum_member()
 
 
-		 		setState(1392); 
+		 		setState(1402); 
 		 		try _errHandler.sync(self)
 		 		_la = try _input.LA(1)
 		 	} while (//closure
 		 	 { () -> Bool in
 		 	      var testSet: Bool = {  () -> Bool in
-		 	   let testArray: [Int] = [_la, SwiftParser.Tokens.T__1.rawValue,SwiftParser.Tokens.T__4.rawValue,SwiftParser.Tokens.T__5.rawValue,SwiftParser.Tokens.T__22.rawValue,SwiftParser.Tokens.T__36.rawValue,SwiftParser.Tokens.T__37.rawValue,SwiftParser.Tokens.T__38.rawValue,SwiftParser.Tokens.T__39.rawValue,SwiftParser.Tokens.T__40.rawValue,SwiftParser.Tokens.T__41.rawValue,SwiftParser.Tokens.T__42.rawValue,SwiftParser.Tokens.T__43.rawValue,SwiftParser.Tokens.T__44.rawValue,SwiftParser.Tokens.T__45.rawValue,SwiftParser.Tokens.T__46.rawValue,SwiftParser.Tokens.T__47.rawValue,SwiftParser.Tokens.T__51.rawValue,SwiftParser.Tokens.T__53.rawValue,SwiftParser.Tokens.T__54.rawValue,SwiftParser.Tokens.T__55.rawValue,SwiftParser.Tokens.T__56.rawValue,SwiftParser.Tokens.T__57.rawValue,SwiftParser.Tokens.T__58.rawValue,SwiftParser.Tokens.T__59.rawValue,SwiftParser.Tokens.T__60.rawValue,SwiftParser.Tokens.T__61.rawValue,SwiftParser.Tokens.T__62.rawValue]
+		 	   let testArray: [Int] = [_la, SwiftParser.Tokens.T__1.rawValue,SwiftParser.Tokens.T__4.rawValue,SwiftParser.Tokens.T__5.rawValue,SwiftParser.Tokens.T__22.rawValue,SwiftParser.Tokens.T__36.rawValue,SwiftParser.Tokens.T__37.rawValue,SwiftParser.Tokens.T__38.rawValue,SwiftParser.Tokens.T__39.rawValue,SwiftParser.Tokens.T__40.rawValue,SwiftParser.Tokens.T__41.rawValue,SwiftParser.Tokens.T__42.rawValue,SwiftParser.Tokens.T__43.rawValue,SwiftParser.Tokens.T__44.rawValue,SwiftParser.Tokens.T__45.rawValue,SwiftParser.Tokens.T__46.rawValue,SwiftParser.Tokens.T__47.rawValue,SwiftParser.Tokens.T__51.rawValue,SwiftParser.Tokens.T__53.rawValue,SwiftParser.Tokens.T__54.rawValue,SwiftParser.Tokens.T__55.rawValue,SwiftParser.Tokens.T__56.rawValue,SwiftParser.Tokens.T__57.rawValue,SwiftParser.Tokens.T__59.rawValue,SwiftParser.Tokens.T__60.rawValue,SwiftParser.Tokens.T__61.rawValue,SwiftParser.Tokens.T__62.rawValue]
 		 	    return  Utils.testBitLeftShiftArray(testArray, 0)
 		 	}()
 		 	          testSet = testSet || {  () -> Bool in
@@ -9593,18 +9717,18 @@ open class SwiftParser: Parser {
 	    		try! exitRule()
 	    }
 		do {
-		 	setState(1396)
+		 	setState(1406)
 		 	try _errHandler.sync(self)
 		 	switch(try getInterpreter().adaptivePredict(_input,140, _ctx)) {
 		 	case 1:
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(1394)
+		 		setState(1404)
 		 		try declaration()
 
 		 		break
 		 	case 2:
 		 		try enterOuterAlt(_localctx, 2)
-		 		setState(1395)
+		 		setState(1405)
 		 		try raw_value_style_enum_case_clause()
 
 		 		break
@@ -9661,13 +9785,13 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1399)
+		 	setState(1409)
 		 	try _errHandler.sync(self)
 		 	_la = try _input.LA(1)
 		 	if (//closure
 		 	 { () -> Bool in
 		 	      var testSet: Bool = {  () -> Bool in
-		 	   let testArray: [Int] = [_la, SwiftParser.Tokens.T__44.rawValue,SwiftParser.Tokens.T__45.rawValue,SwiftParser.Tokens.T__46.rawValue,SwiftParser.Tokens.T__47.rawValue,SwiftParser.Tokens.T__51.rawValue,SwiftParser.Tokens.T__57.rawValue,SwiftParser.Tokens.T__58.rawValue,SwiftParser.Tokens.T__59.rawValue,SwiftParser.Tokens.T__60.rawValue,SwiftParser.Tokens.T__61.rawValue,SwiftParser.Tokens.T__62.rawValue]
+		 	   let testArray: [Int] = [_la, SwiftParser.Tokens.T__44.rawValue,SwiftParser.Tokens.T__45.rawValue,SwiftParser.Tokens.T__46.rawValue,SwiftParser.Tokens.T__47.rawValue,SwiftParser.Tokens.T__51.rawValue,SwiftParser.Tokens.T__57.rawValue,SwiftParser.Tokens.T__59.rawValue,SwiftParser.Tokens.T__60.rawValue,SwiftParser.Tokens.T__61.rawValue,SwiftParser.Tokens.T__62.rawValue]
 		 	    return  Utils.testBitLeftShiftArray(testArray, 0)
 		 	}()
 		 	          testSet = testSet || {  () -> Bool in
@@ -9676,14 +9800,14 @@ open class SwiftParser: Parser {
 		 	          }()
 		 	      return testSet
 		 	 }()) {
-		 		setState(1398)
+		 		setState(1408)
 		 		try attributes()
 
 		 	}
 
-		 	setState(1401)
+		 	setState(1411)
 		 	try match(SwiftParser.Tokens.T__1.rawValue)
-		 	setState(1402)
+		 	setState(1412)
 		 	try raw_value_style_enum_case_list()
 
 		}
@@ -9735,22 +9859,22 @@ open class SwiftParser: Parser {
 	    		try! exitRule()
 	    }
 		do {
-		 	setState(1409)
+		 	setState(1419)
 		 	try _errHandler.sync(self)
 		 	switch(try getInterpreter().adaptivePredict(_input,142, _ctx)) {
 		 	case 1:
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(1404)
+		 		setState(1414)
 		 		try raw_value_style_enum_case()
 
 		 		break
 		 	case 2:
 		 		try enterOuterAlt(_localctx, 2)
-		 		setState(1405)
+		 		setState(1415)
 		 		try raw_value_style_enum_case()
-		 		setState(1406)
+		 		setState(1416)
 		 		try match(SwiftParser.Tokens.COMMA.rawValue)
-		 		setState(1407)
+		 		setState(1417)
 		 		try raw_value_style_enum_case_list()
 
 		 		break
@@ -9806,13 +9930,13 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1411)
+		 	setState(1421)
 		 	try enum_case_name()
-		 	setState(1413)
+		 	setState(1423)
 		 	try _errHandler.sync(self)
 		 	switch (try getInterpreter().adaptivePredict(_input,143,_ctx)) {
 		 	case 1:
-		 		setState(1412)
+		 		setState(1422)
 		 		try raw_value_assignment()
 
 		 		break
@@ -9869,9 +9993,9 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1415)
+		 	setState(1425)
 		 	try assignment_operator()
-		 	setState(1416)
+		 	setState(1426)
 		 	try raw_value_literal()
 
 		}
@@ -9924,24 +10048,24 @@ open class SwiftParser: Parser {
 	    		try! exitRule()
 	    }
 		do {
-		 	setState(1421)
+		 	setState(1431)
 		 	try _errHandler.sync(self)
 		 	switch(try getInterpreter().adaptivePredict(_input,144, _ctx)) {
 		 	case 1:
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(1418)
+		 		setState(1428)
 		 		try numeric_literal()
 
 		 		break
 		 	case 2:
 		 		try enterOuterAlt(_localctx, 2)
-		 		setState(1419)
+		 		setState(1429)
 		 		try match(SwiftParser.Tokens.Static_string_literal.rawValue)
 
 		 		break
 		 	case 3:
 		 		try enterOuterAlt(_localctx, 3)
-		 		setState(1420)
+		 		setState(1430)
 		 		try boolean_literal()
 
 		 		break
@@ -10010,13 +10134,13 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1424)
+		 	setState(1434)
 		 	try _errHandler.sync(self)
 		 	_la = try _input.LA(1)
 		 	if (//closure
 		 	 { () -> Bool in
 		 	      var testSet: Bool = {  () -> Bool in
-		 	   let testArray: [Int] = [_la, SwiftParser.Tokens.T__44.rawValue,SwiftParser.Tokens.T__45.rawValue,SwiftParser.Tokens.T__46.rawValue,SwiftParser.Tokens.T__47.rawValue,SwiftParser.Tokens.T__51.rawValue,SwiftParser.Tokens.T__57.rawValue,SwiftParser.Tokens.T__58.rawValue,SwiftParser.Tokens.T__59.rawValue,SwiftParser.Tokens.T__60.rawValue,SwiftParser.Tokens.T__61.rawValue,SwiftParser.Tokens.T__62.rawValue]
+		 	   let testArray: [Int] = [_la, SwiftParser.Tokens.T__44.rawValue,SwiftParser.Tokens.T__45.rawValue,SwiftParser.Tokens.T__46.rawValue,SwiftParser.Tokens.T__47.rawValue,SwiftParser.Tokens.T__51.rawValue,SwiftParser.Tokens.T__57.rawValue,SwiftParser.Tokens.T__59.rawValue,SwiftParser.Tokens.T__60.rawValue,SwiftParser.Tokens.T__61.rawValue,SwiftParser.Tokens.T__62.rawValue]
 		 	    return  Utils.testBitLeftShiftArray(testArray, 0)
 		 	}()
 		 	          testSet = testSet || {  () -> Bool in
@@ -10025,12 +10149,12 @@ open class SwiftParser: Parser {
 		 	          }()
 		 	      return testSet
 		 	 }()) {
-		 		setState(1423)
+		 		setState(1433)
 		 		try attributes()
 
 		 	}
 
-		 	setState(1427)
+		 	setState(1437)
 		 	try _errHandler.sync(self)
 		 	_la = try _input.LA(1)
 		 	if (//closure
@@ -10041,16 +10165,16 @@ open class SwiftParser: Parser {
 		 	}()
 		 	      return testSet
 		 	 }()) {
-		 		setState(1426)
+		 		setState(1436)
 		 		try access_level_modifier()
 
 		 	}
 
-		 	setState(1429)
+		 	setState(1439)
 		 	try match(SwiftParser.Tokens.T__39.rawValue)
-		 	setState(1430)
+		 	setState(1440)
 		 	try struct_name()
-		 	setState(1432)
+		 	setState(1442)
 		 	try _errHandler.sync(self)
 		 	_la = try _input.LA(1)
 		 	if (//closure
@@ -10058,12 +10182,12 @@ open class SwiftParser: Parser {
 		 	      let testSet: Bool = _la == SwiftParser.Tokens.LT.rawValue
 		 	      return testSet
 		 	 }()) {
-		 		setState(1431)
+		 		setState(1441)
 		 		try generic_parameter_clause()
 
 		 	}
 
-		 	setState(1435)
+		 	setState(1445)
 		 	try _errHandler.sync(self)
 		 	_la = try _input.LA(1)
 		 	if (//closure
@@ -10071,12 +10195,12 @@ open class SwiftParser: Parser {
 		 	      let testSet: Bool = _la == SwiftParser.Tokens.COLON.rawValue
 		 	      return testSet
 		 	 }()) {
-		 		setState(1434)
+		 		setState(1444)
 		 		try type_inheritance_clause()
 
 		 	}
 
-		 	setState(1437)
+		 	setState(1447)
 		 	try struct_body()
 
 		}
@@ -10089,8 +10213,8 @@ open class SwiftParser: Parser {
 		return _localctx
 	}
 	open class Struct_nameContext:ParserRuleContext {
-		open func identifier() -> IdentifierContext? {
-			return getRuleContext(IdentifierContext.self,0)
+		open func identifier_declaration_context() -> Identifier_declaration_contextContext? {
+			return getRuleContext(Identifier_declaration_contextContext.self,0)
 		}
 		open override func getRuleIndex() -> Int { return SwiftParser.RULE_struct_name }
 		override
@@ -10126,8 +10250,8 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1439)
-		 	try identifier()
+		 	setState(1449)
+		 	try identifier_declaration_context()
 
 		}
 		catch ANTLRException.recognition(let re) {
@@ -10177,15 +10301,15 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1441)
+		 	setState(1451)
 		 	try match(SwiftParser.Tokens.LCURLY.rawValue)
-		 	setState(1443)
+		 	setState(1453)
 		 	try _errHandler.sync(self)
 		 	_la = try _input.LA(1)
 		 	if (//closure
 		 	 { () -> Bool in
 		 	      var testSet: Bool = {  () -> Bool in
-		 	   let testArray: [Int] = [_la, SwiftParser.Tokens.T__4.rawValue,SwiftParser.Tokens.T__5.rawValue,SwiftParser.Tokens.T__22.rawValue,SwiftParser.Tokens.T__36.rawValue,SwiftParser.Tokens.T__37.rawValue,SwiftParser.Tokens.T__38.rawValue,SwiftParser.Tokens.T__39.rawValue,SwiftParser.Tokens.T__40.rawValue,SwiftParser.Tokens.T__41.rawValue,SwiftParser.Tokens.T__42.rawValue,SwiftParser.Tokens.T__43.rawValue,SwiftParser.Tokens.T__44.rawValue,SwiftParser.Tokens.T__45.rawValue,SwiftParser.Tokens.T__46.rawValue,SwiftParser.Tokens.T__47.rawValue,SwiftParser.Tokens.T__51.rawValue,SwiftParser.Tokens.T__53.rawValue,SwiftParser.Tokens.T__54.rawValue,SwiftParser.Tokens.T__55.rawValue,SwiftParser.Tokens.T__56.rawValue,SwiftParser.Tokens.T__57.rawValue,SwiftParser.Tokens.T__58.rawValue,SwiftParser.Tokens.T__59.rawValue,SwiftParser.Tokens.T__60.rawValue,SwiftParser.Tokens.T__61.rawValue,SwiftParser.Tokens.T__62.rawValue]
+		 	   let testArray: [Int] = [_la, SwiftParser.Tokens.T__4.rawValue,SwiftParser.Tokens.T__5.rawValue,SwiftParser.Tokens.T__22.rawValue,SwiftParser.Tokens.T__36.rawValue,SwiftParser.Tokens.T__37.rawValue,SwiftParser.Tokens.T__38.rawValue,SwiftParser.Tokens.T__39.rawValue,SwiftParser.Tokens.T__40.rawValue,SwiftParser.Tokens.T__41.rawValue,SwiftParser.Tokens.T__42.rawValue,SwiftParser.Tokens.T__43.rawValue,SwiftParser.Tokens.T__44.rawValue,SwiftParser.Tokens.T__45.rawValue,SwiftParser.Tokens.T__46.rawValue,SwiftParser.Tokens.T__47.rawValue,SwiftParser.Tokens.T__51.rawValue,SwiftParser.Tokens.T__53.rawValue,SwiftParser.Tokens.T__54.rawValue,SwiftParser.Tokens.T__55.rawValue,SwiftParser.Tokens.T__56.rawValue,SwiftParser.Tokens.T__57.rawValue,SwiftParser.Tokens.T__59.rawValue,SwiftParser.Tokens.T__60.rawValue,SwiftParser.Tokens.T__61.rawValue,SwiftParser.Tokens.T__62.rawValue]
 		 	    return  Utils.testBitLeftShiftArray(testArray, 0)
 		 	}()
 		 	          testSet = testSet || {  () -> Bool in
@@ -10194,12 +10318,12 @@ open class SwiftParser: Parser {
 		 	          }()
 		 	      return testSet
 		 	 }()) {
-		 		setState(1442)
+		 		setState(1452)
 		 		try declarations()
 
 		 	}
 
-		 	setState(1445)
+		 	setState(1455)
 		 	try match(SwiftParser.Tokens.RCURLY.rawValue)
 
 		}
@@ -10265,13 +10389,13 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1448)
+		 	setState(1458)
 		 	try _errHandler.sync(self)
 		 	_la = try _input.LA(1)
 		 	if (//closure
 		 	 { () -> Bool in
 		 	      var testSet: Bool = {  () -> Bool in
-		 	   let testArray: [Int] = [_la, SwiftParser.Tokens.T__44.rawValue,SwiftParser.Tokens.T__45.rawValue,SwiftParser.Tokens.T__46.rawValue,SwiftParser.Tokens.T__47.rawValue,SwiftParser.Tokens.T__51.rawValue,SwiftParser.Tokens.T__57.rawValue,SwiftParser.Tokens.T__58.rawValue,SwiftParser.Tokens.T__59.rawValue,SwiftParser.Tokens.T__60.rawValue,SwiftParser.Tokens.T__61.rawValue,SwiftParser.Tokens.T__62.rawValue]
+		 	   let testArray: [Int] = [_la, SwiftParser.Tokens.T__44.rawValue,SwiftParser.Tokens.T__45.rawValue,SwiftParser.Tokens.T__46.rawValue,SwiftParser.Tokens.T__47.rawValue,SwiftParser.Tokens.T__51.rawValue,SwiftParser.Tokens.T__57.rawValue,SwiftParser.Tokens.T__59.rawValue,SwiftParser.Tokens.T__60.rawValue,SwiftParser.Tokens.T__61.rawValue,SwiftParser.Tokens.T__62.rawValue]
 		 	    return  Utils.testBitLeftShiftArray(testArray, 0)
 		 	}()
 		 	          testSet = testSet || {  () -> Bool in
@@ -10280,12 +10404,12 @@ open class SwiftParser: Parser {
 		 	          }()
 		 	      return testSet
 		 	 }()) {
-		 		setState(1447)
+		 		setState(1457)
 		 		try attributes()
 
 		 	}
 
-		 	setState(1451)
+		 	setState(1461)
 		 	try _errHandler.sync(self)
 		 	_la = try _input.LA(1)
 		 	if (//closure
@@ -10296,16 +10420,16 @@ open class SwiftParser: Parser {
 		 	}()
 		 	      return testSet
 		 	 }()) {
-		 		setState(1450)
+		 		setState(1460)
 		 		try access_level_modifier()
 
 		 	}
 
-		 	setState(1453)
+		 	setState(1463)
 		 	try match(SwiftParser.Tokens.T__40.rawValue)
-		 	setState(1454)
+		 	setState(1464)
 		 	try class_name()
-		 	setState(1456)
+		 	setState(1466)
 		 	try _errHandler.sync(self)
 		 	_la = try _input.LA(1)
 		 	if (//closure
@@ -10313,12 +10437,12 @@ open class SwiftParser: Parser {
 		 	      let testSet: Bool = _la == SwiftParser.Tokens.LT.rawValue
 		 	      return testSet
 		 	 }()) {
-		 		setState(1455)
+		 		setState(1465)
 		 		try generic_parameter_clause()
 
 		 	}
 
-		 	setState(1459)
+		 	setState(1469)
 		 	try _errHandler.sync(self)
 		 	_la = try _input.LA(1)
 		 	if (//closure
@@ -10326,12 +10450,12 @@ open class SwiftParser: Parser {
 		 	      let testSet: Bool = _la == SwiftParser.Tokens.COLON.rawValue
 		 	      return testSet
 		 	 }()) {
-		 		setState(1458)
+		 		setState(1468)
 		 		try type_inheritance_clause()
 
 		 	}
 
-		 	setState(1461)
+		 	setState(1471)
 		 	try class_body()
 
 		}
@@ -10344,8 +10468,8 @@ open class SwiftParser: Parser {
 		return _localctx
 	}
 	open class Class_nameContext:ParserRuleContext {
-		open func identifier() -> IdentifierContext? {
-			return getRuleContext(IdentifierContext.self,0)
+		open func identifier_declaration_context() -> Identifier_declaration_contextContext? {
+			return getRuleContext(Identifier_declaration_contextContext.self,0)
 		}
 		open override func getRuleIndex() -> Int { return SwiftParser.RULE_class_name }
 		override
@@ -10381,8 +10505,8 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1463)
-		 	try identifier()
+		 	setState(1473)
+		 	try identifier_declaration_context()
 
 		}
 		catch ANTLRException.recognition(let re) {
@@ -10432,15 +10556,15 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1465)
+		 	setState(1475)
 		 	try match(SwiftParser.Tokens.LCURLY.rawValue)
-		 	setState(1467)
+		 	setState(1477)
 		 	try _errHandler.sync(self)
 		 	_la = try _input.LA(1)
 		 	if (//closure
 		 	 { () -> Bool in
 		 	      var testSet: Bool = {  () -> Bool in
-		 	   let testArray: [Int] = [_la, SwiftParser.Tokens.T__4.rawValue,SwiftParser.Tokens.T__5.rawValue,SwiftParser.Tokens.T__22.rawValue,SwiftParser.Tokens.T__36.rawValue,SwiftParser.Tokens.T__37.rawValue,SwiftParser.Tokens.T__38.rawValue,SwiftParser.Tokens.T__39.rawValue,SwiftParser.Tokens.T__40.rawValue,SwiftParser.Tokens.T__41.rawValue,SwiftParser.Tokens.T__42.rawValue,SwiftParser.Tokens.T__43.rawValue,SwiftParser.Tokens.T__44.rawValue,SwiftParser.Tokens.T__45.rawValue,SwiftParser.Tokens.T__46.rawValue,SwiftParser.Tokens.T__47.rawValue,SwiftParser.Tokens.T__51.rawValue,SwiftParser.Tokens.T__53.rawValue,SwiftParser.Tokens.T__54.rawValue,SwiftParser.Tokens.T__55.rawValue,SwiftParser.Tokens.T__56.rawValue,SwiftParser.Tokens.T__57.rawValue,SwiftParser.Tokens.T__58.rawValue,SwiftParser.Tokens.T__59.rawValue,SwiftParser.Tokens.T__60.rawValue,SwiftParser.Tokens.T__61.rawValue,SwiftParser.Tokens.T__62.rawValue]
+		 	   let testArray: [Int] = [_la, SwiftParser.Tokens.T__4.rawValue,SwiftParser.Tokens.T__5.rawValue,SwiftParser.Tokens.T__22.rawValue,SwiftParser.Tokens.T__36.rawValue,SwiftParser.Tokens.T__37.rawValue,SwiftParser.Tokens.T__38.rawValue,SwiftParser.Tokens.T__39.rawValue,SwiftParser.Tokens.T__40.rawValue,SwiftParser.Tokens.T__41.rawValue,SwiftParser.Tokens.T__42.rawValue,SwiftParser.Tokens.T__43.rawValue,SwiftParser.Tokens.T__44.rawValue,SwiftParser.Tokens.T__45.rawValue,SwiftParser.Tokens.T__46.rawValue,SwiftParser.Tokens.T__47.rawValue,SwiftParser.Tokens.T__51.rawValue,SwiftParser.Tokens.T__53.rawValue,SwiftParser.Tokens.T__54.rawValue,SwiftParser.Tokens.T__55.rawValue,SwiftParser.Tokens.T__56.rawValue,SwiftParser.Tokens.T__57.rawValue,SwiftParser.Tokens.T__59.rawValue,SwiftParser.Tokens.T__60.rawValue,SwiftParser.Tokens.T__61.rawValue,SwiftParser.Tokens.T__62.rawValue]
 		 	    return  Utils.testBitLeftShiftArray(testArray, 0)
 		 	}()
 		 	          testSet = testSet || {  () -> Bool in
@@ -10449,12 +10573,12 @@ open class SwiftParser: Parser {
 		 	          }()
 		 	      return testSet
 		 	 }()) {
-		 		setState(1466)
+		 		setState(1476)
 		 		try declarations()
 
 		 	}
 
-		 	setState(1469)
+		 	setState(1479)
 		 	try match(SwiftParser.Tokens.RCURLY.rawValue)
 
 		}
@@ -10517,13 +10641,13 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1472)
+		 	setState(1482)
 		 	try _errHandler.sync(self)
 		 	_la = try _input.LA(1)
 		 	if (//closure
 		 	 { () -> Bool in
 		 	      var testSet: Bool = {  () -> Bool in
-		 	   let testArray: [Int] = [_la, SwiftParser.Tokens.T__44.rawValue,SwiftParser.Tokens.T__45.rawValue,SwiftParser.Tokens.T__46.rawValue,SwiftParser.Tokens.T__47.rawValue,SwiftParser.Tokens.T__51.rawValue,SwiftParser.Tokens.T__57.rawValue,SwiftParser.Tokens.T__58.rawValue,SwiftParser.Tokens.T__59.rawValue,SwiftParser.Tokens.T__60.rawValue,SwiftParser.Tokens.T__61.rawValue,SwiftParser.Tokens.T__62.rawValue]
+		 	   let testArray: [Int] = [_la, SwiftParser.Tokens.T__44.rawValue,SwiftParser.Tokens.T__45.rawValue,SwiftParser.Tokens.T__46.rawValue,SwiftParser.Tokens.T__47.rawValue,SwiftParser.Tokens.T__51.rawValue,SwiftParser.Tokens.T__57.rawValue,SwiftParser.Tokens.T__59.rawValue,SwiftParser.Tokens.T__60.rawValue,SwiftParser.Tokens.T__61.rawValue,SwiftParser.Tokens.T__62.rawValue]
 		 	    return  Utils.testBitLeftShiftArray(testArray, 0)
 		 	}()
 		 	          testSet = testSet || {  () -> Bool in
@@ -10532,12 +10656,12 @@ open class SwiftParser: Parser {
 		 	          }()
 		 	      return testSet
 		 	 }()) {
-		 		setState(1471)
+		 		setState(1481)
 		 		try attributes()
 
 		 	}
 
-		 	setState(1475)
+		 	setState(1485)
 		 	try _errHandler.sync(self)
 		 	_la = try _input.LA(1)
 		 	if (//closure
@@ -10548,16 +10672,16 @@ open class SwiftParser: Parser {
 		 	}()
 		 	      return testSet
 		 	 }()) {
-		 		setState(1474)
+		 		setState(1484)
 		 		try access_level_modifier()
 
 		 	}
 
-		 	setState(1477)
+		 	setState(1487)
 		 	try match(SwiftParser.Tokens.T__42.rawValue)
-		 	setState(1478)
+		 	setState(1488)
 		 	try protocol_name()
-		 	setState(1480)
+		 	setState(1490)
 		 	try _errHandler.sync(self)
 		 	_la = try _input.LA(1)
 		 	if (//closure
@@ -10565,12 +10689,12 @@ open class SwiftParser: Parser {
 		 	      let testSet: Bool = _la == SwiftParser.Tokens.COLON.rawValue
 		 	      return testSet
 		 	 }()) {
-		 		setState(1479)
+		 		setState(1489)
 		 		try type_inheritance_clause()
 
 		 	}
 
-		 	setState(1482)
+		 	setState(1492)
 		 	try protocol_body()
 
 		}
@@ -10583,8 +10707,8 @@ open class SwiftParser: Parser {
 		return _localctx
 	}
 	open class Protocol_nameContext:ParserRuleContext {
-		open func identifier() -> IdentifierContext? {
-			return getRuleContext(IdentifierContext.self,0)
+		open func identifier_declaration_context() -> Identifier_declaration_contextContext? {
+			return getRuleContext(Identifier_declaration_contextContext.self,0)
 		}
 		open override func getRuleIndex() -> Int { return SwiftParser.RULE_protocol_name }
 		override
@@ -10620,8 +10744,8 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1484)
-		 	try identifier()
+		 	setState(1494)
+		 	try identifier_declaration_context()
 
 		}
 		catch ANTLRException.recognition(let re) {
@@ -10671,15 +10795,15 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1486)
+		 	setState(1496)
 		 	try match(SwiftParser.Tokens.LCURLY.rawValue)
-		 	setState(1488)
+		 	setState(1498)
 		 	try _errHandler.sync(self)
 		 	_la = try _input.LA(1)
 		 	if (//closure
 		 	 { () -> Bool in
 		 	      var testSet: Bool = {  () -> Bool in
-		 	   let testArray: [Int] = [_la, SwiftParser.Tokens.T__5.rawValue,SwiftParser.Tokens.T__40.rawValue,SwiftParser.Tokens.T__43.rawValue,SwiftParser.Tokens.T__44.rawValue,SwiftParser.Tokens.T__45.rawValue,SwiftParser.Tokens.T__46.rawValue,SwiftParser.Tokens.T__47.rawValue,SwiftParser.Tokens.T__51.rawValue,SwiftParser.Tokens.T__52.rawValue,SwiftParser.Tokens.T__53.rawValue,SwiftParser.Tokens.T__56.rawValue,SwiftParser.Tokens.T__57.rawValue,SwiftParser.Tokens.T__58.rawValue,SwiftParser.Tokens.T__59.rawValue,SwiftParser.Tokens.T__60.rawValue,SwiftParser.Tokens.T__61.rawValue,SwiftParser.Tokens.T__62.rawValue]
+		 	   let testArray: [Int] = [_la, SwiftParser.Tokens.T__5.rawValue,SwiftParser.Tokens.T__40.rawValue,SwiftParser.Tokens.T__43.rawValue,SwiftParser.Tokens.T__44.rawValue,SwiftParser.Tokens.T__45.rawValue,SwiftParser.Tokens.T__46.rawValue,SwiftParser.Tokens.T__47.rawValue,SwiftParser.Tokens.T__51.rawValue,SwiftParser.Tokens.T__52.rawValue,SwiftParser.Tokens.T__53.rawValue,SwiftParser.Tokens.T__56.rawValue,SwiftParser.Tokens.T__57.rawValue,SwiftParser.Tokens.T__59.rawValue,SwiftParser.Tokens.T__60.rawValue,SwiftParser.Tokens.T__61.rawValue,SwiftParser.Tokens.T__62.rawValue]
 		 	    return  Utils.testBitLeftShiftArray(testArray, 0)
 		 	}()
 		 	          testSet = testSet || {  () -> Bool in
@@ -10688,12 +10812,12 @@ open class SwiftParser: Parser {
 		 	          }()
 		 	      return testSet
 		 	 }()) {
-		 		setState(1487)
+		 		setState(1497)
 		 		try protocol_member_declarations()
 
 		 	}
 
-		 	setState(1490)
+		 	setState(1500)
 		 	try match(SwiftParser.Tokens.RCURLY.rawValue)
 
 		}
@@ -10754,36 +10878,36 @@ open class SwiftParser: Parser {
 	    		try! exitRule()
 	    }
 		do {
-		 	setState(1497)
+		 	setState(1507)
 		 	try _errHandler.sync(self)
 		 	switch(try getInterpreter().adaptivePredict(_input,159, _ctx)) {
 		 	case 1:
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(1492)
+		 		setState(1502)
 		 		try protocol_property_declaration()
 
 		 		break
 		 	case 2:
 		 		try enterOuterAlt(_localctx, 2)
-		 		setState(1493)
+		 		setState(1503)
 		 		try protocol_method_declaration()
 
 		 		break
 		 	case 3:
 		 		try enterOuterAlt(_localctx, 3)
-		 		setState(1494)
+		 		setState(1504)
 		 		try protocol_initializer_declaration()
 
 		 		break
 		 	case 4:
 		 		try enterOuterAlt(_localctx, 4)
-		 		setState(1495)
+		 		setState(1505)
 		 		try protocol_subscript_declaration()
 
 		 		break
 		 	case 5:
 		 		try enterOuterAlt(_localctx, 5)
-		 		setState(1496)
+		 		setState(1506)
 		 		try protocol_associated_type_declaration()
 
 		 		break
@@ -10840,21 +10964,21 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1500) 
+		 	setState(1510) 
 		 	try _errHandler.sync(self)
 		 	_la = try _input.LA(1)
 		 	repeat {
-		 		setState(1499)
+		 		setState(1509)
 		 		try protocol_member_declaration()
 
 
-		 		setState(1502); 
+		 		setState(1512); 
 		 		try _errHandler.sync(self)
 		 		_la = try _input.LA(1)
 		 	} while (//closure
 		 	 { () -> Bool in
 		 	      var testSet: Bool = {  () -> Bool in
-		 	   let testArray: [Int] = [_la, SwiftParser.Tokens.T__5.rawValue,SwiftParser.Tokens.T__40.rawValue,SwiftParser.Tokens.T__43.rawValue,SwiftParser.Tokens.T__44.rawValue,SwiftParser.Tokens.T__45.rawValue,SwiftParser.Tokens.T__46.rawValue,SwiftParser.Tokens.T__47.rawValue,SwiftParser.Tokens.T__51.rawValue,SwiftParser.Tokens.T__52.rawValue,SwiftParser.Tokens.T__53.rawValue,SwiftParser.Tokens.T__56.rawValue,SwiftParser.Tokens.T__57.rawValue,SwiftParser.Tokens.T__58.rawValue,SwiftParser.Tokens.T__59.rawValue,SwiftParser.Tokens.T__60.rawValue,SwiftParser.Tokens.T__61.rawValue,SwiftParser.Tokens.T__62.rawValue]
+		 	   let testArray: [Int] = [_la, SwiftParser.Tokens.T__5.rawValue,SwiftParser.Tokens.T__40.rawValue,SwiftParser.Tokens.T__43.rawValue,SwiftParser.Tokens.T__44.rawValue,SwiftParser.Tokens.T__45.rawValue,SwiftParser.Tokens.T__46.rawValue,SwiftParser.Tokens.T__47.rawValue,SwiftParser.Tokens.T__51.rawValue,SwiftParser.Tokens.T__52.rawValue,SwiftParser.Tokens.T__53.rawValue,SwiftParser.Tokens.T__56.rawValue,SwiftParser.Tokens.T__57.rawValue,SwiftParser.Tokens.T__59.rawValue,SwiftParser.Tokens.T__60.rawValue,SwiftParser.Tokens.T__61.rawValue,SwiftParser.Tokens.T__62.rawValue]
 		 	    return  Utils.testBitLeftShiftArray(testArray, 0)
 		 	}()
 		 	          testSet = testSet || {  () -> Bool in
@@ -10920,13 +11044,13 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1504)
+		 	setState(1514)
 		 	try variable_declaration_head()
-		 	setState(1505)
+		 	setState(1515)
 		 	try variable_name()
-		 	setState(1506)
+		 	setState(1516)
 		 	try type_annotation()
-		 	setState(1507)
+		 	setState(1517)
 		 	try getter_setter_keyword_block()
 
 		}
@@ -10986,11 +11110,11 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1509)
+		 	setState(1519)
 		 	try function_head()
-		 	setState(1510)
+		 	setState(1520)
 		 	try function_name()
-		 	setState(1512)
+		 	setState(1522)
 		 	try _errHandler.sync(self)
 		 	_la = try _input.LA(1)
 		 	if (//closure
@@ -10998,12 +11122,12 @@ open class SwiftParser: Parser {
 		 	      let testSet: Bool = _la == SwiftParser.Tokens.LT.rawValue
 		 	      return testSet
 		 	 }()) {
-		 		setState(1511)
+		 		setState(1521)
 		 		try generic_parameter_clause()
 
 		 	}
 
-		 	setState(1514)
+		 	setState(1524)
 		 	try function_signature()
 
 		}
@@ -11059,14 +11183,14 @@ open class SwiftParser: Parser {
 	    		try! exitRule()
 	    }
 		do {
-		 	setState(1531)
+		 	setState(1541)
 		 	try _errHandler.sync(self)
 		 	switch(try getInterpreter().adaptivePredict(_input,165, _ctx)) {
 		 	case 1:
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(1516)
+		 		setState(1526)
 		 		try initializer_head()
-		 		setState(1518)
+		 		setState(1528)
 		 		try _errHandler.sync(self)
 		 		_la = try _input.LA(1)
 		 		if (//closure
@@ -11074,14 +11198,14 @@ open class SwiftParser: Parser {
 		 		      let testSet: Bool = _la == SwiftParser.Tokens.LT.rawValue
 		 		      return testSet
 		 		 }()) {
-		 			setState(1517)
+		 			setState(1527)
 		 			try generic_parameter_clause()
 
 		 		}
 
-		 		setState(1520)
+		 		setState(1530)
 		 		try parameter_clause()
-		 		setState(1522)
+		 		setState(1532)
 		 		try _errHandler.sync(self)
 		 		_la = try _input.LA(1)
 		 		if (//closure
@@ -11089,7 +11213,7 @@ open class SwiftParser: Parser {
 		 		      let testSet: Bool = _la == SwiftParser.Tokens.T__48.rawValue
 		 		      return testSet
 		 		 }()) {
-		 			setState(1521)
+		 			setState(1531)
 		 			try match(SwiftParser.Tokens.T__48.rawValue)
 
 		 		}
@@ -11098,9 +11222,9 @@ open class SwiftParser: Parser {
 		 		break
 		 	case 2:
 		 		try enterOuterAlt(_localctx, 2)
-		 		setState(1524)
+		 		setState(1534)
 		 		try initializer_head()
-		 		setState(1526)
+		 		setState(1536)
 		 		try _errHandler.sync(self)
 		 		_la = try _input.LA(1)
 		 		if (//closure
@@ -11108,14 +11232,14 @@ open class SwiftParser: Parser {
 		 		      let testSet: Bool = _la == SwiftParser.Tokens.LT.rawValue
 		 		      return testSet
 		 		 }()) {
-		 			setState(1525)
+		 			setState(1535)
 		 			try generic_parameter_clause()
 
 		 		}
 
-		 		setState(1528)
+		 		setState(1538)
 		 		try parameter_clause()
-		 		setState(1529)
+		 		setState(1539)
 		 		try match(SwiftParser.Tokens.T__49.rawValue)
 
 		 		break
@@ -11174,11 +11298,11 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1533)
+		 	setState(1543)
 		 	try subscript_head()
-		 	setState(1534)
+		 	setState(1544)
 		 	try subscript_result()
-		 	setState(1535)
+		 	setState(1545)
 		 	try getter_setter_keyword_block()
 
 		}
@@ -11241,13 +11365,13 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1538)
+		 	setState(1548)
 		 	try _errHandler.sync(self)
 		 	_la = try _input.LA(1)
 		 	if (//closure
 		 	 { () -> Bool in
 		 	      var testSet: Bool = {  () -> Bool in
-		 	   let testArray: [Int] = [_la, SwiftParser.Tokens.T__44.rawValue,SwiftParser.Tokens.T__45.rawValue,SwiftParser.Tokens.T__46.rawValue,SwiftParser.Tokens.T__47.rawValue,SwiftParser.Tokens.T__51.rawValue,SwiftParser.Tokens.T__57.rawValue,SwiftParser.Tokens.T__58.rawValue,SwiftParser.Tokens.T__59.rawValue,SwiftParser.Tokens.T__60.rawValue,SwiftParser.Tokens.T__61.rawValue,SwiftParser.Tokens.T__62.rawValue]
+		 	   let testArray: [Int] = [_la, SwiftParser.Tokens.T__44.rawValue,SwiftParser.Tokens.T__45.rawValue,SwiftParser.Tokens.T__46.rawValue,SwiftParser.Tokens.T__47.rawValue,SwiftParser.Tokens.T__51.rawValue,SwiftParser.Tokens.T__57.rawValue,SwiftParser.Tokens.T__59.rawValue,SwiftParser.Tokens.T__60.rawValue,SwiftParser.Tokens.T__61.rawValue,SwiftParser.Tokens.T__62.rawValue]
 		 	    return  Utils.testBitLeftShiftArray(testArray, 0)
 		 	}()
 		 	          testSet = testSet || {  () -> Bool in
@@ -11256,12 +11380,12 @@ open class SwiftParser: Parser {
 		 	          }()
 		 	      return testSet
 		 	 }()) {
-		 		setState(1537)
+		 		setState(1547)
 		 		try attributes()
 
 		 	}
 
-		 	setState(1541)
+		 	setState(1551)
 		 	try _errHandler.sync(self)
 		 	_la = try _input.LA(1)
 		 	if (//closure
@@ -11272,30 +11396,30 @@ open class SwiftParser: Parser {
 		 	}()
 		 	      return testSet
 		 	 }()) {
-		 		setState(1540)
+		 		setState(1550)
 		 		try access_level_modifier()
 
 		 	}
 
-		 	setState(1543)
+		 	setState(1553)
 		 	try match(SwiftParser.Tokens.T__52.rawValue)
-		 	setState(1544)
+		 	setState(1554)
 		 	try typealias_name()
-		 	setState(1546)
+		 	setState(1556)
 		 	try _errHandler.sync(self)
 		 	switch (try getInterpreter().adaptivePredict(_input,168,_ctx)) {
 		 	case 1:
-		 		setState(1545)
+		 		setState(1555)
 		 		try type_inheritance_clause()
 
 		 		break
 		 	default: break
 		 	}
-		 	setState(1549)
+		 	setState(1559)
 		 	try _errHandler.sync(self)
 		 	switch (try getInterpreter().adaptivePredict(_input,169,_ctx)) {
 		 	case 1:
-		 		setState(1548)
+		 		setState(1558)
 		 		try typealias_assignment()
 
 		 		break
@@ -11358,47 +11482,11 @@ open class SwiftParser: Parser {
 	    		try! exitRule()
 	    }
 		do {
-		 	setState(1569)
+		 	setState(1579)
 		 	try _errHandler.sync(self)
 		 	switch(try getInterpreter().adaptivePredict(_input,173, _ctx)) {
 		 	case 1:
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(1551)
-		 		try initializer_head()
-		 		setState(1553)
-		 		try _errHandler.sync(self)
-		 		_la = try _input.LA(1)
-		 		if (//closure
-		 		 { () -> Bool in
-		 		      let testSet: Bool = _la == SwiftParser.Tokens.LT.rawValue
-		 		      return testSet
-		 		 }()) {
-		 			setState(1552)
-		 			try generic_parameter_clause()
-
-		 		}
-
-		 		setState(1555)
-		 		try parameter_clause()
-		 		setState(1557)
-		 		try _errHandler.sync(self)
-		 		_la = try _input.LA(1)
-		 		if (//closure
-		 		 { () -> Bool in
-		 		      let testSet: Bool = _la == SwiftParser.Tokens.T__48.rawValue
-		 		      return testSet
-		 		 }()) {
-		 			setState(1556)
-		 			try match(SwiftParser.Tokens.T__48.rawValue)
-
-		 		}
-
-		 		setState(1559)
-		 		try initializer_body()
-
-		 		break
-		 	case 2:
-		 		try enterOuterAlt(_localctx, 2)
 		 		setState(1561)
 		 		try initializer_head()
 		 		setState(1563)
@@ -11416,9 +11504,45 @@ open class SwiftParser: Parser {
 
 		 		setState(1565)
 		 		try parameter_clause()
-		 		setState(1566)
-		 		try match(SwiftParser.Tokens.T__49.rawValue)
 		 		setState(1567)
+		 		try _errHandler.sync(self)
+		 		_la = try _input.LA(1)
+		 		if (//closure
+		 		 { () -> Bool in
+		 		      let testSet: Bool = _la == SwiftParser.Tokens.T__48.rawValue
+		 		      return testSet
+		 		 }()) {
+		 			setState(1566)
+		 			try match(SwiftParser.Tokens.T__48.rawValue)
+
+		 		}
+
+		 		setState(1569)
+		 		try initializer_body()
+
+		 		break
+		 	case 2:
+		 		try enterOuterAlt(_localctx, 2)
+		 		setState(1571)
+		 		try initializer_head()
+		 		setState(1573)
+		 		try _errHandler.sync(self)
+		 		_la = try _input.LA(1)
+		 		if (//closure
+		 		 { () -> Bool in
+		 		      let testSet: Bool = _la == SwiftParser.Tokens.LT.rawValue
+		 		      return testSet
+		 		 }()) {
+		 			setState(1572)
+		 			try generic_parameter_clause()
+
+		 		}
+
+		 		setState(1575)
+		 		try parameter_clause()
+		 		setState(1576)
+		 		try match(SwiftParser.Tokens.T__49.rawValue)
+		 		setState(1577)
 		 		try initializer_body()
 
 		 		break
@@ -11474,22 +11598,22 @@ open class SwiftParser: Parser {
 	    		try! exitRule()
 	    }
 		do {
-		 	setState(1594)
+		 	setState(1604)
 		 	try _errHandler.sync(self)
 		 	switch(try getInterpreter().adaptivePredict(_input,180, _ctx)) {
 		 	case 1:
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(1572)
+		 		setState(1582)
 		 		try _errHandler.sync(self)
 		 		switch (try getInterpreter().adaptivePredict(_input,174,_ctx)) {
 		 		case 1:
-		 			setState(1571)
+		 			setState(1581)
 		 			try attributes()
 
 		 			break
 		 		default: break
 		 		}
-		 		setState(1575)
+		 		setState(1585)
 		 		try _errHandler.sync(self)
 		 		_la = try _input.LA(1)
 		 		if (//closure
@@ -11500,28 +11624,28 @@ open class SwiftParser: Parser {
 		 		}()
 		 		      return testSet
 		 		 }()) {
-		 			setState(1574)
+		 			setState(1584)
 		 			try declaration_modifiers()
 
 		 		}
 
-		 		setState(1577)
+		 		setState(1587)
 		 		try match(SwiftParser.Tokens.T__53.rawValue)
 
 		 		break
 		 	case 2:
 		 		try enterOuterAlt(_localctx, 2)
-		 		setState(1579)
+		 		setState(1589)
 		 		try _errHandler.sync(self)
 		 		switch (try getInterpreter().adaptivePredict(_input,176,_ctx)) {
 		 		case 1:
-		 			setState(1578)
+		 			setState(1588)
 		 			try attributes()
 
 		 			break
 		 		default: break
 		 		}
-		 		setState(1582)
+		 		setState(1592)
 		 		try _errHandler.sync(self)
 		 		_la = try _input.LA(1)
 		 		if (//closure
@@ -11532,30 +11656,30 @@ open class SwiftParser: Parser {
 		 		}()
 		 		      return testSet
 		 		 }()) {
-		 			setState(1581)
+		 			setState(1591)
 		 			try declaration_modifiers()
 
 		 		}
 
-		 		setState(1584)
+		 		setState(1594)
 		 		try match(SwiftParser.Tokens.T__53.rawValue)
-		 		setState(1585)
+		 		setState(1595)
 		 		try match(SwiftParser.Tokens.QUESTION.rawValue)
 
 		 		break
 		 	case 3:
 		 		try enterOuterAlt(_localctx, 3)
-		 		setState(1587)
+		 		setState(1597)
 		 		try _errHandler.sync(self)
 		 		switch (try getInterpreter().adaptivePredict(_input,178,_ctx)) {
 		 		case 1:
-		 			setState(1586)
+		 			setState(1596)
 		 			try attributes()
 
 		 			break
 		 		default: break
 		 		}
-		 		setState(1590)
+		 		setState(1600)
 		 		try _errHandler.sync(self)
 		 		_la = try _input.LA(1)
 		 		if (//closure
@@ -11566,14 +11690,14 @@ open class SwiftParser: Parser {
 		 		}()
 		 		      return testSet
 		 		 }()) {
-		 			setState(1589)
+		 			setState(1599)
 		 			try declaration_modifiers()
 
 		 		}
 
-		 		setState(1592)
+		 		setState(1602)
 		 		try match(SwiftParser.Tokens.T__53.rawValue)
-		 		setState(1593)
+		 		setState(1603)
 		 		try match(SwiftParser.Tokens.BANG.rawValue)
 
 		 		break
@@ -11626,7 +11750,7 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1596)
+		 	setState(1606)
 		 	try code_block()
 
 		}
@@ -11680,13 +11804,13 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1599)
+		 	setState(1609)
 		 	try _errHandler.sync(self)
 		 	_la = try _input.LA(1)
 		 	if (//closure
 		 	 { () -> Bool in
 		 	      var testSet: Bool = {  () -> Bool in
-		 	   let testArray: [Int] = [_la, SwiftParser.Tokens.T__44.rawValue,SwiftParser.Tokens.T__45.rawValue,SwiftParser.Tokens.T__46.rawValue,SwiftParser.Tokens.T__47.rawValue,SwiftParser.Tokens.T__51.rawValue,SwiftParser.Tokens.T__57.rawValue,SwiftParser.Tokens.T__58.rawValue,SwiftParser.Tokens.T__59.rawValue,SwiftParser.Tokens.T__60.rawValue,SwiftParser.Tokens.T__61.rawValue,SwiftParser.Tokens.T__62.rawValue]
+		 	   let testArray: [Int] = [_la, SwiftParser.Tokens.T__44.rawValue,SwiftParser.Tokens.T__45.rawValue,SwiftParser.Tokens.T__46.rawValue,SwiftParser.Tokens.T__47.rawValue,SwiftParser.Tokens.T__51.rawValue,SwiftParser.Tokens.T__57.rawValue,SwiftParser.Tokens.T__59.rawValue,SwiftParser.Tokens.T__60.rawValue,SwiftParser.Tokens.T__61.rawValue,SwiftParser.Tokens.T__62.rawValue]
 		 	    return  Utils.testBitLeftShiftArray(testArray, 0)
 		 	}()
 		 	          testSet = testSet || {  () -> Bool in
@@ -11695,14 +11819,14 @@ open class SwiftParser: Parser {
 		 	          }()
 		 	      return testSet
 		 	 }()) {
-		 		setState(1598)
+		 		setState(1608)
 		 		try attributes()
 
 		 	}
 
-		 	setState(1601)
+		 	setState(1611)
 		 	try match(SwiftParser.Tokens.T__54.rawValue)
-		 	setState(1602)
+		 	setState(1612)
 		 	try code_block()
 
 		}
@@ -11767,18 +11891,18 @@ open class SwiftParser: Parser {
 	    		try! exitRule()
 	    }
 		do {
-		 	setState(1628)
+		 	setState(1638)
 		 	try _errHandler.sync(self)
 		 	switch(try getInterpreter().adaptivePredict(_input,187, _ctx)) {
 		 	case 1:
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(1605)
+		 		setState(1615)
 		 		try _errHandler.sync(self)
 		 		_la = try _input.LA(1)
 		 		if (//closure
 		 		 { () -> Bool in
 		 		      var testSet: Bool = {  () -> Bool in
-		 		   let testArray: [Int] = [_la, SwiftParser.Tokens.T__44.rawValue,SwiftParser.Tokens.T__45.rawValue,SwiftParser.Tokens.T__46.rawValue,SwiftParser.Tokens.T__47.rawValue,SwiftParser.Tokens.T__51.rawValue,SwiftParser.Tokens.T__57.rawValue,SwiftParser.Tokens.T__58.rawValue,SwiftParser.Tokens.T__59.rawValue,SwiftParser.Tokens.T__60.rawValue,SwiftParser.Tokens.T__61.rawValue,SwiftParser.Tokens.T__62.rawValue]
+		 		   let testArray: [Int] = [_la, SwiftParser.Tokens.T__44.rawValue,SwiftParser.Tokens.T__45.rawValue,SwiftParser.Tokens.T__46.rawValue,SwiftParser.Tokens.T__47.rawValue,SwiftParser.Tokens.T__51.rawValue,SwiftParser.Tokens.T__57.rawValue,SwiftParser.Tokens.T__59.rawValue,SwiftParser.Tokens.T__60.rawValue,SwiftParser.Tokens.T__61.rawValue,SwiftParser.Tokens.T__62.rawValue]
 		 		    return  Utils.testBitLeftShiftArray(testArray, 0)
 		 		}()
 		 		          testSet = testSet || {  () -> Bool in
@@ -11787,12 +11911,12 @@ open class SwiftParser: Parser {
 		 		          }()
 		 		      return testSet
 		 		 }()) {
-		 			setState(1604)
+		 			setState(1614)
 		 			try attributes()
 
 		 		}
 
-		 		setState(1608)
+		 		setState(1618)
 		 		try _errHandler.sync(self)
 		 		_la = try _input.LA(1)
 		 		if (//closure
@@ -11803,16 +11927,16 @@ open class SwiftParser: Parser {
 		 		}()
 		 		      return testSet
 		 		 }()) {
-		 			setState(1607)
+		 			setState(1617)
 		 			try access_level_modifier()
 
 		 		}
 
-		 		setState(1610)
+		 		setState(1620)
 		 		try match(SwiftParser.Tokens.T__55.rawValue)
-		 		setState(1611)
+		 		setState(1621)
 		 		try type_identifier()
-		 		setState(1613)
+		 		setState(1623)
 		 		try _errHandler.sync(self)
 		 		_la = try _input.LA(1)
 		 		if (//closure
@@ -11820,24 +11944,24 @@ open class SwiftParser: Parser {
 		 		      let testSet: Bool = _la == SwiftParser.Tokens.COLON.rawValue
 		 		      return testSet
 		 		 }()) {
-		 			setState(1612)
+		 			setState(1622)
 		 			try type_inheritance_clause()
 
 		 		}
 
-		 		setState(1615)
+		 		setState(1625)
 		 		try extension_body()
 
 		 		break
 		 	case 2:
 		 		try enterOuterAlt(_localctx, 2)
-		 		setState(1618)
+		 		setState(1628)
 		 		try _errHandler.sync(self)
 		 		_la = try _input.LA(1)
 		 		if (//closure
 		 		 { () -> Bool in
 		 		      var testSet: Bool = {  () -> Bool in
-		 		   let testArray: [Int] = [_la, SwiftParser.Tokens.T__44.rawValue,SwiftParser.Tokens.T__45.rawValue,SwiftParser.Tokens.T__46.rawValue,SwiftParser.Tokens.T__47.rawValue,SwiftParser.Tokens.T__51.rawValue,SwiftParser.Tokens.T__57.rawValue,SwiftParser.Tokens.T__58.rawValue,SwiftParser.Tokens.T__59.rawValue,SwiftParser.Tokens.T__60.rawValue,SwiftParser.Tokens.T__61.rawValue,SwiftParser.Tokens.T__62.rawValue]
+		 		   let testArray: [Int] = [_la, SwiftParser.Tokens.T__44.rawValue,SwiftParser.Tokens.T__45.rawValue,SwiftParser.Tokens.T__46.rawValue,SwiftParser.Tokens.T__47.rawValue,SwiftParser.Tokens.T__51.rawValue,SwiftParser.Tokens.T__57.rawValue,SwiftParser.Tokens.T__59.rawValue,SwiftParser.Tokens.T__60.rawValue,SwiftParser.Tokens.T__61.rawValue,SwiftParser.Tokens.T__62.rawValue]
 		 		    return  Utils.testBitLeftShiftArray(testArray, 0)
 		 		}()
 		 		          testSet = testSet || {  () -> Bool in
@@ -11846,12 +11970,12 @@ open class SwiftParser: Parser {
 		 		          }()
 		 		      return testSet
 		 		 }()) {
-		 			setState(1617)
+		 			setState(1627)
 		 			try attributes()
 
 		 		}
 
-		 		setState(1621)
+		 		setState(1631)
 		 		try _errHandler.sync(self)
 		 		_la = try _input.LA(1)
 		 		if (//closure
@@ -11862,18 +11986,18 @@ open class SwiftParser: Parser {
 		 		}()
 		 		      return testSet
 		 		 }()) {
-		 			setState(1620)
+		 			setState(1630)
 		 			try access_level_modifier()
 
 		 		}
 
-		 		setState(1623)
+		 		setState(1633)
 		 		try match(SwiftParser.Tokens.T__55.rawValue)
-		 		setState(1624)
+		 		setState(1634)
 		 		try type_identifier()
-		 		setState(1625)
+		 		setState(1635)
 		 		try generic_where_clause()
-		 		setState(1626)
+		 		setState(1636)
 		 		try extension_body()
 
 		 		break
@@ -11927,15 +12051,15 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1630)
+		 	setState(1640)
 		 	try match(SwiftParser.Tokens.LCURLY.rawValue)
-		 	setState(1632)
+		 	setState(1642)
 		 	try _errHandler.sync(self)
 		 	_la = try _input.LA(1)
 		 	if (//closure
 		 	 { () -> Bool in
 		 	      var testSet: Bool = {  () -> Bool in
-		 	   let testArray: [Int] = [_la, SwiftParser.Tokens.T__4.rawValue,SwiftParser.Tokens.T__5.rawValue,SwiftParser.Tokens.T__22.rawValue,SwiftParser.Tokens.T__36.rawValue,SwiftParser.Tokens.T__37.rawValue,SwiftParser.Tokens.T__38.rawValue,SwiftParser.Tokens.T__39.rawValue,SwiftParser.Tokens.T__40.rawValue,SwiftParser.Tokens.T__41.rawValue,SwiftParser.Tokens.T__42.rawValue,SwiftParser.Tokens.T__43.rawValue,SwiftParser.Tokens.T__44.rawValue,SwiftParser.Tokens.T__45.rawValue,SwiftParser.Tokens.T__46.rawValue,SwiftParser.Tokens.T__47.rawValue,SwiftParser.Tokens.T__51.rawValue,SwiftParser.Tokens.T__53.rawValue,SwiftParser.Tokens.T__54.rawValue,SwiftParser.Tokens.T__55.rawValue,SwiftParser.Tokens.T__56.rawValue,SwiftParser.Tokens.T__57.rawValue,SwiftParser.Tokens.T__58.rawValue,SwiftParser.Tokens.T__59.rawValue,SwiftParser.Tokens.T__60.rawValue,SwiftParser.Tokens.T__61.rawValue,SwiftParser.Tokens.T__62.rawValue]
+		 	   let testArray: [Int] = [_la, SwiftParser.Tokens.T__4.rawValue,SwiftParser.Tokens.T__5.rawValue,SwiftParser.Tokens.T__22.rawValue,SwiftParser.Tokens.T__36.rawValue,SwiftParser.Tokens.T__37.rawValue,SwiftParser.Tokens.T__38.rawValue,SwiftParser.Tokens.T__39.rawValue,SwiftParser.Tokens.T__40.rawValue,SwiftParser.Tokens.T__41.rawValue,SwiftParser.Tokens.T__42.rawValue,SwiftParser.Tokens.T__43.rawValue,SwiftParser.Tokens.T__44.rawValue,SwiftParser.Tokens.T__45.rawValue,SwiftParser.Tokens.T__46.rawValue,SwiftParser.Tokens.T__47.rawValue,SwiftParser.Tokens.T__51.rawValue,SwiftParser.Tokens.T__53.rawValue,SwiftParser.Tokens.T__54.rawValue,SwiftParser.Tokens.T__55.rawValue,SwiftParser.Tokens.T__56.rawValue,SwiftParser.Tokens.T__57.rawValue,SwiftParser.Tokens.T__59.rawValue,SwiftParser.Tokens.T__60.rawValue,SwiftParser.Tokens.T__61.rawValue,SwiftParser.Tokens.T__62.rawValue]
 		 	    return  Utils.testBitLeftShiftArray(testArray, 0)
 		 	}()
 		 	          testSet = testSet || {  () -> Bool in
@@ -11944,12 +12068,12 @@ open class SwiftParser: Parser {
 		 	          }()
 		 	      return testSet
 		 	 }()) {
-		 		setState(1631)
+		 		setState(1641)
 		 		try declarations()
 
 		 	}
 
-		 	setState(1634)
+		 	setState(1644)
 		 	try match(SwiftParser.Tokens.RCURLY.rawValue)
 
 		}
@@ -12010,36 +12134,36 @@ open class SwiftParser: Parser {
 	    		try! exitRule()
 	    }
 		do {
-		 	setState(1648)
+		 	setState(1658)
 		 	try _errHandler.sync(self)
 		 	switch(try getInterpreter().adaptivePredict(_input,189, _ctx)) {
 		 	case 1:
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(1636)
+		 		setState(1646)
 		 		try subscript_head()
-		 		setState(1637)
+		 		setState(1647)
 		 		try subscript_result()
-		 		setState(1638)
+		 		setState(1648)
 		 		try code_block()
 
 		 		break
 		 	case 2:
 		 		try enterOuterAlt(_localctx, 2)
-		 		setState(1640)
+		 		setState(1650)
 		 		try subscript_head()
-		 		setState(1641)
+		 		setState(1651)
 		 		try subscript_result()
-		 		setState(1642)
+		 		setState(1652)
 		 		try getter_setter_block()
 
 		 		break
 		 	case 3:
 		 		try enterOuterAlt(_localctx, 3)
-		 		setState(1644)
+		 		setState(1654)
 		 		try subscript_head()
-		 		setState(1645)
+		 		setState(1655)
 		 		try subscript_result()
-		 		setState(1646)
+		 		setState(1656)
 		 		try getter_setter_keyword_block()
 
 		 		break
@@ -12099,17 +12223,17 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1651)
+		 	setState(1661)
 		 	try _errHandler.sync(self)
 		 	switch (try getInterpreter().adaptivePredict(_input,190,_ctx)) {
 		 	case 1:
-		 		setState(1650)
+		 		setState(1660)
 		 		try attributes()
 
 		 		break
 		 	default: break
 		 	}
-		 	setState(1654)
+		 	setState(1664)
 		 	try _errHandler.sync(self)
 		 	_la = try _input.LA(1)
 		 	if (//closure
@@ -12120,14 +12244,14 @@ open class SwiftParser: Parser {
 		 	}()
 		 	      return testSet
 		 	 }()) {
-		 		setState(1653)
+		 		setState(1663)
 		 		try declaration_modifiers()
 
 		 	}
 
-		 	setState(1656)
+		 	setState(1666)
 		 	try match(SwiftParser.Tokens.T__56.rawValue)
-		 	setState(1657)
+		 	setState(1667)
 		 	try parameter_clause()
 
 		}
@@ -12180,19 +12304,19 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1659)
+		 	setState(1669)
 		 	try match(SwiftParser.Tokens.T__50.rawValue)
-		 	setState(1661)
+		 	setState(1671)
 		 	try _errHandler.sync(self)
 		 	switch (try getInterpreter().adaptivePredict(_input,192,_ctx)) {
 		 	case 1:
-		 		setState(1660)
+		 		setState(1670)
 		 		try attributes()
 
 		 		break
 		 	default: break
 		 	}
-		 	setState(1663)
+		 	setState(1673)
 		 	try type(0)
 
 		}
@@ -12247,26 +12371,26 @@ open class SwiftParser: Parser {
 	    		try! exitRule()
 	    }
 		do {
-		 	setState(1668)
+		 	setState(1678)
 		 	try _errHandler.sync(self)
 		 	switch (SwiftParser.Tokens(rawValue: try _input.LA(1))!) {
 		 	case .T__57:
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(1665)
+		 		setState(1675)
 		 		try prefix_operator_declaration()
 
 		 		break
 
 		 	case .T__59:
 		 		try enterOuterAlt(_localctx, 2)
-		 		setState(1666)
+		 		setState(1676)
 		 		try postfix_operator_declaration()
 
 		 		break
 
 		 	case .T__60:
 		 		try enterOuterAlt(_localctx, 3)
-		 		setState(1667)
+		 		setState(1677)
 		 		try infix_operator_declaration()
 
 		 		break
@@ -12320,15 +12444,15 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1670)
+		 	setState(1680)
 		 	try match(SwiftParser.Tokens.T__57.rawValue)
-		 	setState(1671)
+		 	setState(1681)
 		 	try match(SwiftParser.Tokens.T__58.rawValue)
-		 	setState(1672)
+		 	setState(1682)
 		 	try operator_name()
-		 	setState(1673)
+		 	setState(1683)
 		 	try match(SwiftParser.Tokens.LCURLY.rawValue)
-		 	setState(1674)
+		 	setState(1684)
 		 	try match(SwiftParser.Tokens.RCURLY.rawValue)
 
 		}
@@ -12378,15 +12502,15 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1676)
+		 	setState(1686)
 		 	try match(SwiftParser.Tokens.T__59.rawValue)
-		 	setState(1677)
+		 	setState(1687)
 		 	try match(SwiftParser.Tokens.T__58.rawValue)
-		 	setState(1678)
+		 	setState(1688)
 		 	try operator_name()
-		 	setState(1679)
+		 	setState(1689)
 		 	try match(SwiftParser.Tokens.LCURLY.rawValue)
-		 	setState(1680)
+		 	setState(1690)
 		 	try match(SwiftParser.Tokens.RCURLY.rawValue)
 
 		}
@@ -12439,17 +12563,17 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1682)
+		 	setState(1692)
 		 	try match(SwiftParser.Tokens.T__60.rawValue)
-		 	setState(1683)
+		 	setState(1693)
 		 	try match(SwiftParser.Tokens.T__58.rawValue)
-		 	setState(1684)
+		 	setState(1694)
 		 	try operator_name()
-		 	setState(1685)
+		 	setState(1695)
 		 	try match(SwiftParser.Tokens.LCURLY.rawValue)
-		 	setState(1686)
+		 	setState(1696)
 		 	try infix_operator_attributes()
-		 	setState(1687)
+		 	setState(1697)
 		 	try match(SwiftParser.Tokens.RCURLY.rawValue)
 
 		}
@@ -12503,7 +12627,7 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1690)
+		 	setState(1700)
 		 	try _errHandler.sync(self)
 		 	_la = try _input.LA(1)
 		 	if (//closure
@@ -12511,12 +12635,12 @@ open class SwiftParser: Parser {
 		 	      let testSet: Bool = _la == SwiftParser.Tokens.T__61.rawValue
 		 	      return testSet
 		 	 }()) {
-		 		setState(1689)
+		 		setState(1699)
 		 		try precedence_clause()
 
 		 	}
 
-		 	setState(1693)
+		 	setState(1703)
 		 	try _errHandler.sync(self)
 		 	_la = try _input.LA(1)
 		 	if (//closure
@@ -12524,7 +12648,7 @@ open class SwiftParser: Parser {
 		 	      let testSet: Bool = _la == SwiftParser.Tokens.T__62.rawValue
 		 	      return testSet
 		 	 }()) {
-		 		setState(1692)
+		 		setState(1702)
 		 		try associativity_clause()
 
 		 	}
@@ -12577,9 +12701,9 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1695)
+		 	setState(1705)
 		 	try match(SwiftParser.Tokens.T__61.rawValue)
-		 	setState(1696)
+		 	setState(1706)
 		 	try precedence_level()
 
 		}
@@ -12629,7 +12753,7 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1698)
+		 	setState(1708)
 		 	try integer_literal()
 
 		}
@@ -12679,9 +12803,9 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1700)
+		 	setState(1710)
 		 	try match(SwiftParser.Tokens.T__62.rawValue)
-		 	setState(1701)
+		 	setState(1711)
 		 	try associativity_name()
 
 		}
@@ -12729,7 +12853,7 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1703)
+		 	setState(1713)
 		 	_la = try _input.LA(1)
 		 	if (!(//closure
 		 	 { () -> Bool in
@@ -12792,132 +12916,132 @@ open class SwiftParser: Parser {
 	    		try! exitRule()
 	    }
 		do {
-		 	setState(1730)
+		 	setState(1740)
 		 	try _errHandler.sync(self)
 		 	switch(try getInterpreter().adaptivePredict(_input,196, _ctx)) {
 		 	case 1:
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(1705)
+		 		setState(1715)
 		 		try match(SwiftParser.Tokens.T__40.rawValue)
 
 		 		break
 		 	case 2:
 		 		try enterOuterAlt(_localctx, 2)
-		 		setState(1706)
+		 		setState(1716)
 		 		try match(SwiftParser.Tokens.T__66.rawValue)
 
 		 		break
 		 	case 3:
 		 		try enterOuterAlt(_localctx, 3)
-		 		setState(1707)
+		 		setState(1717)
 		 		try match(SwiftParser.Tokens.T__67.rawValue)
 
 		 		break
 		 	case 4:
 		 		try enterOuterAlt(_localctx, 4)
-		 		setState(1708)
+		 		setState(1718)
 		 		try match(SwiftParser.Tokens.T__68.rawValue)
 
 		 		break
 		 	case 5:
 		 		try enterOuterAlt(_localctx, 5)
-		 		setState(1709)
+		 		setState(1719)
 		 		try match(SwiftParser.Tokens.T__60.rawValue)
 
 		 		break
 		 	case 6:
 		 		try enterOuterAlt(_localctx, 6)
-		 		setState(1710)
+		 		setState(1720)
 		 		try match(SwiftParser.Tokens.T__69.rawValue)
 
 		 		break
 		 	case 7:
 		 		try enterOuterAlt(_localctx, 7)
-		 		setState(1711)
+		 		setState(1721)
 		 		try match(SwiftParser.Tokens.T__70.rawValue)
 
 		 		break
 		 	case 8:
 		 		try enterOuterAlt(_localctx, 8)
-		 		setState(1712)
+		 		setState(1722)
 		 		try match(SwiftParser.Tokens.T__71.rawValue)
 
 		 		break
 		 	case 9:
 		 		try enterOuterAlt(_localctx, 9)
-		 		setState(1713)
+		 		setState(1723)
 		 		try match(SwiftParser.Tokens.T__72.rawValue)
 
 		 		break
 		 	case 10:
 		 		try enterOuterAlt(_localctx, 10)
-		 		setState(1714)
+		 		setState(1724)
 		 		try match(SwiftParser.Tokens.T__73.rawValue)
 
 		 		break
 		 	case 11:
 		 		try enterOuterAlt(_localctx, 11)
-		 		setState(1715)
+		 		setState(1725)
 		 		try match(SwiftParser.Tokens.T__59.rawValue)
 
 		 		break
 		 	case 12:
 		 		try enterOuterAlt(_localctx, 12)
-		 		setState(1716)
+		 		setState(1726)
 		 		try match(SwiftParser.Tokens.T__57.rawValue)
 
 		 		break
 		 	case 13:
 		 		try enterOuterAlt(_localctx, 13)
-		 		setState(1717)
+		 		setState(1727)
 		 		try match(SwiftParser.Tokens.T__74.rawValue)
 
 		 		break
 		 	case 14:
 		 		try enterOuterAlt(_localctx, 14)
-		 		setState(1718)
+		 		setState(1728)
 		 		try match(SwiftParser.Tokens.T__75.rawValue)
 
 		 		break
 		 	case 15:
 		 		try enterOuterAlt(_localctx, 15)
-		 		setState(1719)
+		 		setState(1729)
 		 		try match(SwiftParser.Tokens.T__76.rawValue)
 
 		 		break
 		 	case 16:
 		 		try enterOuterAlt(_localctx, 16)
-		 		setState(1720)
+		 		setState(1730)
 		 		try match(SwiftParser.Tokens.T__76.rawValue)
-		 		setState(1721)
+		 		setState(1731)
 		 		try match(SwiftParser.Tokens.LPAREN.rawValue)
-		 		setState(1722)
+		 		setState(1732)
 		 		try match(SwiftParser.Tokens.T__77.rawValue)
-		 		setState(1723)
+		 		setState(1733)
 		 		try match(SwiftParser.Tokens.RPAREN.rawValue)
 
 		 		break
 		 	case 17:
 		 		try enterOuterAlt(_localctx, 17)
-		 		setState(1724)
+		 		setState(1734)
 		 		try match(SwiftParser.Tokens.T__76.rawValue)
-		 		setState(1725)
+		 		setState(1735)
 		 		try match(SwiftParser.Tokens.LPAREN.rawValue)
-		 		setState(1726)
+		 		setState(1736)
 		 		try match(SwiftParser.Tokens.T__78.rawValue)
-		 		setState(1727)
+		 		setState(1737)
 		 		try match(SwiftParser.Tokens.RPAREN.rawValue)
 
 		 		break
 		 	case 18:
 		 		try enterOuterAlt(_localctx, 18)
-		 		setState(1728)
+		 		setState(1738)
 		 		try match(SwiftParser.Tokens.T__79.rawValue)
 
 		 		break
 		 	case 19:
 		 		try enterOuterAlt(_localctx, 19)
-		 		setState(1729)
+		 		setState(1739)
 		 		try access_level_modifier()
 
 		 		break
@@ -12974,15 +13098,15 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1733) 
+		 	setState(1743) 
 		 	try _errHandler.sync(self)
 		 	_la = try _input.LA(1)
 		 	repeat {
-		 		setState(1732)
+		 		setState(1742)
 		 		try declaration_modifier()
 
 
-		 		setState(1735); 
+		 		setState(1745); 
 		 		try _errHandler.sync(self)
 		 		_la = try _input.LA(1)
 		 	} while (//closure
@@ -13037,55 +13161,19 @@ open class SwiftParser: Parser {
 	    		try! exitRule()
 	    }
 		do {
-		 	setState(1762)
+		 	setState(1772)
 		 	try _errHandler.sync(self)
 		 	switch(try getInterpreter().adaptivePredict(_input,198, _ctx)) {
 		 	case 1:
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(1737)
+		 		setState(1747)
 		 		try match(SwiftParser.Tokens.T__80.rawValue)
 
 		 		break
 		 	case 2:
 		 		try enterOuterAlt(_localctx, 2)
-		 		setState(1738)
-		 		try match(SwiftParser.Tokens.T__80.rawValue)
-		 		setState(1739)
-		 		try match(SwiftParser.Tokens.LPAREN.rawValue)
-		 		setState(1740)
-		 		try match(SwiftParser.Tokens.T__45.rawValue)
-		 		setState(1741)
-		 		try match(SwiftParser.Tokens.RPAREN.rawValue)
-
-		 		break
-		 	case 3:
-		 		try enterOuterAlt(_localctx, 3)
-		 		setState(1742)
-		 		try match(SwiftParser.Tokens.T__81.rawValue)
-
-		 		break
-		 	case 4:
-		 		try enterOuterAlt(_localctx, 4)
-		 		setState(1743)
-		 		try match(SwiftParser.Tokens.T__81.rawValue)
-		 		setState(1744)
-		 		try match(SwiftParser.Tokens.LPAREN.rawValue)
-		 		setState(1745)
-		 		try match(SwiftParser.Tokens.T__45.rawValue)
-		 		setState(1746)
-		 		try match(SwiftParser.Tokens.RPAREN.rawValue)
-
-		 		break
-		 	case 5:
-		 		try enterOuterAlt(_localctx, 5)
-		 		setState(1747)
-		 		try match(SwiftParser.Tokens.T__82.rawValue)
-
-		 		break
-		 	case 6:
-		 		try enterOuterAlt(_localctx, 6)
 		 		setState(1748)
-		 		try match(SwiftParser.Tokens.T__82.rawValue)
+		 		try match(SwiftParser.Tokens.T__80.rawValue)
 		 		setState(1749)
 		 		try match(SwiftParser.Tokens.LPAREN.rawValue)
 		 		setState(1750)
@@ -13094,16 +13182,16 @@ open class SwiftParser: Parser {
 		 		try match(SwiftParser.Tokens.RPAREN.rawValue)
 
 		 		break
-		 	case 7:
-		 		try enterOuterAlt(_localctx, 7)
+		 	case 3:
+		 		try enterOuterAlt(_localctx, 3)
 		 		setState(1752)
-		 		try match(SwiftParser.Tokens.T__83.rawValue)
+		 		try match(SwiftParser.Tokens.T__81.rawValue)
 
 		 		break
-		 	case 8:
-		 		try enterOuterAlt(_localctx, 8)
+		 	case 4:
+		 		try enterOuterAlt(_localctx, 4)
 		 		setState(1753)
-		 		try match(SwiftParser.Tokens.T__83.rawValue)
+		 		try match(SwiftParser.Tokens.T__81.rawValue)
 		 		setState(1754)
 		 		try match(SwiftParser.Tokens.LPAREN.rawValue)
 		 		setState(1755)
@@ -13112,21 +13200,57 @@ open class SwiftParser: Parser {
 		 		try match(SwiftParser.Tokens.RPAREN.rawValue)
 
 		 		break
-		 	case 9:
-		 		try enterOuterAlt(_localctx, 9)
+		 	case 5:
+		 		try enterOuterAlt(_localctx, 5)
 		 		setState(1757)
-		 		try match(SwiftParser.Tokens.T__84.rawValue)
+		 		try match(SwiftParser.Tokens.T__82.rawValue)
 
 		 		break
-		 	case 10:
-		 		try enterOuterAlt(_localctx, 10)
+		 	case 6:
+		 		try enterOuterAlt(_localctx, 6)
 		 		setState(1758)
-		 		try match(SwiftParser.Tokens.T__84.rawValue)
+		 		try match(SwiftParser.Tokens.T__82.rawValue)
 		 		setState(1759)
 		 		try match(SwiftParser.Tokens.LPAREN.rawValue)
 		 		setState(1760)
 		 		try match(SwiftParser.Tokens.T__45.rawValue)
 		 		setState(1761)
+		 		try match(SwiftParser.Tokens.RPAREN.rawValue)
+
+		 		break
+		 	case 7:
+		 		try enterOuterAlt(_localctx, 7)
+		 		setState(1762)
+		 		try match(SwiftParser.Tokens.T__83.rawValue)
+
+		 		break
+		 	case 8:
+		 		try enterOuterAlt(_localctx, 8)
+		 		setState(1763)
+		 		try match(SwiftParser.Tokens.T__83.rawValue)
+		 		setState(1764)
+		 		try match(SwiftParser.Tokens.LPAREN.rawValue)
+		 		setState(1765)
+		 		try match(SwiftParser.Tokens.T__45.rawValue)
+		 		setState(1766)
+		 		try match(SwiftParser.Tokens.RPAREN.rawValue)
+
+		 		break
+		 	case 9:
+		 		try enterOuterAlt(_localctx, 9)
+		 		setState(1767)
+		 		try match(SwiftParser.Tokens.T__84.rawValue)
+
+		 		break
+		 	case 10:
+		 		try enterOuterAlt(_localctx, 10)
+		 		setState(1768)
+		 		try match(SwiftParser.Tokens.T__84.rawValue)
+		 		setState(1769)
+		 		try match(SwiftParser.Tokens.LPAREN.rawValue)
+		 		setState(1770)
+		 		try match(SwiftParser.Tokens.T__45.rawValue)
+		 		setState(1771)
 		 		try match(SwiftParser.Tokens.RPAREN.rawValue)
 
 		 		break
@@ -13216,17 +13340,17 @@ open class SwiftParser: Parser {
 		do {
 			var _alt: Int
 			try enterOuterAlt(_localctx, 1)
-			setState(1783)
+			setState(1793)
 			try _errHandler.sync(self)
 			switch(try getInterpreter().adaptivePredict(_input,202, _ctx)) {
 			case 1:
-				setState(1765)
+				setState(1775)
 				try wildcard_pattern()
-				setState(1767)
+				setState(1777)
 				try _errHandler.sync(self)
 				switch (try getInterpreter().adaptivePredict(_input,199,_ctx)) {
 				case 1:
-					setState(1766)
+					setState(1776)
 					try type_annotation()
 
 					break
@@ -13235,13 +13359,13 @@ open class SwiftParser: Parser {
 
 				break
 			case 2:
-				setState(1769)
+				setState(1779)
 				try identifier_pattern()
-				setState(1771)
+				setState(1781)
 				try _errHandler.sync(self)
 				switch (try getInterpreter().adaptivePredict(_input,200,_ctx)) {
 				case 1:
-					setState(1770)
+					setState(1780)
 					try type_annotation()
 
 					break
@@ -13250,18 +13374,18 @@ open class SwiftParser: Parser {
 
 				break
 			case 3:
-				setState(1773)
+				setState(1783)
 				try value_binding_pattern()
 
 				break
 			case 4:
-				setState(1774)
+				setState(1784)
 				try tuple_pattern()
-				setState(1776)
+				setState(1786)
 				try _errHandler.sync(self)
 				switch (try getInterpreter().adaptivePredict(_input,201,_ctx)) {
 				case 1:
-					setState(1775)
+					setState(1785)
 					try type_annotation()
 
 					break
@@ -13270,31 +13394,31 @@ open class SwiftParser: Parser {
 
 				break
 			case 5:
-				setState(1778)
+				setState(1788)
 				try enum_case_pattern()
 
 				break
 			case 6:
-				setState(1779)
+				setState(1789)
 				try optional_pattern()
 
 				break
 			case 7:
-				setState(1780)
+				setState(1790)
 				try match(SwiftParser.Tokens.T__85.rawValue)
-				setState(1781)
+				setState(1791)
 				try type(0)
 
 				break
 			case 8:
-				setState(1782)
+				setState(1792)
 				try expression_pattern()
 
 				break
 			default: break
 			}
 			_ctx!.stop = try _input.LT(-1)
-			setState(1790)
+			setState(1800)
 			try _errHandler.sync(self)
 			_alt = try getInterpreter().adaptivePredict(_input,203,_ctx)
 			while (_alt != 2 && _alt != ATN.INVALID_ALT_NUMBER) {
@@ -13305,18 +13429,18 @@ open class SwiftParser: Parser {
 					_prevctx = _localctx
 					_localctx = PatternContext(_parentctx, _parentState);
 					try pushNewRecursionContext(_localctx, _startState, SwiftParser.RULE_pattern)
-					setState(1785)
+					setState(1795)
 					if (!(precpred(_ctx, 2))) {
 					    throw try ANTLRException.recognition(e:FailedPredicateException(self, "precpred(_ctx, 2)"))
 					}
-					setState(1786)
+					setState(1796)
 					try match(SwiftParser.Tokens.T__86.rawValue)
-					setState(1787)
+					setState(1797)
 					try type(0)
 
 			 
 				}
-				setState(1792)
+				setState(1802)
 				try _errHandler.sync(self)
 				_alt = try getInterpreter().adaptivePredict(_input,203,_ctx)
 			}
@@ -13365,7 +13489,7 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1793)
+		 	setState(1803)
 		 	try match(SwiftParser.Tokens.UNDERSCORE.rawValue)
 
 		}
@@ -13378,8 +13502,8 @@ open class SwiftParser: Parser {
 		return _localctx
 	}
 	open class Identifier_patternContext:ParserRuleContext {
-		open func identifier() -> IdentifierContext? {
-			return getRuleContext(IdentifierContext.self,0)
+		open func identifier_declaration_context() -> Identifier_declaration_contextContext? {
+			return getRuleContext(Identifier_declaration_contextContext.self,0)
 		}
 		open override func getRuleIndex() -> Int { return SwiftParser.RULE_identifier_pattern }
 		override
@@ -13415,8 +13539,8 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1795)
-		 	try identifier()
+		 	setState(1805)
+		 	try identifier_declaration_context()
 
 		}
 		catch ANTLRException.recognition(let re) {
@@ -13464,23 +13588,23 @@ open class SwiftParser: Parser {
 	    		try! exitRule()
 	    }
 		do {
-		 	setState(1801)
+		 	setState(1811)
 		 	try _errHandler.sync(self)
 		 	switch (SwiftParser.Tokens(rawValue: try _input.LA(1))!) {
 		 	case .T__5:
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(1797)
+		 		setState(1807)
 		 		try match(SwiftParser.Tokens.T__5.rawValue)
-		 		setState(1798)
+		 		setState(1808)
 		 		try pattern(0)
 
 		 		break
 
 		 	case .T__4:
 		 		try enterOuterAlt(_localctx, 2)
-		 		setState(1799)
+		 		setState(1809)
 		 		try match(SwiftParser.Tokens.T__4.rawValue)
-		 		setState(1800)
+		 		setState(1810)
 		 		try pattern(0)
 
 		 		break
@@ -13534,19 +13658,19 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1803)
+		 	setState(1813)
 		 	try match(SwiftParser.Tokens.LPAREN.rawValue)
-		 	setState(1805)
+		 	setState(1815)
 		 	try _errHandler.sync(self)
 		 	switch (try getInterpreter().adaptivePredict(_input,205,_ctx)) {
 		 	case 1:
-		 		setState(1804)
+		 		setState(1814)
 		 		try tuple_pattern_element_list()
 
 		 		break
 		 	default: break
 		 	}
-		 	setState(1807)
+		 	setState(1817)
 		 	try match(SwiftParser.Tokens.RPAREN.rawValue)
 
 		}
@@ -13600,9 +13724,9 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1809)
+		 	setState(1819)
 		 	try tuple_pattern_element()
-		 	setState(1814)
+		 	setState(1824)
 		 	try _errHandler.sync(self)
 		 	_la = try _input.LA(1)
 		 	while (//closure
@@ -13610,13 +13734,13 @@ open class SwiftParser: Parser {
 		 	      let testSet: Bool = _la == SwiftParser.Tokens.COMMA.rawValue
 		 	      return testSet
 		 	 }()) {
-		 		setState(1810)
+		 		setState(1820)
 		 		try match(SwiftParser.Tokens.COMMA.rawValue)
-		 		setState(1811)
+		 		setState(1821)
 		 		try tuple_pattern_element()
 
 
-		 		setState(1816)
+		 		setState(1826)
 		 		try _errHandler.sync(self)
 		 		_la = try _input.LA(1)
 		 	}
@@ -13668,7 +13792,7 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1817)
+		 	setState(1827)
 		 	try pattern(0)
 
 		}
@@ -13725,31 +13849,35 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1820)
+		 	setState(1830)
 		 	try _errHandler.sync(self)
 		 	_la = try _input.LA(1)
 		 	if (//closure
 		 	 { () -> Bool in
-		 	      let testSet: Bool = {  () -> Bool in
-		 	   let testArray: [Int] = [_la, SwiftParser.Tokens.T__44.rawValue,SwiftParser.Tokens.T__45.rawValue,SwiftParser.Tokens.T__46.rawValue,SwiftParser.Tokens.T__47.rawValue,SwiftParser.Tokens.T__51.rawValue,SwiftParser.Tokens.T__57.rawValue,SwiftParser.Tokens.T__58.rawValue,SwiftParser.Tokens.T__59.rawValue,SwiftParser.Tokens.T__60.rawValue,SwiftParser.Tokens.T__61.rawValue,SwiftParser.Tokens.T__62.rawValue,SwiftParser.Tokens.T__63.rawValue,SwiftParser.Tokens.T__64.rawValue,SwiftParser.Tokens.T__65.rawValue,SwiftParser.Tokens.T__66.rawValue,SwiftParser.Tokens.T__67.rawValue,SwiftParser.Tokens.T__68.rawValue,SwiftParser.Tokens.T__69.rawValue,SwiftParser.Tokens.T__70.rawValue,SwiftParser.Tokens.T__71.rawValue,SwiftParser.Tokens.T__72.rawValue,SwiftParser.Tokens.T__73.rawValue,SwiftParser.Tokens.T__74.rawValue,SwiftParser.Tokens.T__76.rawValue,SwiftParser.Tokens.T__79.rawValue,SwiftParser.Tokens.T__100.rawValue,SwiftParser.Tokens.T__101.rawValue,SwiftParser.Tokens.Identifier.rawValue]
-		 	    return  Utils.testBitLeftShiftArray(testArray, 45)
+		 	      var testSet: Bool = {  () -> Bool in
+		 	   let testArray: [Int] = [_la, SwiftParser.Tokens.T__26.rawValue,SwiftParser.Tokens.T__27.rawValue,SwiftParser.Tokens.T__28.rawValue,SwiftParser.Tokens.T__29.rawValue,SwiftParser.Tokens.T__30.rawValue,SwiftParser.Tokens.T__31.rawValue,SwiftParser.Tokens.T__32.rawValue,SwiftParser.Tokens.T__33.rawValue,SwiftParser.Tokens.T__34.rawValue,SwiftParser.Tokens.T__35.rawValue,SwiftParser.Tokens.T__44.rawValue,SwiftParser.Tokens.T__45.rawValue,SwiftParser.Tokens.T__46.rawValue,SwiftParser.Tokens.T__47.rawValue,SwiftParser.Tokens.T__51.rawValue,SwiftParser.Tokens.T__57.rawValue,SwiftParser.Tokens.T__59.rawValue,SwiftParser.Tokens.T__60.rawValue,SwiftParser.Tokens.T__61.rawValue,SwiftParser.Tokens.T__62.rawValue]
+		 	    return  Utils.testBitLeftShiftArray(testArray, 0)
 		 	}()
+		 	          testSet = testSet || {  () -> Bool in
+		 	             let testArray: [Int] = [_la, SwiftParser.Tokens.T__63.rawValue,SwiftParser.Tokens.T__64.rawValue,SwiftParser.Tokens.T__65.rawValue,SwiftParser.Tokens.T__66.rawValue,SwiftParser.Tokens.T__67.rawValue,SwiftParser.Tokens.T__68.rawValue,SwiftParser.Tokens.T__69.rawValue,SwiftParser.Tokens.T__70.rawValue,SwiftParser.Tokens.T__71.rawValue,SwiftParser.Tokens.T__72.rawValue,SwiftParser.Tokens.T__73.rawValue,SwiftParser.Tokens.T__74.rawValue,SwiftParser.Tokens.T__76.rawValue,SwiftParser.Tokens.T__77.rawValue,SwiftParser.Tokens.T__78.rawValue,SwiftParser.Tokens.T__79.rawValue,SwiftParser.Tokens.T__84.rawValue,SwiftParser.Tokens.T__99.rawValue,SwiftParser.Tokens.T__100.rawValue,SwiftParser.Tokens.T__101.rawValue,SwiftParser.Tokens.Identifier.rawValue]
+		 	              return  Utils.testBitLeftShiftArray(testArray, 64)
+		 	          }()
 		 	      return testSet
 		 	 }()) {
-		 		setState(1819)
+		 		setState(1829)
 		 		try type_identifier()
 
 		 	}
 
-		 	setState(1822)
+		 	setState(1832)
 		 	try match(SwiftParser.Tokens.DOT.rawValue)
-		 	setState(1823)
+		 	setState(1833)
 		 	try enum_case_name()
-		 	setState(1825)
+		 	setState(1835)
 		 	try _errHandler.sync(self)
 		 	switch (try getInterpreter().adaptivePredict(_input,208,_ctx)) {
 		 	case 1:
-		 		setState(1824)
+		 		setState(1834)
 		 		try tuple_pattern()
 
 		 		break
@@ -13803,9 +13931,9 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1827)
+		 	setState(1837)
 		 	try identifier_pattern()
-		 	setState(1828)
+		 	setState(1838)
 		 	try match(SwiftParser.Tokens.QUESTION.rawValue)
 
 		}
@@ -13855,7 +13983,7 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1830)
+		 	setState(1840)
 		 	try expression()
 
 		}
@@ -13909,7 +14037,7 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1833)
+		 	setState(1843)
 		 	try _errHandler.sync(self)
 		 	_la = try _input.LA(1)
 		 	if (//closure
@@ -13917,18 +14045,18 @@ open class SwiftParser: Parser {
 		 	      let testSet: Bool = _la == SwiftParser.Tokens.AT.rawValue
 		 	      return testSet
 		 	 }()) {
-		 		setState(1832)
+		 		setState(1842)
 		 		try match(SwiftParser.Tokens.AT.rawValue)
 
 		 	}
 
-		 	setState(1835)
+		 	setState(1845)
 		 	try attribute_name()
-		 	setState(1837)
+		 	setState(1847)
 		 	try _errHandler.sync(self)
 		 	switch (try getInterpreter().adaptivePredict(_input,210,_ctx)) {
 		 	case 1:
-		 		setState(1836)
+		 		setState(1846)
 		 		try attribute_argument_clause()
 
 		 		break
@@ -13982,7 +14110,7 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1839)
+		 	setState(1849)
 		 	try identifier()
 
 		}
@@ -14032,19 +14160,19 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1841)
+		 	setState(1851)
 		 	try match(SwiftParser.Tokens.LPAREN.rawValue)
-		 	setState(1843)
+		 	setState(1853)
 		 	try _errHandler.sync(self)
 		 	switch (try getInterpreter().adaptivePredict(_input,211,_ctx)) {
 		 	case 1:
-		 		setState(1842)
+		 		setState(1852)
 		 		try balanced_tokens()
 
 		 		break
 		 	default: break
 		 	}
-		 	setState(1845)
+		 	setState(1855)
 		 	try match(SwiftParser.Tokens.RPAREN.rawValue)
 
 		}
@@ -14098,13 +14226,13 @@ open class SwiftParser: Parser {
 		do {
 			var _alt:Int
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1848); 
+		 	setState(1858); 
 		 	try _errHandler.sync(self)
 		 	_alt = 1;
 		 	repeat {
 		 		switch (_alt) {
 		 		case 1:
-		 			setState(1847)
+		 			setState(1857)
 		 			try attribute()
 
 
@@ -14112,7 +14240,7 @@ open class SwiftParser: Parser {
 		 		default:
 		 			throw try ANTLRException.recognition(e: NoViableAltException(self))
 		 		}
-		 		setState(1850); 
+		 		setState(1860); 
 		 		try _errHandler.sync(self)
 		 		_alt = try getInterpreter().adaptivePredict(_input,212,_ctx)
 		 	} while (_alt != 2 && _alt !=  ATN.INVALID_ALT_NUMBER)
@@ -14168,13 +14296,13 @@ open class SwiftParser: Parser {
 		do {
 			var _alt:Int
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1853); 
+		 	setState(1863); 
 		 	try _errHandler.sync(self)
 		 	_alt = 1;
 		 	repeat {
 		 		switch (_alt) {
 		 		case 1:
-		 			setState(1852)
+		 			setState(1862)
 		 			try balanced_token()
 
 
@@ -14182,7 +14310,7 @@ open class SwiftParser: Parser {
 		 		default:
 		 			throw try ANTLRException.recognition(e: NoViableAltException(self))
 		 		}
-		 		setState(1855); 
+		 		setState(1865); 
 		 		try _errHandler.sync(self)
 		 		_alt = try getInterpreter().adaptivePredict(_input,213,_ctx)
 		 	} while (_alt != 2 && _alt !=  ATN.INVALID_ALT_NUMBER)
@@ -14252,52 +14380,16 @@ open class SwiftParser: Parser {
 	    		try! exitRule()
 	    }
 		do {
-		 	setState(1879)
+		 	setState(1889)
 		 	try _errHandler.sync(self)
 		 	switch(try getInterpreter().adaptivePredict(_input,217, _ctx)) {
 		 	case 1:
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(1857)
-		 		try match(SwiftParser.Tokens.LPAREN.rawValue)
-		 		setState(1859)
-		 		try _errHandler.sync(self)
-		 		switch (try getInterpreter().adaptivePredict(_input,214,_ctx)) {
-		 		case 1:
-		 			setState(1858)
-		 			try balanced_tokens()
-
-		 			break
-		 		default: break
-		 		}
-		 		setState(1861)
-		 		try match(SwiftParser.Tokens.RPAREN.rawValue)
-
-		 		break
-		 	case 2:
-		 		try enterOuterAlt(_localctx, 2)
-		 		setState(1862)
-		 		try match(SwiftParser.Tokens.LBRACK.rawValue)
-		 		setState(1864)
-		 		try _errHandler.sync(self)
-		 		switch (try getInterpreter().adaptivePredict(_input,215,_ctx)) {
-		 		case 1:
-		 			setState(1863)
-		 			try balanced_tokens()
-
-		 			break
-		 		default: break
-		 		}
-		 		setState(1866)
-		 		try match(SwiftParser.Tokens.RBRACK.rawValue)
-
-		 		break
-		 	case 3:
-		 		try enterOuterAlt(_localctx, 3)
 		 		setState(1867)
-		 		try match(SwiftParser.Tokens.LCURLY.rawValue)
+		 		try match(SwiftParser.Tokens.LPAREN.rawValue)
 		 		setState(1869)
 		 		try _errHandler.sync(self)
-		 		switch (try getInterpreter().adaptivePredict(_input,216,_ctx)) {
+		 		switch (try getInterpreter().adaptivePredict(_input,214,_ctx)) {
 		 		case 1:
 		 			setState(1868)
 		 			try balanced_tokens()
@@ -14306,48 +14398,84 @@ open class SwiftParser: Parser {
 		 		default: break
 		 		}
 		 		setState(1871)
+		 		try match(SwiftParser.Tokens.RPAREN.rawValue)
+
+		 		break
+		 	case 2:
+		 		try enterOuterAlt(_localctx, 2)
+		 		setState(1872)
+		 		try match(SwiftParser.Tokens.LBRACK.rawValue)
+		 		setState(1874)
+		 		try _errHandler.sync(self)
+		 		switch (try getInterpreter().adaptivePredict(_input,215,_ctx)) {
+		 		case 1:
+		 			setState(1873)
+		 			try balanced_tokens()
+
+		 			break
+		 		default: break
+		 		}
+		 		setState(1876)
+		 		try match(SwiftParser.Tokens.RBRACK.rawValue)
+
+		 		break
+		 	case 3:
+		 		try enterOuterAlt(_localctx, 3)
+		 		setState(1877)
+		 		try match(SwiftParser.Tokens.LCURLY.rawValue)
+		 		setState(1879)
+		 		try _errHandler.sync(self)
+		 		switch (try getInterpreter().adaptivePredict(_input,216,_ctx)) {
+		 		case 1:
+		 			setState(1878)
+		 			try balanced_tokens()
+
+		 			break
+		 		default: break
+		 		}
+		 		setState(1881)
 		 		try match(SwiftParser.Tokens.RCURLY.rawValue)
 
 		 		break
 		 	case 4:
 		 		try enterOuterAlt(_localctx, 4)
-		 		setState(1872)
+		 		setState(1882)
 		 		try identifier()
 
 		 		break
 		 	case 5:
 		 		try enterOuterAlt(_localctx, 5)
-		 		setState(1873)
+		 		setState(1883)
 		 		try expression()
 
 		 		break
 		 	case 6:
 		 		try enterOuterAlt(_localctx, 6)
-		 		setState(1874)
+		 		setState(1884)
 		 		try context_sensitive_keyword()
 
 		 		break
 		 	case 7:
 		 		try enterOuterAlt(_localctx, 7)
-		 		setState(1875)
+		 		setState(1885)
 		 		try literal()
 
 		 		break
 		 	case 8:
 		 		try enterOuterAlt(_localctx, 8)
-		 		setState(1876)
+		 		setState(1886)
 		 		try operator_name()
 
 		 		break
 		 	case 9:
 		 		try enterOuterAlt(_localctx, 9)
-		 		setState(1877)
+		 		setState(1887)
 		 		try any_punctuation()
 
 		 		break
 		 	case 10:
 		 		try enterOuterAlt(_localctx, 10)
-		 		setState(1878)
+		 		setState(1888)
 		 		try match(SwiftParser.Tokens.Platform.rawValue)
 
 		 		break
@@ -14398,7 +14526,7 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1881)
+		 	setState(1891)
 		 	_la = try _input.LA(1)
 		 	if (!(//closure
 		 	 { () -> Bool in
@@ -14469,23 +14597,23 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1884)
+		 	setState(1894)
 		 	try _errHandler.sync(self)
 		 	switch (try getInterpreter().adaptivePredict(_input,218,_ctx)) {
 		 	case 1:
-		 		setState(1883)
+		 		setState(1893)
 		 		try try_operator()
 
 		 		break
 		 	default: break
 		 	}
-		 	setState(1886)
+		 	setState(1896)
 		 	try prefix_expression()
-		 	setState(1888)
+		 	setState(1898)
 		 	try _errHandler.sync(self)
 		 	switch (try getInterpreter().adaptivePredict(_input,219,_ctx)) {
 		 	case 1:
-		 		setState(1887)
+		 		setState(1897)
 		 		try binary_expressions()
 
 		 		break
@@ -14543,9 +14671,9 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1890)
+		 	setState(1900)
 		 	try expression()
-		 	setState(1895)
+		 	setState(1905)
 		 	try _errHandler.sync(self)
 		 	_la = try _input.LA(1)
 		 	while (//closure
@@ -14553,13 +14681,13 @@ open class SwiftParser: Parser {
 		 	      let testSet: Bool = _la == SwiftParser.Tokens.COMMA.rawValue
 		 	      return testSet
 		 	 }()) {
-		 		setState(1891)
+		 		setState(1901)
 		 		try match(SwiftParser.Tokens.COMMA.rawValue)
-		 		setState(1892)
+		 		setState(1902)
 		 		try expression()
 
 
-		 		setState(1897)
+		 		setState(1907)
 		 		try _errHandler.sync(self)
 		 		_la = try _input.LA(1)
 		 	}
@@ -14616,26 +14744,26 @@ open class SwiftParser: Parser {
 	    		try! exitRule()
 	    }
 		do {
-		 	setState(1903)
+		 	setState(1913)
 		 	try _errHandler.sync(self)
 		 	switch(try getInterpreter().adaptivePredict(_input,221, _ctx)) {
 		 	case 1:
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(1898)
+		 		setState(1908)
 		 		try prefix_operator()
-		 		setState(1899)
+		 		setState(1909)
 		 		try postfix_expression(0)
 
 		 		break
 		 	case 2:
 		 		try enterOuterAlt(_localctx, 2)
-		 		setState(1901)
+		 		setState(1911)
 		 		try postfix_expression(0)
 
 		 		break
 		 	case 3:
 		 		try enterOuterAlt(_localctx, 3)
-		 		setState(1902)
+		 		setState(1912)
 		 		try in_out_expression()
 
 		 		break
@@ -14651,8 +14779,8 @@ open class SwiftParser: Parser {
 		return _localctx
 	}
 	open class In_out_expressionContext:ParserRuleContext {
-		open func identifier() -> IdentifierContext? {
-			return getRuleContext(IdentifierContext.self,0)
+		open func identifier_declaration_context() -> Identifier_declaration_contextContext? {
+			return getRuleContext(Identifier_declaration_contextContext.self,0)
 		}
 		open override func getRuleIndex() -> Int { return SwiftParser.RULE_in_out_expression }
 		override
@@ -14688,10 +14816,10 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1905)
+		 	setState(1915)
 		 	try match(SwiftParser.Tokens.AND.rawValue)
-		 	setState(1906)
-		 	try identifier()
+		 	setState(1916)
+		 	try identifier_declaration_context()
 
 		}
 		catch ANTLRException.recognition(let re) {
@@ -14736,28 +14864,28 @@ open class SwiftParser: Parser {
 	    		try! exitRule()
 	    }
 		do {
-		 	setState(1913)
+		 	setState(1923)
 		 	try _errHandler.sync(self)
 		 	switch(try getInterpreter().adaptivePredict(_input,222, _ctx)) {
 		 	case 1:
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(1908)
+		 		setState(1918)
 		 		try match(SwiftParser.Tokens.T__89.rawValue)
-		 		setState(1909)
+		 		setState(1919)
 		 		try match(SwiftParser.Tokens.QUESTION.rawValue)
 
 		 		break
 		 	case 2:
 		 		try enterOuterAlt(_localctx, 2)
-		 		setState(1910)
+		 		setState(1920)
 		 		try match(SwiftParser.Tokens.T__89.rawValue)
-		 		setState(1911)
+		 		setState(1921)
 		 		try match(SwiftParser.Tokens.BANG.rawValue)
 
 		 		break
 		 	case 3:
 		 		try enterOuterAlt(_localctx, 3)
-		 		setState(1912)
+		 		setState(1922)
 		 		try match(SwiftParser.Tokens.T__89.rawValue)
 
 		 		break
@@ -14821,38 +14949,38 @@ open class SwiftParser: Parser {
 	    		try! exitRule()
 	    }
 		do {
-		 	setState(1925)
+		 	setState(1935)
 		 	try _errHandler.sync(self)
 		 	switch(try getInterpreter().adaptivePredict(_input,224, _ctx)) {
 		 	case 1:
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(1915)
+		 		setState(1925)
 		 		try binary_operator()
-		 		setState(1916)
+		 		setState(1926)
 		 		try prefix_expression()
 
 		 		break
 		 	case 2:
 		 		try enterOuterAlt(_localctx, 2)
-		 		setState(1918)
+		 		setState(1928)
 		 		try conditional_operator()
-		 		setState(1920)
+		 		setState(1930)
 		 		try _errHandler.sync(self)
 		 		switch (try getInterpreter().adaptivePredict(_input,223,_ctx)) {
 		 		case 1:
-		 			setState(1919)
+		 			setState(1929)
 		 			try try_operator()
 
 		 			break
 		 		default: break
 		 		}
-		 		setState(1922)
+		 		setState(1932)
 		 		try prefix_expression()
 
 		 		break
 		 	case 3:
 		 		try enterOuterAlt(_localctx, 3)
-		 		setState(1924)
+		 		setState(1934)
 		 		try type_casting_operator()
 
 		 		break
@@ -14909,13 +15037,13 @@ open class SwiftParser: Parser {
 		do {
 			var _alt:Int
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1928); 
+		 	setState(1938); 
 		 	try _errHandler.sync(self)
 		 	_alt = 1;
 		 	repeat {
 		 		switch (_alt) {
 		 		case 1:
-		 			setState(1927)
+		 			setState(1937)
 		 			try binary_expression()
 
 
@@ -14923,7 +15051,7 @@ open class SwiftParser: Parser {
 		 		default:
 		 			throw try ANTLRException.recognition(e: NoViableAltException(self))
 		 		}
-		 		setState(1930); 
+		 		setState(1940); 
 		 		try _errHandler.sync(self)
 		 		_alt = try getInterpreter().adaptivePredict(_input,225,_ctx)
 		 	} while (_alt != 2 && _alt !=  ATN.INVALID_ALT_NUMBER)
@@ -14978,21 +15106,21 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1932)
+		 	setState(1942)
 		 	try match(SwiftParser.Tokens.QUESTION.rawValue)
-		 	setState(1934)
+		 	setState(1944)
 		 	try _errHandler.sync(self)
 		 	switch (try getInterpreter().adaptivePredict(_input,226,_ctx)) {
 		 	case 1:
-		 		setState(1933)
+		 		setState(1943)
 		 		try try_operator()
 
 		 		break
 		 	default: break
 		 	}
-		 	setState(1936)
+		 	setState(1946)
 		 	try expression()
-		 	setState(1937)
+		 	setState(1947)
 		 	try match(SwiftParser.Tokens.COLON.rawValue)
 
 		}
@@ -15041,42 +15169,42 @@ open class SwiftParser: Parser {
 	    		try! exitRule()
 	    }
 		do {
-		 	setState(1949)
+		 	setState(1959)
 		 	try _errHandler.sync(self)
 		 	switch(try getInterpreter().adaptivePredict(_input,227, _ctx)) {
 		 	case 1:
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(1939)
+		 		setState(1949)
 		 		try match(SwiftParser.Tokens.T__85.rawValue)
-		 		setState(1940)
+		 		setState(1950)
 		 		try type(0)
 
 		 		break
 		 	case 2:
 		 		try enterOuterAlt(_localctx, 2)
-		 		setState(1941)
+		 		setState(1951)
 		 		try match(SwiftParser.Tokens.T__86.rawValue)
-		 		setState(1942)
+		 		setState(1952)
 		 		try type(0)
 
 		 		break
 		 	case 3:
 		 		try enterOuterAlt(_localctx, 3)
-		 		setState(1943)
+		 		setState(1953)
 		 		try match(SwiftParser.Tokens.T__86.rawValue)
-		 		setState(1944)
+		 		setState(1954)
 		 		try match(SwiftParser.Tokens.QUESTION.rawValue)
-		 		setState(1945)
+		 		setState(1955)
 		 		try type(0)
 
 		 		break
 		 	case 4:
 		 		try enterOuterAlt(_localctx, 4)
-		 		setState(1946)
+		 		setState(1956)
 		 		try match(SwiftParser.Tokens.T__86.rawValue)
-		 		setState(1947)
+		 		setState(1957)
 		 		try match(SwiftParser.Tokens.BANG.rawValue)
-		 		setState(1948)
+		 		setState(1958)
 		 		try type(0)
 
 		 		break
@@ -15092,8 +15220,8 @@ open class SwiftParser: Parser {
 		return _localctx
 	}
 	open class Primary_expressionContext:ParserRuleContext {
-		open func identifier() -> IdentifierContext? {
-			return getRuleContext(IdentifierContext.self,0)
+		open func identifier_declaration_context() -> Identifier_declaration_contextContext? {
+			return getRuleContext(Identifier_declaration_contextContext.self,0)
 		}
 		open func generic_argument_clause() -> Generic_argument_clauseContext? {
 			return getRuleContext(Generic_argument_clauseContext.self,0)
@@ -15155,18 +15283,18 @@ open class SwiftParser: Parser {
 	    		try! exitRule()
 	    }
 		do {
-		 	setState(1963)
+		 	setState(1973)
 		 	try _errHandler.sync(self)
 		 	switch(try getInterpreter().adaptivePredict(_input,229, _ctx)) {
 		 	case 1:
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(1951)
-		 		try identifier()
-		 		setState(1953)
+		 		setState(1961)
+		 		try identifier_declaration_context()
+		 		setState(1963)
 		 		try _errHandler.sync(self)
 		 		switch (try getInterpreter().adaptivePredict(_input,228,_ctx)) {
 		 		case 1:
-		 			setState(1952)
+		 			setState(1962)
 		 			try generic_argument_clause()
 
 		 			break
@@ -15176,49 +15304,49 @@ open class SwiftParser: Parser {
 		 		break
 		 	case 2:
 		 		try enterOuterAlt(_localctx, 2)
-		 		setState(1955)
+		 		setState(1965)
 		 		try literal_expression()
 
 		 		break
 		 	case 3:
 		 		try enterOuterAlt(_localctx, 3)
-		 		setState(1956)
+		 		setState(1966)
 		 		try self_expression()
 
 		 		break
 		 	case 4:
 		 		try enterOuterAlt(_localctx, 4)
-		 		setState(1957)
+		 		setState(1967)
 		 		try superclass_expression()
 
 		 		break
 		 	case 5:
 		 		try enterOuterAlt(_localctx, 5)
-		 		setState(1958)
+		 		setState(1968)
 		 		try closure_expression()
 
 		 		break
 		 	case 6:
 		 		try enterOuterAlt(_localctx, 6)
-		 		setState(1959)
+		 		setState(1969)
 		 		try parenthesized_expression()
 
 		 		break
 		 	case 7:
 		 		try enterOuterAlt(_localctx, 7)
-		 		setState(1960)
+		 		setState(1970)
 		 		try implicit_member_expression()
 
 		 		break
 		 	case 8:
 		 		try enterOuterAlt(_localctx, 8)
-		 		setState(1961)
+		 		setState(1971)
 		 		try wildcard_expression()
 
 		 		break
 		 	case 9:
 		 		try enterOuterAlt(_localctx, 9)
-		 		setState(1962)
+		 		setState(1972)
 		 		try selector_expression()
 
 		 		break
@@ -15234,8 +15362,8 @@ open class SwiftParser: Parser {
 		return _localctx
 	}
 	open class Implicit_member_expressionContext:ParserRuleContext {
-		open func identifier() -> IdentifierContext? {
-			return getRuleContext(IdentifierContext.self,0)
+		open func identifier_declaration_context() -> Identifier_declaration_contextContext? {
+			return getRuleContext(Identifier_declaration_contextContext.self,0)
 		}
 		open override func getRuleIndex() -> Int { return SwiftParser.RULE_implicit_member_expression }
 		override
@@ -15271,10 +15399,10 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1965)
+		 	setState(1975)
 		 	try match(SwiftParser.Tokens.DOT.rawValue)
-		 	setState(1966)
-		 	try identifier()
+		 	setState(1976)
+		 	try identifier_declaration_context()
 
 		}
 		catch ANTLRException.recognition(let re) {
@@ -15328,48 +15456,48 @@ open class SwiftParser: Parser {
 	    		try! exitRule()
 	    }
 		do {
-		 	setState(1975)
+		 	setState(1985)
 		 	try _errHandler.sync(self)
 		 	switch(try getInterpreter().adaptivePredict(_input,230, _ctx)) {
 		 	case 1:
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(1968)
+		 		setState(1978)
 		 		try literal()
 
 		 		break
 		 	case 2:
 		 		try enterOuterAlt(_localctx, 2)
-		 		setState(1969)
+		 		setState(1979)
 		 		try array_literal()
 
 		 		break
 		 	case 3:
 		 		try enterOuterAlt(_localctx, 3)
-		 		setState(1970)
+		 		setState(1980)
 		 		try dictionary_literal()
 
 		 		break
 		 	case 4:
 		 		try enterOuterAlt(_localctx, 4)
-		 		setState(1971)
+		 		setState(1981)
 		 		try match(SwiftParser.Tokens.T__90.rawValue)
 
 		 		break
 		 	case 5:
 		 		try enterOuterAlt(_localctx, 5)
-		 		setState(1972)
+		 		setState(1982)
 		 		try match(SwiftParser.Tokens.T__91.rawValue)
 
 		 		break
 		 	case 6:
 		 		try enterOuterAlt(_localctx, 6)
-		 		setState(1973)
+		 		setState(1983)
 		 		try match(SwiftParser.Tokens.T__92.rawValue)
 
 		 		break
 		 	case 7:
 		 		try enterOuterAlt(_localctx, 7)
-		 		setState(1974)
+		 		setState(1984)
 		 		try match(SwiftParser.Tokens.T__93.rawValue)
 
 		 		break
@@ -15422,19 +15550,19 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1977)
+		 	setState(1987)
 		 	try match(SwiftParser.Tokens.LBRACK.rawValue)
-		 	setState(1979)
+		 	setState(1989)
 		 	try _errHandler.sync(self)
 		 	switch (try getInterpreter().adaptivePredict(_input,231,_ctx)) {
 		 	case 1:
-		 		setState(1978)
+		 		setState(1988)
 		 		try array_literal_items()
 
 		 		break
 		 	default: break
 		 	}
-		 	setState(1981)
+		 	setState(1991)
 		 	try match(SwiftParser.Tokens.RBRACK.rawValue)
 
 		}
@@ -15489,25 +15617,25 @@ open class SwiftParser: Parser {
 		do {
 			var _alt:Int
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1983)
+		 	setState(1993)
 		 	try array_literal_item()
-		 	setState(1988)
+		 	setState(1998)
 		 	try _errHandler.sync(self)
 		 	_alt = try getInterpreter().adaptivePredict(_input,232,_ctx)
 		 	while (_alt != 2 && _alt != ATN.INVALID_ALT_NUMBER) {
 		 		if ( _alt==1 ) {
-		 			setState(1984)
+		 			setState(1994)
 		 			try match(SwiftParser.Tokens.COMMA.rawValue)
-		 			setState(1985)
+		 			setState(1995)
 		 			try array_literal_item()
 
 		 	 
 		 		}
-		 		setState(1990)
+		 		setState(2000)
 		 		try _errHandler.sync(self)
 		 		_alt = try getInterpreter().adaptivePredict(_input,232,_ctx)
 		 	}
-		 	setState(1992)
+		 	setState(2002)
 		 	try _errHandler.sync(self)
 		 	_la = try _input.LA(1)
 		 	if (//closure
@@ -15515,7 +15643,7 @@ open class SwiftParser: Parser {
 		 	      let testSet: Bool = _la == SwiftParser.Tokens.COMMA.rawValue
 		 	      return testSet
 		 	 }()) {
-		 		setState(1991)
+		 		setState(2001)
 		 		try match(SwiftParser.Tokens.COMMA.rawValue)
 
 		 	}
@@ -15568,7 +15696,7 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(1994)
+		 	setState(2004)
 		 	try expression()
 
 		}
@@ -15617,26 +15745,26 @@ open class SwiftParser: Parser {
 	    		try! exitRule()
 	    }
 		do {
-		 	setState(2003)
+		 	setState(2013)
 		 	try _errHandler.sync(self)
 		 	switch(try getInterpreter().adaptivePredict(_input,234, _ctx)) {
 		 	case 1:
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(1996)
+		 		setState(2006)
 		 		try match(SwiftParser.Tokens.LBRACK.rawValue)
-		 		setState(1997)
+		 		setState(2007)
 		 		try dictionary_literal_items()
-		 		setState(1998)
+		 		setState(2008)
 		 		try match(SwiftParser.Tokens.RBRACK.rawValue)
 
 		 		break
 		 	case 2:
 		 		try enterOuterAlt(_localctx, 2)
-		 		setState(2000)
+		 		setState(2010)
 		 		try match(SwiftParser.Tokens.LBRACK.rawValue)
-		 		setState(2001)
+		 		setState(2011)
 		 		try match(SwiftParser.Tokens.COLON.rawValue)
-		 		setState(2002)
+		 		setState(2012)
 		 		try match(SwiftParser.Tokens.RBRACK.rawValue)
 
 		 		break
@@ -15694,25 +15822,25 @@ open class SwiftParser: Parser {
 		do {
 			var _alt:Int
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(2005)
+		 	setState(2015)
 		 	try dictionary_literal_item()
-		 	setState(2010)
+		 	setState(2020)
 		 	try _errHandler.sync(self)
 		 	_alt = try getInterpreter().adaptivePredict(_input,235,_ctx)
 		 	while (_alt != 2 && _alt != ATN.INVALID_ALT_NUMBER) {
 		 		if ( _alt==1 ) {
-		 			setState(2006)
+		 			setState(2016)
 		 			try match(SwiftParser.Tokens.COMMA.rawValue)
-		 			setState(2007)
+		 			setState(2017)
 		 			try dictionary_literal_item()
 
 		 	 
 		 		}
-		 		setState(2012)
+		 		setState(2022)
 		 		try _errHandler.sync(self)
 		 		_alt = try getInterpreter().adaptivePredict(_input,235,_ctx)
 		 	}
-		 	setState(2014)
+		 	setState(2024)
 		 	try _errHandler.sync(self)
 		 	_la = try _input.LA(1)
 		 	if (//closure
@@ -15720,7 +15848,7 @@ open class SwiftParser: Parser {
 		 	      let testSet: Bool = _la == SwiftParser.Tokens.COMMA.rawValue
 		 	      return testSet
 		 	 }()) {
-		 		setState(2013)
+		 		setState(2023)
 		 		try match(SwiftParser.Tokens.COMMA.rawValue)
 
 		 	}
@@ -15776,11 +15904,11 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(2016)
+		 	setState(2026)
 		 	try expression()
-		 	setState(2017)
+		 	setState(2027)
 		 	try match(SwiftParser.Tokens.COLON.rawValue)
-		 	setState(2018)
+		 	setState(2028)
 		 	try expression()
 
 		}
@@ -15793,8 +15921,8 @@ open class SwiftParser: Parser {
 		return _localctx
 	}
 	open class Self_expressionContext:ParserRuleContext {
-		open func identifier() -> IdentifierContext? {
-			return getRuleContext(IdentifierContext.self,0)
+		open func identifier_declaration_context() -> Identifier_declaration_contextContext? {
+			return getRuleContext(Identifier_declaration_contextContext.self,0)
 		}
 		open func expression_list() -> Expression_listContext? {
 			return getRuleContext(Expression_listContext.self,0)
@@ -15832,44 +15960,44 @@ open class SwiftParser: Parser {
 	    		try! exitRule()
 	    }
 		do {
-		 	setState(2032)
+		 	setState(2042)
 		 	try _errHandler.sync(self)
 		 	switch(try getInterpreter().adaptivePredict(_input,237, _ctx)) {
 		 	case 1:
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(2020)
+		 		setState(2030)
 		 		try match(SwiftParser.Tokens.T__94.rawValue)
 
 		 		break
 		 	case 2:
 		 		try enterOuterAlt(_localctx, 2)
-		 		setState(2021)
+		 		setState(2031)
 		 		try match(SwiftParser.Tokens.T__94.rawValue)
-		 		setState(2022)
+		 		setState(2032)
 		 		try match(SwiftParser.Tokens.DOT.rawValue)
-		 		setState(2023)
-		 		try identifier()
+		 		setState(2033)
+		 		try identifier_declaration_context()
 
 		 		break
 		 	case 3:
 		 		try enterOuterAlt(_localctx, 3)
-		 		setState(2024)
+		 		setState(2034)
 		 		try match(SwiftParser.Tokens.T__94.rawValue)
-		 		setState(2025)
+		 		setState(2035)
 		 		try match(SwiftParser.Tokens.LBRACK.rawValue)
-		 		setState(2026)
+		 		setState(2036)
 		 		try expression_list()
-		 		setState(2027)
+		 		setState(2037)
 		 		try match(SwiftParser.Tokens.RBRACK.rawValue)
 
 		 		break
 		 	case 4:
 		 		try enterOuterAlt(_localctx, 4)
-		 		setState(2029)
+		 		setState(2039)
 		 		try match(SwiftParser.Tokens.T__94.rawValue)
-		 		setState(2030)
+		 		setState(2040)
 		 		try match(SwiftParser.Tokens.DOT.rawValue)
-		 		setState(2031)
+		 		setState(2041)
 		 		try match(SwiftParser.Tokens.T__53.rawValue)
 
 		 		break
@@ -15927,24 +16055,24 @@ open class SwiftParser: Parser {
 	    		try! exitRule()
 	    }
 		do {
-		 	setState(2037)
+		 	setState(2047)
 		 	try _errHandler.sync(self)
 		 	switch(try getInterpreter().adaptivePredict(_input,238, _ctx)) {
 		 	case 1:
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(2034)
+		 		setState(2044)
 		 		try superclass_method_expression()
 
 		 		break
 		 	case 2:
 		 		try enterOuterAlt(_localctx, 2)
-		 		setState(2035)
+		 		setState(2045)
 		 		try superclass_subscript_expression()
 
 		 		break
 		 	case 3:
 		 		try enterOuterAlt(_localctx, 3)
-		 		setState(2036)
+		 		setState(2046)
 		 		try superclass_initializer_expression()
 
 		 		break
@@ -15960,8 +16088,8 @@ open class SwiftParser: Parser {
 		return _localctx
 	}
 	open class Superclass_method_expressionContext:ParserRuleContext {
-		open func identifier() -> IdentifierContext? {
-			return getRuleContext(IdentifierContext.self,0)
+		open func identifier_declaration_context() -> Identifier_declaration_contextContext? {
+			return getRuleContext(Identifier_declaration_contextContext.self,0)
 		}
 		open override func getRuleIndex() -> Int { return SwiftParser.RULE_superclass_method_expression }
 		override
@@ -15997,12 +16125,12 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(2039)
+		 	setState(2049)
 		 	try match(SwiftParser.Tokens.T__95.rawValue)
-		 	setState(2040)
+		 	setState(2050)
 		 	try match(SwiftParser.Tokens.DOT.rawValue)
-		 	setState(2041)
-		 	try identifier()
+		 	setState(2051)
+		 	try identifier_declaration_context()
 
 		}
 		catch ANTLRException.recognition(let re) {
@@ -16051,13 +16179,13 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(2043)
+		 	setState(2053)
 		 	try match(SwiftParser.Tokens.T__95.rawValue)
-		 	setState(2044)
+		 	setState(2054)
 		 	try match(SwiftParser.Tokens.LBRACK.rawValue)
-		 	setState(2045)
+		 	setState(2055)
 		 	try expression()
-		 	setState(2046)
+		 	setState(2056)
 		 	try match(SwiftParser.Tokens.RBRACK.rawValue)
 
 		}
@@ -16104,11 +16232,11 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(2048)
+		 	setState(2058)
 		 	try match(SwiftParser.Tokens.T__95.rawValue)
-		 	setState(2049)
+		 	setState(2059)
 		 	try match(SwiftParser.Tokens.DOT.rawValue)
-		 	setState(2050)
+		 	setState(2060)
 		 	try match(SwiftParser.Tokens.T__53.rawValue)
 
 		}
@@ -16161,29 +16289,29 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(2052)
+		 	setState(2062)
 		 	try match(SwiftParser.Tokens.LCURLY.rawValue)
-		 	setState(2054)
+		 	setState(2064)
 		 	try _errHandler.sync(self)
 		 	switch (try getInterpreter().adaptivePredict(_input,239,_ctx)) {
 		 	case 1:
-		 		setState(2053)
+		 		setState(2063)
 		 		try closure_signature()
 
 		 		break
 		 	default: break
 		 	}
-		 	setState(2057)
+		 	setState(2067)
 		 	try _errHandler.sync(self)
 		 	switch (try getInterpreter().adaptivePredict(_input,240,_ctx)) {
 		 	case 1:
-		 		setState(2056)
+		 		setState(2066)
 		 		try statements()
 
 		 		break
 		 	default: break
 		 	}
-		 	setState(2059)
+		 	setState(2069)
 		 	try match(SwiftParser.Tokens.RCURLY.rawValue)
 
 		}
@@ -16242,14 +16370,14 @@ open class SwiftParser: Parser {
 	    		try! exitRule()
 	    }
 		do {
-		 	setState(2090)
+		 	setState(2100)
 		 	try _errHandler.sync(self)
 		 	switch(try getInterpreter().adaptivePredict(_input,245, _ctx)) {
 		 	case 1:
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(2061)
+		 		setState(2071)
 		 		try parameter_clause()
-		 		setState(2063)
+		 		setState(2073)
 		 		try _errHandler.sync(self)
 		 		_la = try _input.LA(1)
 		 		if (//closure
@@ -16257,20 +16385,20 @@ open class SwiftParser: Parser {
 		 		      let testSet: Bool = _la == SwiftParser.Tokens.T__50.rawValue
 		 		      return testSet
 		 		 }()) {
-		 			setState(2062)
+		 			setState(2072)
 		 			try function_result()
 
 		 		}
 
-		 		setState(2065)
+		 		setState(2075)
 		 		try match(SwiftParser.Tokens.T__2.rawValue)
 
 		 		break
 		 	case 2:
 		 		try enterOuterAlt(_localctx, 2)
-		 		setState(2067)
+		 		setState(2077)
 		 		try identifier_list()
-		 		setState(2069)
+		 		setState(2079)
 		 		try _errHandler.sync(self)
 		 		_la = try _input.LA(1)
 		 		if (//closure
@@ -16278,22 +16406,22 @@ open class SwiftParser: Parser {
 		 		      let testSet: Bool = _la == SwiftParser.Tokens.T__50.rawValue
 		 		      return testSet
 		 		 }()) {
-		 			setState(2068)
+		 			setState(2078)
 		 			try function_result()
 
 		 		}
 
-		 		setState(2071)
+		 		setState(2081)
 		 		try match(SwiftParser.Tokens.T__2.rawValue)
 
 		 		break
 		 	case 3:
 		 		try enterOuterAlt(_localctx, 3)
-		 		setState(2073)
+		 		setState(2083)
 		 		try capture_list()
-		 		setState(2074)
+		 		setState(2084)
 		 		try parameter_clause()
-		 		setState(2076)
+		 		setState(2086)
 		 		try _errHandler.sync(self)
 		 		_la = try _input.LA(1)
 		 		if (//closure
@@ -16301,22 +16429,22 @@ open class SwiftParser: Parser {
 		 		      let testSet: Bool = _la == SwiftParser.Tokens.T__50.rawValue
 		 		      return testSet
 		 		 }()) {
-		 			setState(2075)
+		 			setState(2085)
 		 			try function_result()
 
 		 		}
 
-		 		setState(2078)
+		 		setState(2088)
 		 		try match(SwiftParser.Tokens.T__2.rawValue)
 
 		 		break
 		 	case 4:
 		 		try enterOuterAlt(_localctx, 4)
-		 		setState(2080)
+		 		setState(2090)
 		 		try capture_list()
-		 		setState(2081)
+		 		setState(2091)
 		 		try identifier_list()
-		 		setState(2083)
+		 		setState(2093)
 		 		try _errHandler.sync(self)
 		 		_la = try _input.LA(1)
 		 		if (//closure
@@ -16324,20 +16452,20 @@ open class SwiftParser: Parser {
 		 		      let testSet: Bool = _la == SwiftParser.Tokens.T__50.rawValue
 		 		      return testSet
 		 		 }()) {
-		 			setState(2082)
+		 			setState(2092)
 		 			try function_result()
 
 		 		}
 
-		 		setState(2085)
+		 		setState(2095)
 		 		try match(SwiftParser.Tokens.T__2.rawValue)
 
 		 		break
 		 	case 5:
 		 		try enterOuterAlt(_localctx, 5)
-		 		setState(2087)
+		 		setState(2097)
 		 		try capture_list()
-		 		setState(2088)
+		 		setState(2098)
 		 		try match(SwiftParser.Tokens.T__2.rawValue)
 
 		 		break
@@ -16390,11 +16518,11 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(2092)
+		 	setState(2102)
 		 	try match(SwiftParser.Tokens.LBRACK.rawValue)
-		 	setState(2093)
+		 	setState(2103)
 		 	try capture_list_items()
-		 	setState(2094)
+		 	setState(2104)
 		 	try match(SwiftParser.Tokens.RBRACK.rawValue)
 
 		}
@@ -16448,9 +16576,9 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(2096)
+		 	setState(2106)
 		 	try capture_list_item()
-		 	setState(2101)
+		 	setState(2111)
 		 	try _errHandler.sync(self)
 		 	_la = try _input.LA(1)
 		 	while (//closure
@@ -16458,13 +16586,13 @@ open class SwiftParser: Parser {
 		 	      let testSet: Bool = _la == SwiftParser.Tokens.COMMA.rawValue
 		 	      return testSet
 		 	 }()) {
-		 		setState(2097)
+		 		setState(2107)
 		 		try match(SwiftParser.Tokens.COMMA.rawValue)
-		 		setState(2098)
+		 		setState(2108)
 		 		try capture_list_item()
 
 
-		 		setState(2103)
+		 		setState(2113)
 		 		try _errHandler.sync(self)
 		 		_la = try _input.LA(1)
 		 	}
@@ -16519,17 +16647,17 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(2105)
+		 	setState(2115)
 		 	try _errHandler.sync(self)
 		 	switch (try getInterpreter().adaptivePredict(_input,247,_ctx)) {
 		 	case 1:
-		 		setState(2104)
+		 		setState(2114)
 		 		try capture_specifier()
 
 		 		break
 		 	default: break
 		 	}
-		 	setState(2107)
+		 	setState(2117)
 		 	try expression()
 
 		}
@@ -16577,7 +16705,7 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(2109)
+		 	setState(2119)
 		 	_la = try _input.LA(1)
 		 	if (!(//closure
 		 	 { () -> Bool in
@@ -16641,19 +16769,19 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(2111)
+		 	setState(2121)
 		 	try match(SwiftParser.Tokens.LPAREN.rawValue)
-		 	setState(2113)
+		 	setState(2123)
 		 	try _errHandler.sync(self)
 		 	switch (try getInterpreter().adaptivePredict(_input,248,_ctx)) {
 		 	case 1:
-		 		setState(2112)
+		 		setState(2122)
 		 		try expression_element_list()
 
 		 		break
 		 	default: break
 		 	}
-		 	setState(2115)
+		 	setState(2125)
 		 	try match(SwiftParser.Tokens.RPAREN.rawValue)
 
 		}
@@ -16707,9 +16835,9 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(2117)
+		 	setState(2127)
 		 	try expression_element()
-		 	setState(2122)
+		 	setState(2132)
 		 	try _errHandler.sync(self)
 		 	_la = try _input.LA(1)
 		 	while (//closure
@@ -16717,13 +16845,13 @@ open class SwiftParser: Parser {
 		 	      let testSet: Bool = _la == SwiftParser.Tokens.COMMA.rawValue
 		 	      return testSet
 		 	 }()) {
-		 		setState(2118)
+		 		setState(2128)
 		 		try match(SwiftParser.Tokens.COMMA.rawValue)
-		 		setState(2119)
+		 		setState(2129)
 		 		try expression_element()
 
 
-		 		setState(2124)
+		 		setState(2134)
 		 		try _errHandler.sync(self)
 		 		_la = try _input.LA(1)
 		 	}
@@ -16741,8 +16869,8 @@ open class SwiftParser: Parser {
 		open func expression() -> ExpressionContext? {
 			return getRuleContext(ExpressionContext.self,0)
 		}
-		open func identifier() -> IdentifierContext? {
-			return getRuleContext(IdentifierContext.self,0)
+		open func identifier_argument_context() -> Identifier_argument_contextContext? {
+			return getRuleContext(Identifier_argument_contextContext.self,0)
 		}
 		open func operator_name() -> Operator_nameContext? {
 			return getRuleContext(Operator_nameContext.self,0)
@@ -16780,38 +16908,38 @@ open class SwiftParser: Parser {
 	    		try! exitRule()
 	    }
 		do {
-		 	setState(2135)
+		 	setState(2145)
 		 	try _errHandler.sync(self)
 		 	switch(try getInterpreter().adaptivePredict(_input,250, _ctx)) {
 		 	case 1:
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(2125)
+		 		setState(2135)
 		 		try expression()
 
 		 		break
 		 	case 2:
 		 		try enterOuterAlt(_localctx, 2)
-		 		setState(2126)
-		 		try identifier()
-		 		setState(2127)
+		 		setState(2136)
+		 		try identifier_argument_context()
+		 		setState(2137)
 		 		try match(SwiftParser.Tokens.COLON.rawValue)
-		 		setState(2128)
+		 		setState(2138)
 		 		try expression()
 
 		 		break
 		 	case 3:
 		 		try enterOuterAlt(_localctx, 3)
-		 		setState(2130)
+		 		setState(2140)
 		 		try operator_name()
 
 		 		break
 		 	case 4:
 		 		try enterOuterAlt(_localctx, 4)
-		 		setState(2131)
-		 		try identifier()
-		 		setState(2132)
+		 		setState(2141)
+		 		try identifier_argument_context()
+		 		setState(2142)
 		 		try match(SwiftParser.Tokens.COLON.rawValue)
-		 		setState(2133)
+		 		setState(2143)
 		 		try operator_name()
 
 		 		break
@@ -16861,7 +16989,7 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(2137)
+		 	setState(2147)
 		 	try match(SwiftParser.Tokens.UNDERSCORE.rawValue)
 
 		}
@@ -16911,13 +17039,13 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(2139)
+		 	setState(2149)
 		 	try match(SwiftParser.Tokens.T__98.rawValue)
-		 	setState(2140)
+		 	setState(2150)
 		 	try match(SwiftParser.Tokens.LPAREN.rawValue)
-		 	setState(2141)
+		 	setState(2151)
 		 	try expression()
-		 	setState(2142)
+		 	setState(2152)
 		 	try match(SwiftParser.Tokens.RPAREN.rawValue)
 
 		}
@@ -17213,8 +17341,8 @@ open class SwiftParser: Parser {
 		open func postfix_expression() -> Postfix_expressionContext? {
 			return getRuleContext(Postfix_expressionContext.self,0)
 		}
-		open func identifier() -> IdentifierContext? {
-			return getRuleContext(IdentifierContext.self,0)
+		open func identifier_argument_context() -> Identifier_argument_contextContext? {
+			return getRuleContext(Identifier_argument_contextContext.self,0)
 		}
 		open func generic_argument_clause() -> Generic_argument_clauseContext? {
 			return getRuleContext(Generic_argument_clauseContext.self,0)
@@ -17251,8 +17379,8 @@ open class SwiftParser: Parser {
 		open func postfix_expression() -> Postfix_expressionContext? {
 			return getRuleContext(Postfix_expressionContext.self,0)
 		}
-		open func identifier() -> IdentifierContext? {
-			return getRuleContext(IdentifierContext.self,0)
+		open func identifier_argument_context() -> Identifier_argument_contextContext? {
+			return getRuleContext(Identifier_argument_contextContext.self,0)
 		}
 		open func argument_names() -> Argument_namesContext? {
 			return getRuleContext(Argument_namesContext.self,0)
@@ -17410,11 +17538,11 @@ open class SwiftParser: Parser {
 			_ctx = _localctx
 			_prevctx = _localctx
 
-			setState(2145)
+			setState(2155)
 			try primary_expression()
 
 			_ctx!.stop = try _input.LT(-1)
-			setState(2200)
+			setState(2210)
 			try _errHandler.sync(self)
 			_alt = try getInterpreter().adaptivePredict(_input,254,_ctx)
 			while (_alt != 2 && _alt != ATN.INVALID_ALT_NUMBER) {
@@ -17423,39 +17551,39 @@ open class SwiftParser: Parser {
 					   try triggerExitRuleEvent()
 					}
 					_prevctx = _localctx
-					setState(2198)
+					setState(2208)
 					try _errHandler.sync(self)
 					switch(try getInterpreter().adaptivePredict(_input,253, _ctx)) {
 					case 1:
 						_localctx = Postfix_operationContext(  Postfix_expressionContext(_parentctx, _parentState))
 						try pushNewRecursionContext(_localctx, _startState, SwiftParser.RULE_postfix_expression)
-						setState(2147)
+						setState(2157)
 						if (!(precpred(_ctx, 12))) {
 						    throw try ANTLRException.recognition(e:FailedPredicateException(self, "precpred(_ctx, 12)"))
 						}
-						setState(2148)
+						setState(2158)
 						try postfix_operator()
 
 						break
 					case 2:
 						_localctx = Function_call_expressionContext(  Postfix_expressionContext(_parentctx, _parentState))
 						try pushNewRecursionContext(_localctx, _startState, SwiftParser.RULE_postfix_expression)
-						setState(2149)
+						setState(2159)
 						if (!(precpred(_ctx, 11))) {
 						    throw try ANTLRException.recognition(e:FailedPredicateException(self, "precpred(_ctx, 11)"))
 						}
-						setState(2150)
+						setState(2160)
 						try parenthesized_expression()
 
 						break
 					case 3:
 						_localctx = Function_call_with_closure_expressionContext(  Postfix_expressionContext(_parentctx, _parentState))
 						try pushNewRecursionContext(_localctx, _startState, SwiftParser.RULE_postfix_expression)
-						setState(2151)
+						setState(2161)
 						if (!(precpred(_ctx, 10))) {
 						    throw try ANTLRException.recognition(e:FailedPredicateException(self, "precpred(_ctx, 10)"))
 						}
-						setState(2153)
+						setState(2163)
 						try _errHandler.sync(self)
 						_la = try _input.LA(1)
 						if (//closure
@@ -17463,76 +17591,76 @@ open class SwiftParser: Parser {
 						      let testSet: Bool = _la == SwiftParser.Tokens.LPAREN.rawValue
 						      return testSet
 						 }()) {
-							setState(2152)
+							setState(2162)
 							try parenthesized_expression()
 
 						}
 
-						setState(2155)
+						setState(2165)
 						try trailing_closure()
 
 						break
 					case 4:
 						_localctx = Initializer_expressionContext(  Postfix_expressionContext(_parentctx, _parentState))
 						try pushNewRecursionContext(_localctx, _startState, SwiftParser.RULE_postfix_expression)
-						setState(2156)
+						setState(2166)
 						if (!(precpred(_ctx, 9))) {
 						    throw try ANTLRException.recognition(e:FailedPredicateException(self, "precpred(_ctx, 9)"))
 						}
-						setState(2157)
+						setState(2167)
 						try match(SwiftParser.Tokens.DOT.rawValue)
-						setState(2158)
+						setState(2168)
 						try match(SwiftParser.Tokens.T__53.rawValue)
 
 						break
 					case 5:
 						_localctx = Initializer_expression_with_argsContext(  Postfix_expressionContext(_parentctx, _parentState))
 						try pushNewRecursionContext(_localctx, _startState, SwiftParser.RULE_postfix_expression)
-						setState(2159)
+						setState(2169)
 						if (!(precpred(_ctx, 8))) {
 						    throw try ANTLRException.recognition(e:FailedPredicateException(self, "precpred(_ctx, 8)"))
 						}
-						setState(2160)
+						setState(2170)
 						try match(SwiftParser.Tokens.DOT.rawValue)
-						setState(2161)
+						setState(2171)
 						try match(SwiftParser.Tokens.T__53.rawValue)
-						setState(2162)
+						setState(2172)
 						try match(SwiftParser.Tokens.LPAREN.rawValue)
-						setState(2163)
+						setState(2173)
 						try argument_names()
-						setState(2164)
+						setState(2174)
 						try match(SwiftParser.Tokens.RPAREN.rawValue)
 
 						break
 					case 6:
 						_localctx = Explicit_member_expression1Context(  Postfix_expressionContext(_parentctx, _parentState))
 						try pushNewRecursionContext(_localctx, _startState, SwiftParser.RULE_postfix_expression)
-						setState(2166)
+						setState(2176)
 						if (!(precpred(_ctx, 7))) {
 						    throw try ANTLRException.recognition(e:FailedPredicateException(self, "precpred(_ctx, 7)"))
 						}
-						setState(2167)
+						setState(2177)
 						try match(SwiftParser.Tokens.DOT.rawValue)
-						setState(2168)
+						setState(2178)
 						try match(SwiftParser.Tokens.Pure_decimal_digits.rawValue)
 
 						break
 					case 7:
 						_localctx = Explicit_member_expression2Context(  Postfix_expressionContext(_parentctx, _parentState))
 						try pushNewRecursionContext(_localctx, _startState, SwiftParser.RULE_postfix_expression)
-						setState(2169)
+						setState(2179)
 						if (!(precpred(_ctx, 6))) {
 						    throw try ANTLRException.recognition(e:FailedPredicateException(self, "precpred(_ctx, 6)"))
 						}
-						setState(2170)
+						setState(2180)
 						try match(SwiftParser.Tokens.DOT.rawValue)
-						setState(2171)
-						try identifier()
-						setState(2173)
+						setState(2181)
+						try identifier_argument_context()
+						setState(2183)
 						try _errHandler.sync(self)
 						switch (try getInterpreter().adaptivePredict(_input,252,_ctx)) {
 						case 1:
-							setState(2172)
+							setState(2182)
 							try generic_argument_clause()
 
 							break
@@ -17543,75 +17671,75 @@ open class SwiftParser: Parser {
 					case 8:
 						_localctx = Explicit_member_expression3Context(  Postfix_expressionContext(_parentctx, _parentState))
 						try pushNewRecursionContext(_localctx, _startState, SwiftParser.RULE_postfix_expression)
-						setState(2175)
+						setState(2185)
 						if (!(precpred(_ctx, 5))) {
 						    throw try ANTLRException.recognition(e:FailedPredicateException(self, "precpred(_ctx, 5)"))
 						}
-						setState(2176)
+						setState(2186)
 						try match(SwiftParser.Tokens.DOT.rawValue)
-						setState(2177)
-						try identifier()
-						setState(2178)
+						setState(2187)
+						try identifier_argument_context()
+						setState(2188)
 						try match(SwiftParser.Tokens.LPAREN.rawValue)
-						setState(2179)
+						setState(2189)
 						try argument_names()
-						setState(2180)
+						setState(2190)
 						try match(SwiftParser.Tokens.RPAREN.rawValue)
 
 						break
 					case 9:
 						_localctx = Explicit_member_expression4Context(  Postfix_expressionContext(_parentctx, _parentState))
 						try pushNewRecursionContext(_localctx, _startState, SwiftParser.RULE_postfix_expression)
-						setState(2182)
+						setState(2192)
 						if (!(precpred(_ctx, 4))) {
 						    throw try ANTLRException.recognition(e:FailedPredicateException(self, "precpred(_ctx, 4)"))
 						}
-						setState(2183)
+						setState(2193)
 						try match(SwiftParser.Tokens.LPAREN.rawValue)
-						setState(2184)
+						setState(2194)
 						try argument_names()
-						setState(2185)
+						setState(2195)
 						try match(SwiftParser.Tokens.RPAREN.rawValue)
 
 						break
 					case 10:
 						_localctx = Postfix_self_expressionContext(  Postfix_expressionContext(_parentctx, _parentState))
 						try pushNewRecursionContext(_localctx, _startState, SwiftParser.RULE_postfix_expression)
-						setState(2187)
+						setState(2197)
 						if (!(precpred(_ctx, 3))) {
 						    throw try ANTLRException.recognition(e:FailedPredicateException(self, "precpred(_ctx, 3)"))
 						}
-						setState(2188)
+						setState(2198)
 						try match(SwiftParser.Tokens.DOT.rawValue)
-						setState(2189)
+						setState(2199)
 						try match(SwiftParser.Tokens.T__94.rawValue)
 
 						break
 					case 11:
 						_localctx = Dynamic_type_expressionContext(  Postfix_expressionContext(_parentctx, _parentState))
 						try pushNewRecursionContext(_localctx, _startState, SwiftParser.RULE_postfix_expression)
-						setState(2190)
+						setState(2200)
 						if (!(precpred(_ctx, 2))) {
 						    throw try ANTLRException.recognition(e:FailedPredicateException(self, "precpred(_ctx, 2)"))
 						}
-						setState(2191)
+						setState(2201)
 						try match(SwiftParser.Tokens.DOT.rawValue)
-						setState(2192)
+						setState(2202)
 						try match(SwiftParser.Tokens.T__99.rawValue)
 
 						break
 					case 12:
 						_localctx = Subscript_expressionContext(  Postfix_expressionContext(_parentctx, _parentState))
 						try pushNewRecursionContext(_localctx, _startState, SwiftParser.RULE_postfix_expression)
-						setState(2193)
+						setState(2203)
 						if (!(precpred(_ctx, 1))) {
 						    throw try ANTLRException.recognition(e:FailedPredicateException(self, "precpred(_ctx, 1)"))
 						}
-						setState(2194)
+						setState(2204)
 						try match(SwiftParser.Tokens.LBRACK.rawValue)
-						setState(2195)
+						setState(2205)
 						try expression_list()
-						setState(2196)
+						setState(2206)
 						try match(SwiftParser.Tokens.RBRACK.rawValue)
 
 						break
@@ -17619,7 +17747,7 @@ open class SwiftParser: Parser {
 					}
 			 
 				}
-				setState(2202)
+				setState(2212)
 				try _errHandler.sync(self)
 				_alt = try getInterpreter().adaptivePredict(_input,254,_ctx)
 			}
@@ -17675,20 +17803,24 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(2203)
+		 	setState(2213)
 		 	try argument_name()
-		 	setState(2205)
+		 	setState(2215)
 		 	try _errHandler.sync(self)
 		 	_la = try _input.LA(1)
 		 	if (//closure
 		 	 { () -> Bool in
-		 	      let testSet: Bool = {  () -> Bool in
-		 	   let testArray: [Int] = [_la, SwiftParser.Tokens.T__44.rawValue,SwiftParser.Tokens.T__45.rawValue,SwiftParser.Tokens.T__46.rawValue,SwiftParser.Tokens.T__47.rawValue,SwiftParser.Tokens.T__51.rawValue,SwiftParser.Tokens.T__57.rawValue,SwiftParser.Tokens.T__58.rawValue,SwiftParser.Tokens.T__59.rawValue,SwiftParser.Tokens.T__60.rawValue,SwiftParser.Tokens.T__61.rawValue,SwiftParser.Tokens.T__62.rawValue,SwiftParser.Tokens.T__63.rawValue,SwiftParser.Tokens.T__64.rawValue,SwiftParser.Tokens.T__65.rawValue,SwiftParser.Tokens.T__66.rawValue,SwiftParser.Tokens.T__67.rawValue,SwiftParser.Tokens.T__68.rawValue,SwiftParser.Tokens.T__69.rawValue,SwiftParser.Tokens.T__70.rawValue,SwiftParser.Tokens.T__71.rawValue,SwiftParser.Tokens.T__72.rawValue,SwiftParser.Tokens.T__73.rawValue,SwiftParser.Tokens.T__74.rawValue,SwiftParser.Tokens.T__76.rawValue,SwiftParser.Tokens.T__79.rawValue,SwiftParser.Tokens.T__100.rawValue,SwiftParser.Tokens.T__101.rawValue,SwiftParser.Tokens.Identifier.rawValue]
-		 	    return  Utils.testBitLeftShiftArray(testArray, 45)
+		 	      var testSet: Bool = {  () -> Bool in
+		 	   let testArray: [Int] = [_la, SwiftParser.Tokens.T__0.rawValue,SwiftParser.Tokens.T__1.rawValue,SwiftParser.Tokens.T__2.rawValue,SwiftParser.Tokens.T__3.rawValue,SwiftParser.Tokens.T__6.rawValue,SwiftParser.Tokens.T__7.rawValue,SwiftParser.Tokens.T__8.rawValue,SwiftParser.Tokens.T__9.rawValue,SwiftParser.Tokens.T__10.rawValue,SwiftParser.Tokens.T__11.rawValue,SwiftParser.Tokens.T__12.rawValue,SwiftParser.Tokens.T__13.rawValue,SwiftParser.Tokens.T__14.rawValue,SwiftParser.Tokens.T__15.rawValue,SwiftParser.Tokens.T__16.rawValue,SwiftParser.Tokens.T__18.rawValue,SwiftParser.Tokens.T__19.rawValue,SwiftParser.Tokens.T__20.rawValue,SwiftParser.Tokens.T__21.rawValue,SwiftParser.Tokens.T__26.rawValue,SwiftParser.Tokens.T__27.rawValue,SwiftParser.Tokens.T__28.rawValue,SwiftParser.Tokens.T__29.rawValue,SwiftParser.Tokens.T__30.rawValue,SwiftParser.Tokens.T__31.rawValue,SwiftParser.Tokens.T__32.rawValue,SwiftParser.Tokens.T__33.rawValue,SwiftParser.Tokens.T__34.rawValue,SwiftParser.Tokens.T__35.rawValue,SwiftParser.Tokens.T__37.rawValue,SwiftParser.Tokens.T__38.rawValue,SwiftParser.Tokens.T__39.rawValue,SwiftParser.Tokens.T__40.rawValue,SwiftParser.Tokens.T__41.rawValue,SwiftParser.Tokens.T__42.rawValue,SwiftParser.Tokens.T__43.rawValue,SwiftParser.Tokens.T__44.rawValue,SwiftParser.Tokens.T__45.rawValue,SwiftParser.Tokens.T__46.rawValue,SwiftParser.Tokens.T__47.rawValue,SwiftParser.Tokens.T__48.rawValue,SwiftParser.Tokens.T__49.rawValue,SwiftParser.Tokens.T__51.rawValue,SwiftParser.Tokens.T__52.rawValue,SwiftParser.Tokens.T__53.rawValue,SwiftParser.Tokens.T__54.rawValue,SwiftParser.Tokens.T__55.rawValue,SwiftParser.Tokens.T__56.rawValue,SwiftParser.Tokens.T__57.rawValue,SwiftParser.Tokens.T__59.rawValue,SwiftParser.Tokens.T__60.rawValue,SwiftParser.Tokens.T__61.rawValue,SwiftParser.Tokens.T__62.rawValue]
+		 	    return  Utils.testBitLeftShiftArray(testArray, 0)
 		 	}()
+		 	          testSet = testSet || {  () -> Bool in
+		 	             let testArray: [Int] = [_la, SwiftParser.Tokens.T__63.rawValue,SwiftParser.Tokens.T__64.rawValue,SwiftParser.Tokens.T__65.rawValue,SwiftParser.Tokens.T__66.rawValue,SwiftParser.Tokens.T__67.rawValue,SwiftParser.Tokens.T__68.rawValue,SwiftParser.Tokens.T__69.rawValue,SwiftParser.Tokens.T__70.rawValue,SwiftParser.Tokens.T__71.rawValue,SwiftParser.Tokens.T__72.rawValue,SwiftParser.Tokens.T__73.rawValue,SwiftParser.Tokens.T__74.rawValue,SwiftParser.Tokens.T__75.rawValue,SwiftParser.Tokens.T__76.rawValue,SwiftParser.Tokens.T__77.rawValue,SwiftParser.Tokens.T__78.rawValue,SwiftParser.Tokens.T__79.rawValue,SwiftParser.Tokens.T__80.rawValue,SwiftParser.Tokens.T__81.rawValue,SwiftParser.Tokens.T__82.rawValue,SwiftParser.Tokens.T__83.rawValue,SwiftParser.Tokens.T__84.rawValue,SwiftParser.Tokens.T__85.rawValue,SwiftParser.Tokens.T__86.rawValue,SwiftParser.Tokens.T__89.rawValue,SwiftParser.Tokens.T__90.rawValue,SwiftParser.Tokens.T__91.rawValue,SwiftParser.Tokens.T__92.rawValue,SwiftParser.Tokens.T__93.rawValue,SwiftParser.Tokens.T__94.rawValue,SwiftParser.Tokens.T__95.rawValue,SwiftParser.Tokens.T__99.rawValue,SwiftParser.Tokens.T__100.rawValue,SwiftParser.Tokens.T__101.rawValue,SwiftParser.Tokens.T__103.rawValue,SwiftParser.Tokens.T__104.rawValue,SwiftParser.Tokens.T__105.rawValue,SwiftParser.Tokens.Identifier.rawValue]
+		 	              return  Utils.testBitLeftShiftArray(testArray, 64)
+		 	          }()
 		 	      return testSet
 		 	 }()) {
-		 		setState(2204)
+		 		setState(2214)
 		 		try argument_names()
 
 		 	}
@@ -17704,8 +17836,8 @@ open class SwiftParser: Parser {
 		return _localctx
 	}
 	open class Argument_nameContext:ParserRuleContext {
-		open func identifier() -> IdentifierContext? {
-			return getRuleContext(IdentifierContext.self,0)
+		open func identifier_argument_context() -> Identifier_argument_contextContext? {
+			return getRuleContext(Identifier_argument_contextContext.self,0)
 		}
 		open override func getRuleIndex() -> Int { return SwiftParser.RULE_argument_name }
 		override
@@ -17741,9 +17873,9 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(2207)
-		 	try identifier()
-		 	setState(2208)
+		 	setState(2217)
+		 	try identifier_argument_context()
+		 	setState(2218)
 		 	try match(SwiftParser.Tokens.COLON.rawValue)
 
 		}
@@ -17793,7 +17925,7 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(2210)
+		 	setState(2220)
 		 	try closure_expression()
 
 		}
@@ -17866,50 +17998,50 @@ open class SwiftParser: Parser {
 		do {
 			var _alt: Int
 			try enterOuterAlt(_localctx, 1)
-			setState(2226)
+			setState(2236)
 			try _errHandler.sync(self)
 			switch(try getInterpreter().adaptivePredict(_input,256, _ctx)) {
 			case 1:
-				setState(2213)
+				setState(2223)
 				try match(SwiftParser.Tokens.LBRACK.rawValue)
-				setState(2214)
+				setState(2224)
 				try type(0)
-				setState(2215)
+				setState(2225)
 				try match(SwiftParser.Tokens.RBRACK.rawValue)
 
 				break
 			case 2:
-				setState(2217)
+				setState(2227)
 				try match(SwiftParser.Tokens.LBRACK.rawValue)
-				setState(2218)
+				setState(2228)
 				try type(0)
-				setState(2219)
+				setState(2229)
 				try match(SwiftParser.Tokens.COLON.rawValue)
-				setState(2220)
+				setState(2230)
 				try type(0)
-				setState(2221)
+				setState(2231)
 				try match(SwiftParser.Tokens.RBRACK.rawValue)
 
 				break
 			case 3:
-				setState(2223)
+				setState(2233)
 				try type_identifier()
 
 				break
 			case 4:
-				setState(2224)
+				setState(2234)
 				try tuple_type()
 
 				break
 			case 5:
-				setState(2225)
+				setState(2235)
 				try protocol_composition_type()
 
 				break
 			default: break
 			}
 			_ctx!.stop = try _input.LT(-1)
-			setState(2250)
+			setState(2260)
 			try _errHandler.sync(self)
 			_alt = try getInterpreter().adaptivePredict(_input,259,_ctx)
 			while (_alt != 2 && _alt != ATN.INVALID_ALT_NUMBER) {
@@ -17918,17 +18050,17 @@ open class SwiftParser: Parser {
 					   try triggerExitRuleEvent()
 					}
 					_prevctx = _localctx
-					setState(2248)
+					setState(2258)
 					try _errHandler.sync(self)
 					switch(try getInterpreter().adaptivePredict(_input,258, _ctx)) {
 					case 1:
 						_localctx = TypeContext(_parentctx, _parentState);
 						try pushNewRecursionContext(_localctx, _startState, SwiftParser.RULE_type)
-						setState(2228)
+						setState(2238)
 						if (!(precpred(_ctx, 9))) {
 						    throw try ANTLRException.recognition(e:FailedPredicateException(self, "precpred(_ctx, 9)"))
 						}
-						setState(2230)
+						setState(2240)
 						try _errHandler.sync(self)
 						_la = try _input.LA(1)
 						if (//closure
@@ -17936,77 +18068,77 @@ open class SwiftParser: Parser {
 						      let testSet: Bool = _la == SwiftParser.Tokens.T__48.rawValue
 						      return testSet
 						 }()) {
-							setState(2229)
+							setState(2239)
 							try match(SwiftParser.Tokens.T__48.rawValue)
 
 						}
 
-						setState(2232)
+						setState(2242)
 						try match(SwiftParser.Tokens.T__50.rawValue)
-						setState(2233)
+						setState(2243)
 						try type(10)
 
 						break
 					case 2:
 						_localctx = TypeContext(_parentctx, _parentState);
 						try pushNewRecursionContext(_localctx, _startState, SwiftParser.RULE_type)
-						setState(2234)
+						setState(2244)
 						if (!(precpred(_ctx, 8))) {
 						    throw try ANTLRException.recognition(e:FailedPredicateException(self, "precpred(_ctx, 8)"))
 						}
-						setState(2235)
+						setState(2245)
 						try match(SwiftParser.Tokens.T__49.rawValue)
-						setState(2236)
+						setState(2246)
 						try match(SwiftParser.Tokens.T__50.rawValue)
-						setState(2237)
+						setState(2247)
 						try type(9)
 
 						break
 					case 3:
 						_localctx = TypeContext(_parentctx, _parentState);
 						try pushNewRecursionContext(_localctx, _startState, SwiftParser.RULE_type)
-						setState(2238)
+						setState(2248)
 						if (!(precpred(_ctx, 5))) {
 						    throw try ANTLRException.recognition(e:FailedPredicateException(self, "precpred(_ctx, 5)"))
 						}
-						setState(2239)
+						setState(2249)
 						try match(SwiftParser.Tokens.QUESTION.rawValue)
 
 						break
 					case 4:
 						_localctx = TypeContext(_parentctx, _parentState);
 						try pushNewRecursionContext(_localctx, _startState, SwiftParser.RULE_type)
-						setState(2240)
+						setState(2250)
 						if (!(precpred(_ctx, 4))) {
 						    throw try ANTLRException.recognition(e:FailedPredicateException(self, "precpred(_ctx, 4)"))
 						}
-						setState(2241)
+						setState(2251)
 						try match(SwiftParser.Tokens.BANG.rawValue)
 
 						break
 					case 5:
 						_localctx = TypeContext(_parentctx, _parentState);
 						try pushNewRecursionContext(_localctx, _startState, SwiftParser.RULE_type)
-						setState(2242)
+						setState(2252)
 						if (!(precpred(_ctx, 2))) {
 						    throw try ANTLRException.recognition(e:FailedPredicateException(self, "precpred(_ctx, 2)"))
 						}
-						setState(2243)
+						setState(2253)
 						try match(SwiftParser.Tokens.DOT.rawValue)
-						setState(2244)
+						setState(2254)
 						try match(SwiftParser.Tokens.T__100.rawValue)
 
 						break
 					case 6:
 						_localctx = TypeContext(_parentctx, _parentState);
 						try pushNewRecursionContext(_localctx, _startState, SwiftParser.RULE_type)
-						setState(2245)
+						setState(2255)
 						if (!(precpred(_ctx, 1))) {
 						    throw try ANTLRException.recognition(e:FailedPredicateException(self, "precpred(_ctx, 1)"))
 						}
-						setState(2246)
+						setState(2256)
 						try match(SwiftParser.Tokens.DOT.rawValue)
-						setState(2247)
+						setState(2257)
 						try match(SwiftParser.Tokens.T__101.rawValue)
 
 						break
@@ -18014,7 +18146,7 @@ open class SwiftParser: Parser {
 					}
 			 
 				}
-				setState(2252)
+				setState(2262)
 				try _errHandler.sync(self)
 				_alt = try getInterpreter().adaptivePredict(_input,259,_ctx)
 			}
@@ -18070,19 +18202,19 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(2253)
+		 	setState(2263)
 		 	try match(SwiftParser.Tokens.COLON.rawValue)
-		 	setState(2255)
+		 	setState(2265)
 		 	try _errHandler.sync(self)
 		 	switch (try getInterpreter().adaptivePredict(_input,260,_ctx)) {
 		 	case 1:
-		 		setState(2254)
+		 		setState(2264)
 		 		try attributes()
 
 		 		break
 		 	default: break
 		 	}
-		 	setState(2258)
+		 	setState(2268)
 		 	try _errHandler.sync(self)
 		 	_la = try _input.LA(1)
 		 	if (//closure
@@ -18090,12 +18222,12 @@ open class SwiftParser: Parser {
 		 	      let testSet: Bool = _la == SwiftParser.Tokens.T__102.rawValue
 		 	      return testSet
 		 	 }()) {
-		 		setState(2257)
+		 		setState(2267)
 		 		try match(SwiftParser.Tokens.T__102.rawValue)
 
 		 	}
 
-		 	setState(2260)
+		 	setState(2270)
 		 	try type(0)
 
 		}
@@ -18151,18 +18283,18 @@ open class SwiftParser: Parser {
 	    		try! exitRule()
 	    }
 		do {
-		 	setState(2273)
+		 	setState(2283)
 		 	try _errHandler.sync(self)
 		 	switch(try getInterpreter().adaptivePredict(_input,264, _ctx)) {
 		 	case 1:
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(2262)
+		 		setState(2272)
 		 		try type_name()
-		 		setState(2264)
+		 		setState(2274)
 		 		try _errHandler.sync(self)
 		 		switch (try getInterpreter().adaptivePredict(_input,262,_ctx)) {
 		 		case 1:
-		 			setState(2263)
+		 			setState(2273)
 		 			try generic_argument_clause()
 
 		 			break
@@ -18172,9 +18304,9 @@ open class SwiftParser: Parser {
 		 		break
 		 	case 2:
 		 		try enterOuterAlt(_localctx, 2)
-		 		setState(2266)
+		 		setState(2276)
 		 		try type_name()
-		 		setState(2268)
+		 		setState(2278)
 		 		try _errHandler.sync(self)
 		 		_la = try _input.LA(1)
 		 		if (//closure
@@ -18182,14 +18314,14 @@ open class SwiftParser: Parser {
 		 		      let testSet: Bool = _la == SwiftParser.Tokens.LT.rawValue
 		 		      return testSet
 		 		 }()) {
-		 			setState(2267)
+		 			setState(2277)
 		 			try generic_argument_clause()
 
 		 		}
 
-		 		setState(2270)
+		 		setState(2280)
 		 		try match(SwiftParser.Tokens.DOT.rawValue)
-		 		setState(2271)
+		 		setState(2281)
 		 		try type_identifier()
 
 		 		break
@@ -18205,8 +18337,8 @@ open class SwiftParser: Parser {
 		return _localctx
 	}
 	open class Type_nameContext:ParserRuleContext {
-		open func identifier() -> IdentifierContext? {
-			return getRuleContext(IdentifierContext.self,0)
+		open func identifier_declaration_context() -> Identifier_declaration_contextContext? {
+			return getRuleContext(Identifier_declaration_contextContext.self,0)
 		}
 		open override func getRuleIndex() -> Int { return SwiftParser.RULE_type_name }
 		override
@@ -18242,8 +18374,8 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(2275)
-		 	try identifier()
+		 	setState(2285)
+		 	try identifier_declaration_context()
 
 		}
 		catch ANTLRException.recognition(let re) {
@@ -18293,29 +18425,29 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(2277)
+		 	setState(2287)
 		 	try match(SwiftParser.Tokens.LPAREN.rawValue)
-		 	setState(2279)
+		 	setState(2289)
 		 	try _errHandler.sync(self)
 		 	_la = try _input.LA(1)
 		 	if (//closure
 		 	 { () -> Bool in
 		 	      var testSet: Bool = {  () -> Bool in
-		 	   let testArray: [Int] = [_la, SwiftParser.Tokens.T__42.rawValue,SwiftParser.Tokens.T__44.rawValue,SwiftParser.Tokens.T__45.rawValue,SwiftParser.Tokens.T__46.rawValue,SwiftParser.Tokens.T__47.rawValue,SwiftParser.Tokens.T__51.rawValue,SwiftParser.Tokens.T__57.rawValue,SwiftParser.Tokens.T__58.rawValue,SwiftParser.Tokens.T__59.rawValue,SwiftParser.Tokens.T__60.rawValue,SwiftParser.Tokens.T__61.rawValue,SwiftParser.Tokens.T__62.rawValue]
+		 	   let testArray: [Int] = [_la, SwiftParser.Tokens.T__0.rawValue,SwiftParser.Tokens.T__1.rawValue,SwiftParser.Tokens.T__2.rawValue,SwiftParser.Tokens.T__3.rawValue,SwiftParser.Tokens.T__6.rawValue,SwiftParser.Tokens.T__7.rawValue,SwiftParser.Tokens.T__8.rawValue,SwiftParser.Tokens.T__9.rawValue,SwiftParser.Tokens.T__10.rawValue,SwiftParser.Tokens.T__11.rawValue,SwiftParser.Tokens.T__12.rawValue,SwiftParser.Tokens.T__13.rawValue,SwiftParser.Tokens.T__14.rawValue,SwiftParser.Tokens.T__15.rawValue,SwiftParser.Tokens.T__16.rawValue,SwiftParser.Tokens.T__18.rawValue,SwiftParser.Tokens.T__19.rawValue,SwiftParser.Tokens.T__20.rawValue,SwiftParser.Tokens.T__21.rawValue,SwiftParser.Tokens.T__26.rawValue,SwiftParser.Tokens.T__27.rawValue,SwiftParser.Tokens.T__28.rawValue,SwiftParser.Tokens.T__29.rawValue,SwiftParser.Tokens.T__30.rawValue,SwiftParser.Tokens.T__31.rawValue,SwiftParser.Tokens.T__32.rawValue,SwiftParser.Tokens.T__33.rawValue,SwiftParser.Tokens.T__34.rawValue,SwiftParser.Tokens.T__35.rawValue,SwiftParser.Tokens.T__37.rawValue,SwiftParser.Tokens.T__38.rawValue,SwiftParser.Tokens.T__39.rawValue,SwiftParser.Tokens.T__40.rawValue,SwiftParser.Tokens.T__41.rawValue,SwiftParser.Tokens.T__42.rawValue,SwiftParser.Tokens.T__43.rawValue,SwiftParser.Tokens.T__44.rawValue,SwiftParser.Tokens.T__45.rawValue,SwiftParser.Tokens.T__46.rawValue,SwiftParser.Tokens.T__47.rawValue,SwiftParser.Tokens.T__48.rawValue,SwiftParser.Tokens.T__49.rawValue,SwiftParser.Tokens.T__51.rawValue,SwiftParser.Tokens.T__52.rawValue,SwiftParser.Tokens.T__53.rawValue,SwiftParser.Tokens.T__54.rawValue,SwiftParser.Tokens.T__55.rawValue,SwiftParser.Tokens.T__56.rawValue,SwiftParser.Tokens.T__57.rawValue,SwiftParser.Tokens.T__59.rawValue,SwiftParser.Tokens.T__60.rawValue,SwiftParser.Tokens.T__61.rawValue,SwiftParser.Tokens.T__62.rawValue]
 		 	    return  Utils.testBitLeftShiftArray(testArray, 0)
 		 	}()
 		 	          testSet = testSet || {  () -> Bool in
-		 	             let testArray: [Int] = [_la, SwiftParser.Tokens.T__63.rawValue,SwiftParser.Tokens.T__64.rawValue,SwiftParser.Tokens.T__65.rawValue,SwiftParser.Tokens.T__66.rawValue,SwiftParser.Tokens.T__67.rawValue,SwiftParser.Tokens.T__68.rawValue,SwiftParser.Tokens.T__69.rawValue,SwiftParser.Tokens.T__70.rawValue,SwiftParser.Tokens.T__71.rawValue,SwiftParser.Tokens.T__72.rawValue,SwiftParser.Tokens.T__73.rawValue,SwiftParser.Tokens.T__74.rawValue,SwiftParser.Tokens.T__76.rawValue,SwiftParser.Tokens.T__79.rawValue,SwiftParser.Tokens.T__100.rawValue,SwiftParser.Tokens.T__101.rawValue,SwiftParser.Tokens.T__102.rawValue,SwiftParser.Tokens.Identifier.rawValue,SwiftParser.Tokens.LPAREN.rawValue,SwiftParser.Tokens.LBRACK.rawValue,SwiftParser.Tokens.AT.rawValue]
+		 	             let testArray: [Int] = [_la, SwiftParser.Tokens.T__63.rawValue,SwiftParser.Tokens.T__64.rawValue,SwiftParser.Tokens.T__65.rawValue,SwiftParser.Tokens.T__66.rawValue,SwiftParser.Tokens.T__67.rawValue,SwiftParser.Tokens.T__68.rawValue,SwiftParser.Tokens.T__69.rawValue,SwiftParser.Tokens.T__70.rawValue,SwiftParser.Tokens.T__71.rawValue,SwiftParser.Tokens.T__72.rawValue,SwiftParser.Tokens.T__73.rawValue,SwiftParser.Tokens.T__74.rawValue,SwiftParser.Tokens.T__75.rawValue,SwiftParser.Tokens.T__76.rawValue,SwiftParser.Tokens.T__77.rawValue,SwiftParser.Tokens.T__78.rawValue,SwiftParser.Tokens.T__79.rawValue,SwiftParser.Tokens.T__80.rawValue,SwiftParser.Tokens.T__81.rawValue,SwiftParser.Tokens.T__82.rawValue,SwiftParser.Tokens.T__83.rawValue,SwiftParser.Tokens.T__84.rawValue,SwiftParser.Tokens.T__85.rawValue,SwiftParser.Tokens.T__86.rawValue,SwiftParser.Tokens.T__89.rawValue,SwiftParser.Tokens.T__90.rawValue,SwiftParser.Tokens.T__91.rawValue,SwiftParser.Tokens.T__92.rawValue,SwiftParser.Tokens.T__93.rawValue,SwiftParser.Tokens.T__94.rawValue,SwiftParser.Tokens.T__95.rawValue,SwiftParser.Tokens.T__99.rawValue,SwiftParser.Tokens.T__100.rawValue,SwiftParser.Tokens.T__101.rawValue,SwiftParser.Tokens.T__102.rawValue,SwiftParser.Tokens.T__103.rawValue,SwiftParser.Tokens.T__104.rawValue,SwiftParser.Tokens.T__105.rawValue,SwiftParser.Tokens.Identifier.rawValue,SwiftParser.Tokens.LPAREN.rawValue,SwiftParser.Tokens.LBRACK.rawValue,SwiftParser.Tokens.AT.rawValue]
 		 	              return  Utils.testBitLeftShiftArray(testArray, 64)
 		 	          }()
 		 	      return testSet
 		 	 }()) {
-		 		setState(2278)
+		 		setState(2288)
 		 		try tuple_type_body()
 
 		 	}
 
-		 	setState(2281)
+		 	setState(2291)
 		 	try match(SwiftParser.Tokens.RPAREN.rawValue)
 
 		}
@@ -18368,13 +18500,13 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(2283)
+		 	setState(2293)
 		 	try tuple_type_element_list()
-		 	setState(2285)
+		 	setState(2295)
 		 	try _errHandler.sync(self)
 		 	switch (try getInterpreter().adaptivePredict(_input,266,_ctx)) {
 		 	case 1:
-		 		setState(2284)
+		 		setState(2294)
 		 		try range_operator()
 
 		 		break
@@ -18430,22 +18562,22 @@ open class SwiftParser: Parser {
 	    		try! exitRule()
 	    }
 		do {
-		 	setState(2292)
+		 	setState(2302)
 		 	try _errHandler.sync(self)
 		 	switch(try getInterpreter().adaptivePredict(_input,267, _ctx)) {
 		 	case 1:
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(2287)
+		 		setState(2297)
 		 		try tuple_type_element()
 
 		 		break
 		 	case 2:
 		 		try enterOuterAlt(_localctx, 2)
-		 		setState(2288)
+		 		setState(2298)
 		 		try tuple_type_element()
-		 		setState(2289)
+		 		setState(2299)
 		 		try match(SwiftParser.Tokens.COMMA.rawValue)
-		 		setState(2290)
+		 		setState(2300)
 		 		try tuple_type_element_list()
 
 		 		break
@@ -18473,8 +18605,8 @@ open class SwiftParser: Parser {
 		open func type_annotation() -> Type_annotationContext? {
 			return getRuleContext(Type_annotationContext.self,0)
 		}
-		open func identifier() -> IdentifierContext? {
-			return getRuleContext(IdentifierContext.self,0)
+		open func tuple_label_name() -> Tuple_label_nameContext? {
+			return getRuleContext(Tuple_label_nameContext.self,0)
 		}
 		open override func getRuleIndex() -> Int { return SwiftParser.RULE_tuple_type_element }
 		override
@@ -18510,22 +18642,22 @@ open class SwiftParser: Parser {
 	    		try! exitRule()
 	    }
 		do {
-		 	setState(2307)
+		 	setState(2317)
 		 	try _errHandler.sync(self)
 		 	switch(try getInterpreter().adaptivePredict(_input,271, _ctx)) {
 		 	case 1:
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(2295)
+		 		setState(2305)
 		 		try _errHandler.sync(self)
 		 		switch (try getInterpreter().adaptivePredict(_input,268,_ctx)) {
 		 		case 1:
-		 			setState(2294)
+		 			setState(2304)
 		 			try attributes()
 
 		 			break
 		 		default: break
 		 		}
-		 		setState(2298)
+		 		setState(2308)
 		 		try _errHandler.sync(self)
 		 		_la = try _input.LA(1)
 		 		if (//closure
@@ -18533,30 +18665,30 @@ open class SwiftParser: Parser {
 		 		      let testSet: Bool = _la == SwiftParser.Tokens.T__102.rawValue
 		 		      return testSet
 		 		 }()) {
-		 			setState(2297)
+		 			setState(2307)
 		 			try match(SwiftParser.Tokens.T__102.rawValue)
 
 		 		}
 
-		 		setState(2300)
+		 		setState(2310)
 		 		try type(0)
 
 		 		break
 		 	case 2:
 		 		try enterOuterAlt(_localctx, 2)
-		 		setState(2302)
+		 		setState(2312)
 		 		try _errHandler.sync(self)
 		 		switch (try getInterpreter().adaptivePredict(_input,270,_ctx)) {
 		 		case 1:
-		 			setState(2301)
-		 			try identifier()
+		 			setState(2311)
+		 			try tuple_label_name()
 
 		 			break
 		 		default: break
 		 		}
-		 		setState(2304)
+		 		setState(2314)
 		 		try element_name()
-		 		setState(2305)
+		 		setState(2315)
 		 		try type_annotation()
 
 		 		break
@@ -18572,8 +18704,8 @@ open class SwiftParser: Parser {
 		return _localctx
 	}
 	open class Element_nameContext:ParserRuleContext {
-		open func identifier() -> IdentifierContext? {
-			return getRuleContext(IdentifierContext.self,0)
+		open func identifier_argument_context() -> Identifier_argument_contextContext? {
+			return getRuleContext(Identifier_argument_contextContext.self,0)
 		}
 		open override func getRuleIndex() -> Int { return SwiftParser.RULE_element_name }
 		override
@@ -18609,8 +18741,58 @@ open class SwiftParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(2309)
-		 	try identifier()
+		 	setState(2319)
+		 	try identifier_argument_context()
+
+		}
+		catch ANTLRException.recognition(let re) {
+			_localctx.exception = re
+			_errHandler.reportError(self, re)
+			try _errHandler.recover(self, re)
+		}
+
+		return _localctx
+	}
+	open class Tuple_label_nameContext:ParserRuleContext {
+		open func identifier_argument_context() -> Identifier_argument_contextContext? {
+			return getRuleContext(Identifier_argument_contextContext.self,0)
+		}
+		open override func getRuleIndex() -> Int { return SwiftParser.RULE_tuple_label_name }
+		override
+		open func enterRule(_ listener: ParseTreeListener) {
+			if listener is SwiftListener {
+			 	(listener as! SwiftListener).enterTuple_label_name(self)
+			}
+		}
+		override
+		open func exitRule(_ listener: ParseTreeListener) {
+			if listener is SwiftListener {
+			 	(listener as! SwiftListener).exitTuple_label_name(self)
+			}
+		}
+		override
+		open func accept<T>(_ visitor: ParseTreeVisitor<T>) -> T? {
+			if visitor is SwiftVisitor {
+			     return (visitor as! SwiftVisitor<T>).visitTuple_label_name(self)
+			}else if visitor is SwiftBaseVisitor {
+		    	 return (visitor as! SwiftBaseVisitor<T>).visitTuple_label_name(self)
+		    }
+			else {
+			     return visitor.visitChildren(self)
+			}
+		}
+	}
+	@discardableResult
+	open func tuple_label_name() throws -> Tuple_label_nameContext {
+		var _localctx: Tuple_label_nameContext = Tuple_label_nameContext(_ctx, getState())
+		try enterRule(_localctx, 458, SwiftParser.RULE_tuple_label_name)
+		defer {
+	    		try! exitRule()
+	    }
+		do {
+		 	try enterOuterAlt(_localctx, 1)
+		 	setState(2321)
+		 	try identifier_argument_context()
 
 		}
 		catch ANTLRException.recognition(let re) {
@@ -18653,38 +18835,38 @@ open class SwiftParser: Parser {
 	@discardableResult
 	open func protocol_composition_type() throws -> Protocol_composition_typeContext {
 		var _localctx: Protocol_composition_typeContext = Protocol_composition_typeContext(_ctx, getState())
-		try enterRule(_localctx, 458, SwiftParser.RULE_protocol_composition_type)
+		try enterRule(_localctx, 460, SwiftParser.RULE_protocol_composition_type)
 		var _la: Int = 0
 		defer {
 	    		try! exitRule()
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(2311)
+		 	setState(2323)
 		 	try match(SwiftParser.Tokens.T__42.rawValue)
-		 	setState(2312)
+		 	setState(2324)
 		 	try match(SwiftParser.Tokens.LT.rawValue)
-		 	setState(2314)
+		 	setState(2326)
 		 	try _errHandler.sync(self)
 		 	_la = try _input.LA(1)
 		 	if (//closure
 		 	 { () -> Bool in
 		 	      var testSet: Bool = {  () -> Bool in
-		 	   let testArray: [Int] = [_la, SwiftParser.Tokens.T__44.rawValue,SwiftParser.Tokens.T__45.rawValue,SwiftParser.Tokens.T__46.rawValue,SwiftParser.Tokens.T__47.rawValue,SwiftParser.Tokens.T__51.rawValue,SwiftParser.Tokens.T__57.rawValue,SwiftParser.Tokens.T__58.rawValue,SwiftParser.Tokens.T__59.rawValue,SwiftParser.Tokens.T__60.rawValue,SwiftParser.Tokens.T__61.rawValue,SwiftParser.Tokens.T__62.rawValue]
+		 	   let testArray: [Int] = [_la, SwiftParser.Tokens.T__26.rawValue,SwiftParser.Tokens.T__27.rawValue,SwiftParser.Tokens.T__28.rawValue,SwiftParser.Tokens.T__29.rawValue,SwiftParser.Tokens.T__30.rawValue,SwiftParser.Tokens.T__31.rawValue,SwiftParser.Tokens.T__32.rawValue,SwiftParser.Tokens.T__33.rawValue,SwiftParser.Tokens.T__34.rawValue,SwiftParser.Tokens.T__35.rawValue,SwiftParser.Tokens.T__44.rawValue,SwiftParser.Tokens.T__45.rawValue,SwiftParser.Tokens.T__46.rawValue,SwiftParser.Tokens.T__47.rawValue,SwiftParser.Tokens.T__51.rawValue,SwiftParser.Tokens.T__57.rawValue,SwiftParser.Tokens.T__59.rawValue,SwiftParser.Tokens.T__60.rawValue,SwiftParser.Tokens.T__61.rawValue,SwiftParser.Tokens.T__62.rawValue]
 		 	    return  Utils.testBitLeftShiftArray(testArray, 0)
 		 	}()
 		 	          testSet = testSet || {  () -> Bool in
-		 	             let testArray: [Int] = [_la, SwiftParser.Tokens.T__63.rawValue,SwiftParser.Tokens.T__64.rawValue,SwiftParser.Tokens.T__65.rawValue,SwiftParser.Tokens.T__66.rawValue,SwiftParser.Tokens.T__67.rawValue,SwiftParser.Tokens.T__68.rawValue,SwiftParser.Tokens.T__69.rawValue,SwiftParser.Tokens.T__70.rawValue,SwiftParser.Tokens.T__71.rawValue,SwiftParser.Tokens.T__72.rawValue,SwiftParser.Tokens.T__73.rawValue,SwiftParser.Tokens.T__74.rawValue,SwiftParser.Tokens.T__76.rawValue,SwiftParser.Tokens.T__79.rawValue,SwiftParser.Tokens.T__100.rawValue,SwiftParser.Tokens.T__101.rawValue,SwiftParser.Tokens.Identifier.rawValue,SwiftParser.Tokens.COMMA.rawValue]
+		 	             let testArray: [Int] = [_la, SwiftParser.Tokens.T__63.rawValue,SwiftParser.Tokens.T__64.rawValue,SwiftParser.Tokens.T__65.rawValue,SwiftParser.Tokens.T__66.rawValue,SwiftParser.Tokens.T__67.rawValue,SwiftParser.Tokens.T__68.rawValue,SwiftParser.Tokens.T__69.rawValue,SwiftParser.Tokens.T__70.rawValue,SwiftParser.Tokens.T__71.rawValue,SwiftParser.Tokens.T__72.rawValue,SwiftParser.Tokens.T__73.rawValue,SwiftParser.Tokens.T__74.rawValue,SwiftParser.Tokens.T__76.rawValue,SwiftParser.Tokens.T__77.rawValue,SwiftParser.Tokens.T__78.rawValue,SwiftParser.Tokens.T__79.rawValue,SwiftParser.Tokens.T__84.rawValue,SwiftParser.Tokens.T__99.rawValue,SwiftParser.Tokens.T__100.rawValue,SwiftParser.Tokens.T__101.rawValue,SwiftParser.Tokens.Identifier.rawValue,SwiftParser.Tokens.COMMA.rawValue]
 		 	              return  Utils.testBitLeftShiftArray(testArray, 64)
 		 	          }()
 		 	      return testSet
 		 	 }()) {
-		 		setState(2313)
+		 		setState(2325)
 		 		try protocol_identifier_list()
 
 		 	}
 
-		 	setState(2316)
+		 	setState(2328)
 		 	try match(SwiftParser.Tokens.GT.rawValue)
 
 		}
@@ -18731,22 +18913,31 @@ open class SwiftParser: Parser {
 	@discardableResult
 	open func protocol_identifier_list() throws -> Protocol_identifier_listContext {
 		var _localctx: Protocol_identifier_listContext = Protocol_identifier_listContext(_ctx, getState())
-		try enterRule(_localctx, 460, SwiftParser.RULE_protocol_identifier_list)
+		try enterRule(_localctx, 462, SwiftParser.RULE_protocol_identifier_list)
 		var _la: Int = 0
 		defer {
 	    		try! exitRule()
 	    }
 		do {
-		 	setState(2325)
+		 	setState(2337)
 		 	try _errHandler.sync(self)
 		 	switch (SwiftParser.Tokens(rawValue: try _input.LA(1))!) {
+		 	case .T__26:fallthrough
+		 	case .T__27:fallthrough
+		 	case .T__28:fallthrough
+		 	case .T__29:fallthrough
+		 	case .T__30:fallthrough
+		 	case .T__31:fallthrough
+		 	case .T__32:fallthrough
+		 	case .T__33:fallthrough
+		 	case .T__34:fallthrough
+		 	case .T__35:fallthrough
 		 	case .T__44:fallthrough
 		 	case .T__45:fallthrough
 		 	case .T__46:fallthrough
 		 	case .T__47:fallthrough
 		 	case .T__51:fallthrough
 		 	case .T__57:fallthrough
-		 	case .T__58:fallthrough
 		 	case .T__59:fallthrough
 		 	case .T__60:fallthrough
 		 	case .T__61:fallthrough
@@ -18764,29 +18955,33 @@ open class SwiftParser: Parser {
 		 	case .T__73:fallthrough
 		 	case .T__74:fallthrough
 		 	case .T__76:fallthrough
+		 	case .T__77:fallthrough
+		 	case .T__78:fallthrough
 		 	case .T__79:fallthrough
+		 	case .T__84:fallthrough
+		 	case .T__99:fallthrough
 		 	case .T__100:fallthrough
 		 	case .T__101:fallthrough
 		 	case .Identifier:
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(2318)
+		 		setState(2330)
 		 		try protocol_identifier()
 
 		 		break
 
 		 	case .COMMA:
 		 		try enterOuterAlt(_localctx, 2)
-		 		setState(2321) 
+		 		setState(2333) 
 		 		try _errHandler.sync(self)
 		 		_la = try _input.LA(1)
 		 		repeat {
-		 			setState(2319)
+		 			setState(2331)
 		 			try match(SwiftParser.Tokens.COMMA.rawValue)
-		 			setState(2320)
+		 			setState(2332)
 		 			try protocol_identifier()
 
 
-		 			setState(2323); 
+		 			setState(2335); 
 		 			try _errHandler.sync(self)
 		 			_la = try _input.LA(1)
 		 		} while (//closure
@@ -18840,13 +19035,13 @@ open class SwiftParser: Parser {
 	@discardableResult
 	open func protocol_identifier() throws -> Protocol_identifierContext {
 		var _localctx: Protocol_identifierContext = Protocol_identifierContext(_ctx, getState())
-		try enterRule(_localctx, 462, SwiftParser.RULE_protocol_identifier)
+		try enterRule(_localctx, 464, SwiftParser.RULE_protocol_identifier)
 		defer {
 	    		try! exitRule()
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(2327)
+		 	setState(2339)
 		 	try type_identifier()
 
 		}
@@ -18893,39 +19088,39 @@ open class SwiftParser: Parser {
 	@discardableResult
 	open func type_inheritance_clause() throws -> Type_inheritance_clauseContext {
 		var _localctx: Type_inheritance_clauseContext = Type_inheritance_clauseContext(_ctx, getState())
-		try enterRule(_localctx, 464, SwiftParser.RULE_type_inheritance_clause)
+		try enterRule(_localctx, 466, SwiftParser.RULE_type_inheritance_clause)
 		defer {
 	    		try! exitRule()
 	    }
 		do {
-		 	setState(2338)
+		 	setState(2350)
 		 	try _errHandler.sync(self)
 		 	switch(try getInterpreter().adaptivePredict(_input,275, _ctx)) {
 		 	case 1:
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(2329)
+		 		setState(2341)
 		 		try match(SwiftParser.Tokens.COLON.rawValue)
-		 		setState(2330)
+		 		setState(2342)
 		 		try class_requirement()
-		 		setState(2331)
+		 		setState(2343)
 		 		try match(SwiftParser.Tokens.COMMA.rawValue)
-		 		setState(2332)
+		 		setState(2344)
 		 		try type_inheritance_list()
 
 		 		break
 		 	case 2:
 		 		try enterOuterAlt(_localctx, 2)
-		 		setState(2334)
+		 		setState(2346)
 		 		try match(SwiftParser.Tokens.COLON.rawValue)
-		 		setState(2335)
+		 		setState(2347)
 		 		try class_requirement()
 
 		 		break
 		 	case 3:
 		 		try enterOuterAlt(_localctx, 3)
-		 		setState(2336)
+		 		setState(2348)
 		 		try match(SwiftParser.Tokens.COLON.rawValue)
-		 		setState(2337)
+		 		setState(2349)
 		 		try type_inheritance_list()
 
 		 		break
@@ -18975,27 +19170,27 @@ open class SwiftParser: Parser {
 	@discardableResult
 	open func type_inheritance_list() throws -> Type_inheritance_listContext {
 		var _localctx: Type_inheritance_listContext = Type_inheritance_listContext(_ctx, getState())
-		try enterRule(_localctx, 466, SwiftParser.RULE_type_inheritance_list)
+		try enterRule(_localctx, 468, SwiftParser.RULE_type_inheritance_list)
 		defer {
 	    		try! exitRule()
 	    }
 		do {
-		 	setState(2345)
+		 	setState(2357)
 		 	try _errHandler.sync(self)
 		 	switch(try getInterpreter().adaptivePredict(_input,276, _ctx)) {
 		 	case 1:
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(2340)
+		 		setState(2352)
 		 		try type_identifier()
 
 		 		break
 		 	case 2:
 		 		try enterOuterAlt(_localctx, 2)
-		 		setState(2341)
+		 		setState(2353)
 		 		try type_identifier()
-		 		setState(2342)
+		 		setState(2354)
 		 		try match(SwiftParser.Tokens.COMMA.rawValue)
-		 		setState(2343)
+		 		setState(2355)
 		 		try type_inheritance_list()
 
 		 		break
@@ -19039,13 +19234,13 @@ open class SwiftParser: Parser {
 	@discardableResult
 	open func class_requirement() throws -> Class_requirementContext {
 		var _localctx: Class_requirementContext = Class_requirementContext(_ctx, getState())
-		try enterRule(_localctx, 468, SwiftParser.RULE_class_requirement)
+		try enterRule(_localctx, 470, SwiftParser.RULE_class_requirement)
 		defer {
 	    		try! exitRule()
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(2347)
+		 	setState(2359)
 		 	try match(SwiftParser.Tokens.T__40.rawValue)
 
 		}
@@ -19090,17 +19285,17 @@ open class SwiftParser: Parser {
 	@discardableResult
 	open func identifier() throws -> IdentifierContext {
 		var _localctx: IdentifierContext = IdentifierContext(_ctx, getState())
-		try enterRule(_localctx, 470, SwiftParser.RULE_identifier)
+		try enterRule(_localctx, 472, SwiftParser.RULE_identifier)
 		defer {
 	    		try! exitRule()
 	    }
 		do {
-		 	setState(2351)
+		 	setState(2363)
 		 	try _errHandler.sync(self)
 		 	switch (SwiftParser.Tokens(rawValue: try _input.LA(1))!) {
 		 	case .Identifier:
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(2349)
+		 		setState(2361)
 		 		try match(SwiftParser.Tokens.Identifier.rawValue)
 
 		 		break
@@ -19110,7 +19305,6 @@ open class SwiftParser: Parser {
 		 	case .T__47:fallthrough
 		 	case .T__51:fallthrough
 		 	case .T__57:fallthrough
-		 	case .T__58:fallthrough
 		 	case .T__59:fallthrough
 		 	case .T__60:fallthrough
 		 	case .T__61:fallthrough
@@ -19132,7 +19326,7 @@ open class SwiftParser: Parser {
 		 	case .T__100:fallthrough
 		 	case .T__101:
 		 		try enterOuterAlt(_localctx, 2)
-		 		setState(2350)
+		 		setState(2362)
 		 		try context_sensitive_keyword()
 
 		 		break
@@ -19148,12 +19342,274 @@ open class SwiftParser: Parser {
 
 		return _localctx
 	}
-	open class Identifier_listContext:ParserRuleContext {
-		open func identifier() -> Array<IdentifierContext> {
-			return getRuleContexts(IdentifierContext.self)
+	open class Identifier_declaration_contextContext:ParserRuleContext {
+		open func identifier() -> IdentifierContext? {
+			return getRuleContext(IdentifierContext.self,0)
 		}
-		open func identifier(_ i: Int) -> IdentifierContext? {
-			return getRuleContext(IdentifierContext.self,i)
+		open func declaration_allowed_keyword() -> Declaration_allowed_keywordContext? {
+			return getRuleContext(Declaration_allowed_keywordContext.self,0)
+		}
+		open override func getRuleIndex() -> Int { return SwiftParser.RULE_identifier_declaration_context }
+		override
+		open func enterRule(_ listener: ParseTreeListener) {
+			if listener is SwiftListener {
+			 	(listener as! SwiftListener).enterIdentifier_declaration_context(self)
+			}
+		}
+		override
+		open func exitRule(_ listener: ParseTreeListener) {
+			if listener is SwiftListener {
+			 	(listener as! SwiftListener).exitIdentifier_declaration_context(self)
+			}
+		}
+		override
+		open func accept<T>(_ visitor: ParseTreeVisitor<T>) -> T? {
+			if visitor is SwiftVisitor {
+			     return (visitor as! SwiftVisitor<T>).visitIdentifier_declaration_context(self)
+			}else if visitor is SwiftBaseVisitor {
+		    	 return (visitor as! SwiftBaseVisitor<T>).visitIdentifier_declaration_context(self)
+		    }
+			else {
+			     return visitor.visitChildren(self)
+			}
+		}
+	}
+	@discardableResult
+	open func identifier_declaration_context() throws -> Identifier_declaration_contextContext {
+		var _localctx: Identifier_declaration_contextContext = Identifier_declaration_contextContext(_ctx, getState())
+		try enterRule(_localctx, 474, SwiftParser.RULE_identifier_declaration_context)
+		defer {
+	    		try! exitRule()
+	    }
+		do {
+		 	setState(2367)
+		 	try _errHandler.sync(self)
+		 	switch (SwiftParser.Tokens(rawValue: try _input.LA(1))!) {
+		 	case .T__44:fallthrough
+		 	case .T__45:fallthrough
+		 	case .T__46:fallthrough
+		 	case .T__47:fallthrough
+		 	case .T__51:fallthrough
+		 	case .T__57:fallthrough
+		 	case .T__59:fallthrough
+		 	case .T__60:fallthrough
+		 	case .T__61:fallthrough
+		 	case .T__62:fallthrough
+		 	case .T__63:fallthrough
+		 	case .T__64:fallthrough
+		 	case .T__65:fallthrough
+		 	case .T__66:fallthrough
+		 	case .T__67:fallthrough
+		 	case .T__68:fallthrough
+		 	case .T__69:fallthrough
+		 	case .T__70:fallthrough
+		 	case .T__71:fallthrough
+		 	case .T__72:fallthrough
+		 	case .T__73:fallthrough
+		 	case .T__74:fallthrough
+		 	case .T__76:fallthrough
+		 	case .T__79:fallthrough
+		 	case .T__100:fallthrough
+		 	case .T__101:fallthrough
+		 	case .Identifier:
+		 		try enterOuterAlt(_localctx, 1)
+		 		setState(2365)
+		 		try identifier()
+
+		 		break
+		 	case .T__26:fallthrough
+		 	case .T__27:fallthrough
+		 	case .T__28:fallthrough
+		 	case .T__29:fallthrough
+		 	case .T__30:fallthrough
+		 	case .T__31:fallthrough
+		 	case .T__32:fallthrough
+		 	case .T__33:fallthrough
+		 	case .T__34:fallthrough
+		 	case .T__35:fallthrough
+		 	case .T__77:fallthrough
+		 	case .T__78:fallthrough
+		 	case .T__84:fallthrough
+		 	case .T__99:
+		 		try enterOuterAlt(_localctx, 2)
+		 		setState(2366)
+		 		try declaration_allowed_keyword()
+
+		 		break
+		 	default:
+		 		throw try ANTLRException.recognition(e: NoViableAltException(self))
+		 	}
+		}
+		catch ANTLRException.recognition(let re) {
+			_localctx.exception = re
+			_errHandler.reportError(self, re)
+			try _errHandler.recover(self, re)
+		}
+
+		return _localctx
+	}
+	open class Identifier_argument_contextContext:ParserRuleContext {
+		open func identifier() -> IdentifierContext? {
+			return getRuleContext(IdentifierContext.self,0)
+		}
+		open func argument_allowed_keyword() -> Argument_allowed_keywordContext? {
+			return getRuleContext(Argument_allowed_keywordContext.self,0)
+		}
+		open override func getRuleIndex() -> Int { return SwiftParser.RULE_identifier_argument_context }
+		override
+		open func enterRule(_ listener: ParseTreeListener) {
+			if listener is SwiftListener {
+			 	(listener as! SwiftListener).enterIdentifier_argument_context(self)
+			}
+		}
+		override
+		open func exitRule(_ listener: ParseTreeListener) {
+			if listener is SwiftListener {
+			 	(listener as! SwiftListener).exitIdentifier_argument_context(self)
+			}
+		}
+		override
+		open func accept<T>(_ visitor: ParseTreeVisitor<T>) -> T? {
+			if visitor is SwiftVisitor {
+			     return (visitor as! SwiftVisitor<T>).visitIdentifier_argument_context(self)
+			}else if visitor is SwiftBaseVisitor {
+		    	 return (visitor as! SwiftBaseVisitor<T>).visitIdentifier_argument_context(self)
+		    }
+			else {
+			     return visitor.visitChildren(self)
+			}
+		}
+	}
+	@discardableResult
+	open func identifier_argument_context() throws -> Identifier_argument_contextContext {
+		var _localctx: Identifier_argument_contextContext = Identifier_argument_contextContext(_ctx, getState())
+		try enterRule(_localctx, 476, SwiftParser.RULE_identifier_argument_context)
+		defer {
+	    		try! exitRule()
+	    }
+		do {
+		 	setState(2371)
+		 	try _errHandler.sync(self)
+		 	switch (SwiftParser.Tokens(rawValue: try _input.LA(1))!) {
+		 	case .T__44:fallthrough
+		 	case .T__45:fallthrough
+		 	case .T__46:fallthrough
+		 	case .T__47:fallthrough
+		 	case .T__51:fallthrough
+		 	case .T__57:fallthrough
+		 	case .T__59:fallthrough
+		 	case .T__60:fallthrough
+		 	case .T__61:fallthrough
+		 	case .T__62:fallthrough
+		 	case .T__63:fallthrough
+		 	case .T__64:fallthrough
+		 	case .T__65:fallthrough
+		 	case .T__66:fallthrough
+		 	case .T__67:fallthrough
+		 	case .T__68:fallthrough
+		 	case .T__69:fallthrough
+		 	case .T__70:fallthrough
+		 	case .T__71:fallthrough
+		 	case .T__72:fallthrough
+		 	case .T__73:fallthrough
+		 	case .T__74:fallthrough
+		 	case .T__76:fallthrough
+		 	case .T__79:fallthrough
+		 	case .T__100:fallthrough
+		 	case .T__101:fallthrough
+		 	case .Identifier:
+		 		try enterOuterAlt(_localctx, 1)
+		 		setState(2369)
+		 		try identifier()
+
+		 		break
+		 	case .T__0:fallthrough
+		 	case .T__1:fallthrough
+		 	case .T__2:fallthrough
+		 	case .T__3:fallthrough
+		 	case .T__6:fallthrough
+		 	case .T__7:fallthrough
+		 	case .T__8:fallthrough
+		 	case .T__9:fallthrough
+		 	case .T__10:fallthrough
+		 	case .T__11:fallthrough
+		 	case .T__12:fallthrough
+		 	case .T__13:fallthrough
+		 	case .T__14:fallthrough
+		 	case .T__15:fallthrough
+		 	case .T__16:fallthrough
+		 	case .T__18:fallthrough
+		 	case .T__19:fallthrough
+		 	case .T__20:fallthrough
+		 	case .T__21:fallthrough
+		 	case .T__26:fallthrough
+		 	case .T__27:fallthrough
+		 	case .T__28:fallthrough
+		 	case .T__29:fallthrough
+		 	case .T__30:fallthrough
+		 	case .T__31:fallthrough
+		 	case .T__32:fallthrough
+		 	case .T__33:fallthrough
+		 	case .T__34:fallthrough
+		 	case .T__35:fallthrough
+		 	case .T__37:fallthrough
+		 	case .T__38:fallthrough
+		 	case .T__39:fallthrough
+		 	case .T__40:fallthrough
+		 	case .T__41:fallthrough
+		 	case .T__42:fallthrough
+		 	case .T__43:fallthrough
+		 	case .T__48:fallthrough
+		 	case .T__49:fallthrough
+		 	case .T__52:fallthrough
+		 	case .T__53:fallthrough
+		 	case .T__54:fallthrough
+		 	case .T__55:fallthrough
+		 	case .T__56:fallthrough
+		 	case .T__75:fallthrough
+		 	case .T__77:fallthrough
+		 	case .T__78:fallthrough
+		 	case .T__80:fallthrough
+		 	case .T__81:fallthrough
+		 	case .T__82:fallthrough
+		 	case .T__83:fallthrough
+		 	case .T__84:fallthrough
+		 	case .T__85:fallthrough
+		 	case .T__86:fallthrough
+		 	case .T__89:fallthrough
+		 	case .T__90:fallthrough
+		 	case .T__91:fallthrough
+		 	case .T__92:fallthrough
+		 	case .T__93:fallthrough
+		 	case .T__94:fallthrough
+		 	case .T__95:fallthrough
+		 	case .T__99:fallthrough
+		 	case .T__103:fallthrough
+		 	case .T__104:fallthrough
+		 	case .T__105:
+		 		try enterOuterAlt(_localctx, 2)
+		 		setState(2370)
+		 		try argument_allowed_keyword()
+
+		 		break
+		 	default:
+		 		throw try ANTLRException.recognition(e: NoViableAltException(self))
+		 	}
+		}
+		catch ANTLRException.recognition(let re) {
+			_localctx.exception = re
+			_errHandler.reportError(self, re)
+			try _errHandler.recover(self, re)
+		}
+
+		return _localctx
+	}
+	open class Identifier_listContext:ParserRuleContext {
+		open func identifier_declaration_context() -> Array<Identifier_declaration_contextContext> {
+			return getRuleContexts(Identifier_declaration_contextContext.self)
+		}
+		open func identifier_declaration_context(_ i: Int) -> Identifier_declaration_contextContext? {
+			return getRuleContext(Identifier_declaration_contextContext.self,i)
 		}
 		open override func getRuleIndex() -> Int { return SwiftParser.RULE_identifier_list }
 		override
@@ -19183,16 +19639,16 @@ open class SwiftParser: Parser {
 	@discardableResult
 	open func identifier_list() throws -> Identifier_listContext {
 		var _localctx: Identifier_listContext = Identifier_listContext(_ctx, getState())
-		try enterRule(_localctx, 472, SwiftParser.RULE_identifier_list)
+		try enterRule(_localctx, 478, SwiftParser.RULE_identifier_list)
 		var _la: Int = 0
 		defer {
 	    		try! exitRule()
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(2353)
-		 	try identifier()
-		 	setState(2358)
+		 	setState(2373)
+		 	try identifier_declaration_context()
+		 	setState(2378)
 		 	try _errHandler.sync(self)
 		 	_la = try _input.LA(1)
 		 	while (//closure
@@ -19200,13 +19656,13 @@ open class SwiftParser: Parser {
 		 	      let testSet: Bool = _la == SwiftParser.Tokens.COMMA.rawValue
 		 	      return testSet
 		 	 }()) {
-		 		setState(2354)
+		 		setState(2374)
 		 		try match(SwiftParser.Tokens.COMMA.rawValue)
-		 		setState(2355)
-		 		try identifier()
+		 		setState(2375)
+		 		try identifier_declaration_context()
 
 
-		 		setState(2360)
+		 		setState(2380)
 		 		try _errHandler.sync(self)
 		 		_la = try _input.LA(1)
 		 	}
@@ -19249,21 +19705,153 @@ open class SwiftParser: Parser {
 	@discardableResult
 	open func context_sensitive_keyword() throws -> Context_sensitive_keywordContext {
 		var _localctx: Context_sensitive_keywordContext = Context_sensitive_keywordContext(_ctx, getState())
-		try enterRule(_localctx, 474, SwiftParser.RULE_context_sensitive_keyword)
+		try enterRule(_localctx, 480, SwiftParser.RULE_context_sensitive_keyword)
 		var _la: Int = 0
 		defer {
 	    		try! exitRule()
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(2361)
+		 	setState(2381)
 		 	_la = try _input.LA(1)
 		 	if (!(//closure
 		 	 { () -> Bool in
 		 	      let testSet: Bool = {  () -> Bool in
-		 	   let testArray: [Int] = [_la, SwiftParser.Tokens.T__44.rawValue,SwiftParser.Tokens.T__45.rawValue,SwiftParser.Tokens.T__46.rawValue,SwiftParser.Tokens.T__47.rawValue,SwiftParser.Tokens.T__51.rawValue,SwiftParser.Tokens.T__57.rawValue,SwiftParser.Tokens.T__58.rawValue,SwiftParser.Tokens.T__59.rawValue,SwiftParser.Tokens.T__60.rawValue,SwiftParser.Tokens.T__61.rawValue,SwiftParser.Tokens.T__62.rawValue,SwiftParser.Tokens.T__63.rawValue,SwiftParser.Tokens.T__64.rawValue,SwiftParser.Tokens.T__65.rawValue,SwiftParser.Tokens.T__66.rawValue,SwiftParser.Tokens.T__67.rawValue,SwiftParser.Tokens.T__68.rawValue,SwiftParser.Tokens.T__69.rawValue,SwiftParser.Tokens.T__70.rawValue,SwiftParser.Tokens.T__71.rawValue,SwiftParser.Tokens.T__72.rawValue,SwiftParser.Tokens.T__73.rawValue,SwiftParser.Tokens.T__74.rawValue,SwiftParser.Tokens.T__76.rawValue,SwiftParser.Tokens.T__79.rawValue,SwiftParser.Tokens.T__100.rawValue,SwiftParser.Tokens.T__101.rawValue]
+		 	   let testArray: [Int] = [_la, SwiftParser.Tokens.T__44.rawValue,SwiftParser.Tokens.T__45.rawValue,SwiftParser.Tokens.T__46.rawValue,SwiftParser.Tokens.T__47.rawValue,SwiftParser.Tokens.T__51.rawValue,SwiftParser.Tokens.T__57.rawValue,SwiftParser.Tokens.T__59.rawValue,SwiftParser.Tokens.T__60.rawValue,SwiftParser.Tokens.T__61.rawValue,SwiftParser.Tokens.T__62.rawValue,SwiftParser.Tokens.T__63.rawValue,SwiftParser.Tokens.T__64.rawValue,SwiftParser.Tokens.T__65.rawValue,SwiftParser.Tokens.T__66.rawValue,SwiftParser.Tokens.T__67.rawValue,SwiftParser.Tokens.T__68.rawValue,SwiftParser.Tokens.T__69.rawValue,SwiftParser.Tokens.T__70.rawValue,SwiftParser.Tokens.T__71.rawValue,SwiftParser.Tokens.T__72.rawValue,SwiftParser.Tokens.T__73.rawValue,SwiftParser.Tokens.T__74.rawValue,SwiftParser.Tokens.T__76.rawValue,SwiftParser.Tokens.T__79.rawValue,SwiftParser.Tokens.T__100.rawValue,SwiftParser.Tokens.T__101.rawValue]
 		 	    return  Utils.testBitLeftShiftArray(testArray, 45)
 		 	}()
+		 	      return testSet
+		 	 }())) {
+		 	try _errHandler.recoverInline(self)
+		 	}
+		 	else {
+		 		_errHandler.reportMatch(self)
+		 		try consume()
+		 	}
+
+		}
+		catch ANTLRException.recognition(let re) {
+			_localctx.exception = re
+			_errHandler.reportError(self, re)
+			try _errHandler.recover(self, re)
+		}
+
+		return _localctx
+	}
+	open class Declaration_allowed_keywordContext:ParserRuleContext {
+		open override func getRuleIndex() -> Int { return SwiftParser.RULE_declaration_allowed_keyword }
+		override
+		open func enterRule(_ listener: ParseTreeListener) {
+			if listener is SwiftListener {
+			 	(listener as! SwiftListener).enterDeclaration_allowed_keyword(self)
+			}
+		}
+		override
+		open func exitRule(_ listener: ParseTreeListener) {
+			if listener is SwiftListener {
+			 	(listener as! SwiftListener).exitDeclaration_allowed_keyword(self)
+			}
+		}
+		override
+		open func accept<T>(_ visitor: ParseTreeVisitor<T>) -> T? {
+			if visitor is SwiftVisitor {
+			     return (visitor as! SwiftVisitor<T>).visitDeclaration_allowed_keyword(self)
+			}else if visitor is SwiftBaseVisitor {
+		    	 return (visitor as! SwiftBaseVisitor<T>).visitDeclaration_allowed_keyword(self)
+		    }
+			else {
+			     return visitor.visitChildren(self)
+			}
+		}
+	}
+	@discardableResult
+	open func declaration_allowed_keyword() throws -> Declaration_allowed_keywordContext {
+		var _localctx: Declaration_allowed_keywordContext = Declaration_allowed_keywordContext(_ctx, getState())
+		try enterRule(_localctx, 482, SwiftParser.RULE_declaration_allowed_keyword)
+		var _la: Int = 0
+		defer {
+	    		try! exitRule()
+	    }
+		do {
+		 	try enterOuterAlt(_localctx, 1)
+		 	setState(2383)
+		 	_la = try _input.LA(1)
+		 	if (!(//closure
+		 	 { () -> Bool in
+		 	      var testSet: Bool = {  () -> Bool in
+		 	   let testArray: [Int] = [_la, SwiftParser.Tokens.T__26.rawValue,SwiftParser.Tokens.T__27.rawValue,SwiftParser.Tokens.T__28.rawValue,SwiftParser.Tokens.T__29.rawValue,SwiftParser.Tokens.T__30.rawValue,SwiftParser.Tokens.T__31.rawValue,SwiftParser.Tokens.T__32.rawValue,SwiftParser.Tokens.T__33.rawValue,SwiftParser.Tokens.T__34.rawValue,SwiftParser.Tokens.T__35.rawValue]
+		 	    return  Utils.testBitLeftShiftArray(testArray, 0)
+		 	}()
+		 	          testSet = testSet || {  () -> Bool in
+		 	             let testArray: [Int] = [_la, SwiftParser.Tokens.T__77.rawValue,SwiftParser.Tokens.T__78.rawValue,SwiftParser.Tokens.T__84.rawValue,SwiftParser.Tokens.T__99.rawValue]
+		 	              return  Utils.testBitLeftShiftArray(testArray, 78)
+		 	          }()
+		 	      return testSet
+		 	 }())) {
+		 	try _errHandler.recoverInline(self)
+		 	}
+		 	else {
+		 		_errHandler.reportMatch(self)
+		 		try consume()
+		 	}
+
+		}
+		catch ANTLRException.recognition(let re) {
+			_localctx.exception = re
+			_errHandler.reportError(self, re)
+			try _errHandler.recover(self, re)
+		}
+
+		return _localctx
+	}
+	open class Argument_allowed_keywordContext:ParserRuleContext {
+		open override func getRuleIndex() -> Int { return SwiftParser.RULE_argument_allowed_keyword }
+		override
+		open func enterRule(_ listener: ParseTreeListener) {
+			if listener is SwiftListener {
+			 	(listener as! SwiftListener).enterArgument_allowed_keyword(self)
+			}
+		}
+		override
+		open func exitRule(_ listener: ParseTreeListener) {
+			if listener is SwiftListener {
+			 	(listener as! SwiftListener).exitArgument_allowed_keyword(self)
+			}
+		}
+		override
+		open func accept<T>(_ visitor: ParseTreeVisitor<T>) -> T? {
+			if visitor is SwiftVisitor {
+			     return (visitor as! SwiftVisitor<T>).visitArgument_allowed_keyword(self)
+			}else if visitor is SwiftBaseVisitor {
+		    	 return (visitor as! SwiftBaseVisitor<T>).visitArgument_allowed_keyword(self)
+		    }
+			else {
+			     return visitor.visitChildren(self)
+			}
+		}
+	}
+	@discardableResult
+	open func argument_allowed_keyword() throws -> Argument_allowed_keywordContext {
+		var _localctx: Argument_allowed_keywordContext = Argument_allowed_keywordContext(_ctx, getState())
+		try enterRule(_localctx, 484, SwiftParser.RULE_argument_allowed_keyword)
+		var _la: Int = 0
+		defer {
+	    		try! exitRule()
+	    }
+		do {
+		 	try enterOuterAlt(_localctx, 1)
+		 	setState(2385)
+		 	_la = try _input.LA(1)
+		 	if (!(//closure
+		 	 { () -> Bool in
+		 	      var testSet: Bool = {  () -> Bool in
+		 	   let testArray: [Int] = [_la, SwiftParser.Tokens.T__0.rawValue,SwiftParser.Tokens.T__1.rawValue,SwiftParser.Tokens.T__2.rawValue,SwiftParser.Tokens.T__3.rawValue,SwiftParser.Tokens.T__6.rawValue,SwiftParser.Tokens.T__7.rawValue,SwiftParser.Tokens.T__8.rawValue,SwiftParser.Tokens.T__9.rawValue,SwiftParser.Tokens.T__10.rawValue,SwiftParser.Tokens.T__11.rawValue,SwiftParser.Tokens.T__12.rawValue,SwiftParser.Tokens.T__13.rawValue,SwiftParser.Tokens.T__14.rawValue,SwiftParser.Tokens.T__15.rawValue,SwiftParser.Tokens.T__16.rawValue,SwiftParser.Tokens.T__18.rawValue,SwiftParser.Tokens.T__19.rawValue,SwiftParser.Tokens.T__20.rawValue,SwiftParser.Tokens.T__21.rawValue,SwiftParser.Tokens.T__26.rawValue,SwiftParser.Tokens.T__27.rawValue,SwiftParser.Tokens.T__28.rawValue,SwiftParser.Tokens.T__29.rawValue,SwiftParser.Tokens.T__30.rawValue,SwiftParser.Tokens.T__31.rawValue,SwiftParser.Tokens.T__32.rawValue,SwiftParser.Tokens.T__33.rawValue,SwiftParser.Tokens.T__34.rawValue,SwiftParser.Tokens.T__35.rawValue,SwiftParser.Tokens.T__37.rawValue,SwiftParser.Tokens.T__38.rawValue,SwiftParser.Tokens.T__39.rawValue,SwiftParser.Tokens.T__40.rawValue,SwiftParser.Tokens.T__41.rawValue,SwiftParser.Tokens.T__42.rawValue,SwiftParser.Tokens.T__43.rawValue,SwiftParser.Tokens.T__48.rawValue,SwiftParser.Tokens.T__49.rawValue,SwiftParser.Tokens.T__52.rawValue,SwiftParser.Tokens.T__53.rawValue,SwiftParser.Tokens.T__54.rawValue,SwiftParser.Tokens.T__55.rawValue,SwiftParser.Tokens.T__56.rawValue]
+		 	    return  Utils.testBitLeftShiftArray(testArray, 0)
+		 	}()
+		 	          testSet = testSet || {  () -> Bool in
+		 	             let testArray: [Int] = [_la, SwiftParser.Tokens.T__75.rawValue,SwiftParser.Tokens.T__77.rawValue,SwiftParser.Tokens.T__78.rawValue,SwiftParser.Tokens.T__80.rawValue,SwiftParser.Tokens.T__81.rawValue,SwiftParser.Tokens.T__82.rawValue,SwiftParser.Tokens.T__83.rawValue,SwiftParser.Tokens.T__84.rawValue,SwiftParser.Tokens.T__85.rawValue,SwiftParser.Tokens.T__86.rawValue,SwiftParser.Tokens.T__89.rawValue,SwiftParser.Tokens.T__90.rawValue,SwiftParser.Tokens.T__91.rawValue,SwiftParser.Tokens.T__92.rawValue,SwiftParser.Tokens.T__93.rawValue,SwiftParser.Tokens.T__94.rawValue,SwiftParser.Tokens.T__95.rawValue,SwiftParser.Tokens.T__99.rawValue,SwiftParser.Tokens.T__103.rawValue,SwiftParser.Tokens.T__104.rawValue,SwiftParser.Tokens.T__105.rawValue]
+		 	              return  Utils.testBitLeftShiftArray(testArray, 76)
+		 	          }()
 		 	      return testSet
 		 	 }())) {
 		 	try _errHandler.recoverInline(self)
@@ -19311,17 +19899,17 @@ open class SwiftParser: Parser {
 	@discardableResult
 	open func assignment_operator() throws -> Assignment_operatorContext {
 		var _localctx: Assignment_operatorContext = Assignment_operatorContext(_ctx, getState())
-		try enterRule(_localctx, 476, SwiftParser.RULE_assignment_operator)
+		try enterRule(_localctx, 486, SwiftParser.RULE_assignment_operator)
 		defer {
 	    		try! exitRule()
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(2363)
+		 	setState(2387)
 		 	if (!(SwiftSupport.isBinaryOp(_input))) {
 		 	    throw try ANTLRException.recognition(e:FailedPredicateException(self, "SwiftSupport.isBinaryOp(_input)"))
 		 	}
-		 	setState(2364)
+		 	setState(2388)
 		 	try match(SwiftParser.Tokens.EQUAL.rawValue)
 
 		}
@@ -19362,17 +19950,17 @@ open class SwiftParser: Parser {
 	@discardableResult
 	open func negate_prefix_operator() throws -> Negate_prefix_operatorContext {
 		var _localctx: Negate_prefix_operatorContext = Negate_prefix_operatorContext(_ctx, getState())
-		try enterRule(_localctx, 478, SwiftParser.RULE_negate_prefix_operator)
+		try enterRule(_localctx, 488, SwiftParser.RULE_negate_prefix_operator)
 		defer {
 	    		try! exitRule()
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(2366)
+		 	setState(2390)
 		 	if (!(SwiftSupport.isPrefixOp(_input))) {
 		 	    throw try ANTLRException.recognition(e:FailedPredicateException(self, "SwiftSupport.isPrefixOp(_input)"))
 		 	}
-		 	setState(2367)
+		 	setState(2391)
 		 	try match(SwiftParser.Tokens.SUB.rawValue)
 
 		}
@@ -19413,19 +20001,19 @@ open class SwiftParser: Parser {
 	@discardableResult
 	open func build_AND() throws -> Build_ANDContext {
 		var _localctx: Build_ANDContext = Build_ANDContext(_ctx, getState())
-		try enterRule(_localctx, 480, SwiftParser.RULE_build_AND)
+		try enterRule(_localctx, 490, SwiftParser.RULE_build_AND)
 		defer {
 	    		try! exitRule()
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(2369)
+		 	setState(2393)
 		 	if (!(SwiftSupport.isOperator(_input,"&&"))) {
 		 	    throw try ANTLRException.recognition(e:FailedPredicateException(self, "SwiftSupport.isOperator(_input,\"&&\")"))
 		 	}
-		 	setState(2370)
+		 	setState(2394)
 		 	try match(SwiftParser.Tokens.AND.rawValue)
-		 	setState(2371)
+		 	setState(2395)
 		 	try match(SwiftParser.Tokens.AND.rawValue)
 
 		}
@@ -19466,19 +20054,19 @@ open class SwiftParser: Parser {
 	@discardableResult
 	open func build_OR() throws -> Build_ORContext {
 		var _localctx: Build_ORContext = Build_ORContext(_ctx, getState())
-		try enterRule(_localctx, 482, SwiftParser.RULE_build_OR)
+		try enterRule(_localctx, 492, SwiftParser.RULE_build_OR)
 		defer {
 	    		try! exitRule()
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(2373)
+		 	setState(2397)
 		 	if (!(SwiftSupport.isOperator(_input,"||"))) {
 		 	    throw try ANTLRException.recognition(e:FailedPredicateException(self, "SwiftSupport.isOperator(_input,\"||\")"))
 		 	}
-		 	setState(2374)
+		 	setState(2398)
 		 	try match(SwiftParser.Tokens.OR.rawValue)
-		 	setState(2375)
+		 	setState(2399)
 		 	try match(SwiftParser.Tokens.OR.rawValue)
 
 		}
@@ -19519,19 +20107,19 @@ open class SwiftParser: Parser {
 	@discardableResult
 	open func arrow_operator() throws -> Arrow_operatorContext {
 		var _localctx: Arrow_operatorContext = Arrow_operatorContext(_ctx, getState())
-		try enterRule(_localctx, 484, SwiftParser.RULE_arrow_operator)
+		try enterRule(_localctx, 494, SwiftParser.RULE_arrow_operator)
 		defer {
 	    		try! exitRule()
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(2377)
+		 	setState(2401)
 		 	if (!(SwiftSupport.isOperator(_input,"->"))) {
 		 	    throw try ANTLRException.recognition(e:FailedPredicateException(self, "SwiftSupport.isOperator(_input,\"->\")"))
 		 	}
-		 	setState(2378)
+		 	setState(2402)
 		 	try match(SwiftParser.Tokens.SUB.rawValue)
-		 	setState(2379)
+		 	setState(2403)
 		 	try match(SwiftParser.Tokens.GT.rawValue)
 
 		}
@@ -19572,21 +20160,21 @@ open class SwiftParser: Parser {
 	@discardableResult
 	open func range_operator() throws -> Range_operatorContext {
 		var _localctx: Range_operatorContext = Range_operatorContext(_ctx, getState())
-		try enterRule(_localctx, 486, SwiftParser.RULE_range_operator)
+		try enterRule(_localctx, 496, SwiftParser.RULE_range_operator)
 		defer {
 	    		try! exitRule()
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(2381)
+		 	setState(2405)
 		 	if (!(SwiftSupport.isOperator(_input,"..."))) {
 		 	    throw try ANTLRException.recognition(e:FailedPredicateException(self, "SwiftSupport.isOperator(_input,\"...\")"))
 		 	}
-		 	setState(2382)
+		 	setState(2406)
 		 	try match(SwiftParser.Tokens.DOT.rawValue)
-		 	setState(2383)
+		 	setState(2407)
 		 	try match(SwiftParser.Tokens.DOT.rawValue)
-		 	setState(2384)
+		 	setState(2408)
 		 	try match(SwiftParser.Tokens.DOT.rawValue)
 
 		}
@@ -19627,19 +20215,19 @@ open class SwiftParser: Parser {
 	@discardableResult
 	open func same_type_equals() throws -> Same_type_equalsContext {
 		var _localctx: Same_type_equalsContext = Same_type_equalsContext(_ctx, getState())
-		try enterRule(_localctx, 488, SwiftParser.RULE_same_type_equals)
+		try enterRule(_localctx, 498, SwiftParser.RULE_same_type_equals)
 		defer {
 	    		try! exitRule()
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(2386)
+		 	setState(2410)
 		 	if (!(SwiftSupport.isOperator(_input,"=="))) {
 		 	    throw try ANTLRException.recognition(e:FailedPredicateException(self, "SwiftSupport.isOperator(_input,\"==\")"))
 		 	}
-		 	setState(2387)
+		 	setState(2411)
 		 	try match(SwiftParser.Tokens.EQUAL.rawValue)
-		 	setState(2388)
+		 	setState(2412)
 		 	try match(SwiftParser.Tokens.EQUAL.rawValue)
 
 		}
@@ -19683,17 +20271,17 @@ open class SwiftParser: Parser {
 	@discardableResult
 	open func binary_operator() throws -> Binary_operatorContext {
 		var _localctx: Binary_operatorContext = Binary_operatorContext(_ctx, getState())
-		try enterRule(_localctx, 490, SwiftParser.RULE_binary_operator)
+		try enterRule(_localctx, 500, SwiftParser.RULE_binary_operator)
 		defer {
 	    		try! exitRule()
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(2390)
+		 	setState(2414)
 		 	if (!(SwiftSupport.isBinaryOp(_input))) {
 		 	    throw try ANTLRException.recognition(e:FailedPredicateException(self, "SwiftSupport.isBinaryOp(_input)"))
 		 	}
-		 	setState(2391)
+		 	setState(2415)
 		 	try operator_name()
 
 		}
@@ -19737,17 +20325,17 @@ open class SwiftParser: Parser {
 	@discardableResult
 	open func prefix_operator() throws -> Prefix_operatorContext {
 		var _localctx: Prefix_operatorContext = Prefix_operatorContext(_ctx, getState())
-		try enterRule(_localctx, 492, SwiftParser.RULE_prefix_operator)
+		try enterRule(_localctx, 502, SwiftParser.RULE_prefix_operator)
 		defer {
 	    		try! exitRule()
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(2393)
+		 	setState(2417)
 		 	if (!(SwiftSupport.isPrefixOp(_input))) {
 		 	    throw try ANTLRException.recognition(e:FailedPredicateException(self, "SwiftSupport.isPrefixOp(_input)"))
 		 	}
-		 	setState(2394)
+		 	setState(2418)
 		 	try operator_name()
 
 		}
@@ -19791,17 +20379,17 @@ open class SwiftParser: Parser {
 	@discardableResult
 	open func postfix_operator() throws -> Postfix_operatorContext {
 		var _localctx: Postfix_operatorContext = Postfix_operatorContext(_ctx, getState())
-		try enterRule(_localctx, 494, SwiftParser.RULE_postfix_operator)
+		try enterRule(_localctx, 504, SwiftParser.RULE_postfix_operator)
 		defer {
 	    		try! exitRule()
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(2396)
+		 	setState(2420)
 		 	if (!(SwiftSupport.isPostfixOp(_input))) {
 		 	    throw try ANTLRException.recognition(e:FailedPredicateException(self, "SwiftSupport.isPostfixOp(_input)"))
 		 	}
-		 	setState(2397)
+		 	setState(2421)
 		 	try operator_name()
 
 		}
@@ -19860,13 +20448,13 @@ open class SwiftParser: Parser {
 	@discardableResult
 	open func operator_name() throws -> Operator_nameContext {
 		var _localctx: Operator_nameContext = Operator_nameContext(_ctx, getState())
-		try enterRule(_localctx, 496, SwiftParser.RULE_operator_name)
+		try enterRule(_localctx, 506, SwiftParser.RULE_operator_name)
 		defer {
 	    		try! exitRule()
 	    }
 		do {
 			var _alt:Int
-		 	setState(2415)
+		 	setState(2439)
 		 	try _errHandler.sync(self)
 		 	switch (SwiftParser.Tokens(rawValue: try _input.LA(1))!) {
 		 	case .LT:fallthrough
@@ -19885,50 +20473,50 @@ open class SwiftParser: Parser {
 		 	case .TILDE:fallthrough
 		 	case .Operator_head_other:
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(2399)
+		 		setState(2423)
 		 		try operator_head()
-		 		setState(2404)
+		 		setState(2428)
 		 		try _errHandler.sync(self)
-		 		_alt = try getInterpreter().adaptivePredict(_input,279,_ctx)
+		 		_alt = try getInterpreter().adaptivePredict(_input,281,_ctx)
 		 		while (_alt != 2 && _alt != ATN.INVALID_ALT_NUMBER) {
 		 			if ( _alt==1 ) {
-		 				setState(2400)
+		 				setState(2424)
 		 				if (!(try _input.get(_input.index()-1).getType() != Tokens.WS.rawValue)) {
 		 				    throw try ANTLRException.recognition(e:FailedPredicateException(self, "try _input.get(_input.index()-1).getType() != Tokens.WS.rawValue"))
 		 				}
-		 				setState(2401)
+		 				setState(2425)
 		 				try operator_character()
 
 		 		 
 		 			}
-		 			setState(2406)
+		 			setState(2430)
 		 			try _errHandler.sync(self)
-		 			_alt = try getInterpreter().adaptivePredict(_input,279,_ctx)
+		 			_alt = try getInterpreter().adaptivePredict(_input,281,_ctx)
 		 		}
 
 		 		break
 
 		 	case .DOT:
 		 		try enterOuterAlt(_localctx, 2)
-		 		setState(2407)
+		 		setState(2431)
 		 		try dot_operator_head()
-		 		setState(2412)
+		 		setState(2436)
 		 		try _errHandler.sync(self)
-		 		_alt = try getInterpreter().adaptivePredict(_input,280,_ctx)
+		 		_alt = try getInterpreter().adaptivePredict(_input,282,_ctx)
 		 		while (_alt != 2 && _alt != ATN.INVALID_ALT_NUMBER) {
 		 			if ( _alt==1 ) {
-		 				setState(2408)
+		 				setState(2432)
 		 				if (!(try _input.get(_input.index()-1).getType() != Tokens.WS.rawValue)) {
 		 				    throw try ANTLRException.recognition(e:FailedPredicateException(self, "try _input.get(_input.index()-1).getType() != Tokens.WS.rawValue"))
 		 				}
-		 				setState(2409)
+		 				setState(2433)
 		 				try dot_operator_character()
 
 		 		 
 		 			}
-		 			setState(2414)
+		 			setState(2438)
 		 			try _errHandler.sync(self)
-		 			_alt = try getInterpreter().adaptivePredict(_input,280,_ctx)
+		 			_alt = try getInterpreter().adaptivePredict(_input,282,_ctx)
 		 		}
 
 		 		break
@@ -19977,12 +20565,12 @@ open class SwiftParser: Parser {
 	@discardableResult
 	open func operator_character() throws -> Operator_characterContext {
 		var _localctx: Operator_characterContext = Operator_characterContext(_ctx, getState())
-		try enterRule(_localctx, 498, SwiftParser.RULE_operator_character)
+		try enterRule(_localctx, 508, SwiftParser.RULE_operator_character)
 		defer {
 	    		try! exitRule()
 	    }
 		do {
-		 	setState(2419)
+		 	setState(2443)
 		 	try _errHandler.sync(self)
 		 	switch (SwiftParser.Tokens(rawValue: try _input.LA(1))!) {
 		 	case .LT:fallthrough
@@ -20001,14 +20589,14 @@ open class SwiftParser: Parser {
 		 	case .TILDE:fallthrough
 		 	case .Operator_head_other:
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(2417)
+		 		setState(2441)
 		 		try operator_head()
 
 		 		break
 
 		 	case .Operator_following_character:
 		 		try enterOuterAlt(_localctx, 2)
-		 		setState(2418)
+		 		setState(2442)
 		 		try match(SwiftParser.Tokens.Operator_following_character.rawValue)
 
 		 		break
@@ -20054,13 +20642,13 @@ open class SwiftParser: Parser {
 	@discardableResult
 	open func operator_head() throws -> Operator_headContext {
 		var _localctx: Operator_headContext = Operator_headContext(_ctx, getState())
-		try enterRule(_localctx, 500, SwiftParser.RULE_operator_head)
+		try enterRule(_localctx, 510, SwiftParser.RULE_operator_head)
 		var _la: Int = 0
 		defer {
 	    		try! exitRule()
 	    }
 		do {
-		 	setState(2423)
+		 	setState(2447)
 		 	try _errHandler.sync(self)
 		 	switch (SwiftParser.Tokens(rawValue: try _input.LA(1))!) {
 		 	case .LT:fallthrough
@@ -20078,7 +20666,7 @@ open class SwiftParser: Parser {
 		 	case .CARET:fallthrough
 		 	case .TILDE:
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(2421)
+		 		setState(2445)
 		 		_la = try _input.LA(1)
 		 		if (!(//closure
 		 		 { () -> Bool in
@@ -20099,7 +20687,7 @@ open class SwiftParser: Parser {
 
 		 	case .Operator_head_other:
 		 		try enterOuterAlt(_localctx, 2)
-		 		setState(2422)
+		 		setState(2446)
 		 		try match(SwiftParser.Tokens.Operator_head_other.rawValue)
 
 		 		break
@@ -20144,15 +20732,15 @@ open class SwiftParser: Parser {
 	@discardableResult
 	open func dot_operator_head() throws -> Dot_operator_headContext {
 		var _localctx: Dot_operator_headContext = Dot_operator_headContext(_ctx, getState())
-		try enterRule(_localctx, 502, SwiftParser.RULE_dot_operator_head)
+		try enterRule(_localctx, 512, SwiftParser.RULE_dot_operator_head)
 		defer {
 	    		try! exitRule()
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(2425)
+		 	setState(2449)
 		 	try match(SwiftParser.Tokens.DOT.rawValue)
-		 	setState(2426)
+		 	setState(2450)
 		 	try match(SwiftParser.Tokens.DOT.rawValue)
 
 		}
@@ -20196,17 +20784,17 @@ open class SwiftParser: Parser {
 	@discardableResult
 	open func dot_operator_character() throws -> Dot_operator_characterContext {
 		var _localctx: Dot_operator_characterContext = Dot_operator_characterContext(_ctx, getState())
-		try enterRule(_localctx, 504, SwiftParser.RULE_dot_operator_character)
+		try enterRule(_localctx, 514, SwiftParser.RULE_dot_operator_character)
 		defer {
 	    		try! exitRule()
 	    }
 		do {
-		 	setState(2430)
+		 	setState(2454)
 		 	try _errHandler.sync(self)
 		 	switch (SwiftParser.Tokens(rawValue: try _input.LA(1))!) {
 		 	case .DOT:
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(2428)
+		 		setState(2452)
 		 		try match(SwiftParser.Tokens.DOT.rawValue)
 
 		 		break
@@ -20227,7 +20815,7 @@ open class SwiftParser: Parser {
 		 	case .Operator_head_other:fallthrough
 		 	case .Operator_following_character:
 		 		try enterOuterAlt(_localctx, 2)
-		 		setState(2429)
+		 		setState(2453)
 		 		try operator_character()
 
 		 		break
@@ -20284,35 +20872,35 @@ open class SwiftParser: Parser {
 	@discardableResult
 	open func literal() throws -> LiteralContext {
 		var _localctx: LiteralContext = LiteralContext(_ctx, getState())
-		try enterRule(_localctx, 506, SwiftParser.RULE_literal)
+		try enterRule(_localctx, 516, SwiftParser.RULE_literal)
 		defer {
 	    		try! exitRule()
 	    }
 		do {
-		 	setState(2436)
+		 	setState(2460)
 		 	try _errHandler.sync(self)
-		 	switch(try getInterpreter().adaptivePredict(_input,285, _ctx)) {
+		 	switch(try getInterpreter().adaptivePredict(_input,287, _ctx)) {
 		 	case 1:
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(2432)
+		 		setState(2456)
 		 		try numeric_literal()
 
 		 		break
 		 	case 2:
 		 		try enterOuterAlt(_localctx, 2)
-		 		setState(2433)
+		 		setState(2457)
 		 		try string_literal()
 
 		 		break
 		 	case 3:
 		 		try enterOuterAlt(_localctx, 3)
-		 		setState(2434)
+		 		setState(2458)
 		 		try boolean_literal()
 
 		 		break
 		 	case 4:
 		 		try enterOuterAlt(_localctx, 4)
-		 		setState(2435)
+		 		setState(2459)
 		 		try nil_literal()
 
 		 		break
@@ -20363,43 +20951,43 @@ open class SwiftParser: Parser {
 	@discardableResult
 	open func numeric_literal() throws -> Numeric_literalContext {
 		var _localctx: Numeric_literalContext = Numeric_literalContext(_ctx, getState())
-		try enterRule(_localctx, 508, SwiftParser.RULE_numeric_literal)
+		try enterRule(_localctx, 518, SwiftParser.RULE_numeric_literal)
 		defer {
 	    		try! exitRule()
 	    }
 		do {
-		 	setState(2446)
+		 	setState(2470)
 		 	try _errHandler.sync(self)
-		 	switch(try getInterpreter().adaptivePredict(_input,288, _ctx)) {
+		 	switch(try getInterpreter().adaptivePredict(_input,290, _ctx)) {
 		 	case 1:
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(2439)
+		 		setState(2463)
 		 		try _errHandler.sync(self)
-		 		switch (try getInterpreter().adaptivePredict(_input,286,_ctx)) {
+		 		switch (try getInterpreter().adaptivePredict(_input,288,_ctx)) {
 		 		case 1:
-		 			setState(2438)
+		 			setState(2462)
 		 			try negate_prefix_operator()
 
 		 			break
 		 		default: break
 		 		}
-		 		setState(2441)
+		 		setState(2465)
 		 		try integer_literal()
 
 		 		break
 		 	case 2:
 		 		try enterOuterAlt(_localctx, 2)
-		 		setState(2443)
+		 		setState(2467)
 		 		try _errHandler.sync(self)
-		 		switch (try getInterpreter().adaptivePredict(_input,287,_ctx)) {
+		 		switch (try getInterpreter().adaptivePredict(_input,289,_ctx)) {
 		 		case 1:
-		 			setState(2442)
+		 			setState(2466)
 		 			try negate_prefix_operator()
 
 		 			break
 		 		default: break
 		 		}
-		 		setState(2445)
+		 		setState(2469)
 		 		try match(SwiftParser.Tokens.Floating_point_literal.rawValue)
 
 		 		break
@@ -20443,14 +21031,14 @@ open class SwiftParser: Parser {
 	@discardableResult
 	open func boolean_literal() throws -> Boolean_literalContext {
 		var _localctx: Boolean_literalContext = Boolean_literalContext(_ctx, getState())
-		try enterRule(_localctx, 510, SwiftParser.RULE_boolean_literal)
+		try enterRule(_localctx, 520, SwiftParser.RULE_boolean_literal)
 		var _la: Int = 0
 		defer {
 	    		try! exitRule()
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(2448)
+		 	setState(2472)
 		 	_la = try _input.LA(1)
 		 	if (!(//closure
 		 	 { () -> Bool in
@@ -20502,13 +21090,13 @@ open class SwiftParser: Parser {
 	@discardableResult
 	open func nil_literal() throws -> Nil_literalContext {
 		var _localctx: Nil_literalContext = Nil_literalContext(_ctx, getState())
-		try enterRule(_localctx, 512, SwiftParser.RULE_nil_literal)
+		try enterRule(_localctx, 522, SwiftParser.RULE_nil_literal)
 		defer {
 	    		try! exitRule()
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(2450)
+		 	setState(2474)
 		 	try match(SwiftParser.Tokens.T__105.rawValue)
 
 		}
@@ -20554,14 +21142,14 @@ open class SwiftParser: Parser {
 	@discardableResult
 	open func integer_literal() throws -> Integer_literalContext {
 		var _localctx: Integer_literalContext = Integer_literalContext(_ctx, getState())
-		try enterRule(_localctx, 514, SwiftParser.RULE_integer_literal)
+		try enterRule(_localctx, 524, SwiftParser.RULE_integer_literal)
 		var _la: Int = 0
 		defer {
 	    		try! exitRule()
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(2452)
+		 	setState(2476)
 		 	_la = try _input.LA(1)
 		 	if (!(//closure
 		 	 { () -> Bool in
@@ -20618,14 +21206,14 @@ open class SwiftParser: Parser {
 	@discardableResult
 	open func string_literal() throws -> String_literalContext {
 		var _localctx: String_literalContext = String_literalContext(_ctx, getState())
-		try enterRule(_localctx, 516, SwiftParser.RULE_string_literal)
+		try enterRule(_localctx, 526, SwiftParser.RULE_string_literal)
 		var _la: Int = 0
 		defer {
 	    		try! exitRule()
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(2454)
+		 	setState(2478)
 		 	_la = try _input.LA(1)
 		 	if (!(//closure
 		 	 { () -> Bool in
@@ -20660,27 +21248,27 @@ open class SwiftParser: Parser {
 			return try postfix_expression_sempred(_localctx?.castdown(Postfix_expressionContext.self), predIndex)
 		case  220:
 			return try type_sempred(_localctx?.castdown(TypeContext.self), predIndex)
-		case  238:
-			return try assignment_operator_sempred(_localctx?.castdown(Assignment_operatorContext.self), predIndex)
-		case  239:
-			return try negate_prefix_operator_sempred(_localctx?.castdown(Negate_prefix_operatorContext.self), predIndex)
-		case  240:
-			return try build_AND_sempred(_localctx?.castdown(Build_ANDContext.self), predIndex)
-		case  241:
-			return try build_OR_sempred(_localctx?.castdown(Build_ORContext.self), predIndex)
-		case  242:
-			return try arrow_operator_sempred(_localctx?.castdown(Arrow_operatorContext.self), predIndex)
 		case  243:
-			return try range_operator_sempred(_localctx?.castdown(Range_operatorContext.self), predIndex)
+			return try assignment_operator_sempred(_localctx?.castdown(Assignment_operatorContext.self), predIndex)
 		case  244:
-			return try same_type_equals_sempred(_localctx?.castdown(Same_type_equalsContext.self), predIndex)
+			return try negate_prefix_operator_sempred(_localctx?.castdown(Negate_prefix_operatorContext.self), predIndex)
 		case  245:
-			return try binary_operator_sempred(_localctx?.castdown(Binary_operatorContext.self), predIndex)
+			return try build_AND_sempred(_localctx?.castdown(Build_ANDContext.self), predIndex)
 		case  246:
-			return try prefix_operator_sempred(_localctx?.castdown(Prefix_operatorContext.self), predIndex)
+			return try build_OR_sempred(_localctx?.castdown(Build_ORContext.self), predIndex)
 		case  247:
-			return try postfix_operator_sempred(_localctx?.castdown(Postfix_operatorContext.self), predIndex)
+			return try arrow_operator_sempred(_localctx?.castdown(Arrow_operatorContext.self), predIndex)
 		case  248:
+			return try range_operator_sempred(_localctx?.castdown(Range_operatorContext.self), predIndex)
+		case  249:
+			return try same_type_equals_sempred(_localctx?.castdown(Same_type_equalsContext.self), predIndex)
+		case  250:
+			return try binary_operator_sempred(_localctx?.castdown(Binary_operatorContext.self), predIndex)
+		case  251:
+			return try prefix_operator_sempred(_localctx?.castdown(Prefix_operatorContext.self), predIndex)
+		case  252:
+			return try postfix_operator_sempred(_localctx?.castdown(Postfix_operatorContext.self), predIndex)
+		case  253:
 			return try operator_name_sempred(_localctx?.castdown(Operator_nameContext.self), predIndex)
 	    default: return true
 		}

@@ -64,6 +64,7 @@
 		AC941E841E213AAB004D8A03 /* Yams.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = ACB985A71E2136F300127FD9 /* Yams.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AC941E921E213C12004D8A03 /* SWXMLHash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC941E8C1E213BE1004D8A03 /* SWXMLHash.framework */; };
 		AC941E941E213C26004D8A03 /* SWXMLHash.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AC941E8C1E213BE1004D8A03 /* SWXMLHash.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AC9651901E9A5DE100328DD7 /* TestFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC96518E1E9A5DBA00328DD7 /* TestFile.swift */; };
 		ACB1D29D1E21A42400CEFF0F /* SWXMLHash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC941E8C1E213BE1004D8A03 /* SWXMLHash.framework */; };
 		ACB1D29E1E21A42400CEFF0F /* Yams.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACB985A71E2136F300127FD9 /* Yams.framework */; };
 		ACB1D2A01E21A44700CEFF0F /* SWXMLHash.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AC941E8C1E213BE1004D8A03 /* SWXMLHash.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -280,9 +281,10 @@
 		AC91AA701E2130A1003E871F /* SourceKittenXPCConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourceKittenXPCConnection.swift; sourceTree = "<group>"; };
 		AC91AA711E2130A1003E871F /* Dwifft.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dwifft.swift; sourceTree = "<group>"; };
 		AC941E8C1E213BE1004D8A03 /* SWXMLHash.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SWXMLHash.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Genie-gnjkibsipwxrbzfukpgdagpvfryi/Build/Products/Debug/SWXMLHash.framework"; sourceTree = "<group>"; };
+		AC96518E1E9A5DBA00328DD7 /* TestFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestFile.swift; sourceTree = "<group>"; };
 		ACB985A71E2136F300127FD9 /* Yams.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Yams.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Genie-gnjkibsipwxrbzfukpgdagpvfryi/Build/Products/Debug/Yams.framework"; sourceTree = "<group>"; };
 		ACC3771B1E64BC61005A098C /* AFError.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AFError.txt; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		ACC3771C1E64BC61005A098C /* Alamofire.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Alamofire.txt; sourceTree = "<group>"; };
+		ACC3771C1E64BC61005A098C /* Alamofire.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Alamofire.txt; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		ACC3771D1E64BC61005A098C /* DispatchQueue+Alamofire.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "DispatchQueue+Alamofire.txt"; sourceTree = "<group>"; };
 		ACC3771E1E64BC61005A098C /* MultipartFormData.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MultipartFormData.txt; sourceTree = "<group>"; };
 		ACC3771F1E64BC61005A098C /* NetworkReachabilityManager.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NetworkReachabilityManager.txt; sourceTree = "<group>"; };
@@ -366,6 +368,7 @@
 		6C477A9D1D702DF800D76FCA = {
 			isa = PBXGroup;
 			children = (
+				AC96518E1E9A5DBA00328DD7 /* TestFile.swift */,
 				6C19EA011D714F58004673F2 /* README.md */,
 				6C19EA021D714F58004673F2 /* LICENSE */,
 				6C477AA81D702DF800D76FCA /* GenieApp */,
@@ -917,6 +920,7 @@
 				AC138CF71E50C26D00653744 /* Statement.swift in Sources */,
 				AC3CBEDB1E4FB09600DB93C1 /* SwiftDefaultVisitor.swift in Sources */,
 				AC3CBEE51E4FB19400DB93C1 /* SwiftClassDeclarationVisitor.swift in Sources */,
+				AC9651901E9A5DE100328DD7 /* TestFile.swift in Sources */,
 				AC3CBEB51E4E175F00DB93C1 /* SwiftListener.swift in Sources */,
 				AC3CBECF1E4F6A0700DB93C1 /* GeneeCommand.swift in Sources */,
 				ACED61601E21473300BBD92D /* Dwifft.swift in Sources */,

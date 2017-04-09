@@ -492,7 +492,7 @@ class ParserTest: XCTestCase {
         XCTAssertNotNil(result)
     }
     
-    func xtestThatReservedKeywordsAreParsedAsParameters() {
+    func testThatReservedKeywordsAreParsedAsParameters() {
         let code = String(
         "public enum AFError: Error {",
         "case bodyPartFilenameInvalid(in: URL)",
@@ -556,7 +556,7 @@ class ParserTest: XCTestCase {
     }
     
     
-    func xtestThis() {
+    func testThis() {
         let code = String(
             "func cURLRepresentation() -> String {",
             "        if let credentialStorage = self.session.configuration.urlCredentialStorage {",
@@ -600,7 +600,7 @@ class ParserTest: XCTestCase {
     
     
     
-    func xtestThatSourcesAreNotChanged() {
+    func testThatSourcesAreNotChanged() {
         let path = Bundle(for: type(of: self)).resourcePath!
         let fileManager = FileManager.default
         
